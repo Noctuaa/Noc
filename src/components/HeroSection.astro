@@ -116,17 +116,11 @@ import Firefly from '../components/Firefly.vue';
 
    #hero{
       height: 100vh;
-      background: url('../assets/peakpx.svg') no-repeat center center/cover;
+      overflow: hidden;
+      background:
+      url('../assets/peakpx.svg') no-repeat center center/cover,
+      linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
       z-index: 2;
-   }
-
-   #hero:before{
-      content:"";
-      position: absolute;
-      height: 100vh;
-      width: 100%;
-      background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
-      z-index: -1;
    }
 
    .hero-content{
@@ -160,13 +154,13 @@ import Firefly from '../components/Firefly.vue';
 
 
    .stars{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70%;
-    pointer-events: none;
-    z-index: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70%;
+      pointer-events: none;
+      z-index: 1
    }
 
    .star{
