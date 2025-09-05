@@ -5,6 +5,7 @@
 .p-absolute { position: absolute; }
 
 /* === TYPOGRAPHY === */
+.text-uppercase { text-transform: uppercase; }
 
 /* === ALIGNEMENT === */
 .ai-center { align-items: center; }
@@ -15,6 +16,7 @@
 .gap-2 { gap: var(--spacing-2); }
 .gap-3 { gap: var(--spacing-3); }
 .gap-4 { gap: var(--spacing-4); }
+.gap-8 { gap: var(--spacing-8); }
 
 /* === SIZING === */
 .w-100 { width: 100%; }

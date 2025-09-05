@@ -34,7 +34,7 @@ onMounted(() => {
 
 <template>
   <div ref="fireflyEl" :class="currentAnimation" class="firefly">
-    <div class="firefly-glow"></div>
+    <div class="firefly-glow w-100 h-100"></div>
   </div>
 </template>
 
@@ -53,8 +53,6 @@ onMounted(() => {
   }
 
   .firefly-glow {
-    width: 100%;
-    height: 100%;
     background: radial-gradient(circle, #dfded4 0%, #d4cebc 30%, transparent 50%);
     border-radius: 50%;
     filter: blur(1px);

@@ -3,7 +3,6 @@
 /* Buttons Mini SVG */
 .btn-mini{
    display: inline-flex;
-   align-content: center;
    align-items: center;
    justify-content: center;
    background-color: #fff;
@@ -27,5 +26,5 @@
 
 .btn-mini:hover svg{
    fill: #fff;
-   transition: all 0.3s ease-in-out;
+   transition: all var(--transition-fast) ease-in-out;
 }
