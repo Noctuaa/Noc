@@ -1,42 +1,36 @@
 <script setup>
    import { ref, onMounted } from 'vue';
+   import { gsap } from 'gsap';
+   import { ScrollSmoother } from 'gsap/ScrollSmoother';
+   import { ScrollTrigger } from 'gsap/ScrollTrigger';
+   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+   let smoother = null;
 
    const sections = ref([
       { id: 'hero', label: 'Home' },
       { id: 'profil', label: 'Profil' },
+      { id: 'competences', label: 'Compétences' },
       { id: 'portfolio', label: 'Porfolio' },
       { id: 'contact', label: 'Contact' }
    ]);
 
    const activeSection = ref('hero');
 
+   /* Function to smoothly scroll to a section */
    const scrollToSection = (id) => {
-      const section = document.getElementById(id);
-      if (section) {
-         section.scrollIntoView({ behavior: 'smooth', block: 'center' });
-         activeSection.value = id;
-      }
+      smoother.scrollTo(`#${id}`, true, "top top");
+      activeSection.value = id;
    }
 
-   const handleScroll = () => {
-      const scrollY = window.scrollY + 250; // Offset for better section detection
+  onMounted(() => {
+    smoother = ScrollSmoother.create({
+      smooth: 2,
+      effects: true,
+      smoothTouch: 0.1,
+    });
+  })
 
-      sections.value.forEach((section) => {
-         const element = document.getElementById(section.id);
-         if (element) {
-            const { offsetTop, offsetHeight } = element;
-
-            if (scrollY >= offsetTop && scrollY < offsetTop + offsetHeight) {
-               activeSection.value = section.id;
-            }
-         }
-      })
-   }
-
-   onMounted(() => {
-      window.addEventListener('scroll', handleScroll);
-      handleScroll()
-   })
 
 </script>
 
