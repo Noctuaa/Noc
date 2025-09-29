@@ -4,9 +4,9 @@
 
 
 <template>
-   <div>
+   <section id="profil" class="section">
       
-   </div>
+   </section>
 </template>
 
 

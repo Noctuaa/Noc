@@ -4,9 +4,9 @@
 
 
 <template>
-   <div>
+   <section id="contact" class="section">
       
-   </div>
+   </section>
 </template>
 
 
