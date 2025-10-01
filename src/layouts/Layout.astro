@@ -18,7 +18,12 @@ import Navigation from '../components/ui/Navigation.vue';
 	<body>
 		<div class="fixed-background"></div>
 		<Navigation client:load />
-		<slot />
+		<div class="teleport-container"></div>
+		<div id="smooth-wrapper">
+			<div id="smooth-content">
+				<slot />
+			</div>
+		</div>
 	</body>
 </html>
 
