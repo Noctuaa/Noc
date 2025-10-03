@@ -7,9 +7,16 @@
 /* === TYPOGRAPHY === */
 .text-uppercase { text-transform: uppercase; }
 
+/* === TEXT ALIGNEMENT === */
+.text-center { text-align: center; }
+
 /* === ALIGNEMENT === */
 .ai-center { align-items: center; }
 .jc-center { justify-content: center; }
+.jc-between { justify-content: space-between; }
+.jc-around { justify-content: space-around; }
+.fd-column { flex-direction: column; }
+.pi-center { place-items: center; }
 
 /* === SPACING === */
 .gap-1 { gap: var(--spacing-1); }
