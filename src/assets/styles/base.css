@@ -25,3 +25,70 @@ ul{
    margin: 0 auto;
    padding: 0 var(--spacing-4);
 }
+
+
+.fixed-background{
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+   z-index: -1;
+}
+
+section {
+   padding: 80px 0;
+}
+/* === Section Header === */
+
+.section-header {
+   margin-bottom: 60px;
+   width: 60%;
+}
+
+.section-header h2 {
+   font-size: 2.5rem;
+   font-weight: 700;
+   background: linear-gradient(135deg, #60A5FA, #A855F7, #06D6A0);
+   background-clip: text;
+   -webkit-background-clip: text;
+   color: transparent;
+   margin-bottom: 15px;
+}
+
+.section-description {
+   font-size: 1.1rem;
+   opacity: 0.9;
+   overflow: hidden;
+   white-space: nowrap;
+   border-right: 2px solid #60A5FA;
+   animation: typing 2s steps(50) .3s forwards,
+   blink 1s infinite 3s;
+}
+
+.divider{
+   height: 2px;
+   border-radius: 0 50% 50% 0;
+   margin: var(--spacing-4) auto;
+}
+
+.divider hr {
+   width: 60%;
+   height: 3px;
+   background: linear-gradient(90deg, #60A5FA, transparent);
+   border: none;
+   box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+   margin: 0;
+}
+
+/* === Global Animations === */
+
+@keyframes typing {
+   from { width: 0; }
+   to { width: 100%; }
+}
+
+@keyframes blink {
+   50% { border-color: transparent; }
+}
