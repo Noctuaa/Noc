@@ -37,24 +37,25 @@
 
 
 <template>
-	<section id="competences" class="section container p-relative">
-		<div class="section-header">
-			<h2>Compétences</h2>
-			<div class="divider"><hr></div>
-			<p class="section-description">Survolez le clavier pour découvrir mes technologies et expertises.</p>
-    	</div>
-		<div class="competence-layout d-flex jc-center p-relative">
-			<div class="holo-panel d-flex pi-center">
-				<transition name="tooltip-content" mode="out-in">
-					<div v-if="hoveredKey?.name" :key="hoveredKey.name" class="d-flex tooltip-content fd-column gap-3">
-						<img v-if="hoveredKey?.icon" :src="`/icons/${hoveredKey?.icon}.svg`" :alt="`Logo ${hoveredKey?.name}`" class="tech-icon w-100">
-						<h3 class="text-center">{{ hoveredKey?.name }}</h3>
-						<p class="text-center">{{ hoveredKey?.description }}</p>
-					</div>
-				</transition>
+	<section id="competences" class="section">
+		<div class="container">
+			<div class="section-header">
+				<h2>Compétences</h2>
+				<div class="divider"><hr></div>
+				<p class="section-description">Survolez le clavier pour découvrir mes technologies et expertises.</p>
 			</div>
-			<SplineKeyboard client:load @key-hover="handleKeyHover"/>
+			<div class="competence-layout d-flex jc-center p-relative">
+				<div class="holo-panel d-flex pi-center">
+					<transition name="tooltip-content" mode="out-in">
+						<div v-if="hoveredKey?.name" :key="hoveredKey.name" class="d-flex tooltip-content fd-column gap-3">
+							<img v-if="hoveredKey?.icon" :src="`/icons/${hoveredKey?.icon}.svg`" :alt="`Logo ${hoveredKey?.name}`" class="tech-icon w-100">
+							<h3 class="text-center">{{ hoveredKey?.name }}</h3>
+							<p class="text-center">{{ hoveredKey?.description }}</p>
+						</div>
+					</transition>
+				</div>
+				<SplineKeyboard client:load @key-hover="handleKeyHover"/>
+			</div>
 		</div>
-
    </section>
 </template>
