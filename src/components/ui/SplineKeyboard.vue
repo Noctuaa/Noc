@@ -28,6 +28,7 @@
 				emit('key-hover', keyName);
 			}
 		})
+		
 	}
 
 	/**
@@ -91,17 +92,19 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -25%);
     width: 90vw;
     max-width: 1100px;
     height: auto;
     opacity: 0;
     z-index: 10;
     transition: opacity 0.3s ease;
+	 pointer-events: none;
   }
 
    .spline-container.visible {
     opacity: 1 !important;
+	 pointer-events: auto;
   }
 
   .spline-canvas {
