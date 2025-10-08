@@ -12,6 +12,7 @@
 
 /* === ALIGNEMENT === */
 .ai-center { align-items: center; }
+.ai-around { align-items: space-around; }
 .jc-center { justify-content: center; }
 .jc-between { justify-content: space-between; }
 .jc-around { justify-content: space-around; }

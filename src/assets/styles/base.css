@@ -63,7 +63,7 @@ section {
 .section-description {
    width: 0;
    max-width: fit-content;
-   font-size: 1.1rem;
+   font-size: 1rem;
    opacity: 0.9;
    overflow: hidden;
    white-space: nowrap;
