@@ -1,5 +1,6 @@
 <script setup>
    import { gsap } from 'gsap';
+   import SocialButtons from '../ui/SocialButtons.vue';
 
    const handleScrollToCompetences = () => {
       gsap.to(window, {
@@ -35,20 +36,7 @@
                   <span>Développeur</span>
                   <p class="profile-tagline">Passionné par l'innovation</p>
                </div>
-               <div class="hero-actions">
-                  <ul class="gap-1 d-flex">
-                     <li>
-                        <a href="https://github.com/Noctuaa" class="btn-mini" target="_blank" rel="noopener">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="26" viewBox="0 0 640 640"></svg>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="#contact" class="btn-mini">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 512 512"></svg>
-                        </a>
-                     </li>
-                  </ul>
-            </div>
+               <SocialButtons client:load />
             </div>
             <div class="separator-v separator-v-gradient js-center"></div>
             <div class="message-header-container p-relative">
@@ -79,12 +67,3 @@
       </div>
    </section>
 </template>
-
-
-<style>
-
-.hero-actions {
-    margin-top: 1rem;
-  }
-
-</style>
