@@ -1,5 +1,26 @@
 /* ===== BUTTON STYLES ===== */
 
+.btn{
+   cursor: pointer;
+   border-radius: 25px;
+   padding: var(--spacing-3) var(--spacing-8);
+   transition: all var(--transition-normal) ease;
+   font-weight: 600;
+}
+
+.btn-gradient{
+   color: var(--text-primary-text);
+   background: var(--gradient-cta);
+   border: 1px solid rgba(255, 255, 255, 0.2);
+   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-gradient:hover{
+   transform: translateY(-3px);
+   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+
 /* Buttons Mini SVG */
 .btn-mini{
    display: inline-flex;
