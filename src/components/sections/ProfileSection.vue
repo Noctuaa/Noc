@@ -1,4 +1,14 @@
 <script setup>
+   import { gsap } from 'gsap';
+
+   const handleScrollToCompetences = () => {
+      gsap.to(window, {
+         duration: 1.5,
+         scrollTo: '#competences',
+         ease: "power2.out"
+    });
+
+   }
 
 </script>
 
@@ -63,7 +73,7 @@
                   Je vous présente ici mes compétences ainsi que mon expérience.<br>
                   J'aimerais partager mes connaissances et en apprendre plus avec d'autres développeurs.<br>
                   N'hésitez pas à me contacter je serai heureux d'échanger avec vous.</p>
-                  <button class="btn btn-gradient profile-card-button p-absolute">Voir mes compétences</button>
+                  <button class="btn btn-gradient profile-card-button p-absolute" @click="handleScrollToCompetences">Voir mes compétences</button>
             </div>
          </div>
       </div>

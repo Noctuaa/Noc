@@ -1,15 +1,16 @@
 <script setup>
    import { ref, onMounted } from 'vue';
    import { gsap } from 'gsap';
+   import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
    import { ScrollSmoother } from 'gsap/ScrollSmoother';
    import { ScrollTrigger } from 'gsap/ScrollTrigger';
-   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+   gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
 
    let smoother = null;
 
    const sections = ref([
       { id: 'hero', label: 'Home' },
-      { id: 'profil', label: 'Profil' },
+      { id: 'profile', label: 'Profil' },
       { id: 'competences', label: 'Compétences' },
       { id: 'portfolio', label: 'Porfolio' },
       { id: 'contact', label: 'Contact' }
@@ -25,9 +26,11 @@
 
   onMounted(() => {
     smoother = ScrollSmoother.create({
+      el: "#smooth-content",
       smooth: 2,
       effects: true,
       smoothTouch: 0.1,
+      ignore: ".spline-container"
     });
   })
 
