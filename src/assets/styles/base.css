@@ -13,6 +13,8 @@ body {
 
 a{
    text-decoration: none;
+   color: inherit;
+   cursor: pointer;
 }
 
 ul{
@@ -47,17 +49,35 @@ section {
 
 .section-header {
    margin-bottom: var(--spacing-16);
-   width: 60%;
+   width: 100%;
 }
 
-.section-header h2 {
+.reverse{
+   display: flex;
+   flex-direction: column;
+   align-items: end;
+}
+
+.reverse .divider hr{
+   background: linear-gradient(90deg, transparent, #60A5FA);
+   justify-self: end;
+}
+
+.reverse .section-title {
+   background: linear-gradient(90deg, #6978E3, #60A5FA);
+   background-clip: text;
+   -webkit-background-clip: text;
+}
+
+.section-title, .section-header h2 {
    font-size: 2.5rem;
    font-weight: 700;
-   background: linear-gradient(135deg, #60A5FA, #A855F7, #06D6A0);
+   background: linear-gradient(90deg, #60A5FA, #6978E3);
    background-clip: text;
    -webkit-background-clip: text;
    color: transparent;
    margin-bottom: 15px;
+   width: fit-content;
 }
 
 .section-description {
@@ -69,17 +89,17 @@ section {
    white-space: nowrap;
    border-right: 2px solid #60A5FA;
    animation: typing 2s steps(50) .3s forwards,
-   blink 1s infinite 3s;
+   blink 1s infinite 2s;
 }
 
 .divider{
+   width: 100%;
    height: 2px;
    border-radius: 0 50% 50% 0;
-   margin: var(--spacing-4) auto;
 }
 
 .divider hr {
-   width: 60%;
+   width: 40%;
    height: 3px;
    background: linear-gradient(90deg, #60A5FA, transparent);
    border: none;
@@ -126,3 +146,10 @@ section {
 @keyframes blink {
    50% { border-color: transparent; }
 }
+
+
+  /* === ZONE TEST === */
+
+  #portfolio{
+   height: 100vh;
+  }

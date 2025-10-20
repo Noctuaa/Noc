@@ -1,0 +1,65 @@
+/* === CAROUSEL LAYOUT === */
+.slider {
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 260px;
+  transform: perspective(1000px) rotateX(6deg);
+}
+
+/* === CAROUSEL ITEMS === */
+.slider .carousel-item {
+  transform-style: preserve-3d;
+  transform: translateX(calc((var(--position) - 2) * 100px)) translateZ(calc((2 - abs(var(--position) - 2)) * 10px));
+  transition: transform var(--transition-normal) ease, scale var(--transition-normal) ease;
+  -webkit-box-reflect: below 2.5px linear-gradient(transparent, transparent, rgba(3, 3, 3, 0.2));
+}
+
+.slider .stacked {
+  transform: translate(0px, 0px) rotate3d(1, 0, 0, 50deg) !important;
+}
+
+.carousel-item.item-scale {
+  transform: translateX(calc((var(--position) - 2) * 100px)) translateZ(50px);
+  scale: 1.06;
+}
+
+/* === DOTS NAVIGATION === */
+
+.dot {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast) ease;
+}
+
+.dot:hover {
+  border-color: rgb(255, 255, 255);
+}
+
+.dot.active {
+  background: white;
+  border-color: white;
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+  animation: dot-pulse var(--transition-normal) ease-out;
+}
+
+/* === ANIMATIONS === */
+
+@keyframes dot-pulse {
+  0% {
+    transform: scale(1);
+    background: transparent;
+  }
+  50% {
+    transform: scale(1.5);
+    background: transparent;
+  }
+  100% {
+    transform: scale(1.1);
+    background: white;
+  }
+}
+

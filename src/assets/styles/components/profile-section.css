@@ -59,7 +59,7 @@
    width: 250px;
    height: 250px;
    background: linear-gradient(135deg,
-   rgba(27, 60, 120, .2),
+   rgba(27, 60, 120, .2), 
    transparent, 
    rgba(93, 39, 110, .2)
    );
@@ -137,7 +137,7 @@
    border: 1px solid rgba(255, 255, 255, 0.1);
    border-radius: 12px;
    padding: var(--spacing-8);
-   margin-top: -8rem;
+   margin-top: -4rem;
    backdrop-filter: blur(8px);
 }
 

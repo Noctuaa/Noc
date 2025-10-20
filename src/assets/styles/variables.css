@@ -7,6 +7,10 @@
   --color-glow-separator: rgba(99, 102, 241, 0.5);
   --color-bg-card: rgba(26, 31, 58, 0.8);
 
+  /* === BORDER === */
+  --border-radius-sm: 8px;
+  --border-radius-lg: 16px;
+
   /* === GRADIENTS === */
   --gradient-holo: linear-gradient(135deg, rgb(27,60,120), rgb(22,79,115), rgb(71,60,161));
   --gradient-cta: linear-gradient(135deg, #667eea, #764ba2);
@@ -32,4 +36,12 @@
 
   /* === GEOMETRIC SHAPE === */
   --octagon-clip: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  --shape-adaptive: var(--octagon-clip);
+}
+
+/* === RESPONSIVE SHAPE SYSTEM === */
+@media (max-width: 768px) {
+  :root {
+    --shape-adaptive: none; /* Mobile = rectangles */
+  }
 }
