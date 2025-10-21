@@ -1,5 +1,13 @@
 <script setup>
+import { z } from 'zod';
 import { reactive, ref } from 'vue';
+
+const contactSchema = z.object({
+  firstname: z.string().min(2, 'Minimum 2 caractères.'),
+  lastname: z.string().min(2, 'Minimum 2 caractères.'),
+  email: z.string().email('Email invalide.'),
+  message: z.string().min(10, 'Minimum 10 caractères.'),
+});
 
 const form = reactive({
   firstname: '',
@@ -7,6 +15,23 @@ const form = reactive({
   email: '',
   message: '',
 });
+
+const submitForm = () => {
+  const result = contactSchema.safeParse(form);
+  if (!result.success) {
+    console.log('❌ Erreurs de validation:', result.error.flatten().fieldErrors);
+    errors.value = result.error.flatten().fieldErrors;
+    isFormSubmitted.value = false;
+  } else {
+    console.log('✅ Formulaire valide !', result.data);
+    errors.value = {};
+    isFormSubmitted.value = true;
+  }
+};
+
+const errors = ref({});
+const isFormSubmitted = ref(false);
+const isEnvelopeAnimating = ref(false);
 </script>
 
 <template>
@@ -24,26 +49,45 @@ const form = reactive({
               <label for="lastname" class="form-label">
                 <span>Nom</span>
               </label>
-              <input id="lastname" v-model="form.lastname" type="text" class="form-input" required />
+              <input
+                id="lastname"
+                v-model="form.lastname"
+                type="text"
+                :class="['form-input', { error: errors.lastname }]"
+              />
+              <div v-if="errors.lastname" class="error-message">{{ errors.lastname[0] }}</div>
             </div>
             <div class="form-group">
               <label for="firstname" class="form-label">
                 <span>Prénom</span>
               </label>
-              <input id="firstname" v-model="form.firstname" type="text" class="form-input" required />
+              <input
+                id="firstname"
+                v-model="form.firstname"
+                type="text"
+                :class="['form-input', { error: errors.firstname }]"
+              />
+              <div v-if="errors.firstname" class="error-message">{{ errors.firstname[0] }}</div>
             </div>
           </div>
           <div class="form-group">
             <label for="email" class="form-label">
               <span>Email</span>
             </label>
-            <input id="email" v-model="form.email" type="email" class="form-input" required />
+            <input id="email" v-model="form.email" type="email" :class="['form-input', { error: errors.email }]" />
+            <div v-if="errors.email" class="error-message">{{ errors.email[0] }}</div>
           </div>
           <div class="form-group textarea-box">
             <label for="message" class="form-label">
               <span>Message</span>
             </label>
-            <textarea id="message" v-model="form.message" class="form-textarea" rows="10" required></textarea>
+            <textarea
+              id="message"
+              v-model="form.message"
+              :class="['form-textarea', { error: errors.message }]"
+              rows="10"
+            ></textarea>
+            <div v-if="errors.message" class="error-message">{{ errors.message[0] }}</div>
           </div>
           <div class="form-submit d-flex jc-center ai-center">
             <button type="submit" class="btn btn-gradient" :disabled="isEnvelopeAnimating">
@@ -183,5 +227,39 @@ input:-webkit-autofill {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
+}
+
+/* === Validation ===*/
+/* === ERROR MESSAGES === */
+
+.form-input.error,
+.form-textarea.error {
+  border-color: #ff6b6b !important;
+  box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2) !important;
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.8rem;
+  margin-top: var(--spacing-1);
+  padding-left: var(--spacing-2);
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* Animation d'apparition */
+.error-message {
+  animation: fadeInError 0.3s ease-out;
+}
+
+@keyframes fadeInError {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
 }
 </style>
