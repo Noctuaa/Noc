@@ -1,11 +1,6 @@
 .profile-content {
    grid-template-columns: 300px 20px 1fr;
    grid-template-rows: 1fr 1fr;
-   background: rgba(45, 53, 97, 0.1);
-   border: 1px solid rgba(255, 255, 255, 0.1);
-   border-radius: 16px;
-   padding: var(--spacing-16) var(--spacing-8);
-   backdrop-filter: blur(10px);
 }
 
 .profile-info {
