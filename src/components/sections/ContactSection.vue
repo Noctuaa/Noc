@@ -2,6 +2,14 @@
 import { z } from 'zod';
 import { reactive, ref } from 'vue';
 
+const errors = ref({}); //Form validation errors
+const isFormSubmitted = ref(false); // Form submission status
+const isEnvelopeAnimating = ref(false); // Email sending animation status
+
+/**
+ * Zod validation schema for contact form data
+ * @type {z.ZodObject}
+ */
 const contactSchema = z.object({
   firstname: z.string().min(2, 'Minimum 2 caractères.'),
   lastname: z.string().min(2, 'Minimum 2 caractères.'),
@@ -9,6 +17,14 @@ const contactSchema = z.object({
   message: z.string().min(10, 'Minimum 10 caractères.'),
 });
 
+/**
+ * Reactive form data object
+ * @type {Object}
+ * @property {string} firstname - User's first name
+ * @property {string} lastname - User's last name
+ * @property {string} email - User's email address
+ * @property {string} message - User's message
+ */
 const form = reactive({
   firstname: '',
   lastname: '',
@@ -16,22 +32,62 @@ const form = reactive({
   message: '',
 });
 
-const submitForm = () => {
+/**
+ * Validates contact form data using Zod schema
+ * @returns {Object|null} Validated data or null if invalid
+ */
+const validateForm = () => {
   const result = contactSchema.safeParse(form);
   if (!result.success) {
-    console.log('❌ Erreurs de validation:', result.error.flatten().fieldErrors);
     errors.value = result.error.flatten().fieldErrors;
-    isFormSubmitted.value = false;
+    return null;
   } else {
-    console.log('✅ Formulaire valide !', result.data);
     errors.value = {};
-    isFormSubmitted.value = true;
+    return result.data;
   }
 };
 
-const errors = ref({});
-const isFormSubmitted = ref(false);
-const isEnvelopeAnimating = ref(false);
+/**
+ * Sends form data to API endpoint
+ * @param {Object} validData - Validated form data
+ * @returns {Promise<Object>} API response
+ */
+const sendToAPI = async (validData) => {
+  const response = await fetch('/api/contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(validData),
+  });
+
+  const data = await response.json();
+
+  if (!data.success) {
+    throw new Error(data.message || 'Erreur API');
+  }
+
+  return data;
+};
+
+/**
+ * Handles form submission with validation and API call
+ * @returns {Promise<void>}
+ */
+const submitForm = async () => {
+  const validData = validateForm();
+  if (!validData) return;
+
+  try {
+    isEnvelopeAnimating.value = true;
+    await sendToAPI(validData);
+
+    console.log('✅ Email envoyé !');
+    isFormSubmitted.value = true;
+  } catch (error) {
+    console.error('❌ Erreur:', error.message);
+  } finally {
+    isEnvelopeAnimating.value = false;
+  }
+};
 </script>
 
 <template>
