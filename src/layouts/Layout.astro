@@ -1,29 +1,56 @@
 ---
 import '../assets/styles/main.css';
 import Navigation from '../components/ui/Navigation.vue';
+import SocialButtons from '../components/ui/SocialButtons.vue';
+import LegalFooter from '../components/ui/LegalFooter.vue';
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-		<title>Noc</title>
-	</head>
-	<body>
-		<div class="fixed-background"></div>
-		<Navigation client:load />
-		<div class="teleport-container"></div>
-		<div id="smooth-wrapper">
-			<div id="smooth-content">
-				<slot />
-			</div>
-		</div>
-	</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Noc</title>
+  </head>
+  <body>
+    <div class="fixed-background"></div>
+    <Navigation client:load />
+    <div class="teleport-container"></div>
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <slot />
+        <footer class="footer p-relative">
+          <div class="footer-container container">
+            <div class="footer-content d-grid gap-8">
+              <!-- Colonne 1 : Tes infos -->
+              <div class="footer-brand">
+                <h3>NocDev</h3>
+                <p>Développeur</p>
+                <p class="email">contact@nocdev.fr</p>
+                <SocialButtons client:load />
+              </div>
 
+              <!-- Navigation -->
+              <div class="footer-nav js-center">
+                <h4>Navigation</h4>
+                <ul>
+                  <li><a href="#hero">Accueil</a></li>
+                  <li><a href="#contact">Contact</a></li>
+                </ul>
+              </div>
+              <LegalFooter client:load />
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

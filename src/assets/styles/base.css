@@ -154,10 +154,3 @@ section {
 @keyframes blink {
    50% { border-color: transparent; }
 }
-
-
-  /* === ZONE TEST === */
-
-  #portfolio{
-   height: 100vh;
-  }

@@ -2,5 +2,6 @@
 @import './base.css';
 @import './utilities.css';
 @import './ui/buttons.css';
+@import './ui/footer.css';
 @import './components/profile-section.css';
 @import './components/competence-section.css';

@@ -3,10 +3,12 @@
 .d-grid { display: grid; }
 .p-relative { position: relative; }
 .p-absolute { position: absolute; }
+.p-fixed { position: fixed; }
 .ow-hidden { overflow: hidden;}
 
 /* === TYPOGRAPHY === */
 .tt-uppercase { text-transform: uppercase; }
+.tt-capitalize { text-transform: capitalize; }
 
 /* === TEXT ALIGNEMENT === */
 .tt-center { text-align: center; }
@@ -27,12 +29,17 @@
 .gap-2 { gap: var(--spacing-2); }
 .gap-3 { gap: var(--spacing-3); }
 .gap-4 { gap: var(--spacing-4); }
+.gap-6 { gap: var(--spacing-6); }
 .gap-8 { gap: var(--spacing-8); }
 
 /* Margins */
 .m-0 {margin: 0;}
 .mt-5{margin-top: var(--spacing-5);}
 .mt-16{margin-top: var(--spacing-16)}
+
+/* Paddings */
+.p-0 {padding: 0;}
+.pt-4{padding-top: var(--spacing-4);}
 
 /* === SIZING === */
 .w-100 { width: 100%; }
