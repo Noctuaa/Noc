@@ -39,8 +39,8 @@
 <template>
 	<section id="competences" class="section">
 		<div class="container">
-			<div class="section-header">
-				<h2>Compétences</h2>
+			<div class="section-header reverse">
+				<h2 class="section-title">Compétences</h2>
 				<div class="divider"><hr></div>
 				<p class="section-description">Survolez le clavier pour découvrir mes technologies et expertises.</p>
 			</div>
@@ -54,7 +54,7 @@
 						</div>
 					</transition>
 				</div>
-				<SplineKeyboard client:load @key-hover="handleKeyHover"/>
+				<SplineKeyboard client:visible @key-hover="handleKeyHover"/>
 			</div>
 		</div>
    </section>

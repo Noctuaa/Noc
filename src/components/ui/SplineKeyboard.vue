@@ -63,6 +63,8 @@
 			start: 'top 10%',
 			end: 'bottom center',
 			onEnter: () => { loaded.value = true;},
+			onLeave: () => { loaded.value = false;},
+			onEnterBack: () => { loaded.value = true;},
 			onLeaveBack: () => { loaded.value = false;}
 		})
 	}

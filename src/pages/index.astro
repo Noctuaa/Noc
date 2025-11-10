@@ -11,9 +11,11 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-  <HeroSection />
-  <ProfileSection client:load />
+  <div class="curtain-container">
+    <HeroSection />
+    <ProfileSection client:load />
+  </div>
   <CompetenceSection client:load />
-  <PortfolioSection client:visible />
-  <ContactSection client:visible />
+  <PortfolioSection client:load />
+  <ContactSection client:load />
 </Layout>

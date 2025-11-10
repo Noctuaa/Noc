@@ -43,6 +43,7 @@ onMounted(() => {
 <style scoped>
   .firefly {
     position: fixed;
+    display: none;
     right: 40%;
     top: 45%;
     width: 60px;
