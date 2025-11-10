@@ -43,6 +43,7 @@ ul{
 section {
    position: relative;
    padding: 100px 0;
+   height: 100dvh;
 }
 
 .box{
@@ -52,6 +53,46 @@ section {
    padding: var(--spacing-16) var(--spacing-8);
    backdrop-filter: blur(10px);
 }
+
+
+
+  .curtain-container {
+    min-height: 200vh !important; 
+    height: 200vh; 
+    position: relative;
+  }
+
+
+  .curtain-container > #hero{
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+  }
+
+  .curtain-container > #profile {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+  }
+
+  #profile.curtain-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+    #profile {
+    min-height: 100vh;
+    display: flex;
+    align-items: center; /* Centre verticalement */
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+
+
 
 /* === Section Header === */
 

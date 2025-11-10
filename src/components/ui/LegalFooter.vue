@@ -1,6 +1,7 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 
+const isClient = ref(false); // Flag to check if running on client-side
 const showModal = ref(false); //RGPD Modal visibility
 const modalType = ref(''); //Type of modal: 'mentions' or 'confidentialite'
 
@@ -23,6 +24,11 @@ const closeModal = () => {
   modalType.value = '';
   document.body.classList.remove('ow-hidden');
 };
+
+onMounted(() => {
+  // Client-side only logic
+  isClient.value = true;
+});
 </script>
 
 <template>
@@ -36,7 +42,7 @@ const closeModal = () => {
     </div>
 
     <!-- Modal -->
-    <Teleport to="body">
+    <Teleport to="body" :disabled="!isClient">
       <div v-if="showModal" class="modal-overlay d-flex ai-center jc-center p-fixed" @click="closeModal">
         <div class="modal-content" @click.stop>
           <div class="modal-header d-flex ai-center jc-between tt-capitalize">
