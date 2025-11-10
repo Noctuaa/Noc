@@ -1,18 +1,27 @@
 <script setup>
-import { gsap } from 'gsap';
+import { onMounted, ref } from 'vue';
+import { scrollTo } from '../../utils/ScrollManager';
 import SocialButtons from '../ui/SocialButtons.vue';
 
+// Controls curtain-fixed class (true when section should be fixed behind Hero)
+const isCurtainFixed = ref(false);
+
+/**
+ * Smooth scroll to Competences section
+ * @returns {void}
+ */
 const handleScrollToCompetences = () => {
-  gsap.to(window, {
-    duration: 1.5,
-    scrollTo: '#competences',
-    ease: 'power2.out',
-  });
+  scrollTo('#competences');
 };
+
+onMounted(() => {
+  // Fix curtain effect on load - only add curtain-fixed if at top of page
+  isCurtainFixed.value = window.scrollY === 0;
+});
 </script>
 
 <template>
-  <section id="profile" class="section curtain-fixed">
+  <section id="profile" :class="['section', { 'curtain-fixed': isCurtainFixed }]">
     <div class="container">
       <div class="section-header">
         <h2>Profil</h2>

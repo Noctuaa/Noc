@@ -1,7 +1,8 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-import { initCurtainEffect, initLenis, scrollTo } from '../../utils/ScrollManager';
+import { ref } from 'vue';
+import { scrollTo } from '../../utils/ScrollManager';
 
+// Navigation sections list
 const sections = ref([
   { id: 'hero', label: 'Home' },
   { id: 'profile', label: 'Profil' },
@@ -10,9 +11,15 @@ const sections = ref([
   { id: 'contact', label: 'Contact' },
 ]);
 
+// Currently active section id
 const activeSection = ref('hero');
 
-/* Function to smoothly scroll to a section */
+/**
+ * Smooth scroll to a specific section
+ * Special handling for Profile section (scrolls to Hero height to trigger curtain effect)
+ * @param {string} id - Section id to scroll to
+ * @returns {void}
+ */
 const scrollToSection = (id) => {
   if (id === 'profile') {
     const heroHeight = document.querySelector('#hero')?.offsetHeight || window.innerHeight;
@@ -20,14 +27,8 @@ const scrollToSection = (id) => {
   } else {
     scrollTo(`#${id}`);
   }
-
   activeSection.value = id;
 };
-
-onMounted(() => {
-  initCurtainEffect();
-  initLenis();
-});
 </script>
 
 <template>

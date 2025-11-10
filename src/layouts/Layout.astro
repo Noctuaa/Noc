@@ -48,5 +48,13 @@ import LegalFooter from '../components/ui/LegalFooter.vue';
         </div>
       </div>
     </footer>
+    <script>
+      import { initLenis, initCurtainEffect } from '../utils/ScrollManager';
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initLenis();
+        initCurtainEffect();
+      });
+    </script>
   </body>
 </html>
