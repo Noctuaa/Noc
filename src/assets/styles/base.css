@@ -1,197 +1,179 @@
-*{
-   box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 html,
 body {
-   margin: 0;
-   width: 100%;
-   height: 100%;
-   font-family: var(--font-family-primary);
-   background-color: var(--color-primary);
-   color: var(--color-primary-text);
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-family-primary);
+  background-color: var(--color-primary);
+  color: var(--color-primary-text);
 }
 
-a{
-   text-decoration: none;
-   color: inherit;
-   cursor: pointer;
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
-ul{
-   list-style: none;
-   padding: 0;
-   margin: 0;
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .container {
-   max-width: 1400px;
-   margin: 0 auto;
-   padding: 0 var(--spacing-4);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-4);
 }
 
-
-.fixed-background{
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100vw;
-   height: 100vh;
-   background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
-   z-index: -1;
+.fixed-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+  z-index: -1;
 }
 
 section {
-   position: relative;
-   padding: 100px 0;
-   height: 100dvh;
+  position: relative;
+  padding: 100px 0;
+  height: 100dvh;
 }
 
-.box{
-   background: rgba(45, 53, 97, 0.1);
-   border: 1px solid rgba(255, 255, 255, 0.1);
-   border-radius: 16px;
-   padding: var(--spacing-16) var(--spacing-8);
-   backdrop-filter: blur(10px);
+.curtain-container {
+  min-height: 200vh !important;
+  height: 200vh;
+  position: relative;
 }
 
+.curtain-container > #hero {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+}
 
+.curtain-container > #profile {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
 
-  .curtain-container {
-    min-height: 200vh !important; 
-    height: 200vh; 
-    position: relative;
-  }
-
-
-  .curtain-container > #hero{
-    position: relative;
-    z-index: 2;
-    min-height: 100vh;
-  }
-
-  .curtain-container > #profile {
-    position: relative;
-    z-index: 1;
-    min-height: 100vh;
-  }
-
-  #profile.curtain-fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-  }
-
-    #profile {
-    min-height: 100vh;
-    display: flex;
-    align-items: center; /* Centre verticalement */
-    justify-content: center;
-    transition: all 0.3s ease;
-  }
-
-
-
+#profile.curtain-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
 
 /* === Section Header === */
 
 .section-header {
-   margin-bottom: var(--spacing-16);
-   width: 100%;
+  margin-bottom: var(--spacing-16);
+  width: 100%;
 }
 
-.reverse{
-   display: flex;
-   flex-direction: column;
-   align-items: end;
+.reverse {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }
 
-.reverse .divider hr{
-   background: linear-gradient(90deg, transparent, #60A5FA);
-   justify-self: end;
+.reverse .divider hr {
+  background: linear-gradient(90deg, transparent, #60a5fa);
+  justify-self: end;
 }
 
 .reverse .section-title {
-   background: linear-gradient(90deg, #6978E3, #60A5FA);
-   background-clip: text;
-   -webkit-background-clip: text;
+  background: linear-gradient(90deg, #6978e3, #60a5fa);
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 
-.section-title, .section-header h2 {
-   font-size: 2.5rem;
-   font-weight: 700;
-   background: linear-gradient(90deg, #60A5FA, #6978E3);
-   background-clip: text;
-   -webkit-background-clip: text;
-   color: transparent;
-   margin-bottom: 15px;
-   width: fit-content;
+.section-title,
+.section-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #60a5fa, #6978e3);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 15px;
+  width: fit-content;
 }
 
 .section-description {
-   width: 0;
-   max-width: fit-content;
-   font-size: 1rem;
-   opacity: 0.9;
-   overflow: hidden;
-   white-space: nowrap;
-   border-right: 2px solid #60A5FA;
-   animation: typing 2s steps(50) .3s forwards,
-   blink 1s infinite 2s;
+  width: 0;
+  max-width: fit-content;
+  font-size: 1rem;
+  opacity: 0.9;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #60a5fa;
+  animation: typing 2s steps(50) 0.3s forwards, blink 1s infinite 2s;
 }
 
-.divider{
-   width: 100%;
-   height: 2px;
-   border-radius: 0 50% 50% 0;
+.divider {
+  width: 100%;
+  height: 2px;
+  border-radius: 0 50% 50% 0;
 }
 
 .divider hr {
-   width: 40%;
-   height: 3px;
-   background: linear-gradient(90deg, #60A5FA, transparent);
-   border: none;
-   box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
-   margin: 0;
+  width: 40%;
+  height: 3px;
+  background: linear-gradient(90deg, #60a5fa, transparent);
+  border: none;
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+  margin: 0;
 }
 
 /* === Separator Base === */
 
-.separator-v{
-   width: 1px;
-   height: 100%;
+.separator-v {
+  width: 1px;
+  height: 100%;
 }
 
-.separator-v-gradient{
-   background: linear-gradient(180deg, transparent, var(--color-glow-separator), transparent);
+.separator-v-gradient {
+  background: linear-gradient(180deg, transparent, var(--color-glow-separator), transparent);
 }
 
-.separator-h{
-   width: 100%;
-   height: 1px;
+.separator-h {
+  width: 100%;
+  height: 1px;
 }
 
 .separator-h-narrow {
-   width: 60%;
-   height: 3px;
+  width: 60%;
+  height: 3px;
 }
 
 .separator-h-normal {
-   background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .separator-h-gradient {
-   background: linear-gradient(90deg, var(--color-glow-separator), transparent);
+  background: linear-gradient(90deg, var(--color-glow-separator), transparent);
 }
 
 /* === Global Animations === */
 
 @keyframes typing {
-   from { width: 0; }
-   to { width: 100%; }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes blink {
-   50% { border-color: transparent; }
+  50% {
+    border-color: transparent;
+  }
 }

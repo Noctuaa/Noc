@@ -9,7 +9,9 @@
 
   /* === BORDER === */
   --border-radius-sm: 8px;
+  --border-radius-md: 12px;
   --border-radius-lg: 16px;
+  --border-subtle: 1px solid rgba(255, 255, 255, 0.1);
 
   /* === GRADIENTS === */
   --gradient-holo: linear-gradient(135deg, rgb(27,60,120), rgb(22,79,115), rgb(71,60,161));

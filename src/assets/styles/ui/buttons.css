@@ -1,56 +1,68 @@
 /* ===== BUTTON STYLES ===== */
 
-.btn{
-   cursor: pointer;
-   border-radius: 25px;
-   padding: var(--spacing-3) var(--spacing-8);
-   transition: all var(--transition-normal) ease;
-   font-weight: 600;
+.btn {
+  cursor: pointer;
+  border-radius: 25px;
+  padding: var(--spacing-3) var(--spacing-8);
+  transition: all var(--transition-normal) ease;
+  font-weight: 600;
 }
 
-.btn-gradient{
-   color: var(--text-primary-text);
-   background: var(--gradient-cta);
-   border: 1px solid rgba(255, 255, 255, 0.2);
-   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-   letter-spacing: 1px;
+.btn-gradient {
+  color: var(--text-primary-text);
+  background: var(--gradient-cta);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 1px rgba(102, 126, 234, 0.3);
+  letter-spacing: 1px;
 }
 
-.btn-gradient-1{
-   background: linear-gradient(135deg, #60a5fa, #3b82f6);
+.btn-gradient-1 {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
 }
 
-.btn-gradient:hover{
-   transform: translateY(-3px);
-   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+.btn-gradient:hover {
+  transform: translateY(-3px);
 }
-
 
 /* Buttons Mini SVG */
-.btn-mini{
-   display: inline-flex;
-   align-items: center;
-   justify-content: center;
-   background-color: #fff;
-   border: 2px solid #1A1B2F;
-   border-radius: 8px;
-   width: 40px;
-   height: 40px;
-   font-size: 1.2rem;
+.btn-mini {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 2px solid #1a1b2f;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
 }
 
-.btn-mini:hover{
-   background-image: linear-gradient(345deg, #15203b, #2a6174);
-   border: 1px solid rgba(255, 255, 255, .3);
-   transition: all 0.3s ease-in-out;
+.btn-mini:hover {
+  background-image: linear-gradient(345deg, #15203b, #2a6174);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease-in-out;
 }
 
-.btn-mini svg{
-   height: auto;
-   fill: #1A1B2F;
+.btn-mini svg {
+  height: auto;
+  fill: #1a1b2f;
 }
 
-.btn-mini:hover svg{
-   fill: #fff;
-   transition: all var(--transition-fast) ease-in-out;
+.btn-mini:hover svg {
+  fill: #fff;
+  transition: all var(--transition-fast) ease-in-out;
+}
+
+/* === BUTTON ROUNDED SMALL === */
+
+.button-rounded-sm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  height: 43px;
+  width: 43px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  aspect-ratio: 1;
 }
