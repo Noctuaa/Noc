@@ -1,6 +1,6 @@
 ---
 import HeroSection from '../components/HeroSection.astro';
-import ProfileSection from '../components/sections/ProfileSection.vue';
+import ProfileSection from '../components/sections/ProfileSection.astro';
 import CompetenceSection from '../components/sections/CompetenceSection.vue';
 import PortfolioSection from '../components/sections/PortfolioSection.vue';
 import ContactSection from '../components/sections/ContactSection.vue';
@@ -13,7 +13,7 @@ import Layout from '../layouts/Layout.astro';
 <Layout>
   <div class="curtain-container">
     <HeroSection />
-    <ProfileSection client:load />
+    <ProfileSection />
   </div>
   <CompetenceSection client:load />
   <PortfolioSection client:load />

@@ -72,6 +72,10 @@ export const initCurtainEffect = () => {
     console.warn('⚠ Hero or Profile not found');
     return;
   }
+  // Initial state: fix Profile if at top
+  if (window.scrollY === 0) {
+    profileSection.classList.add('curtain-fixed');
+  }
 
   /// Toggle fixed class when Hero scrolls out of view
   ScrollTrigger.create({
@@ -80,7 +84,7 @@ export const initCurtainEffect = () => {
     end: 'bottom top',
     onLeave: () => profileSection.classList.remove('curtain-fixed'),
     onEnterBack: () => profileSection.classList.add('curtain-fixed'),
-    markers: true,
+    markers: false,
   });
 
   console.log('✅ Curtain effect initialized');

@@ -132,35 +132,6 @@ section {
   margin: 0;
 }
 
-/* === Separator Base === */
-
-.separator-v {
-  width: 1px;
-  height: 100%;
-}
-
-.separator-v-gradient {
-  background: linear-gradient(180deg, transparent, var(--color-glow-separator), transparent);
-}
-
-.separator-h {
-  width: 100%;
-  height: 1px;
-}
-
-.separator-h-narrow {
-  width: 60%;
-  height: 3px;
-}
-
-.separator-h-normal {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.separator-h-gradient {
-  background: linear-gradient(90deg, var(--color-glow-separator), transparent);
-}
-
 /* === Global Animations === */
 
 @keyframes typing {
