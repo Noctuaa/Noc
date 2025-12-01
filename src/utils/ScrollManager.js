@@ -89,3 +89,30 @@ export const initCurtainEffect = () => {
 
   console.log('✅ Curtain effect initialized');
 };
+
+/**
+ * Initialize ScrollTrigger animations for Profile section
+ * - Sequential appearance of chat bubbles (messaging effect)
+ * - 0.3s delay between each bubble with bounce effect
+ */
+export const initProfileAnimations = () => {
+  const chatBubbles = gsap.utils.toArray('.profile-messenger-body .chat-bubble');
+
+  // Trigger based on Hero section leaving (not Profile entering)
+  ScrollTrigger.create({
+    trigger: '#hero',
+    start: 'bottom 30%',
+    onEnter: () => {
+      // Sequential animation with progressive delay
+      chatBubbles.forEach((bubble, index) => {
+        gsap.to(bubble, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: index * 0.3, // 0s, 0.3s, 0.6s, 0.9s...
+          ease: 'power2.out', // Small bounce at the end
+        });
+      });
+    },
+  });
+};

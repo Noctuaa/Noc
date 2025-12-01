@@ -21,7 +21,7 @@ import LegalFooter from '../components/ui/LegalFooter.vue';
     <title>Noc</title>
   </head>
   <body>
-    <div class="fixed-background"></div>
+    <!--<div class="fixed-background"></div>-->
     <Navigation client:load />
     <div class="teleport-container"></div>
     <slot />
@@ -49,11 +49,16 @@ import LegalFooter from '../components/ui/LegalFooter.vue';
       </div>
     </footer>
     <script>
-      import { initLenis, initCurtainEffect } from '../utils/ScrollManager';
+      import { initLenis, initCurtainEffect, initProfileAnimations } from '../utils/ScrollManager';
 
-      document.addEventListener('DOMContentLoaded', () => {
+      // Attendre que TOUT soit chargé (images, CSS, etc.)
+      window.addEventListener('load', () => {
         initLenis();
         initCurtainEffect();
+
+        setTimeout(() => {
+          initProfileAnimations();
+        }, 100);
       });
     </script>
   </body>
