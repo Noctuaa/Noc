@@ -3,7 +3,7 @@ import PortfolioCarousel from '../carousel/PortfolioCarousel.vue';
 </script>
 
 <template>
-  <section id="portfolio" class="section">
+  <section id="portfolio" class="section bg-alt">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Portfolio</h2>

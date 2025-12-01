@@ -43,6 +43,11 @@ section {
   position: relative;
   padding: 100px 0;
   height: 100dvh;
+  background: var(--gradient-bg-1);
+}
+
+section.bg-alt {
+  background: var(--gradient-bg-2);
 }
 
 .curtain-container {
