@@ -1,5 +1,4 @@
-:root{
-  
+:root {
   /* === COLORS ==== */
   --color-primary: #1a1f3a;
   --color-primary-text: #ffffff;
@@ -14,27 +13,30 @@
   --border-subtle: 1px solid rgba(255, 255, 255, 0.1);
 
   /* === GRADIENTS === */
-  --gradient-holo: linear-gradient(135deg, rgb(27,60,120), rgb(22,79,115), rgb(71,60,161));
+  --gradient-holo: linear-gradient(135deg, rgb(27, 60, 120), rgb(22, 79, 115), rgb(71, 60, 161));
   --gradient-cta: linear-gradient(135deg, #667eea, #764ba2);
+  --gradient-bg-1: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+  --gradient-bg-2: linear-gradient(135deg, #0d1129 0%, #151a32 100%);
+  --gradient-border-neon: linear-gradient(90deg, #60a5fa, #6978e3);
 
   /* ===TYPOGRAPHIE === */
   --font-family-primary: 'Inter', system-ui, sans-serif;
 
-   /* === SPACING SYSTÈME === */
-  --spacing-1: 0.25rem;   /* 4px */
-  --spacing-2: 0.5rem;    /* 8px */
-  --spacing-3: 0.75rem;   /* 12px */
-  --spacing-4: 1rem;      /* 16px */
-  --spacing-5: 1.25rem;   /* 20px */
-  --spacing-6: 1.5rem;    /* 24px */
-  --spacing-8: 2rem;      /* 32px */
-  --spacing-10: 2.5rem;   /* 40px */
-  --spacing-12: 3rem;     /* 48px */
-  --spacing-16: 4rem;     /* 64px */
+  /* === SPACING SYSTÈME === */
+  --spacing-1: 0.25rem; /* 4px */
+  --spacing-2: 0.5rem; /* 8px */
+  --spacing-3: 0.75rem; /* 12px */
+  --spacing-4: 1rem; /* 16px */
+  --spacing-5: 1.25rem; /* 20px */
+  --spacing-6: 1.5rem; /* 24px */
+  --spacing-8: 2rem; /* 32px */
+  --spacing-10: 2.5rem; /* 40px */
+  --spacing-12: 3rem; /* 48px */
+  --spacing-16: 4rem; /* 64px */
 
   /* === TRANSITIONS === */
-  --transition-fast: .3s;
-  --transition-normal: .5s;
+  --transition-fast: 0.3s;
+  --transition-normal: 0.5s;
 
   /* === GEOMETRIC SHAPE === */
   --octagon-clip: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
