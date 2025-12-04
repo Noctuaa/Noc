@@ -1,7 +1,7 @@
 ---
 import HeroSection from '../components/HeroSection.astro';
 import ProfileSection from '../components/sections/ProfileSection.astro';
-import CompetenceSection from '../components/sections/CompetenceSection.vue';
+import CompetenceSection from '../components/sections/CompetenceSection.astro';
 import PortfolioSection from '../components/sections/PortfolioSection.vue';
 import ContactSection from '../components/sections/ContactSection.vue';
 import Layout from '../layouts/Layout.astro';
@@ -15,7 +15,7 @@ import Layout from '../layouts/Layout.astro';
     <HeroSection />
     <ProfileSection />
   </div>
-  <CompetenceSection client:load />
+  <CompetenceSection />
   <PortfolioSection client:load />
   <ContactSection client:load />
 </Layout>

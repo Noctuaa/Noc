@@ -176,12 +176,12 @@ const submitForm = async () => {
 </template>
 
 <style>
-.contact-bg-sphere {
+/*.contact-bg-sphere {
   position: fixed;
-  bottom: -550px; /* En bas au lieu de top */
-  left: 50%; /* Centré horizontalement */
-  transform: translateX(-50%); /* Parfaitement centré */
-  width: 160%; /* Plus large pour couvrir l'écran */
+  bottom: -550px; 
+  left: 50%; 
+  transform: translateX(-50%);
+  width: 160%; 
   height: 1600px;
   border-radius: 50%;
   background: radial-gradient(
@@ -192,11 +192,11 @@ const submitForm = async () => {
     rgba(30, 41, 59, 1) 100%
   );
 
-  box-shadow: 0 0 60px 30px #fff, /* inner white */ 0 0 100px 60px #f0f, /* middle magenta */ 0 0 140px 90px #0ff; /* outer cyan */
+  box-shadow: 0 0 60px 30px #fff,  0 0 100px 60px #f0f,  0 0 140px 90px #0ff;
   opacity: 0.15;
   z-index: 0;
   pointer-events: none;
-}
+}*/
 
 /* Section relative pour contenir la bulle */
 #contact.section {

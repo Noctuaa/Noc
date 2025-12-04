@@ -18,6 +18,9 @@ import PortfolioCarousel from '../carousel/PortfolioCarousel.vue';
 </template>
 
 <style scoped>
+#portfolio {
+  display: none;
+}
 .portfolio-wrapper {
   min-height: 60vh;
 }

@@ -45,7 +45,7 @@ ul {
 section {
   position: relative;
   padding: 8rem 0;
-  height: 100dvh;
+  min-height: 100vh;
   background: var(--gradient-bg-1);
 }
 
@@ -55,7 +55,7 @@ section.bg-alt {
 
 .curtain-container {
   min-height: 200vh !important;
-  height: 200vh;
+  height: auto;
   position: relative;
 }
 
