@@ -1,86 +1,21 @@
 ---
 import TechCarousel from '../ui/TechCarousel.vue';
-import SplineKeyboard from '../ui/SplineKeyboard.vue';
 ---
 
 <section id="competences" class="section">
   <div class="container">
-    <!-- Layout grid 2 colonnes / 2 lignes -->
-    <div class="competence-layout d-grid">
-      <!-- Colonne 1 Ligne 1 : H2 + Description -->
-      <div class="competence-intro">
-        <h2 class="section-title">Compétences</h2>
-        <div class="separator-h separator-gradient"></div>
-        <p class="section-description">
-          Survolez le clavier pour découvrir mes technologies et expertises à travers un carousel interactif.
-        </p>
-      </div>
-
-      <!-- Colonne 2 Ligne 1 : Carousel technos (placeholder pour l'instant) -->
-      <div class="competence-carousel ow-hidden w-100 p-relative">
-        <TechCarousel client:load />
-      </div>
-
-      <!-- Ligne 2 : Clavier 3D Spline (span 2 colonnes) -->
-      <div class="competence-keyboard">
-        <div class="keyboard-placeholder">
-          <!-- <SplineKeyboard client:visible />-->
-          <p>Clavier 3D Spline ici</p>
-          <!-- On intégrera Spline plus tard -->
-        </div>
-      </div>
+    <div class="section-header">
+      <h2>Compétences</h2>
+      <div class="separator-h separator-h-gradient"></div>
+      <p class="section-description">Les technologies que je maîtrise pour donner vie à vos projets.</p>
     </div>
   </div>
+  <TechCarousel client:visible />
 </section>
 
 <style>
   #competences {
-    z-index: 1; /* ← Ajoute ça (supérieur à ProfileSection qui a z-index: 1) */
-  }
-
-  .competence-layout {
-    display: grid;
-    grid-template-columns: 400px 1fr; /* Texte gauche | Carousel droite */
-    grid-template-rows: auto auto; /* Ligne 1 | Ligne 2 */
-    gap: var(--spacing-10);
-  }
-
-  /* Colonne 1 Ligne 1 : Intro (H2 + description) */
-  .competence-intro {
-    grid-area: 1/1/2/2;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-6);
-    justify-content: center; /* Centre verticalement par rapport au carousel */
-  }
-
-  /* Colonne 2 Ligne 1 : Carousel */
-  .competence-carousel {
-    grid-area: 1/2/2/3;
-  }
-
-  /* Ligne 2 : Clavier (span 2 colonnes) */
-  .competence-keyboard {
-    grid-area: 2/1/3/3;
-    margin-top: var(--spacing-8);
-  }
-
-  /* Placeholders temporaires pour visualiser */
-  .carousel-placeholder,
-  .keyboard-placeholder {
-    background: rgba(96, 165, 250, 0.1);
-    border: 2px dashed rgba(96, 165, 250, 0.3);
-    border-radius: var(--border-radius-lg);
-    padding: var(--spacing-10);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 300px;
-    color: var(--color-text-secondary);
-    font-style: italic;
-  }
-
-  .keyboard-placeholder {
-    min-height: 400px;
+    background: var(--gradient-bg-1);
+    padding-bottom: 0rem !important; /* Réduit drastiquement pour l'effet overlap */
   }
 </style>

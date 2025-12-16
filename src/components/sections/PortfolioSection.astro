@@ -1,0 +1,59 @@
+---
+// Placeholder pour futur accordéon horizontal
+---
+
+<section id="portfolio" class="section bg-alt">
+  <div class="container">
+    <div class="section-header">
+      <h2>Portfolio</h2>
+      <div class="divider"><hr /></div>
+      <p class="section-description">Découvrez mes projets et réalisations techniques.</p>
+    </div>
+
+    <!-- Placeholder accordéon - sera développé plus tard -->
+    <div class="portfolio-placeholder">
+      <p>Accordéon horizontal à venir...</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Effet chevauchement avec CompetenceSection */
+  @media (min-width: 1024px) {
+    #portfolio {
+      margin-top: -180px;
+      padding-top: 240px; /* 180px overlap + 60px air */
+    }
+  }
+
+  /* Tablette : chevauchement réduit */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    #portfolio {
+      margin-top: -60px;
+      padding-top: 120px;
+    }
+  }
+
+  /* Mobile : pas de chevauchement */
+  @media (max-width: 767px) {
+    #portfolio {
+      margin-top: 0;
+      padding-top: 60px;
+    }
+  }
+
+  /* Placeholder temporaire */
+  .portfolio-placeholder {
+    background: rgba(96, 165, 250, 0.1);
+    border: 2px dashed rgba(96, 165, 250, 0.3);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-20);
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-style: italic;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
