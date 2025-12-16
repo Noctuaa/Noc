@@ -15,8 +15,8 @@
   /* === GRADIENTS === */
   --gradient-holo: linear-gradient(135deg, rgb(27, 60, 120), rgb(22, 79, 115), rgb(71, 60, 161));
   --gradient-cta: linear-gradient(135deg, #667eea, #764ba2);
-  --gradient-bg-1: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
-  --gradient-bg-2: linear-gradient(135deg, #0d1129 0%, #151a32 100%);
+  --gradient-bg-1: linear-gradient(135deg, #0d1129 0%, #151a32 100%);
+  --gradient-bg-2: linear-gradient(135deg, #08091a 0%, #0f1225 100%);
   --gradient-border-neon: linear-gradient(90deg, #60a5fa, #6978e3);
 
   /* ===TYPOGRAPHIE === */

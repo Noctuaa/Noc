@@ -149,12 +149,7 @@
 
 .separator-h {
   width: 100%;
-  height: 1px;
-}
-
-.separator-h-narrow {
-  width: 60%;
-  height: 3px;
+  height: 2px;
 }
 
 .separator-h-normal {

@@ -6,7 +6,7 @@
   <div class="container">
     <div class="section-header">
       <h2>Portfolio</h2>
-      <div class="divider"><hr /></div>
+      <div class="separator-h separator-h-gradient"></div>
       <p class="section-description">Découvrez mes projets et réalisations techniques.</p>
     </div>
 
@@ -18,28 +18,8 @@
 </section>
 
 <style>
-  /* Effet chevauchement avec CompetenceSection */
-  @media (min-width: 1024px) {
-    #portfolio {
-      margin-top: -180px;
-      padding-top: 240px; /* 180px overlap + 60px air */
-    }
-  }
-
-  /* Tablette : chevauchement réduit */
-  @media (min-width: 768px) and (max-width: 1023px) {
-    #portfolio {
-      margin-top: -60px;
-      padding-top: 120px;
-    }
-  }
-
-  /* Mobile : pas de chevauchement */
-  @media (max-width: 767px) {
-    #portfolio {
-      margin-top: 0;
-      padding-top: 60px;
-    }
+  #portfolio {
+    position: relative;
   }
 
   /* Placeholder temporaire */

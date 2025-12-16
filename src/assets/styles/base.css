@@ -7,7 +7,7 @@ body {
   width: 100%;
   height: 100%;
   font-family: var(--font-family-primary);
-  background-color: var(--color-primary);
+  /*background-color: var(--color-primary);*/
   color: var(--color-primary-text);
 }
 
@@ -18,7 +18,7 @@ a {
 }
 
 h2 {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
   background: var(--gradient-border-neon);
   background-clip: text;
@@ -52,12 +52,12 @@ ul {
 
 section {
   position: relative;
-  padding: 6rem 0;
+  padding: clamp(3rem, 8vw, 6rem) 0;
   background: var(--gradient-bg-1);
 }
 
 section.bg-alt {
-  background: var(--gradient-bg-2);
+  background: var(--gradient-bg-2) !important;
 }
 
 .curtain-container {
@@ -101,10 +101,11 @@ section.bg-alt {
 .section-description {
   width: 0;
   max-width: fit-content;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   opacity: 0.7;
   margin: 0 auto;
   overflow: hidden;
+  text-align: center;
   white-space: nowrap;
   border-right: 2px solid #60a5fa;
   animation: typing 2s steps(50) 0.3s forwards, blink 1s infinite 2s;

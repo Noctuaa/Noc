@@ -7,7 +7,7 @@ import TechCarousel from '../ui/TechCarousel.vue';
     <div class="section-header">
       <h2>Compétences</h2>
       <div class="separator-h separator-h-gradient"></div>
-      <p class="section-description">Les technologies que je maîtrise pour donner vie à vos projets.</p>
+      <p class="section-description">Technologies, outils et environnement pour créer des projets performants.</p>
     </div>
   </div>
   <TechCarousel client:visible />
@@ -15,7 +15,28 @@ import TechCarousel from '../ui/TechCarousel.vue';
 
 <style>
   #competences {
-    background: var(--gradient-bg-1);
-    padding-bottom: 0rem !important; /* Réduit drastiquement pour l'effet overlap */
+    position: relative;
+  }
+
+  #competences::after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    height: 180px;
+    background: linear-gradient(135deg, #08091a 0%, #0d1121 100%);
+    z-index: 5;
+    display: none;
+  }
+
+  @media (min-width: 993px) {
+    #competences {
+      padding-bottom: 0 !important; /* Chevauchement seulement desktop */
+    }
+
+    #competences::after {
+      display: block;
+    }
   }
 </style>

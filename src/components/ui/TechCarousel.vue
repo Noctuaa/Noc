@@ -103,6 +103,7 @@ const modules = [Navigation, Autoplay];
   opacity: 0.6;
   transform: scale(0.9);
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .tech-card-inner {
