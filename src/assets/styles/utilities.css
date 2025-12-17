@@ -84,6 +84,9 @@
 }
 
 /* Margins */
+.m-auto {
+  margin: 0 auto;
+}
 .m-0 {
   margin: 0;
 }
@@ -173,4 +176,9 @@
   border-radius: inherit;
   background: var(--gradient-border-neon);
   box-shadow: 0 0 10px rgba(59, 130, 246, 0.4), 0 0 20px rgba(96, 165, 250, 0.2);
+}
+
+/* === CURSOR === */
+.cursor-p {
+  cursor: pointer;
 }

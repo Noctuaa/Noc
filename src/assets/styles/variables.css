@@ -41,6 +41,26 @@
   /* === GEOMETRIC SHAPE === */
   --octagon-clip: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
   --shape-adaptive: var(--octagon-clip);
+
+  /* === SEMANTIC COLORS (roles) === */
+  --text-primary: var(--color-primary-text); /* Alias for consistency */
+  --text-secondary: var(--color-text-secondary); /* Alias for consistency 
+  */
+
+  --surface-glass: rgba(26, 31, 58, 0.8); /* Glassmorphism cards */
+  --surface-glass-light: rgba(80, 79, 82, 0.15); /* Light glass for carousel
+   */
+
+  --border-card: rgba(96, 165, 250, 0.3); /* Cards borders */
+
+  /* === STATES === */
+  --opacity-inactive: 0.6;
+  --scale-inactive: 0.9;
+
+  /* === EFFECTS === */
+  --blur-glass: 10px;
+  --filter-inactive: grayscale(70%);
+  --shadow-neon: 0 0 10px rgba(59, 130, 246, 0.4), 0 0 20px rgba(96, 165, 250, 0.2);
 }
 
 /* === RESPONSIVE SHAPE SYSTEM === */
