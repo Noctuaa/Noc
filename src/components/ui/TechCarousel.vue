@@ -1,6 +1,6 @@
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Navigation, EffectCoverflow, Autoplay } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
@@ -84,103 +84,5 @@ const modules = [Navigation, Autoplay];
 </template>
 
 <style scoped>
-/* Swiper container */
-.tech-swiper {
-  width: 100%;
-  height: 350px;
-  padding: 20px 60px;
-  position: relative;
-  z-index: 10; /* Flotte au-dessus du background Portfolio */
-}
-
-/* Tech cards - garde tous tes styles ! */
-.tech-card {
-  height: 100%;
-  width: 100%;
-  max-height: 300px;
-  max-width: 350px;
-  margin: 0 auto;
-  opacity: 0.6;
-  transform: scale(0.9);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.tech-card-inner {
-  background: rgba(80, 79, 82, 0.15);
-  height: 100%;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(96, 165, 250, 0.3);
-  border-radius: var(--border-radius-lg);
-  padding: var(--spacing-8);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-4);
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 6;
-}
-
-.tech-card-inner::before {
-  content: '';
-  top: 0;
-  position: absolute;
-  z-index: -1;
-  height: 101%;
-  filter: grayscale(70%);
-  width: 101%;
-  border-radius: var(--border-radius-lg);
-}
-
-.tech-logo {
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: var(--spacing-2);
-}
-
-.tech-logo img {
-  width: 100%;
-  height: 100%;
-}
-
-.tech-name {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--color-primary-text);
-  text-align: center;
-  margin: 0;
-}
-
-.tech-description {
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
-  text-align: center;
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* Slide active */
-:deep(.swiper-slide-active) .tech-card {
-  filter: grayscale(0%);
-  opacity: 1;
-  transform: scale(1);
-}
-
-:deep(.swiper-slide-active) .tech-card-inner::before {
-  border: 3px solid transparent;
-  background: linear-gradient(#1a1f3a, #1a1f3a) padding-box, var(--gradient-border-neon) border-box;
-  filter: grayscale(0%);
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.4), 0 0 20px rgba(96, 165, 250, 0.2);
-}
-
-/* Boutons navigation */
-:deep(.swiper-button-next),
-:deep(.swiper-button-prev) {
-  color: var(--color-primary);
-}
+@import url('../../assets/styles/components/carousel.css');
 </style>

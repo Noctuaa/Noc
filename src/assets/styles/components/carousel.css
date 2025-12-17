@@ -1,65 +1,129 @@
-/* === CAROUSEL LAYOUT === */
-.slider {
-  transform-style: preserve-3d;
+/* ========================================
+  TECH CAROUSEL - SWIPER CONTAINER
+  Full-width carousel with technologies cards
+  ======================================== */
+
+.tech-swiper {
   width: 100%;
-  height: 260px;
-  transform: perspective(1000px) rotateX(6deg);
+  height: 350px;
+  padding: 20px 60px;
+  position: relative;
+  z-index: 10;
 }
 
-/* === CAROUSEL ITEMS === */
-.slider .carousel-item {
-  transform-style: preserve-3d;
-  transform: translateX(calc((var(--position) - 2) * 100px)) translateZ(calc((2 - abs(var(--position) - 2)) * 10px));
-  transition: transform var(--transition-normal) ease, scale var(--transition-normal) ease;
-  -webkit-box-reflect: below 2.5px linear-gradient(transparent, transparent, rgba(3, 3, 3, 0.2));
-}
+/* ========================================
+  TECH CARDS - LAYOUT & STRUCTURE
+  ======================================== */
+.tech-card {
+  /* Dimensions */
+  height: 100%;
+  width: 100%;
+  max-height: 300px;
+  max-width: 350px;
+  margin: 0 auto;
 
-.slider .stacked {
-  transform: translate(0px, 0px) rotate3d(1, 0, 0, 50deg) !important;
-}
-
-.carousel-item.item-scale {
-  transform: translateX(calc((var(--position) - 2) * 100px)) translateZ(50px);
-  scale: 1.06;
-}
-
-/* === DOTS NAVIGATION === */
-
-.dot {
-  width: 16px;
-  height: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  background: transparent;
+  /* Default state (inactive) */
+  opacity: 0.6;
+  transform: scale(0.9);
+  transition: all 0.3s ease;
   cursor: pointer;
-  transition: all var(--transition-fast) ease;
 }
 
-.dot:hover {
-  border-color: rgb(255, 255, 255);
+.tech-card-inner {
+  /* Glassmorphism effect */
+  background: rgba(80, 79, 82, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  border-radius: var(--border-radius-lg);
+
+  /* Layout */
+  height: 100%;
+  padding: var(--spacing-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-4);
+
+  /* Animation */
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 6;
 }
 
-.dot.active {
-  background: white;
-  border-color: white;
-  transform: scale(1.1);
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
-  animation: dot-pulse var(--transition-normal) ease-out;
+/* Pseudo-element for neon border effect (padding-box/border-box technique) 
+  */
+.tech-card-inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 101%;
+  height: 101%;
+  border-radius: var(--border-radius-lg);
+  z-index: -1;
+  filter: grayscale(70%); /* Desaturated by default */
 }
 
-/* === ANIMATIONS === */
+/* ========================================
+  TECH CARDS - CONTENT (Logo, Title, Description)
+  ======================================== */
 
-@keyframes dot-pulse {
-  0% {
-    transform: scale(1);
-    background: transparent;
-  }
-  50% {
-    transform: scale(1.5);
-    background: transparent;
-  }
-  100% {
-    transform: scale(1.1);
-    background: white;
-  }
+.tech-logo {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-2);
 }
 
+.tech-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.tech-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary-text);
+  text-align: center;
+  margin: 0;
+}
+
+.tech-description {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ========================================
+  STATES & EFFECTS - ACTIVE SLIDE
+  ======================================== */
+
+/* Active card: full opacity, normal scale, full color */
+:deep(.swiper-slide-active) .tech-card {
+  opacity: 1;
+  transform: scale(1);
+  filter: grayscale(0%);
+}
+
+/* Neon border on active card (padding-box/border-box technique) */
+:deep(.swiper-slide-active) .tech-card-inner::before {
+  border: 3px solid transparent;
+  background: linear-gradient(#1a1f3a, #1a1f3a) padding-box, var(--gradient-border-neon) border-box;
+  filter: grayscale(0%); /* Full color */
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.4), 0 0 20px rgba(96, 165, 250, 0.2);
+}
+
+/* ========================================
+  NAVIGATION BUTTONS (disabled but styled if re-enabled)
+  ======================================== */
+
+:deep(.swiper-button-next),
+:deep(.swiper-button-prev) {
+  color: var(--color-primary);
+}

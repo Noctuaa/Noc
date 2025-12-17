@@ -1,6 +1,25 @@
-@import './variables.css';
-@import './base.css';
-@import './utilities.css';
-@import './ui/buttons.css';
-@import './ui/footer.css';
-@import './components/profile-section.css';
+/* ========================================
+  NOCDEV PORTFOLIO - MAIN CSS
+  Entry point for all stylesheets
+  ======================================== */
+
+/* === FOUNDATIONS === */
+@import './variables.css'; /* Design tokens (colors, spacing, fonts) */
+@import './base.css'; /* Resets, global styles, animations */
+@import './utilities.css'; /* Helper classes (.border-neon, .separator)
+   */
+
+/* === LAYOUT (global structure) === */
+@import './layout/navigation.css';
+@import './layout/footer.css';
+
+/* === SECTIONS (homepage) === */
+@import './sections/hero.css';
+@import './sections/profile.css';
+@import './sections/competence.css';
+@import './sections/portfolio.css';
+@import './sections/contact.css';
+
+/* === COMPONENTS (reusable UI) === */
+@import './components/carousel.css';
+@import './components/buttons.css';

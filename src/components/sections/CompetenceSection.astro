@@ -14,29 +14,5 @@ import TechCarousel from '../ui/TechCarousel.vue';
 </section>
 
 <style>
-  #competences {
-    position: relative;
-  }
-
-  #competences::after {
-    content: '';
-    position: absolute;
-    bottom: 0px;
-    left: 0;
-    right: 0;
-    height: 180px;
-    background: linear-gradient(135deg, #08091a 0%, #0d1121 100%);
-    z-index: 5;
-    display: none;
-  }
-
-  @media (min-width: 993px) {
-    #competences {
-      padding-bottom: 0 !important; /* Chevauchement seulement desktop */
-    }
-
-    #competences::after {
-      display: block;
-    }
-  }
+  @import '../../assets/styles/sections/competence.css';
 </style>

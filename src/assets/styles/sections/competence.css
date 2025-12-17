@@ -1,0 +1,35 @@
+/* ========================================
+  COMPETENCE SECTION
+  Section with technologies carousel
+  + Overlap effect with Portfolio (desktop only)
+  ======================================== */
+
+#competences {
+  position: relative;
+}
+
+#competences::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: linear-gradient(135deg, #08091a 0%, #0d1121 100%);
+  z-index: 5;
+  display: none;
+}
+
+/* ========================================
+  RESPONSIVE - DESKTOP
+  ======================================== */
+
+@media (min-width: 993px) {
+  #competences {
+    padding-bottom: 0 !important;
+  }
+
+  #competences::after {
+    display: block;
+  }
+}
