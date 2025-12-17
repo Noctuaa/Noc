@@ -1,5 +1,5 @@
 ---
-// Placeholder pour futur accordéon horizontal
+import ProjectAccordion from '../portfolio/ProjectAccordion.vue';
 ---
 
 <section id="portfolio" class="section bg-alt">
@@ -9,17 +9,14 @@
       <div class="separator-h separator-h-gradient"></div>
       <p class="section-description">Découvrez mes projets et réalisations techniques.</p>
     </div>
-
-    <!-- Placeholder accordéon - sera développé plus tard -->
-    <div class="portfolio-placeholder">
-      <p>Accordéon horizontal à venir...</p>
-    </div>
+    <ProjectAccordion client:load />
   </div>
 </section>
 
 <style>
   #portfolio {
     position: relative;
+    padding-bottom: 240px;
   }
 
   /* Placeholder temporaire */
