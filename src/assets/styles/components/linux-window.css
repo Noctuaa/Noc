@@ -1,0 +1,45 @@
+/* ========================================
+  LINUX WINDOW - Reusable terminal-style window
+  ======================================== */
+
+.linux-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border-bottom: var(--border-subtle);
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+}
+
+.linux-title {
+  color: #00d4ff;
+  font-weight: 600;
+}
+
+.linux-controls {
+  display: flex;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+  line-height: 1;
+  cursor: default;
+}
+
+.linux-controls span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  height: 20px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .linux-bar {
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+}

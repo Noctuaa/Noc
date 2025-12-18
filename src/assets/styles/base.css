@@ -24,6 +24,7 @@ h2 {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+  margin-top: 0;
   margin-bottom: 1.5rem;
   width: fit-content;
 }
@@ -52,7 +53,7 @@ ul {
 
 section {
   position: relative;
-  padding: clamp(3rem, 8vw, 6rem) 0;
+  padding: clamp(5rem, 10vw, 9rem) 0;
   background: var(--gradient-bg-1);
 }
 
