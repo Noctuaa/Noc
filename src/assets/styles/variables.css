@@ -53,6 +53,12 @@
 
   --border-card: rgba(96, 165, 250, 0.3); /* Cards borders */
 
+  /* === FORM INPUTS === */
+  --input-bg: rgba(10, 15, 30, 0.8);
+  --input-bg-focus: rgba(10, 15, 30, 0.8);
+  --input-border: rgba(96, 165, 250, 0.4);     /* Bleu néon - cohérence avec le site */
+  --input-border-focus: rgba(96, 165, 250, 0.9); /* Bleu néon intense au focus */
+
   /* === STATES === */
   --opacity-inactive: 0.6;
   --scale-inactive: 0.9;

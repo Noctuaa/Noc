@@ -7,6 +7,9 @@
   text-decoration: none;
   display: inline-block;
   border: none;
+  font-family: inherit; /* Hérite la font du parent */
+  font-size: inherit; /* Évite le font-size par défaut du navigateur */
+  line-height: inherit;
 }
 
 .btn-gradient {
@@ -39,6 +42,7 @@
   color: var(--color-primary-text);
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .btn-outline::before {
@@ -55,6 +59,7 @@
 
 .btn-outline:hover {
   border-color: transparent;
+  color: white; /* Text white on hover */
 }
 
 .btn-outline:hover::before {

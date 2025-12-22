@@ -1,0 +1,129 @@
+/* ========================================
+  FORM - Reusable form components
+  ======================================== */
+
+/* === FORM CONTAINER === */
+
+.form {
+  position: relative;
+  background: transparent;
+  max-width: 650px;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--spacing-8); /* Reduced padding */
+}
+
+.form-row {
+  gap: var(--spacing-4);
+}
+
+/* === FORM GROUPS === */
+
+.form-group {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 36px; /* More spacing for floating labels */
+}
+
+/* === FORM LABELS === */
+
+.form-label {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: var(--color-primary-text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  z-index: 1;
+  transition: all 0.6s ease;
+}
+
+.form-input:focus + .form-label,
+.form-textarea:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label,
+.form-textarea:not(:placeholder-shown) + .form-label {
+  top: -22px;
+  scale: 0.93;
+  left: 0px;
+}
+
+/* === FORM INPUTS & TEXTAREA === */
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 16px;
+  font-family: inherit;
+  background: var(--input-bg);
+  border: 2px solid var(--input-border);
+  border-radius: var(--border-radius-sm);
+  color: var(--color-primary-text);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.form-input:focus,
+input:-webkit-autofill:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--input-border-focus);
+  background: var(--input-bg-focus);
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* === VALIDATION & ERROR MESSAGES === */
+
+.form-input.error,
+.form-textarea.error {
+  border-color: #ff6b6b !important;
+  box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2) !important;
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.8rem;
+  margin-top: var(--spacing-1);
+  padding-left: var(--spacing-2);
+  font-weight: 500;
+  opacity: 0.9;
+  animation: fadeInError 0.3s ease-out;
+}
+
+@keyframes fadeInError {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+    RESPONSIVE
+  ======================================== */
+
+@media (max-width: 768px) {
+  .form-group {
+    min-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .form-row {
+    gap: 0 !important;
+  }
+
+  .textarea-box {
+    margin: 0;
+  }
+}
+@media (max-width: 576px) {
+  .form {
+    padding: var(--spacing-8) var(--spacing-3);
+  }
+}

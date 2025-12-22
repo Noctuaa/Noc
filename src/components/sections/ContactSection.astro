@@ -1,0 +1,27 @@
+---
+import ContactForm from '../ui/ContactForm.vue';
+---
+
+<section id="contact" class="section section-layout-left">
+  <div class="container">
+    <div class="section-header">
+      <h2>Contact</h2>
+      <div class="separator-h separator-h-gradient"></div>
+      <p class="section-description">
+        Je serais ravi de répondre à vos questions et d'échanger sur vos projets. N'hésitez pas à me contacter pour
+        discuter de vos besoins en développement web.
+      </p>
+    </div>
+    <div class="contact-window profile-window linux-window rounded-lg p-relative">
+      <div class="linux-bar">
+        <span class="linux-title">> noctua/contact.dev</span>
+        <div class="linux-controls">
+          <span>▲</span>
+          <span>▼</span>
+          <span>✕</span>
+        </div>
+      </div>
+      <ContactForm client:load />
+    </div>
+  </div>
+</section>
