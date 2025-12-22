@@ -1,0 +1,58 @@
+/* ========================================
+  SECTIONS LAYOUT - Special layout patterns
+  ======================================== */
+
+.section-layout-left .container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--spacing-16);
+  align-items: start;
+}
+
+.section-layout-left .section-header {
+  text-align: left;
+  place-items: flex-start;
+  margin-bottom: 0;
+}
+
+.section-layout-left .section-header h2 {
+  margin-left: 0;
+}
+
+.section-layout-left .divider hr {
+  margin-left: 0;
+}
+
+.section-layout-left .section-description {
+  text-align: left;
+  margin: 0;
+  animation: none;
+  border-right: none;
+  width: 100%;
+  white-space: normal;
+  max-width: 500px;
+  line-height: 1.8;
+}
+
+/* === RESPONSIVE MOBILE === */
+@media (max-width: 1200px) {
+  .section-layout-left .container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+  }
+
+  .section-layout-left .section-header {
+    text-align: center;
+    place-items: center;
+    margin-bottom: var(--spacing-8);
+  }
+
+  .section-layout-left .divider hr {
+    margin: 0 auto;
+  }
+
+  .section-layout-left .section-description {
+    text-align: center;
+    margin: 0 auto;
+  }
+}
