@@ -1,0 +1,42 @@
+---
+import SocialButtons from '../ui/SocialButtons.vue';
+import LegalFooter from '../ui/LegalFooter.vue';
+---
+
+<footer class="footer p-relative">
+  <svg class="wave-footer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 
+  1440 100" preserveAspectRatio="none">
+    <path fill="#0D1121" d="M0,0 L0,40 Q360,100 720,40 T1440,40 L1440,0 Z"></path>
+  </svg>
+
+  <div class="container">
+    <div class="footer-brand mb-6">
+      <h3 class="brand-name">Nocdev</h3>
+      <p class="email">contact@nocdev.fr</p>
+      <SocialButtons client:load />
+    </div>
+    <LegalFooter client:visible />
+  </div>
+</footer>
+
+<style>
+  /* === WAVE FOOTER === */
+  /* === WAVE FOOTER === */
+  /* === WAVE FOOTER === */
+  .wave-footer {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    transform: rotate(180deg); /* ← La clé ! */
+    pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    .wave-footer {
+      height: 30px; /* Réduit de 80px à 60px */
+      top: -30px; /* Ajuste la position aussi */
+    }
+  }
+</style>

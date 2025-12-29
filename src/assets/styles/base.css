@@ -29,6 +29,13 @@ h2 {
   width: fit-content;
 }
 
+h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  color: var(--color-primary-text);
+  margin-bottom: var(--spacing-1);
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -54,11 +61,11 @@ ul {
 section {
   position: relative;
   padding: clamp(5rem, 10vw, 9rem) 0;
-  background: var(--gradient-bg-1);
+  background: var(--bg-primary);
 }
 
 section.bg-alt {
-  background: var(--gradient-bg-2) !important;
+  background: var(--bg-alt) !important;
 }
 
 .curtain-container {
