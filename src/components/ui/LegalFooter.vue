@@ -38,6 +38,7 @@ onMounted(() => {
     </div>
     <div class="footer-legal d-flex gap-4">
       <a href="#" @click.prevent="openModal('mentions')" class="legal-link">Mentions légales</a>
+      <span>•</span>
       <a href="#" @click.prevent="openModal('confidentialite')" class="legal-link">Confidentialité</a>
     </div>
 

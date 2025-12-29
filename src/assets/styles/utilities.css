@@ -90,6 +90,10 @@
 .m-0 {
   margin: 0;
 }
+.mb-6 {
+  margin-bottom: var(--spacing-6);
+}
+
 .mt-5 {
   margin-top: var(--spacing-5);
 }

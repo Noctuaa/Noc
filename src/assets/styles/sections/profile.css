@@ -8,8 +8,6 @@
 
 .profile-window {
   height: auto; /* Assure-toi qu'elle ne force pas une hauteur fixe trop grande */
-  max-height: 90vh; /* Limite à 90% du viewport */
-
   border: 2px solid transparent;
   background: linear-gradient(#1a1f3a, #1a1f3a) padding-box, var(--gradient-border-neon) border-box;
   box-shadow: 0 0 10px rgba(59, 130, 246, 0.4), 0 0 20px rgba(96, 165, 250, 0.2);

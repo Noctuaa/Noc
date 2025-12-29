@@ -1,8 +1,7 @@
 ---
 import '../assets/styles/main.css';
 import Navigation from '../components/ui/Navigation.vue';
-import SocialButtons from '../components/ui/SocialButtons.vue';
-import LegalFooter from '../components/ui/LegalFooter.vue';
+import Footer from '../components/layouts/Footer.astro';
 ---
 
 <!doctype html>
@@ -25,29 +24,7 @@ import LegalFooter from '../components/ui/LegalFooter.vue';
     <Navigation client:load />
     <div class="teleport-container"></div>
     <slot />
-    <footer class="footer p-relative">
-      <div class="footer-container container">
-        <div class="footer-content d-grid gap-8">
-          <!-- Colonne 1 : Tes infos -->
-          <div class="footer-brand">
-            <h3>NocDev</h3>
-            <p>Développeur</p>
-            <p class="email">contact@nocdev.fr</p>
-            <SocialButtons client:load />
-          </div>
-
-          <!-- Navigation -->
-          <div class="footer-nav js-center">
-            <h4>Navigation</h4>
-            <ul>
-              <li><a href="#hero">Accueil</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
-          <LegalFooter client:visible />
-        </div>
-      </div>
-    </footer>
+    <Footer />
     <script>
       import { initLenis, initCurtainEffect, initProfileAnimations } from '../utils/ScrollManager';
       window.addEventListener('load', () => {

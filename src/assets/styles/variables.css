@@ -15,9 +15,11 @@
   /* === GRADIENTS === */
   --gradient-holo: linear-gradient(135deg, rgb(27, 60, 120), rgb(22, 79, 115), rgb(71, 60, 161));
   --gradient-cta: linear-gradient(135deg, #667eea, #764ba2);
-  --gradient-bg-1: linear-gradient(135deg, #0d1129 0%, #151a32 100%);
-  --gradient-bg-2: linear-gradient(135deg, #08091a 0%, #0f1225 100%);
   --gradient-border-neon: linear-gradient(90deg, #60a5fa, #6978e3);
+
+  /* === BACKGROUNDS === */
+  --bg-primary: linear-gradient(135deg, #0d1129 0%, #151a32 100%); /* Sections Hero, Compétences */
+  --bg-alt: #0d1121; /* Sections Profile, Portfolio, Footer */
 
   /* ===TYPOGRAPHIE === */
   --font-family-primary: 'Inter', system-ui, sans-serif;
@@ -56,8 +58,8 @@
   /* === FORM INPUTS === */
   --input-bg: rgba(10, 15, 30, 0.8);
   --input-bg-focus: rgba(10, 15, 30, 0.8);
-  --input-border: rgba(96, 165, 250, 0.4);     /* Bleu néon - cohérence avec le site */
-  --input-border-focus: rgba(96, 165, 250, 0.9); /* Bleu néon intense au focus */
+  --input-border: rgba(96, 165, 250, 0.4);
+  --input-border-focus: rgba(96, 165, 250, 0.9);
 
   /* === STATES === */
   --opacity-inactive: 0.6;

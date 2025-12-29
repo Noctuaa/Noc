@@ -29,7 +29,7 @@
   flex: 1;
   overflow: hidden;
   transition: flex var(--transition-normal) cubic-bezier(0.25, 1, 0.5, 1);
-  background: var(--gradient-bg-2); /* Ton gradient sombre */
+  background: var(--bg-alt); /* Ton gradient sombre */
   border-radius: var(--border-radius-lg);
   display: flex;
   align-items: flex-end;
@@ -38,7 +38,7 @@
 
 /* Hover effect (léger) */
 .project-item:hover {
-  background: var(--gradient-bg-1);
+  background: var(--bg-primary);
 }
 
 /* Active state (expanded) */
