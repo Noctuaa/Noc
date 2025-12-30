@@ -1,6 +1,6 @@
 ---
 import SocialButtons from '../ui/SocialButtons.vue';
-import LegalFooter from '../ui/LegalFooter.vue';
+import Modal from '../ui/Modal.vue';
 ---
 
 <footer class="footer p-relative">
@@ -15,28 +15,70 @@ import LegalFooter from '../ui/LegalFooter.vue';
       <p class="email">contact@nocdev.fr</p>
       <SocialButtons client:load />
     </div>
-    <LegalFooter client:visible />
+    <div class="separator-h separator-h-gradient"></div>
+    <div class="footer-bottom d-flex jc-between pt-4">
+      <div class="copy">
+        <p class="m-0">© 2025 Noctua</p>
+      </div>
+      <div class="footer-legal d-flex gap-2">
+        <Modal title="Mentions légales" client:load>
+          <h4>Éditeur du site</h4>
+          <p>
+            <strong>Noctua</strong>
+            <br />
+            Développeur Full-Stack JavaScript
+            <br />
+            France
+            <br />
+            Email : contact@nocdev.fr
+          </p>
+          <h4>Hébergement</h4>
+          <p>
+            <strong>PlanetHoster</strong>
+            <br />
+            4416 Louis B. Mayer
+            <br />
+            Laval, QC H7P 0G1, Canada
+          </p>
+          <h4>Propriété intellectuelle</h4>
+          <p>Tous droits réservés. Ce portfolio est protégé par le droit d'auteur.</p>
+        </Modal> .
+        <Modal title="Politique de confidentialité" client:load>
+          <h4>Données collectées</h4>
+          <p>Via le formulaire de contact :</p>
+          <ul>
+            <li>Nom et prénom</li>
+            <li>Adresse email</li>
+            <li>Message</li>
+          </ul>
+          <h4>Utilisation</h4>
+          <p>Ces données servent uniquement à répondre à vos demandes.</p>
+          <h4>Vos droits</h4>
+          <p>Accès, rectification, suppression : contact@nocdev.fr</p>
+        </Modal>
+      </div>
+    </div>
   </div>
-</footer>
 
-<style>
-  /* === WAVE FOOTER === */
-  /* === WAVE FOOTER === */
-  /* === WAVE FOOTER === */
-  .wave-footer {
-    position: absolute;
-    top: -80px;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    transform: rotate(180deg); /* ← La clé ! */
-    pointer-events: none;
-  }
-
-  @media (max-width: 768px) {
+  <style>
+    /* === WAVE FOOTER === */
+    /* === WAVE FOOTER === */
+    /* === WAVE FOOTER === */
     .wave-footer {
-      height: 30px; /* Réduit de 80px à 60px */
-      top: -30px; /* Ajuste la position aussi */
+      position: absolute;
+      top: -80px;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      transform: rotate(180deg); /* ← La clé ! */
+      pointer-events: none;
     }
-  }
-</style>
+
+    @media (max-width: 768px) {
+      .wave-footer {
+        height: 30px; /* Réduit de 80px à 60px */
+        top: -30px; /* Ajuste la position aussi */
+      }
+    }
+  </style>
+</footer>

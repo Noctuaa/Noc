@@ -1,0 +1,52 @@
+/* ========================================
+  MODAL - Reusable modal component
+  Used for legal pages, notices, etc.
+  ======================================== */
+
+/* === TRANSITIONS === */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity var(--transition-fast) ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* === MODAL OVERLAY === */
+.modal-overlay {
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+}
+
+/* === MODAL CONTENT === */
+.modal-content {
+  padding: clamp(var(--spacing-5), 4vw, var(--spacing-8));
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* Content typography overrides */
+.modal-content h4:first-child {
+  margin-top: 0;
+}
+
+.modal-content p,
+.modal-content ul,
+.modal-content ol {
+  font-size: 0.95rem; /* Légèrement plus petit dans modal */
+}
+
+.modal-content ul,
+.modal-content ol {
+  margin: var(--spacing-3) 0;
+  padding-left: var(--spacing-6);
+  list-style: disc; /* Rétablit les puces pour le modal */
+}
+
+.modal-content li {
+  margin-bottom: var(--spacing-2);
+  color: var(--color-text-secondary);
+}

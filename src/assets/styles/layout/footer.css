@@ -31,7 +31,6 @@
 /* === FOOTER BOTTOM === */
 .footer-bottom {
   grid-area: 2/ 1 / 3 / 3;
-  border-top: 1px solid rgba(96, 165, 250, 0.2);
   font-size: 0.9rem;
 }
 

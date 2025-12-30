@@ -34,6 +34,8 @@ export const initLenis = () => {
     smoothTouch: false,
   });
 
+  window.lenis = lenis; // Expose for debugging
+
   // Sync Lenis with GSAP ScrollTrigger
   lenis.on('scroll', ScrollTrigger.update);
 

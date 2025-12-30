@@ -36,6 +36,35 @@
   height: 20px;
 }
 
+.linux-close {
+  position: relative;
+  top: 1px;
+  cursor: pointer;
+  transition: all var(--transition-fast) ease;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.linux-close::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background-color: transparent;
+  width: 20px;
+  height: 20px;
+  z-index: -1;
+}
+
+.linux-close:hover::after {
+  background-color: #60a5fa;
+  box-shadow: 0 0 8px #60a5fa;
+  top: -1px;
+}
+
+.linux-close:hover {
+  color: var(--color-primary-text);
+}
+
 /* Responsive */
 @media (max-width: 480px) {
   .linux-bar {
