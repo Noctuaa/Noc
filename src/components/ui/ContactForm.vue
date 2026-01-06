@@ -155,3 +155,5 @@ const submitForm = async () => {
     </div>
   </form>
 </template>
+
+<style src="../../assets/styles/components/form.css"></style>

@@ -1,0 +1,187 @@
+/* ============================================
+     NAVIGATION MENU
+     Desktop & Mobile responsive navigation
+     ============================================ */
+
+/* === BASE NAVIGATION (Desktop) === */
+.navigation {
+  position: fixed;
+  margin: 0 auto;
+  width: 100%;
+  top: 2%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: width 0.3s ease, background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, top 0.3s ease;
+}
+
+.nav-list {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  cursor: pointer;
+  transition: transform var(--transition-fast) ease;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 0.525rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+/* Active state */
+.nav-item.active .nav-link,
+.nav-item:hover .nav-link {
+  color: var(--color-text-primary);
+  text-shadow: 0 0 5px rgba(96, 165, 250, 0.8), 0 1px 2px rgba(0, 0, 0, 0.3);
+  border-bottom-color: rgba(96, 165, 250, 0.6);
+  transform: scale(1.05);
+}
+
+/* Hover/Tap feedback */
+.nav-item:hover .nav-link {
+  color: var(--color-text-primary);
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.5); /* Shadow subtil */
+  border-bottom-color: rgba(96, 165, 250, 0.6); /* Underline apparaît */
+}
+
+/* === DESKTOP SCROLL BEHAVIOR === */
+
+/* Navigation scrolled state (glassmorphism) */
+.navigation.scrolled {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: linear-gradient(to bottom, rgba(11, 15, 23, 0.8), rgba(11, 15, 23, 0.35));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Hide navigation on scroll down */
+.navigation.hidden {
+  transform: translateY(-120%);
+}
+
+/* === HAMBURGER BUTTON (Mobile) === */
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 5px;
+  transition: transform 0.3s ease;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Hamburger animation when menu open */
+.navOpen .hamburger {
+  left: auto;
+  transform: translateX(calc(100vw - 65px));
+}
+
+.navOpen .hamburger span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.navOpen .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+.navOpen .hamburger span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* === RESPONSIVE (Mobile) === */
+@media (max-width: 768px) {
+  .navigation {
+    position: fixed;
+    width: 0%;
+    height: 100dvh;
+    margin: 0;
+    left: 0;
+    top: 0;
+    border-radius: 0;
+    background: transparent;
+    transition: all 0.3s ease;
+  }
+
+  /* Override glassmorphism when menu is closed */
+  .navigation.scrolled {
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    border-bottom: none;
+  }
+
+  .navigation .container {
+    justify-content: center;
+  }
+
+  .logo-placeholder {
+    display: none;
+  }
+
+  /* Enlève les effets hover (pas utiles sur tactile) */
+  .nav-item:hover .nav-link {
+    text-shadow: none; /* Pas de glow */
+    border-bottom-color: transparent; /* Pas d'underline */
+  }
+
+  /* Garde l'état active (section actuelle) */
+  .nav-item.active .nav-link {
+    color: var(--color-text-primary);
+    border-bottom-color: transparent; /* Underline pour actif */
+  }
+
+  /* Solid background when menu is open */
+  .navOpen {
+    width: 100%;
+    background: var(--bg-primary) !important;
+  }
+
+  .navOpen .nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100dvh;
+    gap: 0.5rem;
+  }
+
+  .navOpen .nav-link {
+    font-size: 1.5rem;
+    padding: 1.25rem 2.5rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-list {
+    display: none;
+  }
+}

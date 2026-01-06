@@ -83,6 +83,4 @@ const modules = [Navigation, Autoplay];
   </Swiper>
 </template>
 
-<style scoped>
-@import url('../../assets/styles/components/carousel.css');
-</style>
+<style scoped src="../../assets/styles/components/carousel.css"></style>

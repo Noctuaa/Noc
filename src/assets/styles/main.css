@@ -10,8 +10,9 @@
    */
 
 /* === LAYOUT (global structure) === */
-@import './layout/navigation.css';
-@import './layout/footer.css';
+@import './layouts/navigation.css';
+@import './layouts/sections.css';
+@import './layouts/footer.css';
 
 /* === SECTIONS (homepage) === */
 @import './sections/hero.css';
@@ -21,9 +22,5 @@
 @import './sections/contact.css';
 
 /* === COMPONENTS (reusable UI) === */
-@import './components/carousel.css';
 @import './components/buttons.css';
 @import './components/linux-window.css';
-@import './components/form.css';
-@import './components/modal.css';
-@import './layout/sections.css';

@@ -1,8 +1,7 @@
 /* === FOOTER BASE === */
 .footer {
-  background: #0d1121;
   position: relative;
-  border-top: 1px solid rgba(96, 165, 250, 0.2);
+  background-color: #0b0f17;
   padding: var(--spacing-8) 0 var(--spacing-8);
   font-size: 0.9rem;
 }

@@ -1,6 +1,6 @@
 /**
  * @fileoverview ScrollManager - Manages smooth scrolling with Lenis and GSAP ScrollTrigger
- * Handles smooth scroll initialization, navigation, and curtain effect animations
+ * Handles smooth scroll initialization, navigation, and curtain effect animations, and utility functions.
  */
 
 import Lenis from 'lenis';
@@ -50,6 +50,25 @@ export const initLenis = () => {
 };
 
 /**
+ * Throttle a function to execute at most once per delay period
+ * Useful for performance optimization on high-frequency events+(scroll, resize, mousemove)
+ * @param {Function} func - Function to throttle
+ * @param {number} delay - Minimum delay between executions in +milliseconds
+ * @returns {Function} Throttled function
+ * @example  const handleScrollThrottled = throttle(handleScroll, 100); // +Max 10 executions/second
+ */
+export const throttle = (func, delay) => {
+  let lastCall = 0;
+  return (...args) => {
+    const now = Date.now();
+    if (now - lastCall >= delay) {
+      lastCall = now;
+      func.apply(this, args);
+    }
+  };
+};
+
+/**
  * Smooth scroll to a specific target
  * @param {string|number} target - CSS selector (e.g., '#profile') or pixel position (e.g., 1000)
  */
@@ -58,6 +77,14 @@ export const scrollTo = (target) => {
     console.error('Lenis not initialized');
     return;
   }
+  // For sections after Profile, remove curtain-fixed FIRST
+  const sectionsAfterProfile = ['#competences', '#portfolio', '#contact'];
+  const profileSection = document.querySelector('#profile');
+
+  if (sectionsAfterProfile.includes(target) && profileSection.classList.contains('curtain-fixed')) {
+    profileSection.classList.remove('curtain-fixed');
+  }
+
   lenis.scrollTo(target, { DURATION, offset: 0 });
 };
 

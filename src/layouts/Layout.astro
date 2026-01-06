@@ -1,6 +1,6 @@
 ---
 import '../assets/styles/main.css';
-import Navigation from '../components/ui/Navigation.vue';
+import Navigation from '../components/layouts/Navigation.astro';
 import Footer from '../components/layouts/Footer.astro';
 ---
 
@@ -17,17 +17,18 @@ import Footer from '../components/layouts/Footer.astro';
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
+
     <title>Noc</title>
   </head>
   <body>
     <!--<div class="fixed-background"></div>-->
-    <Navigation client:load />
+    <Navigation />
     <div class="teleport-container"></div>
     <slot />
     <Footer />
     <script>
       import { initLenis, initCurtainEffect, initProfileAnimations } from '../utils/ScrollManager';
-      window.addEventListener('load', () => {
+      window.addEventListener('DOMContentLoaded', () => {
         initLenis();
         initCurtainEffect();
 

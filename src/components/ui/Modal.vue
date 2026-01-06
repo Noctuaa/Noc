@@ -68,3 +68,5 @@ const closeModal = () => {
     </Teleport>
   </transition>
 </template>
+
+<style src="../../assets/styles/components/modal.css"></style>

@@ -19,10 +19,11 @@
 
   /* === BACKGROUNDS === */
   --bg-primary: linear-gradient(135deg, #0d1129 0%, #151a32 100%); /* Sections Hero, Compétences */
-  --bg-alt: #0d1121; /* Sections Profile, Portfolio, Footer */
+  --bg-alt: #0b0f17; /* Sections Profile, Portfolio, Footer */
 
   /* ===TYPOGRAPHIE === */
   --font-family-primary: 'Inter', system-ui, sans-serif;
+  --font-family-secondary: 'Roboto Mono', monospace;
 
   /* === SPACING SYSTÈME === */
   --spacing-1: 0.25rem; /* 4px */

@@ -94,21 +94,23 @@ section.bg-alt {
 }
 
 .curtain-container {
-  min-height: 200vh !important;
+  min-height: 200dvh !important;
   height: auto;
   position: relative;
 }
 
-.curtain-container > #hero {
+.curtain-container > #hero,
+.curtain-container > #profile {
   position: relative;
+  min-height: 100dvh;
+}
+
+.curtain-container > #hero {
   z-index: 2;
-  min-height: 100vh;
 }
 
 .curtain-container > #profile {
-  position: relative;
   z-index: 1;
-  min-height: 100vh;
 }
 
 #profile.curtain-fixed {
