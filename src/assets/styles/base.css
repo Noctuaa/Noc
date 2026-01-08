@@ -17,6 +17,14 @@ a {
   cursor: pointer;
 }
 
+h1 {
+  font-size: clamp(2.5rem, 8vw, 6rem); /* 40px → 8vw → 64px */
+  display: block;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  margin-bottom: clamp(var(--spacing-2), 3vw, var(--spacing-5));
+}
+
 h2 {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
@@ -44,6 +52,11 @@ h4 {
   margin-bottom: var(--spacing-3);
 }
 
+/* Évite double marge entre h4 et p */
+h4 + p {
+  margin-top: 0;
+}
+
 p {
   color: var(--color-text-secondary);
   line-height: 1.6;
@@ -62,15 +75,14 @@ ul {
   margin: 0;
 }
 
-/* Évite double marge entre h4 et p */
-h4 + p {
-  margin-top: 0;
+hr {
+  margin: var(--spacing-4) 0;
 }
 
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 var(--spacing-4);
+  padding: 0 clamp(1rem, 4vw, 3rem);
 }
 
 .fixed-background {
@@ -136,9 +148,9 @@ section.bg-alt {
 .section-description {
   width: 0;
   max-width: fit-content;
-  font-size: clamp(0.9rem, 2vw, 1.1rem);
-  opacity: 0.7;
-  margin: 0 auto;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  opacity: 0.9;
+  margin: 0;
   overflow: hidden;
   text-align: center;
   white-space: nowrap;
@@ -150,8 +162,6 @@ section.bg-alt {
   .section-description {
     width: 100%;
     max-width: 100%;
-    font-size: 0.85rem;
-    padding: 0 var(--spacing-4);
     overflow-wrap: break-word;
     white-space: normal;
     overflow: visible;

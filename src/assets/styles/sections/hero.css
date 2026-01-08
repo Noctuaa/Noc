@@ -1,0 +1,84 @@
+/* === HERO SECTION === */
+
+#hero {
+  position: relative;
+  height: 100dvh;
+  overflow: hidden;
+  background: url('../../images/peakpx.svg') no-repeat bottom center/cover, var(--bg-primary);
+  z-index: 68;
+}
+
+/* === HERO CONTENT === */
+
+h1 {
+  margin-bottom: clamp(var(--spacing-2), 3vw, var(--spacing-5));
+}
+
+h1 .name {
+  background: var(--gradient-border-neon);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h1 .job {
+  font-size: clamp(1.125rem, 3vw, 1.5rem);
+  font-weight: 600;
+  opacity: 0.9;
+  letter-spacing: 0.08em;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+#hero .section-description {
+  font-size: clamp(0.875rem, 2vw, 1.1rem); /* 14px → 2vw → 16px */
+}
+
+/* === STARS ANIMATION === */
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+/* === RESPONSIVE === */
+
+@media (max-width: 768px) {
+  .hero-content {
+    max-width: 100%;
+  }
+
+  #hero .section-description {
+    text-align: left;
+    padding: 0;
+  }
+}

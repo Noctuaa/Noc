@@ -1,6 +1,6 @@
 ---
 import '../assets/styles/main.css';
-import Navigation from '../components/layouts/Navigation.astro';
+import Navigation from '../components/layouts/Navigation.vue';
 import Footer from '../components/layouts/Footer.astro';
 ---
 
@@ -22,7 +22,7 @@ import Footer from '../components/layouts/Footer.astro';
   </head>
   <body>
     <!--<div class="fixed-background"></div>-->
-    <Navigation />
+    <Navigation client:load />
     <div class="teleport-container"></div>
     <slot />
     <Footer />

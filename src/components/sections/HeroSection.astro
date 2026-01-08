@@ -55,92 +55,15 @@ import SocialButtons from '../../components/ui/SocialButtons.vue';
     <div class="star" style="left: 37.1598%; top: 44.8005%; animation-delay: 2.33327s;"></div>
     <div class="star" style="left: 42.0389%; top: 92.2949%; animation-delay: 2.31171s;"></div>
   </div>
-  <div class="container hero-content d-grid h-100">
-    <div class="hero-text">
-      <h1 class="hero-title">Nocdev</h1>
-      <p class="hero-subtitle">Développeur</p>
-      <p class="section-description hero-description">Développeur, passionné d'apprentissage et de technologies.</p>
+  <div class="container d-flex ai-center h-100">
+    <div class="hero-content w-100">
+      <h1 class="d-flex fd-column gap-1Ah tu l">
+        <span class="name">Nocdev</span>
+        <span class="job">Développeur d'application</span>
+      </h1>
+      <p class="section-description">Créateur passionné de solutions web et technologies modernes.</p>
       <hr class="divider" />
       <SocialButtons client:load />
     </div>
   </div>
 </section>
-
-<style>
-  .hero-description {
-    font-weight: 400;
-    font-size: 1rem;
-    margin-bottom: var(--spacing-4);
-    opacity: 0.8;
-  }
-
-  #hero {
-    position: relative;
-    height: 100dvh;
-    overflow: hidden;
-    background:
-      url('../../assets/images/peakpx.svg') no-repeat bottom center/cover,
-      var(--bg-primary);
-    z-index: 2;
-  }
-
-  .hero-content {
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: var(--spacing-8);
-    color: #f8fafc;
-    text-align: left;
-  }
-
-  .hero-title {
-    font-size: 4rem;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    margin: 0;
-  }
-
-  .hero-subtitle {
-    font-weight: 500;
-    font-size: 1.5rem;
-    margin-top: var(--spacing-2);
-    margin-bottom: var(--spacing-2);
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: var(--spacing-4);
-    margin-top: var(--spacing-4);
-  }
-
-  .stars {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70%;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: #fff;
-    border-radius: 50%;
-    opacity: 0.6;
-    animation: twinkle 3s infinite;
-  }
-
-  @keyframes twinkle {
-    0%,
-    100% {
-      opacity: 0.6;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 1;
-      transform: scale(1.5);
-    }
-  }
-</style>
