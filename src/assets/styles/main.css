@@ -6,6 +6,8 @@
 /* === FOUNDATIONS === */
 @import './variables.css'; /* Design tokens (colors, spacing, fonts) */
 @import './base.css'; /* Resets, global styles, animations */
+@import './typography.css'; /* Typography (headings, paragraphs, lists) */
+@import './layout.css'; /* Layout (container, sections, curtain scroll) */
 @import './utilities.css'; /* Helper classes (.border-neon, .separator)
    */
 
@@ -22,5 +24,6 @@
 @import './sections/contact.css';
 
 /* === COMPONENTS (reusable UI) === */
+@import './components/neon.css';
 @import './components/buttons.css';
 @import './components/linux-window.css';

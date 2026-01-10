@@ -1,0 +1,80 @@
+/* ========================================
+   TYPOGRAPHY - Styles typographiques globaux
+   ======================================== */
+
+/* ========================================
+   HEADINGS - Titres
+   ======================================== */
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 6rem); /* 40px → 8vw → 64px */
+  display: block;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  margin-bottom: clamp(var(--spacing-2), 3vw, var(--spacing-5));
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  background: var(--gradient-border-neon);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  color: var(--color-primary-text);
+  margin-bottom: var(--spacing-1);
+}
+
+h4 {
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  font-weight: 600;
+  color: var(--color-primary-text);
+  margin-top: var(--spacing-5);
+  margin-bottom: var(--spacing-3);
+}
+
+/* Évite double marge entre h4 et p */
+h4 + p {
+  margin-top: 0;
+}
+
+/* ========================================
+   PARAGRAPHES & TEXTE
+   ======================================== */
+
+p {
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: var(--spacing-4);
+}
+
+strong {
+  font-weight: 600;
+  color: var(--color-primary-text);
+}
+
+/* ========================================
+   LISTES
+   ======================================== */
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ========================================
+   SÉPARATEURS
+   ======================================== */
+
+hr {
+  margin: var(--spacing-4) 0;
+}

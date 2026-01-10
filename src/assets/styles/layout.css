@@ -1,0 +1,77 @@
+/* ========================================
+   LAYOUT - Structure et mise en page globale
+   ======================================== */
+
+/* ========================================
+   CONTAINER - Conteneur principal
+   ======================================== */
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 3rem);
+}
+
+/* ========================================
+   BACKGROUND FIXE
+   ======================================== */
+
+.fixed-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 110vh;
+  background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+  z-index: -1;
+}
+
+/* ========================================
+   CURTAIN SCROLL - Système de scroll Hero/Profile
+   ======================================== */
+
+.curtain-container {
+  min-height: 200dvh !important;
+  height: auto;
+  position: relative;
+}
+
+.curtain-container > #hero,
+.curtain-container > #profile {
+  position: relative;
+  min-height: 100dvh;
+}
+
+.curtain-container > #hero {
+  z-index: 2;
+}
+
+.curtain-container > #profile {
+  z-index: 1;
+}
+
+#profile.curtain-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* ========================================
+   DIVIDER - Séparateurs décoratifs
+   ======================================== */
+
+.divider {
+  width: 100%;
+  height: 2px;
+  border-radius: 0 50% 50% 0;
+}
+
+.divider hr {
+  width: 40%;
+  height: 3px;
+  background: linear-gradient(90deg, #60a5fa, transparent);
+  border: none;
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+  margin: 0;
+}
