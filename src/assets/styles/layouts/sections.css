@@ -1,6 +1,54 @@
 /* ========================================
-  SECTIONS LAYOUT - Special layout patterns
-  ======================================== */
+   SECTIONS LAYOUT - Structure et contenu des sections
+   ======================================== */
+
+/* ========================================
+   SECTION - Styles de base
+   ======================================== */
+
+section {
+  position: relative;
+  padding: clamp(5rem, 10vw, 9rem) 0;
+  background: var(--bg-primary);
+}
+
+section.bg-alt {
+  background: var(--bg-alt) !important;
+}
+
+/* ========================================
+   SECTION HEADER - En-tête de section (défaut centré)
+   ======================================== */
+
+.section-header {
+  margin-bottom: var(--spacing-16);
+  width: 100%;
+  place-items: center;
+}
+
+.section-header .separator-h {
+  width: 60%;
+  margin-bottom: 1.5rem;
+}
+
+/* Description avec effet machine à écrire */
+.section-description {
+  width: 0;
+  max-width: fit-content;
+  color: var(--color-text-secondary);
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  opacity: 0.9;
+  margin: 0;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+  border-right: 2px solid #60a5fa;
+  animation: typing 2s steps(50) 0.3s forwards, blink 1s infinite 2s;
+}
+
+/* ========================================
+   SECTION LAYOUT LEFT - Variante 2 colonnes alignée à gauche
+   ======================================== */
 
 .section-layout-left .container {
   display: grid;
@@ -34,7 +82,45 @@
   line-height: 1.8;
 }
 
-/* === RESPONSIVE MOBILE === */
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+/* Animation machine à écrire */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Animation curseur clignotant */
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - TABLETTE & MOBILE
+   ======================================== */
+
+/* Désactiver animation machine à écrire en mobile */
+@media (max-width: 480px) {
+  .section-description {
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    white-space: normal;
+    overflow: visible;
+    border-right: none;
+    animation: none;
+  }
+}
+
+/* Section layout left → 1 colonne en mobile */
 @media (max-width: 1200px) {
   .section-layout-left .container {
     grid-template-columns: 1fr;
