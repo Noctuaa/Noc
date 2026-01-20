@@ -1,31 +1,60 @@
 :root {
-  /* === COLORS ==== */
-  --color-primary: #1a1f3a;
-  --color-primary-text: #ffffff;
-  --color-text-secondary: rgba(255, 255, 255, 0.7);
-  --color-glow-separator: rgba(99, 102, 241, 0.5);
-  --color-bg-card: rgba(26, 31, 58, 0.8);
+  /* ========================================
+     BASE COLORS - Example for future use
+     Naming: color-intensity (100=light, 900=dark)
+     ======================================== */
 
-  /* === BORDER === */
+  /* Blues */
+  --blue-400: hsl(213 94% 68%); /* Example: Light neon blue */
+  --blue-500: hsl(217 91% 60%); /* Medium neon blue */
+  --blue-800: hsl(230 41% 14%);
+  --blue-900: hsl(231 52% 11%);
+  --blue-950: hsl(220 35% 7%);
+
+  /* Purples */
+  --purple-400: hsl(239 84% 67%); /* Medium purple */
+  --purple-500: hsl(233 69% 65%); /* Light purple/indigo */
+  --purple-600: hsl(270 37% 46%); /* Very dark purple */
+
+  /* White */
+  --white: hsl(0 0% 100%);
+
+  /* ========================================
+     SEMANTIC COLORS
+     ======================================== */
+  --text-primary: var(--white);
+  --text-secondary: hsl(from var(--white) h s l / 0.7);
+  --separator-glow: hsl(from var(--purple-400) h s l / 0.5);
+
+  /* ========================================
+     BACKGROUNDS
+     ======================================== */
+  --bg-primary: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-800) 100%); /* Sections Hero, Compétences */
+  --bg-alt: var(--blue-950); /* Sections Profile, Portfolio, Footer */
+
+  /* ========================================
+     GRADIENTS
+     ======================================== */
+  --gradient-cta: linear-gradient(135deg, var(--purple-400), var(--purple-600));
+  --gradient-border-neon: linear-gradient(90deg, var(--blue-400), var(--purple-500));
+
+  /* ========================================
+     BORDERS
+     ======================================== */
   --border-radius-sm: 8px;
   --border-radius-md: 12px;
   --border-radius-lg: 16px;
-  --border-subtle: 1px solid rgba(255, 255, 255, 0.1);
+  --border-subtle: 1px solid hsl(from var(--white) h s l / 0.1);
 
-  /* === GRADIENTS === */
-  --gradient-holo: linear-gradient(135deg, rgb(27, 60, 120), rgb(22, 79, 115), rgb(71, 60, 161));
-  --gradient-cta: linear-gradient(135deg, #667eea, #764ba2);
-  --gradient-border-neon: linear-gradient(90deg, #60a5fa, #6978e3);
-
-  /* === BACKGROUNDS === */
-  --bg-primary: linear-gradient(135deg, #0d1129 0%, #151a32 100%); /* Sections Hero, Compétences */
-  --bg-alt: #0b0f17; /* Sections Profile, Portfolio, Footer */
-
-  /* ===TYPOGRAPHIE === */
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
   --font-family-primary: 'Inter', system-ui, sans-serif;
   --font-family-secondary: 'Roboto Mono', monospace;
 
-  /* === SPACING SYSTÈME === */
+  /* ========================================
+     SPACING SYSTEM
+     ======================================== */
   --spacing-1: 0.25rem; /* 4px */
   --spacing-2: 0.5rem; /* 8px */
   --spacing-3: 0.75rem; /* 12px */
@@ -37,44 +66,33 @@
   --spacing-12: 3rem; /* 48px */
   --spacing-16: 4rem; /* 64px */
 
-  /* === TRANSITIONS === */
+  /* ========================================
+     TRANSITIONS
+     ======================================== */
   --transition-fast: 0.3s;
   --transition-normal: 0.5s;
 
-  /* === GEOMETRIC SHAPE === */
+  /* ========================================
+     GEOMETRIC SHAPES
+     ======================================== */
   --octagon-clip: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-  --shape-adaptive: var(--octagon-clip);
 
-  /* === SEMANTIC COLORS (roles) === */
-  --text-primary: var(--color-primary-text); /* Alias for consistency */
-  --text-secondary: var(--color-text-secondary); /* Alias for consistency 
-  */
+  /* ========================================
+     FORM INPUTS
+     ======================================== */
+  --input-bg: hsl(from var(--blue-950) h s l / 0.8);
+  --input-bg-focus: hsl(from var(--blue-950) h s l / 0.8);
+  --input-border: hsl(from var(--blue-400) h s l / 0.4);
+  --input-border-focus: hsl(from var(--blue-400) h s l / 0.9);
 
-  --surface-glass: rgba(26, 31, 58, 0.8); /* Glassmorphism cards */
-  --surface-glass-light: rgba(80, 79, 82, 0.15); /* Light glass for carousel
-   */
+  /* ========================================
+     STATES
+     ======================================== */
 
-  --border-card: rgba(96, 165, 250, 0.3); /* Cards borders */
-
-  /* === FORM INPUTS === */
-  --input-bg: rgba(10, 15, 30, 0.8);
-  --input-bg-focus: rgba(10, 15, 30, 0.8);
-  --input-border: rgba(96, 165, 250, 0.4);
-  --input-border-focus: rgba(96, 165, 250, 0.9);
-
-  /* === STATES === */
-  --opacity-inactive: 0.6;
-  --scale-inactive: 0.9;
-
-  /* === EFFECTS === */
+  /* ========================================
+     EFFECTS
+     ======================================== */
   --blur-glass: 10px;
   --filter-inactive: grayscale(70%);
-  --shadow-neon: 0 0 10px rgba(59, 130, 246, 0.4), 0 0 20px rgba(96, 165, 250, 0.2);
-}
-
-/* === RESPONSIVE SHAPE SYSTEM === */
-@media (max-width: 768px) {
-  :root {
-    --shape-adaptive: none; /* Mobile = rectangles */
-  }
+  --shadow-neon: 0 0 10px hsl(from var(--blue-500) h s l / 0.4), 0 0 20px hsl(from var(--blue-400) h s l / 0.2);
 }

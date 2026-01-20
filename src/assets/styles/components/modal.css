@@ -48,5 +48,5 @@
 
 .modal-content li {
   margin-bottom: var(--spacing-2);
-  color: var(--color-text-secondary);
+  color: var(--text-secondary);
 }

@@ -31,6 +31,10 @@
   text-align: center;
 }
 
+.tt-left {
+  text-align: left;
+}
+
 /* === ALIGNEMENT === */
 .fl-wrap {
   flex-wrap: wrap;
@@ -145,13 +149,8 @@
 
 /* === SEPARATOR === */
 
-.separator-v {
-  width: 1px;
-  height: 100%;
-}
-
 .separator-gradient {
-  background: linear-gradient(180deg, transparent, var(--color-glow-separator), transparent);
+  background: linear-gradient(180deg, transparent, var(--separator-glow), transparent);
 }
 
 .separator-h {
@@ -164,22 +163,7 @@
 }
 
 .separator-h-gradient {
-  background: linear-gradient(90deg, transparent, var(--color-glow-separator), transparent);
-}
-
-/* === EFFECTS === */
-.border-neon {
-  position: relative;
-}
-
-.border-neon::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  z-index: -1;
-  border-radius: inherit;
-  background: var(--gradient-border-neon);
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.4), 0 0 20px rgba(96, 165, 250, 0.2);
+  background: linear-gradient(90deg, transparent, var(--separator-glow), transparent);
 }
 
 /* === CURSOR === */

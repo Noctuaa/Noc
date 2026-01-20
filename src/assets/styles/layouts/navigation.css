@@ -13,7 +13,12 @@
   right: 0;
   z-index: 1000;
   padding: 1rem 0;
-  transition: width 0.3s ease, background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, top 0.3s ease;
+  transition:
+    width 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    top 0.3s ease;
 }
 
 .nav-list {
@@ -34,7 +39,7 @@
   padding: 0.525rem 1rem;
   font-size: 1rem;
   font-weight: 600;
-  color: var(--color-text-secondary);
+  color: var(--text-secondary);
   transition: all 0.3s ease;
   border-bottom: 2px solid transparent;
 }
@@ -42,17 +47,19 @@
 /* Active state */
 .nav-item.active .nav-link,
 .nav-item:hover .nav-link {
-  color: var(--color-text-primary);
-  text-shadow: 0 0 5px rgba(96, 165, 250, 0.8), 0 1px 2px rgba(0, 0, 0, 0.3);
-  border-bottom-color: rgba(96, 165, 250, 0.6);
+  color: var(--text-primary);
+  text-shadow:
+    0 0 5px rgba(96, 165, 250, 0.8),
+    0 1px 2px rgba(0, 0, 0, 0.3);
+  /*border-bottom-color: rgba(96, 165, 250, 0.6);*/
   transform: scale(1.05);
 }
 
 /* Hover/Tap feedback */
 .nav-item:hover .nav-link {
-  color: var(--color-text-primary);
+  color: var(--text-primary);
   text-shadow: 0 0 8px rgba(96, 165, 250, 0.5); /* Shadow subtil */
-  border-bottom-color: rgba(96, 165, 250, 0.6); /* Underline apparaît */
+  /*border-bottom-color: rgba(96, 165, 250, 0.6); /* Underline apparaît */
 }
 
 /* === DESKTOP SCROLL BEHAVIOR === */
@@ -153,7 +160,7 @@
 
   /* Garde l'état active (section actuelle) */
   .nav-item.active .nav-link {
-    color: var(--color-text-primary);
+    color: var(--text-primary);
     border-bottom-color: transparent; /* Underline pour actif */
   }
 

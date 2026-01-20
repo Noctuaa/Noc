@@ -35,7 +35,7 @@ section.bg-alt {
 .section-description {
   width: 0;
   max-width: fit-content;
-  color: var(--color-text-secondary);
+  color: var(--text-secondary);
   font-size: clamp(0.9rem, 2vw, 1.2rem);
   opacity: 0.9;
   margin: 0;
@@ -43,7 +43,9 @@ section.bg-alt {
   text-align: center;
   white-space: nowrap;
   border-right: 2px solid #60a5fa;
-  animation: typing 2s steps(50) 0.3s forwards, blink 1s infinite 2s;
+  animation:
+    typing 2s steps(50) 0.3s forwards,
+    blink 1s infinite 2s;
 }
 
 /* ========================================
