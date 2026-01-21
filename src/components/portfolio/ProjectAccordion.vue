@@ -67,7 +67,7 @@ const openProject = (index) => {
     <div
       v-for="(project, index) in projects"
       :key="project.id"
-      :class="['project-item', { active: activeIndex === index }]"
+      :class="['project-item neon-mask', { active: activeIndex === index }]"
       @click="openProject(index)"
     >
       <img :src="project.image" :alt="project.title" class="project-img" />

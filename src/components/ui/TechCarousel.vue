@@ -63,6 +63,7 @@ const modules = [Navigation, Autoplay];
     :speed="500"
     :slide-to-clicked-slide="true"
     :autoplay="{
+      enabled: false,
       delay: 3000,
       disableOnInteraction: false,
       pauseOnMouseEnter: true,
@@ -71,7 +72,7 @@ const modules = [Navigation, Autoplay];
   >
     <SwiperSlide v-for="tech in technologies" :key="tech.id">
       <div class="tech-card w-100 h-100 m-auto cursor-p">
-        <div class="tech-card-inner p-relative d-flex fd-column ai-center jc-center h-100 gap-4 p-8">
+        <div class="tech-card-inner neon-mask p-relative d-flex fd-column ai-center jc-center h-100 gap-4 p-8">
           <div class="tech-logo">
             <img class="w-100 h-100" :src="tech.logo" :alt="`${tech.name} logo`" />
           </div>

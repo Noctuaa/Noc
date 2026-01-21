@@ -13,10 +13,6 @@
   TECH CARDS - LAYOUT & STRUCTURE
   ======================================== */
 .tech-card {
-  /* Dimensions */
-  max-height: 300px;
-  max-width: 350px;
-
   /* Default state (inactive) */
   opacity: 0.6;
   transform: scale(0.9);
@@ -37,15 +33,7 @@
 
 /* Pseudo-element for neon border effect (padding-box/border-box technique) 
   */
-.tech-card-inner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 101%;
-  height: 101%;
-  border-radius: var(--border-radius-lg);
-  z-index: -1;
+.tech-card-inner.neon-mask::before {
   filter: grayscale(70%); /* Desaturated by default */
 }
 
@@ -82,17 +70,15 @@
 :deep(.swiper-slide-active) .tech-card {
   opacity: 1;
   transform: scale(1);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-neon);
   filter: grayscale(0%);
 }
 
 /* Neon border on active card (padding-box/border-box technique) */
-:deep(.swiper-slide-active) .tech-card-inner::before {
-  border: 3px solid transparent;
-  background:
-    linear-gradient(#1a1f3a, #1a1f3a) padding-box,
-    var(--gradient-border-neon) border-box;
-  filter: grayscale(0%); /* Full color */
-  /*box-shadow: 0 0 10px rgba(59, 130, 246, 0.4), 0 0 20px rgba(96, 165, 250, 0.2);*/
+:deep(.swiper-slide-active) .tech-card-inner.neon-mask::before {
+  background: var(--gradient-border-neon);
+  filter: grayscale(0%);
 }
 
 /* ========================================

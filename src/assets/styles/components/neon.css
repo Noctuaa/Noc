@@ -2,14 +2,6 @@
    NEON - Effets de bordures néon réutilisables
    ======================================== */
 
-/* ========================================
-   NEON BORDER - Classe unifiée pour bordures néon
-   ======================================== */
-.neon-border {
-  overflow: hidden;
-  position: relative;
-}
-
 .neon-mask::before {
   content: '';
   position: absolute;
@@ -25,34 +17,5 @@
     linear-gradient(#fff 0 0);
   mask-composite: exclude;
   pointer-events: none;
-}
-
-/* Bordure néon avec ::before */
-.neon-border::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  padding: 3px;
-  background: var(--gradient-border-neon);
-  border-radius: inherit;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-/* Fond glassmorphism avec ::after */
-.neon-border::after {
-  content: '';
-  position: absolute;
-  inset: 2px;
-  background: transparent;
-  backdrop-filter: blur(10px);
-  border-radius: inherit;
-  z-index: -1;
+  z-index: 10;
 }
