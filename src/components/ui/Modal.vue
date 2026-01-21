@@ -51,7 +51,7 @@ const closeModal = () => {
   <transition name="fade">
     <Teleport to="body">
       <div v-if="showModal" @click.prevent="closeModal" class="modal-overlay d-flex ai-center jc-center p-fixed">
-        <div class="profile-window linux-window rounded-lg p-relative" @click.stop>
+        <div class="linux-window neon-border rounded-lg p-relative" @click.stop>
           <div class="linux-bar">
             <span class="linux-title">{{ linuxPath }}</span>
             <div class="linux-controls">

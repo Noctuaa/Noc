@@ -125,7 +125,7 @@ export const initCurtainEffect = () => {
  * - 0.3s delay between each bubble with bounce effect
  */
 export const initProfileAnimations = () => {
-  const chatBubbles = gsap.utils.toArray('.profile-messenger-body .chat-bubble');
+  const chatBubbles = gsap.utils.toArray('.chat-bubbles .chat-bubble');
 
   // Trigger based on Hero section leaving (not Profile entering)
   ScrollTrigger.create({

@@ -66,7 +66,7 @@ const scrollToSection = (id) => {
 }
 
 .nav-link {
-  color: var(--color-text-secondary);
+  color: var(--text-secondary);
   font-weight: 600;
   font-size: 14px;
   letter-spacing: 2px;
@@ -75,6 +75,6 @@ const scrollToSection = (id) => {
 
 .nav-item.active .nav-link,
 .nav-item:hover .nav-link {
-  color: var(--color-text-primary);
+  color: var(--text-primary);
 }
 </style>
