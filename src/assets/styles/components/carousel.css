@@ -22,7 +22,6 @@
 .tech-card-inner {
   /* Glassmorphism effect */
   background: rgba(80, 79, 82, 0.15);
-  backdrop-filter: blur(10px);
   border: 1px solid rgba(96, 165, 250, 0.3);
   border-radius: var(--border-radius-lg);
 
@@ -63,8 +62,14 @@
 }
 
 /* ========================================
-  STATES & EFFECTS - ACTIVE SLIDE
+  STATES & EFFECTS 
   ======================================== */
+
+:deep(.swiper-slide) .tech-card {
+  backdrop-filter: blur(var(--blur-glass));
+}
+
+/*=== ACTIVE SLIDE ===*/
 
 /* Active card: full opacity, normal scale, full color */
 :deep(.swiper-slide-active) .tech-card {
