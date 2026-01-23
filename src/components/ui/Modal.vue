@@ -25,7 +25,8 @@ const linuxPath = computed(() => {
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '') // Remove accents
-    .replace(/\s+/g, '-'); // Spaces to dashes
+    .replace(/\s+/g, '-') // Spaces to dashes
+    .replace('politique-de-', '');
   return `> noctua/${slug}.md`;
 });
 
@@ -54,11 +55,7 @@ const closeModal = () => {
         <div class="linux-window neon-mask" @click.stop>
           <div class="linux-bar">
             <span class="linux-title">{{ linuxPath }}</span>
-            <div class="linux-controls">
-              <span>▲</span>
-              <span>▼</span>
-              <span @click.prevent="closeModal" class="linux-close">✕</span>
-            </div>
+            <button @click.prevent="closeModal" class="linux-close">✕</button>
           </div>
           <div class="modal-content">
             <slot></slot>

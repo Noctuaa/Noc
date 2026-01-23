@@ -19,9 +19,6 @@ const currentYear = new Date().getFullYear();
     </div>
     <div class="separator-h separator-h-gradient"></div>
     <div class="footer-bottom d-flex jc-between pt-4">
-      <div class="copy">
-        <p class="m-0">© {currentYear} Noctua</p>
-      </div>
       <div class="footer-legal d-flex gap-2">
         <Modal title="Mentions légales" client:load>
           <h4>Éditeur du site</h4>
@@ -58,6 +55,9 @@ const currentYear = new Date().getFullYear();
           <h4>Vos droits</h4>
           <p>Accès, rectification, suppression : contact@nocdev.fr</p>
         </Modal>
+      </div>
+      <div class="copy">
+        <p class="m-0">© {currentYear} Noctua</p>
       </div>
     </div>
   </div>

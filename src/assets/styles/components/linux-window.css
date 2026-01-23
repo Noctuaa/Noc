@@ -19,6 +19,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 45px;
   padding: 10px 20px;
   background: rgba(0, 0, 0, 0.6);
   border-bottom: var(--border-subtle);
@@ -28,54 +29,38 @@
 }
 
 .linux-title {
+  font-size: clamp(13px, 2.5vw, 14px);
   color: #00d4ff;
   font-weight: 600;
-}
-
-.linux-controls {
-  display: flex;
-  gap: 12px;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 18px;
-  line-height: 1;
-  cursor: default;
-}
-
-.linux-controls span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  height: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .linux-close {
-  position: relative;
-  top: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: monospace;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
   transition: all var(--transition-fast) ease;
-  border-radius: 50%;
-  z-index: 1;
-}
-
-.linux-close::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  background-color: transparent;
-  width: 20px;
-  height: 20px;
-  z-index: -1;
-}
-
-.linux-close:hover::after {
-  background-color: #60a5fa;
-  box-shadow: 0 0 8px #60a5fa;
-  top: -1px;
 }
 
 .linux-close:hover {
-  color: var(--text-primary);
+  background: var(--gradient-border-neon);
+  color: white;
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
 }
 
 /* Responsive */
@@ -85,8 +70,14 @@
     font-size: 11px; /* Réduit de 12px → 11px */
   }
 
-  .linux-controls {
-    gap: 8px; /* Réduit de 12px → 8px */
-    font-size: 14px; /* Réduit de 18px → 14px */
+  .linux-close {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 16px;
+  }
+
+  .linux-title {
+    font-weight: 900;
   }
 }

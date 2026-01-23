@@ -19,6 +19,7 @@
   inset: 0;
   background: rgba(0, 0, 0, 0.8);
   z-index: 9999;
+  backdrop-filter: blur(var(--blur-glass));
 }
 
 /* === MODAL CONTENT === */
