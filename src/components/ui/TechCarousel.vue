@@ -1,9 +1,14 @@
 <script setup>
+import { ref, onMounted } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Navigation, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
+import 'swiper/css/pagination';
+
+const isLoaded = ref(false);
+
 const technologies = [
   { id: 'html', name: 'HTML5', description: 'Structure sémantique et moderne des pages web.', logo: '/icons/html.svg' },
   { id: 'css', name: 'CSS3', description: 'Stylage avancé, Grid, Flexbox et animations.', logo: '/icons/css.svg' },
@@ -42,7 +47,13 @@ const technologies = [
   },
 ];
 
-const modules = [Navigation, Autoplay];
+const modules = [Navigation, Pagination, Autoplay];
+
+onMounted(() => {
+  setTimeout(() => {
+    isLoaded.value = true;
+  }, 100);
+});
 </script>
 
 <template>
@@ -59,16 +70,21 @@ const modules = [Navigation, Autoplay];
     }"
     :centered-slides="true"
     :loop="true"
+    :slidesPerView="1"
+    :initialSlide="0"
     :navigation="false"
     :speed="500"
     :slide-to-clicked-slide="true"
+    :pagination="{
+      dynamicBullets: true,
+    }"
     :autoplay="{
-      enabled: false,
+      enabled: true,
       delay: 3000,
       disableOnInteraction: false,
       pauseOnMouseEnter: true,
     }"
-    class="tech-swiper p-relative"
+    :class="['tech-swiper', 'p-relative', { 'is-loaded': isLoaded }]"
   >
     <SwiperSlide v-for="tech in technologies" :key="tech.id">
       <div class="tech-card w-100 h-100 m-auto cursor-p">

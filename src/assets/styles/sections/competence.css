@@ -6,6 +6,7 @@
 
 #competences {
   position: relative;
+  padding-bottom: 0;
 }
 
 #competences::after {
@@ -14,22 +15,8 @@
   bottom: 0px;
   left: 0;
   right: 0;
-  height: 180px;
+  height: var(--section-overlap);
   background: var(--bg-alt);
   z-index: 5;
-  display: none;
-}
-
-/* ========================================
-  RESPONSIVE - DESKTOP
-  ======================================== */
-
-@media (min-width: 993px) {
-  #competences {
-    padding-bottom: 0 !important;
-  }
-
-  #competences::after {
-    display: block;
-  }
+  display: block;
 }

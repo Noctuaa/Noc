@@ -66,6 +66,8 @@
   --spacing-12: 3rem; /* 48px */
   --spacing-16: 4rem; /* 64px */
 
+  --section-overlap: 9rem; /* For overlapping section effect */
+
   /* ========================================
      TRANSITIONS
      ======================================== */

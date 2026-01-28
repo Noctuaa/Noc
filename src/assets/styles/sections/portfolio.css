@@ -3,14 +3,6 @@
   Project showcase with expandable accordion
   ======================================== */
 
-/* Section specific styles */
-@media (min-width: 993px) {
-  #portfolio {
-    position: relative;
-    padding-bottom: 240px;
-  }
-}
-
 /* ========================================
   PORTFOLIO ACCORDION
   Horizontal expandable project cards
@@ -179,6 +171,13 @@
 /* ========================================
   RESPONSIVE - MOBILE
   ======================================== */
+
+@media (min-width: 993px) {
+  #portfolio {
+    position: relative;
+    padding-bottom: calc(var(--section-overlap) * 2);
+  }
+}
 
 @media (max-width: 768px) {
   .accordion {

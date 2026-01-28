@@ -5,8 +5,14 @@
 
 .tech-swiper {
   height: 350px;
-  padding: 20px 60px;
+  padding: 20px 60px 50px 60px;
   z-index: 10;
+  opacity: 0;
+  transition: opacity var(--transition-normal) ease;
+}
+
+.tech-swiper.is-loaded {
+  opacity: 1;
 }
 
 /* ========================================
@@ -66,7 +72,7 @@
   ======================================== */
 
 :deep(.swiper-slide) .tech-card {
-  backdrop-filter: blur(var(--blur-glass));
+  filter: blur(1px);
 }
 
 /*=== ACTIVE SLIDE ===*/
@@ -78,6 +84,8 @@
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-neon);
   filter: grayscale(0%);
+  backdrop-filter: blur(var(--blur-glass));
+  filter: blur(0px);
 }
 
 /* Neon border on active card (padding-box/border-box technique) */
@@ -93,4 +101,29 @@
 :deep(.swiper-button-next),
 :deep(.swiper-button-prev) {
   color: var(--color-primary);
+}
+
+/* ========================================
+    PAGINATION DOTS (Mobile uniquement)
+    ======================================== */
+
+/* Cacher les dots en desktop */
+
+:deep(.swiper-pagination-bullet) {
+  visibility: hidden;
+}
+
+@media (max-width: 992px) {
+  :deep(.swiper-pagination-bullet) {
+    visibility: visible;
+    width: 14px;
+    height: 14px;
+    background: hsl(from var(--white) h s l / 0.9);
+    transition: all var(--transition-normal) ease !important;
+  }
+
+  :deep(.swiper-pagination-bullet-active) {
+    background: var(--blue-400);
+    box-shadow: 0 0 8px var(--blue-500);
+  }
 }
