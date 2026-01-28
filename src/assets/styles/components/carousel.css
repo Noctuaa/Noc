@@ -1,6 +1,5 @@
 /* ========================================
   TECH CAROUSEL - SWIPER CONTAINER
-  Full-width carousel with technologies cards
   ======================================== */
 
 .tech-swiper {
@@ -9,6 +8,7 @@
   z-index: 10;
   opacity: 0;
   transition: opacity var(--transition-normal) ease;
+  touch-action: pan-y pan-x;
 }
 
 .tech-swiper.is-loaded {
@@ -16,86 +16,79 @@
 }
 
 /* ========================================
-  TECH CARDS - LAYOUT & STRUCTURE
+  TECH CARDS - STRUCTURE & LAYOUT
   ======================================== */
-.tech-card {
-  /* Default state (inactive) */
-  opacity: 0.6;
-  transform: scale(0.9);
-  transition: all 0.3s ease;
-}
 
-.tech-card-inner {
-  /* Glassmorphism effect */
+/* Card container - Default state (inactive) */
+:deep(.swiper-slide) .tech-card {
+  /* Layout handled by utilities (d-grid, place-items) in HTML */
+
+  /* Glassmorphism background */
   background: rgba(80, 79, 82, 0.15);
   border: 1px solid rgba(96, 165, 250, 0.3);
   border-radius: var(--border-radius-lg);
 
-  /* Animation */
+  /* Default state: blurred, reduced opacity, scaled down */
+  opacity: 0.6;
+  transform: scale(0.9);
+  filter: blur(1px);
+
+  /* Smooth transitions */
   transition: all 0.3s ease;
   z-index: 6;
 }
 
-/* Pseudo-element for neon border effect (padding-box/border-box technique) 
-  */
-.tech-card-inner.neon-mask::before {
-  filter: grayscale(70%); /* Desaturated by default */
+/* Neon border effect - Default desaturated */
+:deep(.swiper-slide) .tech-card.neon-mask::before {
+  filter: grayscale(70%);
 }
 
 /* ========================================
-  TECH CARDS - CONTENT (Logo, Title, Description)
+  TECH CARDS - CONTENT ELEMENTS
   ======================================== */
 
-.tech-logo {
+:deep(.swiper-slide) .tech-logo {
   width: 80px;
   height: 80px;
 }
 
-.tech-logo img {
+:deep(.swiper-slide) .tech-logo img {
   object-fit: contain;
 }
 
-.tech-name {
+:deep(.swiper-slide) .tech-name {
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--text-primary);
 }
 
-.tech-description {
+:deep(.swiper-slide) .tech-description {
   font-size: 0.9rem;
   color: var(--text-secondary);
   line-height: 1.6;
 }
 
 /* ========================================
-  STATES & EFFECTS 
+  TECH CARDS - ACTIVE STATE
   ======================================== */
 
-:deep(.swiper-slide) .tech-card {
-  filter: blur(1px);
-}
-
-/*=== ACTIVE SLIDE ===*/
-
-/* Active card: full opacity, normal scale, full color */
+/* Active card: full visibility, normal scale, sharp, glassmorphism */
 :deep(.swiper-slide-active) .tech-card {
   opacity: 1;
   transform: scale(1);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-neon);
-  filter: grayscale(0%);
-  backdrop-filter: blur(var(--blur-glass));
   filter: blur(0px);
+  backdrop-filter: blur(var(--blur-glass));
+  box-shadow: var(--shadow-neon);
 }
 
-/* Neon border on active card (padding-box/border-box technique) */
-:deep(.swiper-slide-active) .tech-card-inner.neon-mask::before {
+/* Neon border on active card - Full color */
+:deep(.swiper-slide-active) .tech-card.neon-mask::before {
   background: var(--gradient-border-neon);
   filter: grayscale(0%);
 }
 
 /* ========================================
-  NAVIGATION BUTTONS (disabled but styled if re-enabled)
+  NAVIGATION BUTTONS
   ======================================== */
 
 :deep(.swiper-button-next),
@@ -104,15 +97,15 @@
 }
 
 /* ========================================
-    PAGINATION DOTS (Mobile uniquement)
-    ======================================== */
+  PAGINATION DOTS (Mobile < 992px)
+  ======================================== */
 
-/* Cacher les dots en desktop */
-
+/* Hidden on desktop */
 :deep(.swiper-pagination-bullet) {
   visibility: hidden;
 }
 
+/* Visible on mobile with custom style */
 @media (max-width: 992px) {
   :deep(.swiper-pagination-bullet) {
     visibility: visible;

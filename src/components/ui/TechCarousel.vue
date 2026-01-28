@@ -40,10 +40,10 @@ const technologies = [
   },
   { id: 'win', name: 'Windows', description: "Système d'exploitation Microsoft.", logo: '/icons/win.svg' },
   {
-    id: 'arch',
-    name: 'Arch Linux',
-    description: 'Distribution Linux minimaliste et performante.',
-    logo: '/icons/arch.svg',
+    id: 'cachyos',
+    name: 'CachyOS',
+    description: 'Distribution Linux optimisée pour la performance.',
+    logo: '/icons/cachyos.svg',
   },
 ];
 
@@ -87,14 +87,12 @@ onMounted(() => {
     :class="['tech-swiper', 'p-relative', { 'is-loaded': isLoaded }]"
   >
     <SwiperSlide v-for="tech in technologies" :key="tech.id">
-      <div class="tech-card w-100 h-100 m-auto cursor-p">
-        <div class="tech-card-inner neon-mask p-relative d-flex fd-column ai-center jc-center h-100 gap-4 p-8">
-          <div class="tech-logo">
-            <img class="w-100 h-100" :src="tech.logo" :alt="`${tech.name} logo`" />
-          </div>
-          <h3 class="tech-name m-0 tt-center">{{ tech.name }}</h3>
-          <p class="tech-description m-0 tt-center">{{ tech.description }}</p>
+      <div class="tech-card neon-mask p-relative d-grid pi-center w-100 h-100 p-8 cursor-p">
+        <div class="tech-logo">
+          <img class="w-100 h-100" :src="tech.logo" :alt="`${tech.name} logo`" />
         </div>
+        <h3 class="tech-name m-0 tt-center">{{ tech.name }}</h3>
+        <p class="tech-description m-0 tt-center">{{ tech.description }}</p>
       </div>
     </SwiperSlide>
   </Swiper>
