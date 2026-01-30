@@ -35,9 +35,16 @@
   font-size: 0.75rem; /* ← 0.75rem → 0.85rem (un peu plus gros) */
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding: 10px 20px;
+  padding: 10px 24px;
   background-color: transparent;
-  border: 1px solid var(--text-primary);
+  border: 2px solid transparent;
+  background-image:
+    linear-gradient(var(--bg-alt), var(--bg-alt)),
+    /* Fond intérieur */ var(--gradient-border-neon); /* Border dégradé */
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-radius: var(--border-radius-sm);
+
   border-radius: var(--border-radius-sm);
   color: var(--text-primary);
   position: relative;

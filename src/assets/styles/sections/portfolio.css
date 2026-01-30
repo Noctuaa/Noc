@@ -35,6 +35,7 @@
 
 /* Active state (expanded) */
 .project-item.active {
+  cursor: default;
   flex: 6; /* Prend 6x plus de place */
   box-shadow:
     0 0 10px rgba(59, 130, 246, 0.4),
@@ -72,6 +73,7 @@
 
 .title-vertical {
   position: absolute;
+  margin-top: 0;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-90deg);
@@ -82,7 +84,10 @@
   opacity: 1;
   transition: opacity var(--transition-normal) ease;
   text-transform: uppercase;
-  color: rgba(96, 165, 250, 0.7);
+  background: var(--gradient-border-neon);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .project-item.active .title-vertical {
@@ -99,8 +104,7 @@
   z-index: 2;
   opacity: 0;
   transform: translateY(20px);
-  transition: all var(--transition-normal) ease;
-  transition-delay: 0.1s;
+  transition: all var(--transition-fast) ease;
   backdrop-filter: blur(var(--blur-glass));
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
   pointer-events: none;
@@ -138,11 +142,11 @@
 }
 
 .project-tags span {
-  font-size: 0.7rem;
-  padding: 4px 10px;
-  background: rgba(96, 165, 250, 0.1); /* Bleu transparent */
-  border: 1px solid rgba(96, 165, 250, 0.3);
-  border-radius: 20px;
+  font-size: 0.75rem;
+  padding: 6px 12px;
+  background: hsl(from var(--blue-500) h s l / 0.25); /* Bleu transparent */
+  border: 1px solid var(--purple-500);
+  border-radius: var(--border-radius-sm);
   color: var(--text-primary);
   opacity: 0;
   transform: translateY(10px);
