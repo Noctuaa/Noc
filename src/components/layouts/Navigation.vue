@@ -151,8 +151,8 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <nav :class="['navigation', { navOpen: isMenuOpen, scrolled: isScrolled, hidden: hideNav }]">
-    <div class="container d-flex ai-center jc-between">
+  <nav :class="['nav', { 'is-open': isMenuOpen, scrolled: isScrolled, hidden: hideNav }]">
+    <div class="container nav-inner">
       <div class="logo-placeholder d-flex ai-center">
         <span class="logo-text">NOCDEV</span>
       </div>
@@ -166,11 +166,11 @@ onUnmounted(() => {
           <a :href="`#${section.id}`" class="nav-link">{{ section.label }}</a>
         </li>
       </ul>
+      <button @click="toggleMenu" class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-    <button @click="toggleMenu" class="hamburger" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
   </nav>
 </template>
