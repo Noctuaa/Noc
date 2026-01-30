@@ -30,7 +30,7 @@ const updateNavState = () => {
   if (currentScrollY > lastScrollY.value && currentScrollY > 100) {
     // Scrolling down
     hideNav.value = true;
-  } else {
+  } else if (currentScrollY < lastScrollY.value) {
     // Scrolling up
     hideNav.value = false;
   }
