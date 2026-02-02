@@ -1,39 +1,42 @@
 <script setup>
 import { ref } from 'vue';
 
+// Currently opened project index in accordion
 const activeIndex = ref(0);
 
-// Portfolio projects configuration
+// Portfolio projects list
 const projects = [
   {
     id: 1,
-    title: 'NocWeather',
+    title: 'SkyCast',
     titleShort: 'P1',
     link: 'https://weather.nocdev.fr/',
-    git: 'https://github.com/Noctuaa/weather-app',
-    tags: ['Vue', 'API Weather', 'CSS'],
-    description: 'Application météo.',
+    tags: ['Vue.js', 'API Weather', 'Responsive'],
+    description: 'Application météo temps réel avec API de géolocalisation et design responsive.',
     image: '/weather.webp',
   },
   {
     id: 3,
-    title: 'NocImmo',
+    title: 'EstateHub',
     titleShort: 'P2', // ← Change P3 en P2
     link: 'https://nocimmo.nocdev.fr/',
-    git: null,
-    tags: ['Vue', 'Laravel', 'MySQL'],
-    description: 'Plateforme immobilière.',
+    tags: ['Vue.js', 'Laravel', 'MySQL'],
+    description: 'Plateforme immobilière full-stack avec système de recherche avancée et gestion des annonces.',
     image: '/chalets.webp',
   },
 ];
 
+/**
+ * Opens a project in the accordion
+ * @param {number} index - Project index to open
+ */
 const openProject = (index) => {
   activeIndex.value = index;
 };
 </script>
 
 <template>
-  <div class="accordion d-flex w-100 gap-2">
+  <div class="accordion">
     <div
       v-for="(project, index) in projects"
       :key="project.id"

@@ -3,12 +3,19 @@
   Project showcase with expandable accordion
   ======================================== */
 
+#portfolio {
+  padding-bottom: calc(var(--section-overlap) * 2);
+}
+
 /* ========================================
   PORTFOLIO ACCORDION
   Horizontal expandable project cards
   ======================================== */
 
 .accordion {
+  display: flex;
+  gap: var(--spacing-2);
+  width: 100%;
   height: 520px;
 }
 
@@ -18,14 +25,14 @@
 
 .project-item {
   position: relative;
-  flex: 1;
-  overflow: hidden;
-  transition: flex var(--transition-normal) cubic-bezier(0.25, 1, 0.5, 1);
-  background: var(--bg-alt); /* Ton gradient sombre */
-  border-radius: var(--border-radius-lg);
   display: flex;
   align-items: flex-end;
+  flex: 1;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+  background: var(--blue-950);
   cursor: pointer;
+  transition: flex var(--transition-normal) cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* Hover effect (léger) */
@@ -35,11 +42,9 @@
 
 /* Active state (expanded) */
 .project-item.active {
+  flex: 6;
+  box-shadow: var(--shadow-neon);
   cursor: default;
-  flex: 6; /* Prend 6x plus de place */
-  box-shadow:
-    0 0 10px rgba(59, 130, 246, 0.4),
-    0 0 20px rgba(96, 165, 250, 0.2);
 }
 
 .project-item.active.neon-mask::before {
@@ -57,13 +62,15 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.2; /* Très transparent par défaut */
-  transition: all var(--transition-normal) ease;
+  opacity: 0.2;
   transform: scale(1.2);
+  transition:
+    opacity var(--transition-normal) ease,
+    transform var(--transition-normal) ease;
 }
 
 .project-item.active .project-img {
-  opacity: 0.5; /* Un peu plus visible quand ouvert */
+  opacity: 0.5;
   transform: scale(1.05);
 }
 
@@ -73,25 +80,25 @@
 
 .title-vertical {
   position: absolute;
-  margin-top: 0;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(-90deg);
-  white-space: nowrap;
-  font-size: 1.4rem;
+  margin-top: 0;
+  font-size: var(--text-2xl);
   font-weight: 600;
-  letter-spacing: 1px;
-  opacity: 1;
-  transition: opacity var(--transition-normal) ease;
   text-transform: uppercase;
+  letter-spacing: var(--spacing-1);
+  white-space: nowrap;
+  color: transparent;
   background: var(--gradient-border-neon);
   background-clip: text;
   -webkit-background-clip: text;
-  color: transparent;
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  transition: opacity var(--transition-normal) ease;
 }
 
 .project-item.active .title-vertical {
-  opacity: 0; /* Disparaît quand ouvert */
+  opacity: 0;
 }
 
 /* ========================================
@@ -99,34 +106,36 @@
   ======================================== */
 
 .project-content {
-  padding: 1.5rem;
-  width: 100%;
   z-index: 2;
+  width: 100%;
+  padding: var(--spacing-6);
+  background: linear-gradient(to top, hsl(from var(--blue-950) h s l / 0.9), transparent);
   opacity: 0;
-  transform: translateY(20px);
-  transition: all var(--transition-fast) ease;
   backdrop-filter: blur(var(--blur-glass));
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
   pointer-events: none;
+  transform: translateY(20px);
+  transition:
+    opacity var(--transition-fast) ease,
+    transform var(--transition-fast) ease;
 }
 
 .project-item.active .project-content {
   opacity: 1;
-  transform: translateY(0);
   pointer-events: auto;
+  transform: translateY(0);
 }
 
 .project-title {
-  font-size: 1.4rem;
+  margin-bottom: var(--spacing-2);
+  font-size: var(--text-2xl);
   font-weight: 700;
-  margin-bottom: 0.5rem;
   color: var(--text-primary);
 }
 
 .project-description {
-  font-size: 0.85rem;
-  line-height: 1.5;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-4);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
   color: var(--text-secondary);
 }
 
@@ -137,20 +146,21 @@
 .project-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 1rem;
+  gap: var(--spacing-2);
 }
 
 .project-tags span {
-  font-size: 0.75rem;
-  padding: 6px 12px;
-  background: hsl(from var(--blue-500) h s l / 0.25); /* Bleu transparent */
+  padding: var(--spacing-1) var(--spacing-3);
   border: 1px solid var(--purple-500);
   border-radius: var(--border-radius-sm);
+  font-size: var(--text-xs);
   color: var(--text-primary);
+  background: hsl(from var(--blue-500) h s l / 0.25);
   opacity: 0;
   transform: translateY(10px);
-  transition: all 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 /* Animation staggered des tags */
@@ -176,13 +186,6 @@
   RESPONSIVE - MOBILE
   ======================================== */
 
-@media (min-width: 993px) {
-  #portfolio {
-    position: relative;
-    padding-bottom: calc(var(--section-overlap) * 2);
-  }
-}
-
 @media (max-width: 768px) {
   .accordion {
     flex-direction: column;
@@ -190,14 +193,17 @@
   }
 
   .project-item {
-    height: 80px;
     align-items: center;
     justify-content: center;
+    height: 80px;
   }
 
   .project-item.active {
-    height: 300px;
     flex: 1;
+  }
+
+  .project-img {
+    opacity: 0.3;
   }
 
   .title-vertical {
@@ -205,14 +211,14 @@
   }
 
   .project-content {
-    padding: 1rem;
+    padding: var(--spacing-4);
   }
 
   .project-title {
-    font-size: 1.2rem;
+    font-size: var(--text-xl);
   }
 
   .project-description {
-    font-size: 0.8rem;
+    font-size: var(--text-sm);
   }
 }

@@ -3,57 +3,52 @@
    ======================================== */
 
 /* ========================================
-   HEADINGS - Titres
+   HEADINGS - Titles
    ======================================== */
 
 h1 {
-  font-size: clamp(2.5rem, 8vw, 6rem); /* 40px → 8vw → 64px */
-  display: block;
+  margin-bottom: clamp(var(--spacing-2), 3vw, var(--spacing-5));
+  font-size: clamp(var(--text-4xl), 8vw, var(--text-6xl)); /* 40px → 8vw → 64px */
   font-weight: 900;
   letter-spacing: 0.1em;
-  margin-bottom: clamp(var(--spacing-2), 3vw, var(--spacing-5));
 }
 
 h2 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  width: fit-content;
+  margin: 0 0 var(--spacing-6);
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
   font-weight: 700;
+  color: transparent;
   background: var(--gradient-border-neon);
   background-clip: text;
   -webkit-background-clip: text;
-  color: transparent;
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  width: fit-content;
 }
 
 h3 {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  margin-bottom: var(--spacing-1);
+  font-size: clamp(var(--text-xl), 2.5vw, var(--text-2xl));
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: var(--spacing-1);
 }
 
 h4 {
-  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  margin: var(--spacing-5) 0 var(--spacing-2);
+  font-size: clamp(var(--text-base), 1.8vw, var(--text-xl));
   font-weight: 600;
   color: var(--text-primary);
-  margin-top: var(--spacing-5);
-  margin-bottom: var(--spacing-3);
 }
 
-/* Évite double marge entre h4 et p */
 h4 + p {
   margin-top: 0;
 }
 
 /* ========================================
-   PARAGRAPHES & TEXTE
+    PARAGRAPHS
    ======================================== */
 
 p {
-  line-height: 1.6;
-  margin-top: 0;
-  margin-bottom: var(--spacing-4);
+  margin: 0 0 var(--spacing-4);
+  line-height: var(--leading-normal);
 }
 
 strong {
@@ -62,17 +57,17 @@ strong {
 }
 
 /* ========================================
-   LISTES
+   LISTS
    ======================================== */
 
 ul {
-  list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 /* ========================================
-   SÉPARATEURS
+    HORIZONTAL RULE
    ======================================== */
 
 hr {
