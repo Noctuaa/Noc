@@ -3,10 +3,6 @@
   Project showcase with expandable accordion
   ======================================== */
 
-#portfolio {
-  padding-bottom: calc(var(--section-overlap) * 2);
-}
-
 /* ========================================
   PORTFOLIO ACCORDION
   Horizontal expandable project cards
@@ -114,15 +110,15 @@
   backdrop-filter: blur(var(--blur-glass));
   pointer-events: none;
   transform: translateY(20px);
-  transition:
-    opacity var(--transition-fast) ease,
-    transform var(--transition-fast) ease;
 }
 
 .project-item.active .project-content {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
+  transition:
+    opacity var(--transition-fast) ease,
+    transform var(--transition-fast) ease;
 }
 
 .project-title {
@@ -186,10 +182,20 @@
   RESPONSIVE - MOBILE
   ======================================== */
 
+@media (min-width: 992px) {
+  #portfolio {
+    padding-bottom: calc(var(--section-overlap) * 2);
+  }
+}
+
 @media (max-width: 768px) {
   .accordion {
     flex-direction: column;
     height: auto;
+  }
+
+  #padding-bottom {
+    padding-bottom: 0;
   }
 
   .project-item {
