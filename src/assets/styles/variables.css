@@ -16,6 +16,9 @@
   --purple-500: hsl(233 69% 65%); /* Light purple/indigo */
   --purple-600: hsl(270 37% 46%); /* Very dark purple */
 
+  /* Reds */
+  --red-400: hsl(0 85% 65%);
+
   /* White */
   --white: hsl(0 0% 100%);
 
@@ -25,11 +28,12 @@
   --text-primary: var(--white);
   --text-secondary: hsl(from var(--white) h s l / 0.7);
   --separator-glow: hsl(from var(--purple-400) h s l / 0.5);
+  --error: var(--red-400);
 
   /* ========================================
      BACKGROUNDS
      ======================================== */
-  --bg-primary: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-800) 100%); /* Sections Hero, Compétences */
+  --bg-primary: linear-gradient(180deg, var(--blue-900) 0%, var(--blue-800) 100%); /* Sections Hero, Compétences */
   --bg-alt: var(--blue-950); /* Sections Profile, Portfolio, Footer */
 
   /* ========================================
@@ -98,10 +102,11 @@
   /* ========================================
      FORM INPUTS
      ======================================== */
-  --input-bg: hsl(from var(--blue-950) h s l / 0.8);
-  --input-bg-focus: hsl(from var(--blue-950) h s l / 0.8);
-  --input-border: hsl(from var(--blue-400) h s l / 0.4);
+  --input-bg: transparent;
+  --input-bg-focus: transparent;
+  --input-border: hsl(from var(--white) h s l / 0.3);
   --input-border-focus: hsl(from var(--blue-400) h s l / 0.9);
+  --label-active: hsl(from var(--blue-400) h s l / 0.9);
 
   /* ========================================
      STATES

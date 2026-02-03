@@ -39,7 +39,7 @@
   background-color: transparent;
   border: 2px solid transparent;
   background-image:
-    linear-gradient(var(--bg-alt), var(--bg-alt)),
+    linear-gradient(var(--blue-800), var(--blue-800)),
     /* Fond intérieur */ var(--gradient-border-neon); /* Border dégradé */
   background-origin: border-box;
   background-clip: padding-box, border-box;

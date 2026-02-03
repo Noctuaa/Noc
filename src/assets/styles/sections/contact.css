@@ -2,8 +2,46 @@
   CONTACT SECTION
   ======================================== */
 
-.contact-window {
-  max-width: 100%;
+#contact .section-description {
+  opacity: 0;
+}
+.contact-content {
+  grid-template-columns: minmax(300px, 400px) minmax(300px, 650px);
+  place-content: center;
+  align-items: start;
+  padding: clamp(var(--spacing-2), 2vw, var(--spacing-3));
+  gap: 0;
+}
+
+.contact-info {
+  background: linear-gradient(135deg, hsl(from var(--blue-400) h s l / 0.8), hsl(from var(--purple-500) h s l / 0.6));
+  height: 80%;
+  place-self: center;
+  padding: var(--spacing-8);
+  border-radius: var(--border-radius-lg) 0 0 var(--border-radius-lg);
+}
+
+.contact-info h3 {
+  color: black;
+}
+
+.contact-form-wrap {
+  position: relative;
+  padding: var(--spacing-12);
+  margin: 0px 0 0 0;
+  background: linear-gradient(135deg, var(--blue-800), rgb(54, 63, 118));
+  border-radius: var(--border-radius-lg);
+}
+
+.contact-form-wrap.neon-mask::before,
+.contact-info.neon-mask::before {
+  /*background: var(--gradient-border-neon); /* Le gradient de la bordure */
+}
+
+.contact-form-wrap,
+.contact-info {
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* ========================================

@@ -2,13 +2,13 @@
 import ContactForm from '../ui/ContactForm.vue';
 ---
 
-<section id="contact" class="section section-layout-left">
+<section id="contact" class="section">
   <div class="container">
     <div class="section-header">
       <h2>Contact</h2>
       <div class="separator-h separator-h-gradient"></div>
       <p class="section-description">
-        Je serais ravi de répondre à vos questions et d'échanger sur vos projets. N'hésitez pas à me contacter pour
+        Je serais ravi de répondre à vos questions et d'échanger sur vos projets. <br /> N'hésitez pas à me contacter pour
         discuter de vos besoins en développement web.
       </p>
     </div>
@@ -16,7 +16,19 @@ import ContactForm from '../ui/ContactForm.vue';
       <div class="linux-bar">
         <span class="linux-title">> noctua/contact.dev</span>
       </div>
-      <ContactForm client:load />
+      <div class="contact-content d-grid">
+        <div class="contact-info neon-mask">
+          <h3>Contacter moi</h3>
+          <p>
+            Je serais ravi de répondre à vos questions et d'échanger sur vos projets. <br /> N'hésitez pas à me contacter
+            pour discuter de vos besoins en développement web.
+          </p>
+        </div>
+
+        <div class="contact-form-wrap neon-mask">
+          <ContactForm client:load />
+        </div>
+      </div>
     </div>
   </div>
 </section>
