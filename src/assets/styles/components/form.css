@@ -6,10 +6,9 @@
 
 .form {
   position: relative;
-}
-
-.form-row {
-  gap: var(--spacing-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-10);
 }
 
 /* === FORM GROUPS === */
@@ -18,7 +17,6 @@
   position: relative;
   flex: 1;
   min-width: 200px;
-  padding-bottom: var(--spacing-10);
 }
 
 /* === FORM LABELS === */
@@ -40,9 +38,9 @@
 .form-textarea:focus + .form-label,
 .form-input:not(:placeholder-shown) + .form-label,
 .form-textarea:not(:placeholder-shown) + .form-label {
-  top: -10px;
+  top: -6px;
   scale: 0.93;
-  left: 10px;
+  left: 0px;
   color: var(--label-active);
 }
 
@@ -56,23 +54,18 @@
   background: var(--input-bg);
   border: none;
   border-bottom: 2px solid var(--input-border);
-  /*border-radius: var(--border-radius-sm);*/
   color: var(--text-primary);
   font-size: 0.95rem;
   transition: all 0.3s ease;
 }
 
 .form-input:focus,
-input:-webkit-autofill:focus,
 .form-textarea:focus {
   outline: none;
   border: none;
   border-bottom: 2px solid var(--input-border);
   border-color: var(--input-border-focus);
   background: var(--input-bg-focus);
-  /*box-shadow:
-    0 0 0 3px rgba(96, 165, 250, 0.1),
-    0 4px 12px rgba(0, 0, 0, 0.3);*/
 }
 
 /* === VALIDATION & ERROR MESSAGES === */
@@ -83,15 +76,24 @@ input:-webkit-autofill:focus,
 }
 
 .error-message {
-  color: var(--red-400);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
   position: absolute;
-  font-size: 0.875rem;
   margin-top: var(--spacing-2);
   padding-left: var(--spacing-2);
+  color: var(--red-400);
+  font-size: 0.875rem;
   font-weight: 500;
   opacity: 0.9;
   overflow: hidden;
   animation: fadeInError 0.3s ease-out;
+}
+
+.error-message svg {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
 }
 
 @keyframes fadeInError {
@@ -113,10 +115,6 @@ input:-webkit-autofill:focus,
   .form-group {
     min-width: 100%;
     flex: 1 1 100%;
-  }
-
-  .form-row {
-    gap: 0 !important;
   }
 
   .textarea-box {
