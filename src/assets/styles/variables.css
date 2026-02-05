@@ -15,6 +15,7 @@
   --purple-400: hsl(239 84% 67%); /* Medium purple */
   --purple-500: hsl(233 69% 65%); /* Light purple/indigo */
   --purple-600: hsl(270 37% 46%); /* Very dark purple */
+  --purple-700: hsl(232, 37%, 34%);
 
   /* Reds */
   --red-400: hsl(0 85% 65%);
@@ -27,6 +28,7 @@
      ======================================== */
   --text-primary: var(--white);
   --text-secondary: hsl(from var(--white) h s l / 0.7);
+  --text-inverse: var(--blue-950);
   --separator-glow: hsl(from var(--purple-400) h s l / 0.5);
   --error: var(--red-400);
 

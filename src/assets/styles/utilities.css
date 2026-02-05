@@ -18,6 +18,30 @@
   overflow: hidden;
 }
 
+/* === Z-INDEX SCALE === */
+/* Consistent stacking order across the application */
+.z-0 {
+  z-index: 0;
+}
+.z-10 {
+  z-index: 10; /* Base layer - Cards, sections */
+}
+.z-20 {
+  z-index: 20; /* Overlapping elements - Elevated cards */
+}
+.z-30 {
+  z-index: 30; /* Overlays - Dropdowns, popovers */
+}
+.z-40 {
+  z-index: 40; /* Modals - Dialog boxes */
+}
+.z-50 {
+  z-index: 50; /* Tooltips - Always on top */
+}
+.z-100 {
+  z-index: 100; /* Critical UI - Notifications, alerts */
+}
+
 /* === TYPOGRAPHY === */
 .tt-uppercase {
   text-transform: uppercase;
@@ -63,6 +87,9 @@
 .pi-center {
   place-items: center;
 }
+.ps-center {
+  place-self: center;
+}
 
 /* === SPACING === */
 .gap-1 {
@@ -87,7 +114,7 @@
   gap: var(--spacing-8);
 }
 
-/* Margins */
+/* === MARGINS === */
 .m-auto {
   margin: 0 auto;
 }
@@ -97,7 +124,9 @@
 .mb-6 {
   margin-bottom: var(--spacing-6);
 }
-
+.mt-4 {
+  margin-top: var(--spacing-4);
+}
 .mt-5 {
   margin-top: var(--spacing-5);
 }
@@ -109,9 +138,12 @@
   margin-right: var(--spacing-5);
 }
 
-/* Paddings */
+/* === PADDINGS === */
 .p-0 {
   padding: 0;
+}
+.p-4 {
+  padding: var(--spacing-4);
 }
 .p-8 {
   padding: var(--spacing-8);

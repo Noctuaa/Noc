@@ -113,6 +113,12 @@
   ======================================== */
 
 @media (max-width: 768px) {
+  /**
+   * Form padding override for mobile
+   */
+  .form {
+    padding: 0;
+  }
   .form-group {
     min-width: 100%;
     flex: 1 1 100%;
