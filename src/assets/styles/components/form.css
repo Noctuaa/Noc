@@ -8,7 +8,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-10);
+  gap: var(--spacing-12);
 }
 
 /* === FORM GROUPS === */
@@ -23,8 +23,8 @@
 
 .form-label {
   position: absolute;
-  top: 15px;
-  left: 15px;
+  top: 5px;
+  left: 10px;
   color: var(--text-primary);
   font-size: 0.9rem;
   font-weight: 500;
@@ -38,9 +38,9 @@
 .form-textarea:focus + .form-label,
 .form-input:not(:placeholder-shown) + .form-label,
 .form-textarea:not(:placeholder-shown) + .form-label {
-  top: -6px;
+  top: -15px;
   scale: 0.93;
-  left: 0px;
+  left: 5px;
   color: var(--label-active);
 }
 
@@ -49,7 +49,7 @@
 .form-input,
 .form-textarea {
   width: 100%;
-  padding: 13px;
+  padding: var(--spacing-1) var(--spacing-2);
   font-family: inherit;
   background: var(--input-bg);
   border: none;
@@ -57,6 +57,7 @@
   color: var(--text-primary);
   font-size: 0.95rem;
   transition: all 0.3s ease;
+  resize: vertical;
 }
 
 .form-input:focus,
