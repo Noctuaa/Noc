@@ -23,6 +23,15 @@
 .z-0 {
   z-index: 0;
 }
+.z-1 {
+  z-index: 1; /* Local stacking - Base element */
+}
+.z-2 {
+  z-index: 2; /* Local stacking - Elevated element */
+}
+.z-3 {
+  z-index: 3; /* Local stacking - Top element */
+}
 .z-10 {
   z-index: 10; /* Base layer - Cards, sections */
 }

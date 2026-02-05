@@ -15,8 +15,6 @@
 
 .form-group {
   position: relative;
-  flex: 1;
-  min-width: 200px;
 }
 
 /* === FORM LABELS === */
@@ -30,8 +28,11 @@
   font-weight: 500;
   text-transform: capitalize;
   letter-spacing: 0.5px;
-  z-index: 1;
-  transition: all 0.6s ease;
+  transition:
+    top var(--transition-normal) ease,
+    left var(--transition-normal) ease,
+    color var(--transition-normal) ease,
+    scale var(--transition-normal) ease;
 }
 
 .form-input:focus + .form-label,
@@ -39,9 +40,9 @@
 .form-input:not(:placeholder-shown) + .form-label,
 .form-textarea:not(:placeholder-shown) + .form-label {
   top: -15px;
-  scale: 0.93;
   left: 5px;
   color: var(--label-active);
+  scale: 0.93;
 }
 
 /* === FORM INPUTS & TEXTAREA === */
@@ -50,13 +51,12 @@
 .form-textarea {
   width: 100%;
   padding: var(--spacing-1) var(--spacing-2);
-  font-family: inherit;
-  background: var(--input-bg);
   border: none;
   border-bottom: 2px solid var(--input-border);
-  color: var(--text-primary);
+  font-family: inherit;
   font-size: 0.95rem;
-  transition: all 0.3s ease;
+  color: var(--text-primary);
+  background: var(--input-bg);
   resize: vertical;
 }
 
@@ -77,18 +77,18 @@
 }
 
 .error-message {
+  position: absolute;
   display: flex;
   align-items: center;
   gap: var(--spacing-2);
-  position: absolute;
   margin-top: var(--spacing-2);
   padding-left: var(--spacing-2);
-  color: var(--red-400);
+  overflow: hidden;
   font-size: 0.875rem;
   font-weight: 500;
+  color: var(--red-400);
   opacity: 0.9;
-  overflow: hidden;
-  animation: fadeInError 0.3s ease-out;
+  animation: fadeInError var(--transition-fast) ease-out;
 }
 
 .error-message svg {
@@ -112,24 +112,8 @@
     RESPONSIVE
   ======================================== */
 
-@media (max-width: 768px) {
-  /**
-   * Form padding override for mobile
-   */
+@media (max-width: 992px) {
   .form {
-    padding: 0;
-  }
-  .form-group {
-    min-width: 100%;
-    flex: 1 1 100%;
-  }
-
-  .textarea-box {
-    margin: 0;
-  }
-}
-@media (max-width: 576px) {
-  .form {
-    padding: var(--spacing-8) var(--spacing-3);
+    padding: var(--spacing-8) 0;
   }
 }
