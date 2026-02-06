@@ -45,7 +45,7 @@
 
 .nav-list {
   display: flex;
-  gap: var(--spacing-5);
+  gap: var(--spacing-3);
 }
 
 .nav-item {
@@ -63,6 +63,14 @@
   border-bottom: 2px solid transparent;
 }
 
+.nav-item:last-child .nav-link {
+  border-radius: var(--border-radius-md);
+  color: white;
+  padding: var(--spacing-2) var(--spacing-4);
+  background: var(--gradient-cta);
+  border: 2px solid var(--purple-700);
+}
+
 /* --- Active & Hover States --- */
 
 .nav-item.active .nav-link,
@@ -76,6 +84,10 @@
 
 .nav-item:hover .nav-link {
   text-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+}
+
+.nav-item:last-child:hover .nav-link {
+  text-shadow: none;
 }
 
 /* ============================================
