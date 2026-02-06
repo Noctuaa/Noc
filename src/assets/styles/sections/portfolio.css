@@ -44,7 +44,7 @@
 }
 
 .project-item.active.neon-mask::before {
-  background: var(--gradient-border-neon);
+  background: var(--gradient-neon);
 }
 
 /* ========================================
@@ -85,7 +85,7 @@
   letter-spacing: var(--spacing-1);
   white-space: nowrap;
   color: transparent;
-  background: var(--gradient-border-neon);
+  background: var(--gradient-neon);
   background-clip: text;
   -webkit-background-clip: text;
   opacity: 1;

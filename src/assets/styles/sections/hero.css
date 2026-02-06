@@ -4,7 +4,9 @@
   position: relative;
   height: 100dvh;
   overflow: hidden;
-  background: url('../../images/peakpx.svg') no-repeat bottom center/cover, var(--bg-primary);
+  background:
+    url('../../images/peakpx.svg') no-repeat bottom center/cover,
+    var(--bg-primary);
   z-index: 68;
 }
 
@@ -15,7 +17,7 @@ h1 {
 }
 
 h1 .name {
-  background: var(--gradient-border-neon);
+  background: var(--gradient-neon);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

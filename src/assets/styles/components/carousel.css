@@ -83,7 +83,7 @@
 
 /* Neon border on active card - Full color */
 :deep(.swiper-slide-active) .tech-card.neon-mask::before {
-  background: var(--gradient-border-neon);
+  background: var(--gradient-neon);
   filter: grayscale(0%);
 }
 

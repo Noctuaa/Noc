@@ -42,7 +42,7 @@
      GRADIENTS
      ======================================== */
   --gradient-cta: linear-gradient(135deg, var(--purple-400), var(--purple-600));
-  --gradient-border-neon: linear-gradient(90deg, var(--blue-400), var(--purple-500));
+  --gradient-neon: linear-gradient(90deg, var(--blue-400), var(--purple-500));
 
   /* ========================================
      BORDERS
