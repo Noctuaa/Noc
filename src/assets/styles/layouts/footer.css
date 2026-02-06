@@ -1,46 +1,55 @@
-/* === FOOTER BASE === */
+/* ========================================
+   FOOTER
+   ======================================== */
+
+/* ===================================
+   BASE STYLES
+   =================================== */
+
 .footer {
-  position: relative;
-  background-color: #0b0f17;
-  padding: var(--spacing-8) 0 var(--spacing-8);
-  font-size: 0.9rem;
+  padding: var(--spacing-8) 0;
+  background-color: var(--blue-950);
+  font-size: var(--text-sm);
 }
 
-/* === FOOTER LAYOUT === */
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: var(--spacing-6);
-}
+/* ===================================
+   BOTTOM SECTION
+   =================================== */
 
-/* === FOOTER BRAND === */
-
-.footer-brand p {
-  color: var(--text-secondary);
-  margin: 0;
-  line-height: 1.6;
-}
-
-.footer-brand .email {
-  margin-bottom: var(--spacing-3);
-}
-
-/* === FOOTER BOTTOM === */
 .footer-bottom {
-  grid-area: 2/ 1 / 3 / 3;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
 }
 
 .footer-bottom p {
   color: var(--text-secondary);
 }
 
+/* ===================================
+   WAVE DECORATION
+   =================================== */
+
+.wave-footer {
+  position: absolute;
+  top: calc(clamp(30px, 8vw, 80px) * -1);
+  left: 0;
+  width: 100%;
+  height: clamp(30px, 8vw, 80px);
+  pointer-events: none;
+  transform: rotate(180deg);
+}
+
+/* ========================================
+   RESPONSIVE - Mobile/Tablet
+   ======================================== */
+
 @media (max-width: 576px) {
+  .footer-brand {
+    place-items: center;
+  }
+
   .footer-bottom {
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: var(--spacing-4);
   }
 }
