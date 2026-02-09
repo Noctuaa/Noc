@@ -85,26 +85,3 @@ section.bg-alt {
     animation: none;
   }
 }
-
-/* Section layout left → 1 colonne en mobile */
-@media (max-width: 1200px) {
-  .section-layout-left .container {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-8);
-  }
-
-  .section-layout-left .section-header {
-    text-align: center;
-    place-items: center;
-    margin-bottom: var(--spacing-8);
-  }
-
-  .section-layout-left .divider hr {
-    margin: 0 auto;
-  }
-
-  .section-layout-left .section-description {
-    text-align: center;
-    margin: 0 auto;
-  }
-}

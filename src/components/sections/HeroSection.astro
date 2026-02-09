@@ -2,7 +2,7 @@
 import SocialButtons from '../../components/ui/SocialButtons.vue';
 ---
 
-<section id="hero" class="hero-section section">
+<section id="hero" class="section z-10 d-grid pi-center h-100">
   <div class="stars">
     <div class="star" style="left: 2.9296%; top: 58.0594%; animation-delay: 2.3262s;"></div>
     <div class="star" style="left: 66.8628%; top: 19.192%; animation-delay: 0.834836s;"></div>
@@ -55,14 +55,12 @@ import SocialButtons from '../../components/ui/SocialButtons.vue';
     <div class="star" style="left: 37.1598%; top: 44.8005%; animation-delay: 2.33327s;"></div>
     <div class="star" style="left: 42.0389%; top: 92.2949%; animation-delay: 2.31171s;"></div>
   </div>
-  <div class="container d-flex ai-center h-100">
-    <div class="hero-content w-100">
-      <h1 class="d-flex fd-column gap-1Ah tu l">
-        <span class="name">Nocdev</span>
-        <span class="job">Développeur d'application</span>
-      </h1>
-      <p class="section-description">Créateur passionné de solutions web et technologies modernes.</p>
-      <hr class="divider" />
+  <div class="hero-content p-relative d-grid w-100">
+    <h1 class="d-grid tt-center">
+      <span class="name">Nocdev</span>
+      <span class="job">Developpeur d'application</span>
+    </h1>
+    <div class="hero-social">
       <SocialButtons client:load />
     </div>
   </div>
