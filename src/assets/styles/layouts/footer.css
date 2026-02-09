@@ -34,6 +34,7 @@
   left: 0;
   width: 100%;
   height: clamp(30px, 8vw, 80px);
+  fill: var(--blue-950);
   pointer-events: none;
   transform: rotate(180deg);
 }

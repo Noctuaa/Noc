@@ -21,6 +21,7 @@ section.bg-alt {
    ======================================== */
 
 .section-header {
+  display: grid;
   margin-bottom: var(--spacing-16);
   width: 100%;
   place-items: center;
