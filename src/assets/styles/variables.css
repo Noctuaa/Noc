@@ -88,6 +88,11 @@
   --spacing-12: 3rem; /* 48px */
   --spacing-16: 4rem; /* 64px */
 
+  /* ========================================
+     LAYOUT
+     ======================================== */
+  --nav-height-desktop: 6.25rem; /* 100px */
+  --nav-height-scrolled: 5rem; /* 80px */
   --section-overlap: 9rem; /* For overlapping section effect */
 
   /* ========================================

@@ -4,10 +4,10 @@ import { scrollTo, throttle } from '../../utils/ScrollManager';
 
 // Navigation sections list
 const sections = [
-  { id: 'hero', label: 'Home' },
-  { id: 'profile', label: 'Profil' },
+  { id: 'hero', label: 'Accueil' },
+  { id: 'profile', label: 'À propos' },
   { id: 'competences', label: 'Compétences' },
-  { id: 'portfolio', label: 'Porfolio' },
+  { id: 'portfolio', label: 'Portfolio' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -88,7 +88,7 @@ const handleScroll = () => {
 const handleScrollThrottled = throttle(handleScroll, 100);
 
 /**
- * Toggle the hamburger menu open/close state
+ * Toggle the .nav-burger menu open/close state
  * @returns {void}
  */
 const toggleMenu = () => {
@@ -97,7 +97,7 @@ const toggleMenu = () => {
 };
 
 /**
- * Close the hamburger menu
+ * Close the .nav-burger menu
  * @returns {void}
  */
 const closeMenu = () => {
@@ -151,26 +151,28 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <nav :class="['nav', { 'is-open': isMenuOpen, scrolled: isScrolled, hidden: hideNav }]">
-    <div class="container nav-inner">
-      <div class="logo-placeholder d-flex ai-center">
-        <span class="logo-text">NOCDEV</span>
+  <nav :class="['nav', { 'is-open': isMenuOpen, scrolled: isScrolled, hidden: hideNav }, 'p-fixed z-100 w-100']">
+    <div class="container h-100">
+      <div class="nav-inner d-flex ai-center w-100 h-100">
+        <div class="logo-placeholder d-flex ai-center">
+          <span class="logo-text">NOCDEV</span>
+        </div>
+        <ul class="nav-list d-flex ai-center gap-3">
+          <li
+            v-for="section in sections"
+            :key="section.id"
+            @click.prevent="navigateToSection(section.id)"
+            :class="['nav-item cursor-p', { active: activeSection === section.id }]"
+          >
+            <a :href="`#${section.id}`" class="nav-link d-flex">{{ section.label }}</a>
+          </li>
+        </ul>
+        <button @click="toggleMenu" class="nav-burger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-      <ul class="nav-list">
-        <li
-          v-for="section in sections"
-          :key="section.id"
-          @click.prevent="navigateToSection(section.id)"
-          :class="['nav-item', { active: activeSection === section.id }]"
-        >
-          <a :href="`#${section.id}`" class="nav-link">{{ section.label }}</a>
-        </li>
-      </ul>
-      <button @click="toggleMenu" class="hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </div>
   </nav>
 </template>
