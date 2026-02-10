@@ -15,7 +15,7 @@
 }
 
 .nav-inner {
-  justify-content: space-between;
+  justify-content: center;
 }
 
 /* ============================================
@@ -116,10 +116,6 @@
   /* --- Mobile Navigation Layout --- */
   .nav {
     height: 0;
-  }
-
-  .nav-inner {
-    justify-content: center;
   }
 
   /* --- Mobile States Override --- */

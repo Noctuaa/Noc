@@ -154,9 +154,6 @@ onUnmounted(() => {
   <nav :class="['nav', { 'is-open': isMenuOpen, scrolled: isScrolled, hidden: hideNav }, 'p-fixed z-100 w-100']">
     <div class="container h-100">
       <div class="nav-inner d-flex ai-center w-100 h-100">
-        <div class="logo-placeholder d-flex ai-center">
-          <span class="logo-text">NOCDEV</span>
-        </div>
         <ul class="nav-list d-flex ai-center gap-3">
           <li
             v-for="section in sections"

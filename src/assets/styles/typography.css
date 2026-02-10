@@ -9,10 +9,9 @@
 h1 {
   font-family: var(--font-family-hero);
   text-transform: uppercase;
-  margin: 0;
-  font-size: clamp(var(--text-4xl), 8vw, 8rem); /* 40px → 8vw → 64px */
-  font-weight: 900;
-  letter-spacing: 0.1em;
+  margin: 0 auto;
+  font-size: clamp(var(--text-5xl), 8vw, 8rem); /* 40px → 8vw → 64px */
+  font-weight: 500;
 }
 
 h2 {
