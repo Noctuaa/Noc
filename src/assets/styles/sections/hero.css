@@ -187,12 +187,11 @@ h1 .job {
   justify-content: center;
   place-items: center;
   position: absolute;
-  grid-template-columns: 40px;
-  grid-template-rows: 1fr 84px 1fr;
+  grid-template-columns: 34px;
+  grid-template-rows: 1fr 72px 1fr;
   top: 5%;
   bottom: 0;
-  right: 1.9%;
-  width: 45px;
+  right: 2%;
 }
 
 .vline-top {

@@ -81,9 +81,8 @@
   background-color: #fff;
   border: 2px solid #1a1b2f;
   border-radius: 8px;
-  width: 40px;
-  height: 40px;
-  font-size: 1.2rem;
+  width: 34px;
+  height: 34px;
   transition: all 0.2s ease-in-out;
   fill: #1a1b2f;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
