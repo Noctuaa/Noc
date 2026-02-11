@@ -12,7 +12,7 @@
 }
 
 /* ============================================
-   HERO LAYOUT - Grid Container
+   LAYOUT - Grid Container
    ============================================ */
 
 .hero-content {
@@ -53,7 +53,7 @@ h1 .job {
 }
 
 /* ============================================
-   BACKGROUND EFFECTS - Stars Animation
+   BACKGROUND - Stars
    ============================================ */
 
 .stars {
@@ -77,20 +77,25 @@ h1 .job {
 }
 
 /* ============================================
-   DECORATIVE ELEMENTS
+   DECORATIVE - Base commune
+   ============================================ */
+
+.hero-deco,
+.hero-deco-vline {
+  position: absolute;
+  z-index: 50;
+  display: grid;
+}
+
+/* ============================================
+   DECORATIVE - Lignes horizontales
    ============================================ */
 
 .hero-deco {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
   padding-inline: clamp(1.5rem, 3vw, 4rem);
   height: var(--nav-height-desktop);
-  display: grid;
   grid-template-columns: 1fr 579px 1fr;
-  pointer-events: none;
-  z-index: 50;
 }
 
 .hero-deco-left,
@@ -106,15 +111,45 @@ h1 .job {
   justify-content: end;
 }
 
-/* Trait haut */
-.deco-line-top {
+.deco-line-top,
+.deco-line-bottom {
   position: relative;
+}
+
+.deco-line-top,
+.deco-line-top::after,
+.deco-line-bottom {
+  height: 2px;
+}
+
+.deco-line-top {
   top: 35%;
   left: 0;
   right: 20px;
-  height: 2px;
-  background: linear-gradient(to right, transparent, hsl(from var(--blue-400) h s l / 0.4) 50%);
   width: 40%;
+  background: linear-gradient(to right, transparent, hsl(from var(--blue-400) h s l / 0.4) 50%);
+}
+
+.deco-line-top::after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  top: 0;
+  width: 20px;
+  background: hsl(from var(--blue-400) h s l / 0.5);
+  transform: rotate(45deg);
+  transform-origin: left center;
+}
+
+.deco-line-bottom {
+  top: 49%;
+  width: 30%;
+  background: hsl(from var(--blue-400) h s l / 0.6);
+}
+
+.hero-deco-left .deco-line-bottom {
+  left: 14px;
+  right: 16px;
 }
 
 .hero-deco-right .deco-line-top,
@@ -127,103 +162,70 @@ h1 .job {
   right: 14px;
 }
 
-.hero-deco-left .deco-line-bottom {
-  left: 14px; /* ajuster pour toucher la fin de la diagonale */ /* espace pour le carré */
-  right: 16px;
-}
-
-/* Diagonale qui descend vers le menu */
-.deco-line-top::after {
-  content: '';
-  position: absolute;
-  right: -20px;
-  top: 0;
-  width: 20px;
-  height: 2px;
-  background: hsl(from var(--blue-400) h s l / 0.5);
-  transform: rotate(45deg);
-  transform-origin: left center;
-}
-
-/* Trait bas - relie diagonale au menu */
-.deco-line-bottom {
-  position: relative;
-  top: 49%;
-  height: 2px;
-  width: 40%;
-  background: hsl(from var(--blue-400) h s l / 0.6);
-}
-
 .square {
   position: absolute;
   top: 50%;
-  transform: translateY(-100%);
-  right: -20px;
-  width: 13px;
-  height: 11px;
+  transform: translateY(-110%);
+  right: -15px;
+  width: 10px;
+  height: 8px;
 }
 
+.square::before,
 .square::after {
   position: absolute;
   content: '';
   border: 3px solid hsl(from var(--blue-400) h s l / 0.6);
-  border-top: none;
   width: 100%;
   height: 50%;
-  bottom: -10px;
 }
 
 .square::before {
-  position: absolute;
-  content: '';
-  border: 3px solid hsl(from var(--blue-400) h s l / 0.6);
   border-bottom: none;
-  width: 100%;
-  height: 50%;
 }
+
+.square::after {
+  border-top: none;
+  bottom: -10px;
+}
+
+/* ============================================
+   DECORATIVE - Vline verticale (socials)
+   ============================================ */
 
 .hero-deco-vline {
-  display: grid;
   justify-content: center;
   place-items: center;
-  position: absolute;
+  top: 0;
+  right: clamp(2rem, 2vw, 4rem);
   grid-template-columns: 34px;
-  grid-template-rows: 1fr 72px 1fr;
-  top: 5%;
-  bottom: 0;
-  right: 2%;
+  grid-template-rows: 1fr 120px 1fr;
+  height: 100%;
 }
 
-.vline-top {
-  grid-area: 1/1/2/1;
-  align-self: start;
+.vline-top,
+.vline-bottom {
   width: 2px;
   height: 90%;
   background: repeating-linear-gradient(
     to bottom,
-    hsl(from var(--blue-400) h s l / 0.6) 0px,
-    hsl(from var(--blue-400) h s l / 1) 4px,
+    hsl(from var(--blue-400) h s l / 0.5) 0px,
+    hsl(from var(--blue-400) h s l / 0.7) 4px,
     transparent 4px,
     transparent 8px
   );
-  mask-image: linear-gradient(to bottom, transparent, rgb(255, 255, 255) 40%);
-  opacity: 0.6;
+}
+
+.vline-top {
+  grid-area: 1/1/2/1;
+  align-self: end;
+  mask-image: linear-gradient(to bottom, transparent, var(--white) 40%);
 }
 
 .vline-bottom {
   grid-area: 3/1/4/1;
   align-self: start;
-  width: 2px;
-  height: 90%;
-  background: repeating-linear-gradient(
-    to bottom,
-    var(--blue-400) 0px,
-    var(--blue-400) 4px,
-    transparent 4px,
-    transparent 8px
-  );
-  mask-image: linear-gradient(to top, transparent, rgb(255, 255, 255) 40%);
-  opacity: 0.6;
+  mask-image: linear-gradient(to top, transparent, var(--white) 40%);
 }
 
 /* ============================================
@@ -254,14 +256,20 @@ h1 .job {
 }
 
 /* ============================================
-   RESPONSIVE - Mobile/Tablet
+   RESPONSIVE
    ============================================ */
 
-@media (max-width: 992px) {
+@media (max-width: 1400px) {
+  .hero-deco,
+  .hero-deco-vline {
+    display: none;
+  }
+
   .hero-content {
     grid-template-columns: 1fr;
     gap: var(--spacing-4);
   }
+
   .hero-social {
     justify-self: center;
   }
