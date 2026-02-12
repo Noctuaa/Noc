@@ -1,5 +1,5 @@
 ---
-import SocialButtons from '../ui/SocialButtons.vue';
+import SocialButtons from '../ui/SocialButtons.astro';
 import Modal from '../ui/Modal.vue';
 
 const currentYear = new Date().getFullYear();
@@ -14,7 +14,7 @@ const currentYear = new Date().getFullYear();
   <div class="container">
     <div class="footer-brand d-grid gap-2 mb-6">
       <h3 class="brand-name">Nocdev</h3>
-      <SocialButtons client:load />
+      <SocialButtons />
     </div>
     <div class="separator-h separator-h-gradient"></div>
     <div class="footer-bottom d-flex jc-between pt-4">
