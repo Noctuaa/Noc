@@ -4,10 +4,10 @@
 
 #hero {
   position: relative;
-  height: 100dvh;
+  height: 100svh;
   overflow: hidden;
   background:
-    url('../../images/peakpx.svg') no-repeat bottom center/cover,
+    url('../../images/land.svg') no-repeat bottom center/cover,
     var(--bg-primary);
 }
 
@@ -15,17 +15,30 @@
    LAYOUT - Grid Container
    ============================================ */
 
-.hero-content {
-  grid-template-columns: 1fr fit-content(100%);
-  align-items: center;
-  padding-inline: clamp(2rem, 2vw, 4rem);
+.hero-header {
+  position: absolute;
+  grid-template-columns: 1fr var(--nav-width-desktop) 1fr;
+  top: 0;
+  pointer-events: none;
+  z-index: 50;
+  height: var(--nav-height-desktop);
+  width: 100%;
+  padding-inline: clamp(1.5rem, 3vw, 2rem);
+}
+
+.hero-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 5%;
+  display: flex;
+  justify-content: center;
 }
 
 /* ============================================
-   TYPOGRAPHY - H1 & Spans
+   TYPOGRAPHY - H1 & P
    ============================================ */
 
-h1 .name {
+.hero-content h1 {
   width: 100%;
   overflow: hidden;
   display: block;
@@ -36,20 +49,13 @@ h1 .name {
   animation: letterSpacingReduce 1s cubic-bezier(0, 0, 0.2, 1) forwards;
 }
 
-h1 .job {
+.hero-content p {
+  font-family: var(--font-family-hero);
+  text-transform: uppercase;
   font-size: clamp(0.9rem, 2vw, 1.5rem);
   font-weight: 500;
   letter-spacing: 0.8em;
   opacity: 0.9;
-}
-
-/* ============================================
-   SOCIALS - Vertical Layout
-   ============================================ */
-
-.hero-social ul {
-  display: flex;
-  flex-direction: column;
 }
 
 /* ============================================
@@ -77,26 +83,8 @@ h1 .job {
 }
 
 /* ============================================
-   DECORATIVE - Base commune
+   DECORATIVE 
    ============================================ */
-
-.hero-deco,
-.hero-deco-vline {
-  position: absolute;
-  z-index: 50;
-  display: grid;
-}
-
-/* ============================================
-   DECORATIVE - Lignes horizontales
-   ============================================ */
-
-.hero-deco {
-  inset: 0;
-  padding-inline: clamp(1.5rem, 3vw, 4rem);
-  height: var(--nav-height-desktop);
-  grid-template-columns: 1fr 579px 1fr;
-}
 
 .hero-deco-left,
 .hero-deco-right {
@@ -107,7 +95,7 @@ h1 .job {
 }
 
 .hero-deco-right {
-  grid-area: 1 / 3;
+  grid-area: 1/3/2/4;
   justify-content: end;
 }
 
@@ -190,42 +178,60 @@ h1 .job {
 }
 
 /* ============================================
-   DECORATIVE - Vline verticale (socials)
-   ============================================ */
+    DECORATIVE - Vline verticale
+  ============================================ */
 
-.hero-deco-vline {
-  justify-content: center;
-  place-items: center;
-  top: 0;
-  right: clamp(2rem, 2vw, 4rem);
-  grid-template-columns: 34px;
-  grid-template-rows: 1fr 120px 1fr;
-  height: 100%;
-}
-
-.vline-top,
-.vline-bottom {
+.hero-vline {
   width: 2px;
+  position: absolute;
   height: 90%;
   background: repeating-linear-gradient(
     to bottom,
-    hsl(from var(--blue-400) h s l / 0.5) 0px,
-    hsl(from var(--blue-400) h s l / 0.7) 4px,
+    hsl(from var(--blue-400) h s l / 0.2) 0px,
+    hsl(from var(--blue-400) h s l / 0.4) 4px,
     transparent 4px,
     transparent 8px
   );
+  mask-image: linear-gradient(to bottom, transparent, var(--white) 10%, var(--white) 90%, transparent);
+  pointer-events: none;
+  z-index: 50;
 }
 
-.vline-top {
-  grid-area: 1/1/2/1;
-  align-self: end;
-  mask-image: linear-gradient(to bottom, transparent, var(--white) 40%);
+.vline-r {
+  right: clamp(1.5rem, 3vw, 2rem);
 }
 
-.vline-bottom {
-  grid-area: 3/1/4/1;
-  align-self: start;
-  mask-image: linear-gradient(to top, transparent, var(--white) 40%);
+.vline-l {
+  left: clamp(1.5rem, 3vw, 2rem);
+}
+
+/* ============================================
+   MOUSE SCROLL INDICATOR
+   ============================================ */
+
+.hero-scroll {
+  position: relative;
+  width: 33px;
+  height: 55px;
+  border: 3px solid hsl(from var(--white) h s l / 0.7);
+  border-radius: 23px;
+  box-sizing: border-box;
+  cursor: pointer;
+  box-shadow: 0 0 5px 2px var(--bg-primary);
+}
+
+.hero-scroll-wheel {
+  position: absolute;
+  display: block;
+  top: 29%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: hsl(from var(--white) h s l / 1);
+  border-radius: 50%;
+  animation: rev-ani-mouse 2s 1s linear infinite;
+  box-shadow: -1px -1px 2px 2px var(--bg-primary);
 }
 
 /* ============================================
@@ -255,26 +261,35 @@ h1 .job {
   }
 }
 
+@keyframes rev-ani-mouse {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0%);
+  }
+  15% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(120%);
+  }
+  50%,
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(150%);
+  }
+}
+
 /* ============================================
    RESPONSIVE
    ============================================ */
 
 @media (max-width: 1400px) {
-  .hero-deco,
-  .hero-deco-vline {
+  .hero-header,
+  .hero-vline {
     display: none;
   }
+}
 
-  .hero-content {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-4);
-  }
-
-  .hero-social {
-    justify-self: center;
-  }
-
-  .hero-social ul {
-    flex-direction: row;
+@media (max-width: 768px) {
+  .hero-scroll {
+    display: none;
   }
 }

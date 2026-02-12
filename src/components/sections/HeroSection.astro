@@ -3,10 +3,12 @@ import SocialButtons from '../../components/ui/SocialButtons.vue';
 ---
 
 <section id="hero" class="section z-10 d-grid pi-center h-100">
-  <div class="hero-deco" aria-hidden="true">
+  <div class="hero-header d-grid" aria-hidden="true">
     <div class="hero-deco-left">
       <span class="deco-line-top"></span>
-      <span class="deco-line-bottom"><span class="square"></span></span>
+      <span class="deco-line-bottom">
+        <span class="square"></span>
+      </span>
     </div>
     <div class="hero-deco-right">
       <span class="deco-line-bottom">
@@ -15,13 +17,6 @@ import SocialButtons from '../../components/ui/SocialButtons.vue';
       <span class="deco-line-top"></span>
     </div>
   </div>
-
-  <div class="hero-deco-vline" aria-hidden="true">
-    <span class="vline-top"></span>
-
-    <span class="vline-bottom"></span>
-  </div>
-
   <div class="stars">
     <div class="star" style="left: 2.9296%; top: 58.0594%; animation-delay: 2.3262s;"></div>
     <div class="star" style="left: 66.8628%; top: 19.192%; animation-delay: 0.834836s;"></div>
@@ -74,13 +69,30 @@ import SocialButtons from '../../components/ui/SocialButtons.vue';
     <div class="star" style="left: 37.1598%; top: 44.8005%; animation-delay: 2.33327s;"></div>
     <div class="star" style="left: 42.0389%; top: 92.2949%; animation-delay: 2.31171s;"></div>
   </div>
-  <div class="hero-content p-relative d-grid w-100">
-    <h1 class="d-grid tt-center">
-      <span class="name">Nocdev</span>
-      <span class="job">Developpeur d'application</span>
-    </h1>
-    <div class="hero-social">
-      <SocialButtons client:load />
+  <div class="hero-vline vline-l" aria-hidden="true"></div>
+  <div class="hero-vline vline-r" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content tt-center d-grid gap-1">
+      <h1>Nocdev</h1>
+      <p>Developpeur d'application</p>
+      <div class="d-flex jc-center">
+        <SocialButtons client:load />
+      </div>
     </div>
   </div>
+  <div class="hero-footer">
+    <a href="#profil" class="hero-scroll" aria-label="Défiler vers le bas">
+      <span class="hero-scroll-wheel"></span>
+    </a>
+  </div>
 </section>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.hero-scroll')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      const heroHeight = document.querySelector('#profile')?.offsetHeight || window.innerHeight;
+      window.lenis?.scrollTo(heroHeight);
+    });
+  });
+</script>

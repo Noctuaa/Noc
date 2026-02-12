@@ -114,6 +114,7 @@
      ======================================== */
   --nav-height-desktop: 6.25rem; /* 100px */
   --nav-height-scrolled: 5rem; /* 80px */
+  --nav-width-desktop: 36rem; /* 580px */
   --section-overlap: 9rem; /* For overlapping section effect */
 
   /* ========================================
