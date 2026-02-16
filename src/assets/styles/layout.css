@@ -31,7 +31,7 @@
    ======================================== */
 
 .curtain-container {
-  min-height: 200dvh !important;
+  min-height: 200svh !important;
   height: auto;
   position: relative;
 }
@@ -39,7 +39,7 @@
 .curtain-container > #hero,
 .curtain-container > #profile {
   position: relative;
-  min-height: 100dvh;
+  min-height: 100svh;
 }
 
 .curtain-container > #hero {

@@ -42,13 +42,14 @@ import SocialButtons from '../../components/ui/SocialButtons.astro';
     const starsContainer = document.querySelector('.stars');
 
     // Grille 6 colonnes x 5 lignes = 30 étoiles réparties uniformément
-    const cols = 6,
+    const cols = 5,
       rows = 5;
 
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {
-        const star = document.createElement('div');
+        const star = document.createElement('span');
         star.className = 'star';
+        star.textContent = '+';
 
         // Position dans la cellule + décalage aléatoire (jitter)
         // → distribution uniforme mais aspect naturel
@@ -57,14 +58,6 @@ import SocialButtons from '../../components/ui/SocialButtons.astro';
 
         // Délai aléatoire pour que les étoiles ne clignotent pas toutes en même temps
         star.style.animationDelay = `${Math.random() * 3}s`;
-
-        // Variation de taille : 15% grandes (3px), 20% petites (1px), 65% normales (2px via CSS)
-        const size = Math.random();
-        if (size > 0.85) {
-          star.style.width = star.style.height = '3px';
-        } else if (size < 0.2) {
-          star.style.width = star.style.height = '1px';
-        }
 
         starsContainer.appendChild(star);
       }
