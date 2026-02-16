@@ -2,8 +2,8 @@
 import SocialButtons from '../../components/ui/SocialButtons.astro';
 ---
 
-<section id="hero" class="section z-10 d-grid pi-center h-100">
-  <div class="hero-header d-grid" aria-hidden="true">
+<section id="hero" class="section p-relative z-10 d-grid pi-center h-100 ow-hidden">
+  <div class="hero-header p-absolute z-50 d-grid w-100 pe-none" aria-hidden="true">
     <div class="hero-deco-left">
       <span class="deco-line-top"></span>
       <span class="deco-line-bottom">
@@ -17,7 +17,7 @@ import SocialButtons from '../../components/ui/SocialButtons.astro';
       <span class="deco-line-top"></span>
     </div>
   </div>
-  <div class="stars"></div>
+  <div class="stars p-absolute z-1 w-100 pe-none"></div>
   <div class="hero-vline vline-l" aria-hidden="true"></div>
   <div class="hero-vline vline-r" aria-hidden="true"></div>
   <div class="container">
@@ -29,7 +29,7 @@ import SocialButtons from '../../components/ui/SocialButtons.astro';
       </div>
     </div>
   </div>
-  <div class="hero-footer">
+  <div class="hero-footer p-absolute d-flex jc-center w-100">
     <a href="#profile" class="hero-scroll" aria-label="Défiler vers le bas">
       <span class="hero-scroll-wheel"></span>
     </a>
@@ -62,12 +62,5 @@ import SocialButtons from '../../components/ui/SocialButtons.astro';
         starsContainer.appendChild(star);
       }
     }
-
-    // Scroll souris (déjà existant)
-    /*document.querySelector('.hero-scroll')?.addEventListener('click', (e) => {
-      e.preventDefault();
-      const heroHeight = document.querySelector('#hero')?.offsetHeight || window.innerHeight;
-      window.lenis?.scrollTo(heroHeight);
-    });*/
   });
 </script>

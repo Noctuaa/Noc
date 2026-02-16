@@ -7,6 +7,9 @@
    ======================================== */
 
 h1 {
+  display: block;
+  width: 100%;
+  overflow: hidden;
   font-family: var(--font-family-hero);
   text-transform: uppercase;
   margin: 0 auto;

@@ -3,8 +3,6 @@
    ============================================ */
 
 #hero {
-  position: relative;
-  overflow: hidden;
   background:
     radial-gradient(ellipse at 15% 25%, hsl(from var(--purple-500) h s l / 0.13) 0%, transparent 50%),
     radial-gradient(ellipse at 85% 15%, hsl(from var(--blue-400) h s l / 0.15) 0%, transparent 45%),
@@ -18,22 +16,14 @@
    ============================================ */
 
 .hero-header {
-  position: absolute;
-  grid-template-columns: 1fr var(--nav-width-desktop) 1fr;
   top: 0;
-  pointer-events: none;
-  z-index: 50;
+  grid-template-columns: 1fr var(--nav-width-desktop) 1fr;
   height: var(--nav-height-desktop);
-  width: 100%;
   padding-inline: clamp(1.5rem, 3vw, 2rem);
 }
 
 .hero-footer {
-  position: absolute;
-  width: 100%;
   bottom: 5%;
-  display: flex;
-  justify-content: center;
 }
 
 /* ============================================
@@ -41,9 +31,6 @@
    ============================================ */
 
 .hero-content h1 {
-  width: 100%;
-  overflow: hidden;
-  display: block;
   background: var(--gradient-neon);
   background-clip: text;
   -webkit-background-clip: text;
@@ -53,9 +40,9 @@
 
 .hero-content p {
   font-family: var(--font-family-hero);
-  text-transform: uppercase;
   font-size: clamp(0.9rem, 2vw, 1.5rem);
   font-weight: 500;
+  text-transform: uppercase;
   letter-spacing: 0.8em;
   opacity: 0.9;
 }
@@ -65,23 +52,21 @@
    ============================================ */
 
 .stars {
-  position: absolute;
   top: 2%;
   left: 0;
-  width: 100%;
   height: 73%;
-  z-index: 1;
-  pointer-events: none;
 }
 
 .star {
   position: absolute;
   font-size: 8px;
+  line-height: var(--leading-tight);
   color: var(--white);
+  text-shadow:
+    0 0 6px var(--blue-400),
+    0 0 12px var(--blue-400);
   opacity: 0.6;
-  text-shadow: 0 0 6px var(--cyan-400);
   animation: twinkle 3s infinite;
-  line-height: 1;
   user-select: none;
 }
 
@@ -157,19 +142,19 @@
 .square {
   position: absolute;
   top: 50%;
-  transform: translateY(-110%);
   right: -15px;
   width: 10px;
   height: 8px;
+  transform: translateY(-110%);
 }
 
 .square::before,
 .square::after {
   position: absolute;
   content: '';
-  border: 3px solid hsl(from var(--blue-400) h s l / 0.8);
   width: 100%;
   height: 50%;
+  border: 3px solid hsl(from var(--blue-400) h s l / 0.8);
 }
 
 .square::before {
@@ -177,8 +162,8 @@
 }
 
 .square::after {
-  border-top: none;
   bottom: -10px;
+  border-top: none;
 }
 
 /* ============================================
@@ -186,8 +171,9 @@
   ============================================ */
 
 .hero-vline {
-  width: 2px;
   position: absolute;
+  z-index: 50;
+  width: 2px;
   height: 90%;
   background: repeating-linear-gradient(
     to bottom,
@@ -197,9 +183,8 @@
     transparent 8px
   );
   mask-image: linear-gradient(to bottom, transparent, var(--white) 10%, var(--white) 90%, transparent);
-  pointer-events: none;
   opacity: 0.4;
-  z-index: 50;
+  pointer-events: none;
 }
 
 .vline-r {
@@ -220,9 +205,8 @@
   height: 55px;
   border: 3px solid hsl(from var(--white) h s l / 0.7);
   border-radius: 23px;
-  box-sizing: border-box;
-  cursor: pointer;
   box-shadow: 0 0 5px 2px var(--bg-primary);
+  cursor: pointer;
 }
 
 .hero-scroll-wheel {
@@ -230,13 +214,13 @@
   display: block;
   top: 29%;
   left: 50%;
-  transform: translateX(-50%);
   width: 8px;
   height: 8px;
-  background: hsl(from var(--white) h s l / 1);
   border-radius: 50%;
-  animation: rev-ani-mouse 2s 1s linear infinite;
+  background: hsl(from var(--white) h s l / 1);
   box-shadow: -1px -1px 2px 2px var(--bg-primary);
+  transform: translateX(-50%);
+  animation: rev-ani-mouse 2s 1s linear infinite;
 }
 
 /* ============================================

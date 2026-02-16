@@ -211,3 +211,7 @@
 .cursor-p {
   cursor: pointer;
 }
+
+.pe-none {
+  pointer-events: none;
+}
