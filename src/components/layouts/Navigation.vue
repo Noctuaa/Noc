@@ -25,7 +25,9 @@ const isScrolling = ref(false); // Flag to prevent scroll spy flicker during pro
  */
 const updateNavState = () => {
   const currentScrollY = window.scrollY;
-  isScrolled.value = currentScrollY > 50;
+  const scrollingDown = currentScrollY > lastScrollY.value;
+
+  isScrolled.value = currentScrollY > 100 && !scrollingDown;
 
   if (currentScrollY > lastScrollY.value && currentScrollY > 100) {
     // Scrolling down

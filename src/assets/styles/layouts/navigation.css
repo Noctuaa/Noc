@@ -10,8 +10,7 @@
   height: var(--nav-height-desktop);
   transition:
     transform var(--transition-fast) ease-out,
-    height var(--transition-fast) ease-out,
-    background var(--transition-fast) ease-out;
+    height var(--transition-fast) ease-out;
 }
 
 .nav-inner {
