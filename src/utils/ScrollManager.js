@@ -13,6 +13,8 @@ gsap.registerPlugin(ScrollTrigger);
 /** @constant {number} DURATION - Default scroll animation duration in seconds */
 const DURATION = 1.5;
 
+const SECTIONS_AFTER_PROFILE = ['#competences', '#portfolio', '#contact'];
+
 // Shared Lenis instance
 let lenis = null;
 
@@ -69,23 +71,24 @@ export const throttle = (func, delay) => {
 };
 
 /**
- * Smooth scroll to a specific target
- * @param {string|number} target - CSS selector (e.g., '#profile') or pixel position (e.g., 1000)
+ * Initialize smooth scroll for all anchor links
+ * Intercepts all a[href^="#"] clicks and delegates to Lenis Special handling for #profile (scrolls to hero height to trigger curtain effect)
+ * @returns {void}
  */
-export const scrollTo = (target) => {
-  if (!lenis) {
-    console.error('Lenis not initialized');
-    return;
-  }
-  // For sections after Profile, remove curtain-fixed FIRST
-  const sectionsAfterProfile = ['#competences', '#portfolio', '#contact'];
+export const initAnchorLinks = () => {
+  const anchors = document.querySelectorAll('a[href^="#"]');
   const profileSection = document.querySelector('#profile');
 
-  if (sectionsAfterProfile.includes(target) && profileSection.classList.contains('curtain-fixed')) {
-    profileSection.classList.remove('curtain-fixed');
-  }
-
-  lenis.scrollTo(target, { DURATION, offset: 0 });
+  anchors.forEach((anchor) => {
+    anchor.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.lenis?.start();
+      const href = anchor.getAttribute('href');
+      const target = href === '#profile' ? document.querySelector('#hero')?.offsetHeight || window.innerHeight : href;
+      if (SECTIONS_AFTER_PROFILE.includes(href)) profileSection?.classList.remove('curtain-fixed');
+      lenis.scrollTo(target, { duration: DURATION, offset: 0 });
+    });
+  });
 };
 
 /**
@@ -110,7 +113,7 @@ export const initCurtainEffect = () => {
   ScrollTrigger.create({
     trigger: heroSection,
     start: 'top top',
-    end: 'bottom top',
+    end: 'bottom',
     onLeave: () => profileSection.classList.remove('curtain-fixed'),
     onEnterBack: () => profileSection.classList.add('curtain-fixed'),
     markers: false,

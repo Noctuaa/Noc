@@ -30,7 +30,7 @@ import SocialButtons from '../../components/ui/SocialButtons.astro';
     </div>
   </div>
   <div class="hero-footer">
-    <a href="#profil" class="hero-scroll" aria-label="Défiler vers le bas">
+    <a href="#profile" class="hero-scroll" aria-label="Défiler vers le bas">
       <span class="hero-scroll-wheel"></span>
     </a>
   </div>
@@ -64,10 +64,10 @@ import SocialButtons from '../../components/ui/SocialButtons.astro';
     }
 
     // Scroll souris (déjà existant)
-    document.querySelector('.hero-scroll')?.addEventListener('click', (e) => {
+    /*document.querySelector('.hero-scroll')?.addEventListener('click', (e) => {
       e.preventDefault();
       const heroHeight = document.querySelector('#hero')?.offsetHeight || window.innerHeight;
       window.lenis?.scrollTo(heroHeight);
-    });
+    });*/
   });
 </script>

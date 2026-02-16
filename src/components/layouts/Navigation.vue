@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
-import { scrollTo, throttle } from '../../utils/ScrollManager';
+import { throttle } from '../../utils/ScrollManager';
 
 // Navigation sections list
 const sections = [
@@ -117,19 +117,10 @@ const navigateToSection = (id) => {
   if (isMenuOpen.value) {
     closeMenu();
   }
-  if (window.lenis) {
-    window.lenis.start();
-  }
 
   isScrolling.value = true;
   activeSection.value = id;
 
-  if (id === 'profile') {
-    const heroHeight = document.querySelector('#hero')?.offsetHeight || window.innerHeight;
-    scrollTo(heroHeight);
-  } else {
-    scrollTo(`#${id}`);
-  }
   setTimeout(() => {
     isScrolling.value = false;
   }, 1000);
@@ -158,7 +149,7 @@ onUnmounted(() => {
           <li
             v-for="section in sections"
             :key="section.id"
-            @click.prevent="navigateToSection(section.id)"
+            @click="navigateToSection(section.id)"
             :class="['nav-item cursor-p', { active: activeSection === section.id }]"
           >
             <a :href="`#${section.id}`" class="nav-link d-flex">{{ section.label }}</a>

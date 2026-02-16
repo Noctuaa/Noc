@@ -27,10 +27,11 @@ import Footer from '../components/layouts/Footer.astro';
     <slot />
     <Footer />
     <script>
-      import { initLenis, initCurtainEffect, initProfileAnimations } from '../utils/ScrollManager';
+      import { initLenis, initCurtainEffect, initProfileAnimations, initAnchorLinks } from '../utils/ScrollManager';
       window.addEventListener('DOMContentLoaded', () => {
         initLenis();
         initCurtainEffect();
+        initAnchorLinks();
 
         setTimeout(() => {
           initProfileAnimations();
