@@ -84,7 +84,7 @@
    ============================================ */
 
 .nav-burger {
-  position: fixed;
+  position: absolute;
   top: 20px;
   left: 20px;
   z-index: 1001;
@@ -103,8 +103,8 @@
   background: var(--white);
   transform-origin: center;
   transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
+    opacity var(--transition-fast) ease,
+    transform var(--transition-fast) ease;
 }
 
 /* ============================================
@@ -113,9 +113,6 @@
 
 @media (max-width: 992px) {
   /* --- Mobile Navigation Layout --- */
-  .nav {
-    height: 0;
-  }
 
   /* --- Mobile States Override --- */
 
@@ -149,24 +146,24 @@
   .nav.is-open .nav-item {
     display: block;
     font-size: var(--text-xl);
-    animation: slideIn 0.3s both;
+    animation: slideIn var(--transition-fast) both;
   }
 
   /* Stagger animation delays */
   .nav.is-open .nav-item:nth-child(1) {
-    animation-delay: 0.5s;
+    animation-delay: 0.2s;
   }
   .nav.is-open .nav-item:nth-child(2) {
-    animation-delay: 0.55s;
+    animation-delay: 0.25s;
   }
   .nav.is-open .nav-item:nth-child(3) {
-    animation-delay: 0.6s;
+    animation-delay: 0.3s;
   }
   .nav.is-open .nav-item:nth-child(4) {
-    animation-delay: 0.65s;
+    animation-delay: 0.35s;
   }
   .nav.is-open .nav-item:nth-child(5) {
-    animation-delay: 0.7s;
+    animation-delay: 0.4s;
   }
 
   /* --- Mobile Hamburger --- */

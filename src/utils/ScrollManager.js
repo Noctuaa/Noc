@@ -11,7 +11,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 /** @constant {number} DURATION - Default scroll animation duration in seconds */
-const DURATION = 1.5;
+export const DURATION = 1.5;
 
 const SECTIONS_AFTER_PROFILE = ['#competences', '#portfolio', '#contact'];
 
