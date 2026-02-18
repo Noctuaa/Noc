@@ -4,9 +4,9 @@
 
 #hero {
   background:
-    radial-gradient(ellipse at 15% 25%, hsl(from var(--purple-500) h s l / 0.13) 0%, transparent 50%),
-    radial-gradient(ellipse at 85% 15%, hsl(from var(--blue-400) h s l / 0.15) 0%, transparent 45%),
-    radial-gradient(ellipse at 60% 65%, hsl(from var(--purple-600) h s l / 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 25%, rgb(from var(--purple-500) r g b / 0.13) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 15%, rgb(from var(--blue-400) r g b / 0.15) 0%, transparent 45%),
+    radial-gradient(ellipse at 60% 65%, rgb(from var(--purple-600) r g b / 0.1) 0%, transparent 55%),
     url('../../images/land.svg') no-repeat bottom center/cover,
     var(--bg-primary);
 }
@@ -104,7 +104,7 @@
   left: 0;
   right: 20px;
   width: 40%;
-  background: linear-gradient(to right, transparent, hsl(from var(--blue-400) h s l / 0.7) 50%);
+  background: linear-gradient(to right, transparent, rgb(from var(--blue-400) r g b / 0.7) 50%);
 }
 
 .deco-line-top::after {
@@ -113,7 +113,7 @@
   right: -20px;
   top: 0;
   width: 20px;
-  background: hsl(from var(--blue-400) h s l / 0.7);
+  background: rgb(from var(--blue-400) r g b / 0.7);
   transform: rotate(45deg);
   transform-origin: left center;
 }
@@ -121,7 +121,7 @@
 .deco-line-bottom {
   top: 49%;
   width: 30%;
-  background: hsl(from var(--blue-400) h s l / 0.8);
+  background: rgb(from var(--blue-400) r g b / 0.8);
 }
 
 .hero-deco-left .deco-line-bottom {
@@ -154,7 +154,7 @@
   content: '';
   width: 100%;
   height: 50%;
-  border: 3px solid hsl(from var(--blue-400) h s l / 0.8);
+  border: 3px solid rgb(from var(--blue-400) r g b / 0.8);
 }
 
 .square::before {
@@ -177,8 +177,8 @@
   height: 90%;
   background: repeating-linear-gradient(
     to bottom,
-    hsl(from var(--blue-400) h s l / 0.6) 0px,
-    hsl(from var(--blue-400) h s l / 0.8) 4px,
+    rgb(from var(--blue-400) r g b / 0.6) 0px,
+    rgb(from var(--blue-400) r g b / 0.8) 4px,
     transparent 4px,
     transparent 8px
   );
@@ -203,7 +203,7 @@
   position: relative;
   width: 33px;
   height: 55px;
-  border: 3px solid hsl(from var(--white) h s l / 0.7);
+  border: 3px solid rgb(from var(--white) r g b / 0.7);
   border-radius: 23px;
   box-shadow: 0 0 5px 2px var(--bg-primary);
   cursor: pointer;
@@ -217,7 +217,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: hsl(from var(--white) h s l / 1);
+  background: rgb(from var(--white) r g b / 1);
   box-shadow: -1px -1px 2px 2px var(--bg-primary);
   transform: translateX(-50%);
   animation: rev-ani-mouse 2s 1s linear infinite;

@@ -28,7 +28,7 @@
 .contact-info {
   left: 15px;
   height: 80%;
-  background: linear-gradient(135deg, hsl(from var(--blue-400) h s l / 0.8), hsl(from var(--purple-500) h s l / 0.6));
+  background: linear-gradient(135deg, rgb(from var(--blue-400) r g b / 0.8), rgb(from var(--purple-500) r g b / 0.6));
 }
 
 /* ===================================
@@ -46,7 +46,7 @@
 .contact-info h3 {
   font-size: var(--text-2xl);
   font-weight: 700;
-  color: hsl(from var(--text-inverse) h s l / 0.9);
+  color: rgb(from var(--text-inverse) r g b / 0.9);
 }
 
 .contact-info h3::after {
@@ -55,7 +55,7 @@
   width: 50%;
   height: 3px;
   margin-top: var(--spacing-2);
-  background: hsl(from var(--text-inverse) h s l / 0.5);
+  background: rgb(from var(--text-inverse) r g b / 0.5);
 }
 
 .contact-intro,
@@ -77,13 +77,13 @@
 .contact-email {
   border-left: 3px solid var(--blue-950);
   border-radius: var(--border-radius-md);
-  background: hsl(from var(--blue-950) h s l / 0.15);
+  background: rgb(from var(--blue-950) r g b / 0.15);
 }
 
 .contact-email svg {
   width: 20px;
   height: 20px;
-  color: hsl(from var(--text-inverse) h s l / 0.8);
+  color: rgb(from var(--text-inverse) r g b / 0.8);
 }
 
 .contact-email a {
