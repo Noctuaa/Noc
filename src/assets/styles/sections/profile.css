@@ -11,42 +11,17 @@
 }
 
 /* ========================================
-   PROFILE WINDOW - Conteneur principal
-   ======================================== */
-
-.profile-window {
-  height: auto;
-  width: fit-content;
-  margin: 0 auto;
-  box-shadow:
-    0 0 10px rgba(59, 130, 246, 0.4),
-    0 0 20px rgba(96, 165, 250, 0.2);
-  /*border: 2px solid transparent;
-  background: linear-gradient(var(--bg-alt)) padding-box, var(--gradient-neon) border-box;
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.4), 0 0 20px rgba(96, 165, 250, 0.2);*/
-}
-
-/* ========================================
    PROFILE CONTENT - Grid Layout
    ======================================== */
 
 .profile-content {
-  grid-template-columns: minmax(auto, 350px) minmax(auto, 650px);
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  gap: clamp(var(--spacing-2), 2vw, var(--spacing-3));
-  padding: clamp(var(--spacing-2), 2vw, var(--spacing-3));
-}
-
-.profile-content::before {
-  content: '';
-  position: absolute;
-  top: 40%;
-  inset: 0;
-  background:
-    radial-gradient(600px 260px at 20% 20%, rgba(125, 211, 252, 0.18), transparent 60%),
-    radial-gradient(600px 260px at 80% 35%, rgba(167, 139, 250, 0.14), transparent 60%);
-  pointer-events: none;
-  z-index: 0;
+  justify-content: center;
+  position: relative;
+  gap: 21px;
+  max-width: 1115px;
+  margin-inline: auto;
 }
 
 /* ========================================
@@ -54,12 +29,9 @@
    ======================================== */
 
 .card {
-  background: hsla(0, 0%, 100%, 0.025);
+  background: var(--blue-800);
   padding: clamp(var(--spacing-6), 3vw, var(--spacing-8)) clamp(var(--spacing-3), 2vw, var(--spacing-6));
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-left: 3px solid transparent;
-  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.45);
-  border-radius: var(--border-radius-sm);
+  border-radius: var(--border-radius-md);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
@@ -67,68 +39,273 @@
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
 
-/* ========================================
-   CARD 1 - IDENTITY
-   ======================================== */
-
-.profile-identity {
-  grid-area: 1/1/2/2;
-}
-
-.profile-video-container {
-  background:
-    var(--gradient-neon) padding-box,
-    var(--gradient-neon) border-box;
-  border: 2px solid transparent;
-  width: 200px;
-  height: 200px;
-}
-
-.profile-video-container video {
-  width: 190px;
-  height: 190px;
-  object-fit: cover;
-  z-index: 1;
-}
-
-.profile-video-overlay {
-  background: linear-gradient(135deg, rgba(27, 60, 120, 0.2), transparent, rgba(93, 39, 110, 0.2));
+.profile-info::before,
+.profile-info::after,
+.profile-chat::before,
+.profile-chat::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
   z-index: 2;
 }
 
-.profile-identity .name {
-  font-size: clamp(1.3rem, 3vw, 1.5rem);
-  font-weight: 700;
-  color: var(--text-primary);
-  margin: var(--spacing-4) 0 0 0;
-  letter-spacing: 0.05em;
+.profile-chat::before {
+  top: -1px;
+  right: 102px;
+  border-top-right-radius: var(--border-radius-md);
+  background: transparent;
+  box-shadow: 6px -6px var(--bg-alt);
 }
 
-.profile-tagline {
-  font-size: clamp(0.85rem, 1.5vw, 0.9rem);
-  color: var(--text-secondary);
-  font-style: italic;
-  margin: var(--spacing-2) 0 0 0;
+.profile-chat::after {
+  top: 105px;
+  right: 0px;
+  border-top-right-radius: var(--border-radius-md);
+  background: transparent;
+  box-shadow: 6px -6px var(--bg-alt);
+}
+
+.profile-info::before {
+  top: 0px;
+  left: 102px;
+  border-top-left-radius: var(--border-radius-md);
+  background: transparent;
+  box-shadow: -6px -6px var(--bg-alt);
+}
+
+.profile-info::after {
+  top: 105px;
+  left: 0px;
+  border-top-left-radius: var(--border-radius-md);
+  background-color: transparent;
+  box-shadow: -6px -6px 0 var(--bg-alt);
 }
 
 /* ========================================
-   CARD 2 - STATUS
+   CARD 1 - HEADER (pleine largeur)
    ======================================== */
 
-.profile-status {
-  grid-area: 2/1/3/2;
+.profile-header {
+  grid-area: 1 / 1 / 2 / 3;
+  background:
+    radial-gradient(ellipse 40% 150% at 50% 100%, rgb(from var(--purple-400) r g b / 0.35), transparent 70%),
+    rgb(from var(--purple-700) r g b / 0.85);
+  border: 1px solid rgb(from var(--purple-400) r g b / 0.2);
+  border-left: 3px solid rgb(from var(--purple-400) r g b / 0.6);
+  padding: clamp(var(--spacing-6), 3vw, var(--spacing-8)) clamp(var(--spacing-6), 4vw, var(--spacing-10));
 }
 
 .profile-role {
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
   font-weight: 700;
   color: var(--text-primary);
-  text-align: center;
   margin: 0;
 }
+
+.profile-tagline {
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  color: rgb(from var(--text-secondary) r g b / 0.85);
+  font-style: italic;
+  margin: 0;
+  max-width: 38ch;
+}
+
+.profile-header-right {
+  flex-shrink: 0;
+}
+
+.profile-header .icon-header {
+  width: 42px;
+  height: 42px;
+  background: var(--blue-400);
+}
+
+/* ========================================
+   VIDEO - IDENTITY
+   ======================================== */
+
+.profile-center {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.profile-video-wrapper {
+  width: 230px;
+  height: 230px;
+  overflow: visible;
+}
+
+.profile-video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 18px solid var(--bg-alt);
+  overflow: hidden;
+}
+
+.profile-video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ========================================
+   ANNEAU BINAIRE
+   ======================================== */
+
+/*.profile-ring {
+  width: 280px;
+  height: 280px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring-rotate 20s linear infinite;
+  z-index: 1;
+}
+
+.ring-text {
+  font-size: 7px;
+  fill: rgb(from var(--blue-400) r g b / 0.5);
+  letter-spacing: 3px;
+  font-family: monospace;
+}
+
+@keyframes ring-rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}*/
+
+/* ========================================
+   CARD 2 - CHAT (bas gauche)
+   ======================================== */
+
+.profile-chat {
+  grid-area: 2 / 1 / 3 / 2;
+  width: 100%;
+  background:
+    radial-gradient(ellipse 70% 50% at 100% 0%, rgb(from var(--blue-400) r g b / 0.12), transparent),
+    rgb(from var(--blue-400) r g b / 0.06);
+}
+
+.icon-header {
+  position: relative;
+  height: 42px;
+  width: 42px;
+  background: var(--gradient-cta);
+  border-radius: 50%;
+}
+
+.icon-chat::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  top: 50%;
+  left: 50%;
+  background: white;
+  border-radius: 50%;
+  animation: orbit-scan 3s linear infinite;
+}
+
+.icon-header svg {
+  width: 20px;
+  fill: white;
+  z-index: 2;
+}
+
+.chat-bubble {
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  border-radius: 22px 22px 22px 4px;
+  font-size: 0.9rem;
+  padding: var(--spacing-4) var(--spacing-5);
+  color: var(--text-primary);
+  line-height: 1.6;
+  max-width: 85%;
+  width: fit-content;
+  align-self: flex-start;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateY(30px);
+  background: linear-gradient(to top, rgba(65, 88, 208, 0.2) 0%, rgba(30, 35, 60, 0.8) 100%);
+}
+
+.chat-bubble:first-child {
+  background: linear-gradient(to top, rgba(65, 88, 208, 0.2) 0%, rgba(139, 92, 246, 0.3) 100%);
+  border-color: rgba(139, 92, 246, 0.3);
+  font-weight: 600;
+  margin-top: 0;
+}
+
+/* ========================================
+   CARD 3 - INFOS (bas droite)
+   ======================================== */
+
+.profile-info {
+  grid-area: 2 / 2 / 3 / 3;
+  background:
+    radial-gradient(ellipse 70% 50% at 0% 0%, rgb(from var(--blue-400) r g b / 0.12), transparent), var(--blue-800);
+}
+
+.list-info {
+  align-self: start;
+}
+
+.info-item {
+  align-items: flex-start;
+}
+
+.info-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  background: rgb(from var(--blue-400) r g b / 0.1);
+  border: 1px solid rgb(from var(--blue-400) r g b / 0.2);
+  border-radius: var(--border-radius-sm);
+}
+
+.info-icon-wrapper svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--blue-400);
+}
+
+.info-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 var(--spacing-1) 0;
+}
+
+.info-value {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.info-sub {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: var(--spacing-1) 0 0 0;
+}
+
+/* ========================================
+   STATUS BADGE
+   ======================================== */
 
 .status-badge span {
   font-size: clamp(0.85rem, 1.5vw, 0.9rem);
@@ -157,68 +334,6 @@
   fill: white;
   stroke: white;
   stroke-width: 35;
-}
-
-/* ========================================
-   CARD 3 - CHAT
-   ======================================== */
-
-.profile-chat {
-  grid-area: 1/2/3/3;
-  width: 100%;
-  max-width: 700px;
-}
-
-.profile-icon-message {
-  width: 45px;
-  height: 45px;
-  right: clamp(1rem, 3vw, 1.5rem);
-  background: var(--gradient-cta);
-  border-radius: 50%;
-}
-
-.profile-icon-message::after {
-  content: '';
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  top: 50%;
-  left: 50%;
-  background: white;
-  border-radius: 50%;
-  animation: orbit-scan 3s linear infinite;
-}
-
-.profile-icon-message svg {
-  width: 25px;
-  height: 25px;
-  fill: white;
-  z-index: 2;
-}
-
-.chat-bubble {
-  border: 1px solid rgba(96, 165, 250, 0.2);
-  border-radius: 22px 22px 22px 4px;
-  font-size: 0.9rem;
-  padding: var(--spacing-4) var(--spacing-5);
-  color: var(--text-primary);
-  line-height: 1.6;
-  max-width: 85%;
-  width: fit-content;
-  align-self: flex-start;
-  box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.3),
-    0 4px 16px rgba(0, 0, 0, 0.15);
-  opacity: 0;
-  transform: translateY(30px);
-  background: linear-gradient(to top, rgba(65, 88, 208, 0.2) 0%, rgba(30, 35, 60, 0.8) 100%);
-}
-
-.chat-bubble:first-child {
-  background: linear-gradient(to top, rgba(65, 88, 208, 0.2) 0%, rgba(139, 92, 246, 0.3) 100%);
-  border-color: rgba(139, 92, 246, 0.3);
-  font-weight: 600;
-  margin-top: 0;
 }
 
 /* ========================================
@@ -256,26 +371,23 @@
     grid-template-rows: auto auto auto;
   }
 
-  .profile-identity {
-    grid-area: 1/1/2/2;
+  .profile-header {
+    grid-area: 1 / 1 / 2 / 2;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-4);
   }
 
-  .profil-status {
-    grid-area: 2/1/3/2;
+  .profile-header-right {
+    align-items: flex-start;
   }
 
   .profile-chat {
-    grid-area: 3/1/4/2;
+    grid-area: 2 / 1 / 3 / 2;
   }
 
-  .profile-video-container {
-    width: 180px;
-    height: 180px;
-  }
-
-  .profile-video-container video {
-    width: 170px;
-    height: 170px;
+  .profile-info {
+    grid-area: 3 / 1 / 4 / 2;
   }
 }
 
@@ -284,17 +396,7 @@
    ======================================== */
 
 @media (max-width: 768px) {
-  .profile-video-container {
-    width: 150px;
-    height: 150px;
-  }
-
-  .profile-video-container video {
-    width: 140px;
-    height: 140px;
-  }
-
-  .profile-icon-message {
+  .pr-card-header {
     display: none;
   }
 

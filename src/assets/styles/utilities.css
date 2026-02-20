@@ -90,6 +90,9 @@
 .js-center {
   justify-self: center;
 }
+.js-end {
+  justify-self: end;
+}
 .fd-column {
   flex-direction: column;
 }
