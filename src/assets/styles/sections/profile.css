@@ -19,8 +19,8 @@
   grid-template-rows: auto auto;
   justify-content: center;
   position: relative;
-  gap: 21px;
-  max-width: 1115px;
+  gap: 18px;
+  max-width: 1200px;
   margin-inline: auto;
 }
 
@@ -41,6 +41,8 @@
   transform: translateY(-2px);
 }
 
+.profile-header::before,
+.profile-header::after,
 .profile-info::before,
 .profile-info::after,
 .profile-chat::before,
@@ -52,6 +54,22 @@
   z-index: 2;
 }
 
+.profile-header::before {
+  bottom: -1px;
+  left: calc(50% - 135px);
+  border-bottom-right-radius: var(--border-radius-md);
+  background: transparent;
+  box-shadow: 6px 6px var(--bg-alt);
+}
+
+.profile-header::after {
+  bottom: -1px;
+  right: calc(50% - 132px);
+  border-bottom-left-radius: var(--border-radius-md);
+  background: transparent;
+  box-shadow: -6px 6px var(--bg-alt);
+}
+
 .profile-chat::before {
   top: -1px;
   right: 102px;
@@ -61,7 +79,7 @@
 }
 
 .profile-chat::after {
-  top: 105px;
+  top: 95px;
   right: 0px;
   border-top-right-radius: var(--border-radius-md);
   background: transparent;
@@ -77,7 +95,7 @@
 }
 
 .profile-info::after {
-  top: 105px;
+  top: 95px;
   left: 0px;
   border-top-left-radius: var(--border-radius-md);
   background-color: transparent;
@@ -96,6 +114,7 @@
   border: 1px solid rgb(from var(--purple-400) r g b / 0.2);
   border-left: 3px solid rgb(from var(--purple-400) r g b / 0.6);
   padding: clamp(var(--spacing-6), 3vw, var(--spacing-8)) clamp(var(--spacing-6), 4vw, var(--spacing-10));
+  mask-image: radial-gradient(circle 115px at 50% 100%, transparent 115px, black 115px);
 }
 
 .profile-role {
@@ -128,23 +147,18 @@
    ======================================== */
 
 .profile-center {
-  position: absolute;
-  left: 50%;
-  top: 25%;
-  transform: translate(-50%, -50%);
+  grid-area: 1/1/2/3;
+  justify-self: center;
+  align-self: end;
+  position: relative;
   z-index: 2;
-}
-
-.profile-video-wrapper {
-  width: 230px;
-  height: 230px;
-  overflow: visible;
+  transform: translateY(50%);
 }
 
 .profile-video-container {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 230px;
+  height: 230px;
   border-radius: 50%;
   border: 18px solid var(--bg-alt);
   overflow: hidden;
@@ -190,12 +204,19 @@
    CARD 2 - CHAT (bas gauche)
    ======================================== */
 
+.profile-chat,
+.profile-info {
+  padding-top: clamp(var(--spacing-6), 3vw, var(--spacing-8));
+  padding-bottom: clamp(var(--spacing-8), 4vw, var(--spacing-12));
+}
+
 .profile-chat {
   grid-area: 2 / 1 / 3 / 2;
   width: 100%;
   background:
-    radial-gradient(ellipse 70% 50% at 100% 0%, rgb(from var(--blue-400) r g b / 0.12), transparent),
-    rgb(from var(--blue-400) r g b / 0.06);
+    radial-gradient(ellipse 70% 50% at 100% 0%, rgb(from var(--blue-400) r g b / 0.18), transparent), var(--blue-900);
+  mask-image: radial-gradient(circle 115px at calc(100% + 9px) -18px, transparent 115px, black 115px);
+  animation: pc-slide var(--transition-normal) ease-out forwards;
 }
 
 .icon-header {
@@ -204,18 +225,6 @@
   width: 42px;
   background: var(--gradient-cta);
   border-radius: 50%;
-}
-
-.icon-chat::after {
-  content: '';
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  top: 50%;
-  left: 50%;
-  background: white;
-  border-radius: 50%;
-  animation: orbit-scan 3s linear infinite;
 }
 
 .icon-header svg {
@@ -227,7 +236,8 @@
 .chat-bubble {
   border: 1px solid rgba(96, 165, 250, 0.2);
   border-radius: 22px 22px 22px 4px;
-  font-size: 0.9rem;
+  font-family: var(--font-family-secondary);
+  font-size: 0.85rem;
   padding: var(--spacing-4) var(--spacing-5);
   color: var(--text-primary);
   line-height: 1.6;
@@ -239,14 +249,19 @@
     0 4px 16px rgba(0, 0, 0, 0.15);
   opacity: 0;
   transform: translateY(30px);
-  background: linear-gradient(to top, rgba(65, 88, 208, 0.2) 0%, rgba(30, 35, 60, 0.8) 100%);
+  background: rgb(from var(--blue-400) r g b / 0.1);
+  border-color: rgb(from var(--blue-400) r g b / 0.2);
 }
 
 .chat-bubble:first-child {
-  background: linear-gradient(to top, rgba(65, 88, 208, 0.2) 0%, rgba(139, 92, 246, 0.3) 100%);
-  border-color: rgba(139, 92, 246, 0.3);
+  background: rgb(from var(--purple-400) r g b / 0.15);
+  border-color: rgb(from var(--purple-400) r g b / 0.3);
   font-weight: 600;
   margin-top: 0;
+}
+
+.chat-bubble p {
+  margin: 0;
 }
 
 /* ========================================
@@ -255,8 +270,15 @@
 
 .profile-info {
   grid-area: 2 / 2 / 3 / 3;
+  --circle-size: 230px;
+  --gap-profile: 0px;
+
+  grid-area: 2 / 2 / 3 / 3;
+  mask-image: radial-gradient(circle 115px at -9px -18px, transparent 115px, black 115px);
+
   background:
-    radial-gradient(ellipse 70% 50% at 0% 0%, rgb(from var(--blue-400) r g b / 0.12), transparent), var(--blue-800);
+    radial-gradient(ellipse 70% 50% at 0% 0%, rgb(from var(--blue-400) r g b / 0.12), transparent), var(--blue-900);
+  animation: p-slide var(--transition-normal) ease-out forwards;
 }
 
 .list-info {
@@ -307,33 +329,11 @@
    STATUS BADGE
    ======================================== */
 
-.status-badge span {
-  font-size: clamp(0.85rem, 1.5vw, 0.9rem);
-  font-weight: 500;
-  color: var(--text-primary);
-  margin: 0;
-}
-
 .status-icon {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  stroke: white;
   width: 20px;
   height: 20px;
-  stroke-width: 6;
   border-radius: 50%;
   animation: pulse-green 2s ease-in-out infinite;
-}
-
-.status-icon svg {
-  width: 12px;
-  height: 12px;
-  fill: white;
-  stroke: white;
-  stroke-width: 35;
 }
 
 /* ========================================
@@ -352,12 +352,25 @@
   }
 }
 
-@keyframes orbit-scan {
+@keyframes p-slide {
   0% {
-    transform: translate(-50%, -50%) rotate(0deg) translateX(25px);
+    opacity: 0;
+    transform: translateX(20%);
   }
   100% {
-    transform: translate(-50%, -50%) rotate(360deg) translateX(25px);
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes pc-slide {
+  0% {
+    opacity: 0;
+    transform: translateX(-20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
   }
 }
 
