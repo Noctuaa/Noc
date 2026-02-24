@@ -2,21 +2,21 @@
 
 ---
 
-<section id="profile" class="section bg-alt">
+<section id="profile" class="section bg-alt z-1 ow-hidden">
   <div class="container">
     <div class="section-header">
       <h2>À propos</h2>
       <div class="separator-h separator-h-gradient"></div>
       <p class="section-description">Développeur passionné par la création d'expériences modernes et performantes.</p>
     </div>
-    <div class="profile-content d-grid p-relative">
-      <!-- Card haut : identité pleine largeur -->
-      <div class="profile-header card p-relative d-flex jc-between gap-2">
+    <div class="profile-content p-relative d-grid jc-center">
+      <!-- Card: header (full width) -->
+      <div class="profile-header card d-flex">
         <div class="profile-identity d-flex fd-column jc-center gap-2">
-          <p class="profile-role">Développeur d'application</p>
-          <p class="profile-tagline">Curieux, rigoureux, attentif aux détails qui font la différence.</p>
+          <p class="profile-role m-0">Développeur d'application</p>
+          <p class="profile-tagline m-0">Curieux, rigoureux, attentif aux détails qui font la différence.</p>
         </div>
-        <div class="icon-header d-grid pi-center js-end">
+        <div class="icon-header js-end">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
             <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
             <path
@@ -27,9 +27,9 @@
         </div>
       </div>
 
-      <!-- Centre : vidéo + anneau (position absolute) -->
-      <div class="profile-center d-flex jc-center ai-center">
-        <!-- Anneau binaire rotatif -->
+      <!-- Video circle + binary ring -->
+      <div class="profile-avatar p-relative z-2 d-flex js-center">
+        <!-- Binary ring -->
         <svg class="profile-ring p-absolute" viewBox="0 0 266 266" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <path id="ring-path" d="M 133,133 m -119,0 a 119,119 0 1,1 238,0 a 119,119 0 1,1 -238,0"></path>
@@ -41,17 +41,17 @@
           </text>
         </svg>
 
-        <!-- Vidéo -->
-        <div class="profile-video-container d-flex jc-center ai-center">
+        <!-- Video -->
+        <div class="profile-video-container ow-hidden">
           <video autoplay muted loop>
             <source src="/meta-noc-cropped.mp4" type="video/mp4" />
           </video>
         </div>
       </div>
 
-      <!-- Card bas gauche : chat -->
-      <div class="profile-chat card p-relative d-grid gap-6 h-100">
-        <div class="icon-header icon-chat d-grid pi-center">
+      <!-- Card: chat (bottom left) -->
+      <div class="profile-chat card d-grid gap-6 h-100">
+        <div class="icon-header">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
             <path
               d="M64 416L64 192C64 139 107 96 160 96L480 96C533 96 576 139 576 192L576 416C576 469 533 512 480 512L360 512C354.8 512 349.8 513.7 345.6 516.8L230.4 603.2C226.2 606.3 221.2 608 216 608C202.7 608 192 597.3 192 584L192 512L160 512C107 512 64 469 64 416z"
@@ -79,9 +79,9 @@
         </div>
       </div>
 
-      <!-- Card bas droite : infos -->
-      <div class="profile-info card p-relative d-grid gap-6 h-100">
-        <div class="icon-header d-grid pi-center">
+      <!-- Card: info (bottom right) -->
+      <div class="profile-info card d-grid gap-6 h-100">
+        <div class="icon-header">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
             <path
@@ -90,9 +90,9 @@
             </path>
           </svg>
         </div>
-        <div class="list-info d-grid gap-6">
-          <div class="info-item d-flex ai-center gap-4">
-            <div class="info-icon-wrapper d-flex ai-center jc-center">
+        <div class="d-grid as-start gap-6">
+          <div class="d-flex ai-start gap-4">
+            <div class="info-icon-wrapper d-grid pi-center">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
                 <path
                   d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
@@ -122,7 +122,7 @@
             </div>
           </div>
           <div class="separator-h"></div>
-          <!-- Disponibilité -->
+          <!-- Availability -->
           <div class="info-item d-flex ai-center gap-4">
             <div class="info-icon-wrapper d-flex ai-center jc-center">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

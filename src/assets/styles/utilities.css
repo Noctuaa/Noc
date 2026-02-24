@@ -78,6 +78,9 @@
 .ai-around {
   align-items: space-around;
 }
+.as-start {
+  align-self: flex-start;
+}
 .jc-center {
   justify-content: center;
 }
