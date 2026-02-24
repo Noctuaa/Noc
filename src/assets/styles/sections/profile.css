@@ -11,7 +11,7 @@
 }
 
 /* ========================================
-   PROFILE CONTENT - Grid Layout
+   LAYOUT - Grid
    ======================================== */
 
 .profile-content {
@@ -25,7 +25,7 @@
 }
 
 /* ========================================
-   CARD GÉNÉRIQUE - Styles de base
+   CARD GÉNÉRIQUE
    ======================================== */
 
 .card {
@@ -41,24 +41,29 @@
   transform: translateY(-2px);
 }
 
+/* ========================================
+   ENCOCHES - Pseudo-éléments coins
+   ======================================== */
+
 .profile-header::before,
 .profile-header::after,
-.profile-info::before,
-.profile-info::after,
 .profile-chat::before,
-.profile-chat::after {
+.profile-chat::after,
+.profile-info::before,
+.profile-info::after {
   content: '';
   position: absolute;
   width: 20px;
   height: 20px;
   z-index: 2;
+  background: transparent;
 }
 
+/* Header - coins bas */
 .profile-header::before {
   bottom: -1px;
   left: calc(50% - 135px);
   border-bottom-right-radius: var(--border-radius-md);
-  background: transparent;
   box-shadow: 6px 6px var(--bg-alt);
 }
 
@@ -66,15 +71,14 @@
   bottom: -1px;
   right: calc(50% - 132px);
   border-bottom-left-radius: var(--border-radius-md);
-  background: transparent;
   box-shadow: -6px 6px var(--bg-alt);
 }
 
+/* Chat - coins haut */
 .profile-chat::before {
   top: -1px;
   right: 102px;
   border-top-right-radius: var(--border-radius-md);
-  background: transparent;
   box-shadow: 6px -6px var(--bg-alt);
 }
 
@@ -82,15 +86,14 @@
   top: 95px;
   right: 0px;
   border-top-right-radius: var(--border-radius-md);
-  background: transparent;
   box-shadow: 6px -6px var(--bg-alt);
 }
 
+/* Info - coins haut */
 .profile-info::before {
   top: 0px;
   left: 102px;
   border-top-left-radius: var(--border-radius-md);
-  background: transparent;
   box-shadow: -6px -6px var(--bg-alt);
 }
 
@@ -98,7 +101,6 @@
   top: 95px;
   left: 0px;
   border-top-left-radius: var(--border-radius-md);
-  background-color: transparent;
   box-shadow: -6px -6px 0 var(--bg-alt);
 }
 
@@ -117,6 +119,12 @@
   mask-image: radial-gradient(circle 115px at 50% 100%, transparent 115px, black 115px);
 }
 
+.profile-header .icon-header {
+  width: 42px;
+  height: 42px;
+  background: var(--blue-400);
+}
+
 .profile-role {
   font-size: clamp(1.4rem, 3vw, 1.8rem);
   font-weight: 700;
@@ -132,22 +140,12 @@
   max-width: 38ch;
 }
 
-.profile-header-right {
-  flex-shrink: 0;
-}
-
-.profile-header .icon-header {
-  width: 42px;
-  height: 42px;
-  background: var(--blue-400);
-}
-
 /* ========================================
-   VIDEO - IDENTITY
+   CERCLE VIDÉO
    ======================================== */
 
 .profile-center {
-  grid-area: 1/1/2/3;
+  grid-area: 1 / 1 / 2 / 3;
   justify-self: center;
   align-self: end;
   position: relative;
@@ -156,7 +154,6 @@
 }
 
 .profile-video-container {
-  position: relative;
   width: 230px;
   height: 230px;
   border-radius: 50%;
@@ -170,38 +167,12 @@
   object-fit: cover;
 }
 
-/* ========================================
-   ANNEAU BINAIRE
-   ======================================== */
-
-/*.profile-ring {
-  width: 280px;
-  height: 280px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: ring-rotate 20s linear infinite;
-  z-index: 1;
-}
-
-.ring-text {
-  font-size: 7px;
-  fill: rgb(from var(--blue-400) r g b / 0.5);
-  letter-spacing: 3px;
-  font-family: monospace;
-}
-
-@keyframes ring-rotate {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}*/
+/* Anneau binaire - Phase 3
+.profile-ring { ... }
+*/
 
 /* ========================================
-   CARD 2 - CHAT (bas gauche)
+   CARDS COMMUNES - Chat + Info
    ======================================== */
 
 .profile-chat,
@@ -210,14 +181,22 @@
   padding-bottom: clamp(var(--spacing-8), 4vw, var(--spacing-12));
 }
 
+/* ========================================
+   CARD 2 - CHAT (bas gauche)
+   ======================================== */
+
 .profile-chat {
   grid-area: 2 / 1 / 3 / 2;
   width: 100%;
   background:
-    radial-gradient(ellipse 70% 50% at 100% 0%, rgb(from var(--blue-400) r g b / 0.18), transparent), var(--blue-900);
+    radial-gradient(ellipse 70% 50% at 100% 0%, rgb(from var(--blue-400) r g b / 0.18), transparent), var(--blue-800);
   mask-image: radial-gradient(circle 115px at calc(100% + 9px) -18px, transparent 115px, black 115px);
   animation: pc-slide var(--transition-normal) ease-out forwards;
 }
+
+/* ========================================
+   ICÔNES
+   ======================================== */
 
 .icon-header {
   position: relative;
@@ -233,8 +212,12 @@
   z-index: 2;
 }
 
+/* ========================================
+   BULLES DE CHAT
+   ======================================== */
+
 .chat-bubble {
-  border: 1px solid rgba(96, 165, 250, 0.2);
+  border: 1px solid rgb(from var(--blue-400) r g b / 0.2);
   border-radius: 22px 22px 22px 4px;
   font-family: var(--font-family-secondary);
   font-size: 0.85rem;
@@ -244,20 +227,18 @@
   max-width: 85%;
   width: fit-content;
   align-self: flex-start;
+  background: rgb(from var(--blue-400) r g b / 0.1);
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.3),
     0 4px 16px rgba(0, 0, 0, 0.15);
   opacity: 0;
   transform: translateY(30px);
-  background: rgb(from var(--blue-400) r g b / 0.1);
-  border-color: rgb(from var(--blue-400) r g b / 0.2);
 }
 
 .chat-bubble:first-child {
   background: rgb(from var(--purple-400) r g b / 0.15);
   border-color: rgb(from var(--purple-400) r g b / 0.3);
   font-weight: 600;
-  margin-top: 0;
 }
 
 .chat-bubble p {
@@ -270,14 +251,9 @@
 
 .profile-info {
   grid-area: 2 / 2 / 3 / 3;
-  --circle-size: 230px;
-  --gap-profile: 0px;
-
-  grid-area: 2 / 2 / 3 / 3;
-  mask-image: radial-gradient(circle 115px at -9px -18px, transparent 115px, black 115px);
-
   background:
-    radial-gradient(ellipse 70% 50% at 0% 0%, rgb(from var(--blue-400) r g b / 0.12), transparent), var(--blue-900);
+    radial-gradient(ellipse 70% 50% at 0% 0%, rgb(from var(--blue-400) r g b / 0.12), transparent), var(--blue-800);
+  mask-image: radial-gradient(circle 115px at -9px -18px, transparent 115px, black 115px);
   animation: p-slide var(--transition-normal) ease-out forwards;
 }
 
@@ -325,13 +301,17 @@
   margin: var(--spacing-1) 0 0 0;
 }
 
+.profile-info .icon-header {
+  justify-self: end;
+}
+
 /* ========================================
-   STATUS BADGE
+   STATUS
    ======================================== */
 
 .status-icon {
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   animation: pulse-green 2s ease-in-out infinite;
 }
@@ -381,26 +361,87 @@
 @media (max-width: 991px) {
   .profile-content {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
+    gap: 12px;
+  }
+
+  .card:hover {
+    transform: none;
   }
 
   .profile-header {
     grid-area: 1 / 1 / 2 / 2;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: flex-start;
     gap: var(--spacing-4);
+    padding-inline: clamp(var(--spacing-3), 2vw, var(--spacing-6));
+    mask: none;
   }
 
-  .profile-header-right {
-    align-items: flex-start;
+  .profile-header .icon-header {
+    order: -1;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .profile-center {
+    display: none;
   }
 
   .profile-chat {
     grid-area: 2 / 1 / 3 / 2;
+    mask: none;
   }
 
   .profile-info {
     grid-area: 3 / 1 / 4 / 2;
+    mask: none;
+  }
+
+  .profile-header::before,
+  .profile-header::after,
+  .profile-chat::before,
+  .profile-chat::after {
+    display: none;
+  }
+
+  .profile-info .icon-header {
+    justify-self: start;
+  }
+
+  .profile-video-container {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    border: 12px solid var(--bg-alt);
+    overflow: hidden;
+  }
+
+  /* Header - coins bas */
+  .profile-header::before {
+    left: calc(50% - 105px);
+  }
+
+  .profile-header::after {
+    right: calc(50% - 103px);
+  }
+
+  /* Chat - coins haut */
+  .profile-chat::before {
+    left: calc(50% - 102px);
+    right: auto;
+  }
+
+  .profile-chat::after {
+    top: 0px;
+    right: calc(50% - 101px);
+    border-top-left-radius: var(--border-radius-md);
+    border-top-right-radius: initial;
+    box-shadow: -6px -6px var(--bg-alt);
+  }
+
+  /* Info - coins haut */
+  .profile-info::before,
+  .profile-info::after {
+    display: none;
   }
 }
 
@@ -409,8 +450,8 @@
    ======================================== */
 
 @media (max-width: 768px) {
-  .pr-card-header {
-    display: none;
+  .profile-content {
+    gap: 8px;
   }
 
   .chat-bubble {
