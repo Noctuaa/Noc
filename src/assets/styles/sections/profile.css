@@ -440,6 +440,18 @@
     gap: var(--spacing-2);
   }
 
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-3);
+    text-align: center;
+  }
+
+  .icon-header,
+  .profile-info .icon-header {
+    justify-self: center;
+  }
+
   .chat-bubble {
     max-width: 100%;
     font-size: 0.9rem;
