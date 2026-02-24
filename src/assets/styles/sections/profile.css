@@ -167,9 +167,32 @@
   object-fit: cover;
 }
 
-/* Anneau binaire - Phase 3
-.profile-ring { ... }
-*/
+/* Anneau binaire */
+.profile-ring {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: ring-rotate 20s linear infinite;
+  pointer-events: none;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.ring-text {
+  font-size: 12px;
+  fill: rgb(from var(--white) r g b / 0.35);
+  letter-spacing: 3px;
+  font-family: var(--font-family-secondary);
+}
+
+@keyframes ring-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 /* ========================================
    CARDS COMMUNES - Chat + Info
