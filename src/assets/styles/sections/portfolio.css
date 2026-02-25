@@ -33,7 +33,7 @@
 
 /* Hover effect (léger) */
 .project-item:hover {
-  background: var(--bg-primary);
+  background: var(--bg-hero);
 }
 
 /* Active state (expanded) */

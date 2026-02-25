@@ -27,6 +27,7 @@
   /* Blues */
   --blue-400: rgb(97, 166, 250); /* Example: Light neon blue */
   --blue-500: rgb(60, 131, 246); /* Medium neon blue */
+  --blue-750: rgb(18, 24, 58);
   --blue-800: rgb(21, 26, 50);
   --blue-900: rgb(13, 18, 43);
   --blue-950: rgb(12, 16, 24);
@@ -55,8 +56,9 @@
   /* ========================================
      BACKGROUNDS
      ======================================== */
-  --bg-primary: linear-gradient(180deg, var(--blue-900) 0%, var(--blue-800) 100%); /* Sections Hero, Compétences */
-  --bg-alt: var(--blue-950); /* Sections Profile, Portfolio, Footer */
+  --bg-hero: linear-gradient(180deg, var(--blue-900) 0%, var(--blue-800) 100%);
+  --bg-surface: var(--blue-750);
+  --bg-deep: var(--blue-950);
 
   /* ========================================
      GRADIENTS

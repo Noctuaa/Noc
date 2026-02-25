@@ -71,21 +71,21 @@
   bottom: -1px;
   left: calc(50% - 135px);
   border-bottom-right-radius: var(--border-radius-md);
-  box-shadow: 6px 6px var(--bg-alt);
+  box-shadow: 6px 6px var(--bg-deep);
 }
 
 .profile-header::after {
   bottom: -1px;
   right: calc(50% - 132px);
   border-bottom-left-radius: var(--border-radius-md);
-  box-shadow: -6px 6px var(--bg-alt);
+  box-shadow: -6px 6px var(--bg-deep);
 }
 
 /* Chat - top corners */
 .profile-chat::before,
 .profile-chat::after {
   border-top-right-radius: var(--border-radius-md);
-  box-shadow: 6px -6px var(--bg-alt);
+  box-shadow: 6px -6px var(--bg-deep);
 }
 
 .profile-chat::before {
@@ -102,7 +102,7 @@
 .profile-info::before,
 .profile-info::after {
   border-top-left-radius: var(--border-radius-md);
-  box-shadow: -6px -6px var(--bg-alt);
+  box-shadow: -6px -6px var(--bg-deep);
 }
 
 .profile-info::before {
@@ -159,7 +159,7 @@
 .profile-video-container {
   width: var(--profile-video-size);
   height: var(--profile-video-size);
-  border: var(--profile-video-border) solid var(--bg-alt);
+  border: var(--profile-video-border) solid var(--bg-deep);
   border-radius: 50%;
 }
 

@@ -9,11 +9,14 @@
 section {
   position: relative;
   padding: clamp(5rem, 10vw, 9rem) 0;
-  background: var(--bg-primary);
+}
+
+section.bg-surface {
+  background: var(--bg-surface);
 }
 
 section.bg-alt {
-  background: var(--bg-alt) !important;
+  background: var(--bg-deep);
 }
 
 /* ========================================

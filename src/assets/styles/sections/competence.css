@@ -16,7 +16,7 @@
   left: 0;
   right: 0;
   height: var(--section-overlap);
-  background: var(--bg-alt);
+  background: var(--bg-deep);
   z-index: 5;
   display: block;
 }
