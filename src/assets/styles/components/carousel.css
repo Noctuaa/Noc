@@ -3,16 +3,9 @@
    ======================================== */
 
 .scroller {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-6);
-  overflow: hidden;
   mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-  padding: var(--spacing-4) 0;
-  position: relative;
-  z-index: 10;
+  padding-block: var(--spacing-4);
   max-width: 1400px;
-  margin-inline: auto;
 }
 
 /* ========================================
@@ -30,7 +23,7 @@
 }
 
 .scroller-inner[data-direction='left'] {
-  animation: marquee-left 45s linear infinite;
+  animation: marquee-left 52s linear infinite;
 }
 
 /* ========================================
@@ -40,9 +33,6 @@
 .tech-list {
   display: flex;
   gap: var(--spacing-4);
-  padding: 0;
-  margin: 0;
-  list-style: none;
   padding-inline-end: var(--spacing-4);
 }
 
@@ -52,22 +42,20 @@
 
 .tech-card {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  flex-shrink: 0;
   gap: var(--spacing-3);
-  background: rgb(from var(--white) r g b / 0.05);
+  padding: var(--spacing-3) var(--spacing-5);
   border: 1px solid rgb(from var(--blue-400) r g b / 0.15);
   border-radius: var(--border-radius-md);
-  padding: var(--spacing-3) var(--spacing-5);
-  flex-shrink: 0;
-  cursor: default;
+  background: rgb(from var(--white) r g b / 0.05);
 }
 
 .tech-card img {
+  flex-shrink: 0;
   width: 28px;
   height: 28px;
   object-fit: contain;
-  flex-shrink: 0;
 }
 
 .tech-name {
@@ -100,12 +88,36 @@
 }
 
 /* ========================================
-   ACCESSIBILITE - Respect des préférences
+   ACCESSIBILITY - Respect for preferences
    ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .track-right,
-  .track-left {
+  .scroller {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 900px;
+    padding-inline: var(--spacing-4);
+    overflow: visible;
+    mask-image: none;
+  }
+
+  .scroller-inner[data-direction='left'],
+  .scroller-inner[data-direction='right'] {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
     animation: none;
+  }
+
+  .tech-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-inline-end: 0;
+  }
+
+  .tech-list[aria-hidden='true'],
+  .scroller-inner[data-direction='right'] {
+    display: none;
   }
 }
