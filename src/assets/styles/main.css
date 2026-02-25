@@ -19,7 +19,6 @@
 /* === SECTIONS (homepage) === */
 @import './sections/hero.css';
 @import './sections/profile.css';
-@import './sections/competence.css';
 @import './sections/portfolio.css';
 @import './sections/contact.css';
 

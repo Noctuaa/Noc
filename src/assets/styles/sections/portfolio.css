@@ -182,12 +182,6 @@
   RESPONSIVE - MOBILE
   ======================================== */
 
-@media (min-width: 992px) {
-  #portfolio {
-    padding-bottom: calc(var(--section-overlap) * 2);
-  }
-}
-
 @media (max-width: 768px) {
   .accordion {
     flex-direction: column;

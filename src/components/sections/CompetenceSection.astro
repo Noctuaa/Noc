@@ -1,8 +1,8 @@
 ---
-import TechCarousel from '../ui/TechCarousel.vue';
+import TechCarousel from '../ui/TechCarousel.astro';
 ---
 
-<section id="competences" class="section bg-surface">
+<section id="competences" class="section bg-surface p-relative">
   <div class="container">
     <div class="section-header">
       <h2>Compétences</h2>
@@ -10,7 +10,7 @@ import TechCarousel from '../ui/TechCarousel.vue';
       <p class="section-description">Technologies, outils et environnement pour créer des projets performants.</p>
     </div>
   </div>
-  <TechCarousel client:visible />
+  <TechCarousel />
 </section>
 
 <style>

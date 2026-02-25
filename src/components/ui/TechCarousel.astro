@@ -1,0 +1,73 @@
+---
+const technologies = [
+  { id: 'html', name: 'HTML5', logo: '/icons/html.svg' },
+  { id: 'css', name: 'CSS3', logo: '/icons/css.svg' },
+  { id: 'js', name: 'JavaScript', logo: '/icons/js.svg' },
+  { id: 'vue', name: 'Vue.js', logo: '/icons/vuejs.svg' },
+  { id: 'pinia', name: 'Pinia', logo: '/icons/pinia.svg' },
+  { id: 'astro', name: 'Astro', logo: '/icons/astrop.svg' },
+  { id: 'gsap', name: 'GSAP', logo: '/icons/gsap.svg' },
+  { id: 'nodejs', name: 'Node.js', logo: '/icons/node.svg' },
+  { id: 'ts', name: 'TypeScript', logo: '/icons/type.svg' },
+  { id: 'hono', name: 'Hono', logo: '/icons/hono.svg' },
+  { id: 'knex', name: 'Knex.js', logo: '/icons/knex.svg' },
+  { id: 'mysql', name: 'MySQL', logo: '/icons/mysql.svg' },
+  { id: 'redis', name: 'Redis', logo: '/icons/redis.svg' },
+  { id: 'linux', name: 'Linux', logo: '/icons/linux.svg' },
+  { id: 'git', name: 'Git', logo: '/icons/git.svg' },
+];
+---
+
+<div class="scroller">
+  <!-- Ligne 1 : gauche → droite -->
+  <div class="scroller-inner" data-direction="right">
+    <ul class="tech-list" role="list">
+      {
+        technologies.map((tech) => (
+          <li class="tech-card neon-mask p-relative">
+            <img src={tech.logo} alt={`${tech.name} logo`} width="48" height="48" />
+            <span class="tech-name">{tech.name}</span>
+          </li>
+        ))
+      }
+    </ul>
+    <ul class="tech-list" aria-hidden="true" role="presentation">
+      {
+        technologies.map((tech) => (
+          <li class="tech-card neon-mask p-relative">
+            <img src={tech.logo} alt="" width="48" height="48" />
+            <span class="tech-name">{tech.name}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <!-- Ligne 2 : droite → gauche -->
+  <div class="scroller-inner" data-direction="left">
+    <ul class="tech-list" role="list">
+      {
+        technologies.map((tech) => (
+          <li class="tech-card neon-mask p-relative">
+            <img src={tech.logo} alt={`${tech.name} logo`} width="48" height="48" />
+            <span class="tech-name">{tech.name}</span>
+          </li>
+        ))
+      }
+    </ul>
+    <ul class="tech-list" aria-hidden="true" role="presentation">
+      {
+        technologies.map((tech) => (
+          <li class="tech-card neon-mask p-relative">
+            <img src={tech.logo} alt="" width="48" height="48" />
+            <span class="tech-name">{tech.name}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<style>
+  @import '../../assets/styles/components/carousel.css';
+</style>
