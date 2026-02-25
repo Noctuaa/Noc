@@ -21,16 +21,16 @@
 
 .scroller-inner {
   display: flex;
-  gap: var(--spacing-4);
   width: max-content;
+  will-change: transform;
 }
 
 .scroller-inner[data-direction='right'] {
-  animation: marquee-right 35s linear infinite;
+  animation: marquee-right 45s linear infinite;
 }
 
 .scroller-inner[data-direction='left'] {
-  animation: marquee-left 35s linear infinite;
+  animation: marquee-left 45s linear infinite;
 }
 
 /* ========================================
@@ -43,6 +43,7 @@
   padding: 0;
   margin: 0;
   list-style: none;
+  padding-inline-end: var(--spacing-4);
 }
 
 /* ========================================
@@ -51,32 +52,28 @@
 
 .tech-card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
   gap: var(--spacing-3);
-  width: 120px;
-  height: 120px;
-  background: rgb(from var(--white) r g b / 0.04);
-  border: 1px solid rgb(from var(--blue-400) r g b / 0.2);
-  border-radius: var(--border-radius-lg);
-  padding: var(--spacing-4);
-  transition: border-color var(--transition-fast) ease;
-  cursor: default;
+  background: rgb(from var(--white) r g b / 0.05);
+  border: 1px solid rgb(from var(--blue-400) r g b / 0.15);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-3) var(--spacing-5);
   flex-shrink: 0;
+  cursor: default;
 }
 
 .tech-card img {
-  width: 48px;
-  height: 48px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 .tech-name {
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-primary);
-  text-align: center;
   white-space: nowrap;
 }
 
@@ -86,19 +83,19 @@
 
 @keyframes marquee-right {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 @keyframes marquee-left {
   from {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
   to {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
