@@ -4,7 +4,8 @@ import { reactive, ref } from 'vue';
 
 const errors = ref({});
 const isFormSubmitted = ref(false);
-const isEnvelopeAnimating = ref(false);
+const isLoading = ref(false);
+const serverError = ref('');
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Minimum 2 caractères.'),
@@ -22,6 +23,30 @@ const form = reactive({
   message: '',
 });
 
+/**
+ * Clears the error for a given field when the user starts typing again.
+ * @param {string} field - The field name to clear the error for.
+ */
+const clearError = (field) => {
+  if (errors.value[field]) delete errors.value[field];
+};
+
+/**
+ * Validates a single field on blur for immediate feedback.
+ * @param {string} field - The field name to validate.
+ */
+const validateField = (field) => {
+  if (!form[field]) return; // Empty field = not yet entered, let it pass
+  const result = contactSchema.shape[field].safeParse(form[field]);
+  if (!result.success) {
+    errors.value[field] = result.error.errors.map((e) => e.message);
+  }
+};
+
+/**
+ * Validates the entire form before submission.
+ * @returns {Object|null} The validated data, or null if validation fails.
+ */
 const validateForm = () => {
   const result = contactSchema.safeParse(form);
   if (!result.success) {
@@ -33,6 +58,12 @@ const validateForm = () => {
   }
 };
 
+/**
+ * Sends validated form data to the API endpoint.
+ * @param {Object} validData - The validated form data to send.
+ * @returns {Promise<Object>} The API response data.
+ * @throws {Error} If the API returns a non-success response.
+ */
 const sendToAPI = async (validData) => {
   const response = await fetch('/api/contact', {
     method: 'POST',
@@ -49,24 +80,31 @@ const sendToAPI = async (validData) => {
   return data;
 };
 
+/**
+ * Handles form submission: validates, sends data and manages UI states.
+ */
 const submitForm = async () => {
   const validData = validateForm();
   if (!validData) return;
 
+  serverError.value = '';
+  isLoading.value = true;
+
   try {
-    isEnvelopeAnimating.value = true;
     await sendToAPI(validData);
     isFormSubmitted.value = true;
+    Object.assign(form, { name: '', email: '', subject: '', message: '' });
   } catch (error) {
+    serverError.value = 'Une erreur est survenue, veuillez réessayer.';
     console.error('❌ Erreur:', error.message);
   } finally {
-    isEnvelopeAnimating.value = false;
+    isLoading.value = false;
   }
 };
 </script>
 
 <template>
-  <form @submit.prevent="submitForm" class="form" autocomplete="off">
+  <form @submit.prevent="submitForm" class="form" autocomplete="off" novalidate>
     <div class="form-group">
       <input
         id="name"
@@ -76,6 +114,8 @@ const submitForm = async () => {
         type="text"
         autocomplete="off"
         :class="['form-input', { error: errors.name }]"
+        @blur="validateField('name')"
+        @input="clearError('name')"
       />
       <label for="name" class="form-label"><span>Nom complet</span></label>
       <div v-if="errors.name" class="error-message">
@@ -104,6 +144,8 @@ const submitForm = async () => {
         type="email"
         autocomplete="off"
         :class="['form-input', { error: errors.email }]"
+        @blur="validateField('email')"
+        @input="clearError('email')"
       />
       <label for="email" class="form-label"><span>Email</span></label>
       <div v-if="errors.email" class="error-message">
@@ -123,21 +165,24 @@ const submitForm = async () => {
       </div>
     </div>
 
-    <div class="form-group select-group">
+    <div :class="['form-group select-group', { 'has-value': form.subject }]">
       <select
         id="subject"
         name="subject"
         v-model="form.subject"
-        required
         :class="['form-select', { error: errors.subject }]"
+        @change="clearError('subject')"
       >
-        <option value="" disabled></option>
+        <option disabled value=""></option>
         <option value="vitrine">Site vitrine</option>
         <option value="integration">Intégration web</option>
         <option value="refonte">Refonte de site</option>
         <option value="autre">Autre</option>
       </select>
-      <label for="subject" class="form-label"><span>Sujet</span></label>
+      <label for="subject" :class="['form-label', { 'is-active': form.subject }]">
+        <span>Sujet</span>
+      </label>
+
       <div v-if="errors.subject" class="error-message">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -162,6 +207,8 @@ const submitForm = async () => {
         v-model="form.message"
         placeholder=""
         :class="['form-textarea', { error: errors.message }]"
+        @blur="validateField('message')"
+        @input="clearError('message')"
         rows="6"
       ></textarea>
       <label for="message" class="form-label"><span>Message</span></label>
@@ -182,11 +229,13 @@ const submitForm = async () => {
       </div>
     </div>
 
+    <p v-if="serverError" class="server-error">{{ serverError }}</p>
+
     <div class="form-submit d-flex jc-center ai-center">
-      <button type="submit" class="btn btn-submit" :disabled="isEnvelopeAnimating">
-        <span v-if="!isFormSubmitted">Envoyer</span>
-        <span v-else-if="isEnvelopeAnimating">Envoi en cours...</span>
-        <span v-else>Message envoyé !</span>
+      <button type="submit" class="btn btn-outline" :disabled="isLoading">
+        <span v-if="isLoading">Envoi en cours...</span>
+        <span v-else-if="isFormSubmitted">Message envoyé !</span>
+        <span v-else>Envoyer</span>
       </button>
     </div>
   </form>
