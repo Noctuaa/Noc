@@ -9,9 +9,11 @@ import { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, EMAIL_TO } from 'astro:env/
  * @type {z.ZodObject}
  */
 const contactSchema = z.object({
-  firstname: z.string().min(2, 'Minimum 2 caractères.'),
-  lastname: z.string().min(2, 'Minimum 2 caractères.'),
+  name: z.string().min(2, 'Minimum 2 caractères.'),
   email: z.string().email('Email invalide.'),
+  subject: z.enum(['vitrine', 'integration', 'refonte', 'autre'], {
+    errorMap: () => ({ message: 'Veuillez sélectionner un type de projet.' }),
+  }),
   message: z.string().min(10, 'Minimum 10 caractères.'),
 });
 
@@ -32,21 +34,22 @@ const transporter = nodemailer.createTransport({
 /**
  * Sends contact email with formatted content
  * @param {Object} contactData - Contact form data
- * @param {string} contactData.firstname - Contact's first name
- * @param {string} contactData.lastname - Contact's last name
+ * @param {string} contactData.name - Contact's name
  * @param {string} contactData.email - Contact's email
+ * @param {string} contactData.subject - Contact's project type
  * @param {string} contactData.message - Contact's message
  * @returns {Promise<void>}
  */
-const sendContactEmail = async ({ firstname, lastname, email, message }) => {
+const sendContactEmail = async ({ name, email, subject, message }) => {
   await transporter.sendMail({
     from: SMTP_USER,
     to: EMAIL_TO,
-    subject: `Contact Nocdev - ${firstname} ${lastname}`,
+    subject: `Contact Nocdev - ${subject} - ${name}`,
     html: `
         <h3>Nouveau message de contact</h3>
-        <p><strong>Nom:</strong> ${firstname} ${lastname}</p>
+        <p><strong>Nom:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Sujet:</strong> ${subject}</p>
         <p><strong>Message:</strong></p>
         <p>${message}</p>
       `,
@@ -74,7 +77,7 @@ export async function POST({ request }) {
         {
           status: 400,
           headers: { 'Content-Type': 'application/json' },
-        }
+        },
       );
     }
 
@@ -88,7 +91,7 @@ export async function POST({ request }) {
       {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
-      }
+      },
     );
   } catch (error) {
     console.error('Erreur API:', error);
@@ -101,7 +104,7 @@ export async function POST({ request }) {
       {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
-      }
+      },
     );
   }
 }
