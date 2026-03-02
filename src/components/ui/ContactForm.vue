@@ -94,6 +94,9 @@ const submitForm = async () => {
     await sendToAPI(validData);
     isFormSubmitted.value = true;
     Object.assign(form, { name: '', email: '', subject: '', message: '' });
+    setTimeout(() => {
+      isFormSubmitted.value = false;
+    }, 6000);
   } catch (error) {
     serverError.value = 'Une erreur est survenue, veuillez réessayer.';
     console.error('❌ Erreur:', error.message);
@@ -200,7 +203,7 @@ const submitForm = async () => {
       </div>
     </div>
 
-    <div class="form-group textarea-box">
+    <div class="form-group">
       <textarea
         id="message"
         name="message"
@@ -231,10 +234,24 @@ const submitForm = async () => {
 
     <p v-if="serverError" class="server-error">{{ serverError }}</p>
 
-    <div class="form-submit d-flex jc-center ai-center">
+    <div class="form-submit">
       <button type="submit" class="btn btn-outline" :disabled="isLoading">
         <span v-if="isLoading">Envoi en cours...</span>
-        <span v-else-if="isFormSubmitted">Message envoyé !</span>
+        <span v-else-if="isFormSubmitted" class="form-submitted">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 512 512"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M173.9 439.4l-166.4-166.4c-10-10-10-26.2 0-36.2l36.2-36.2c10-10 26.2-10 36.2 0L192 312.7 432.1 72.6c10-10 26.2-10 36.2 0l36.2 36.2c10 10 10 26.2 0 36.2l-294.4 294.4c-10 10-26.2 10-36.2 0z"
+            />
+          </svg>
+          Message envoyé !
+        </span>
         <span v-else>Envoyer</span>
       </button>
     </div>

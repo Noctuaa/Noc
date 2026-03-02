@@ -1,33 +1,65 @@
 /* ========================================
-  FORM - Reusable form components
-  ======================================== */
-
-/* === FORM CONTAINER === */
+   FORM - Container
+   ======================================== */
 
 .form {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-12);
+  gap: var(--spacing-8);
 }
 
-/* === FORM GROUPS === */
+/* ========================================
+   FORM - Group
+   ======================================== */
 
 .form-group {
   position: relative;
 }
 
-/* === FORM LABELS === */
+/* Animated underline width 0 → 100% on focus */
+.form-group::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-neon);
+  transition: width var(--transition-normal) ease;
+  pointer-events: none;
+}
+
+.form-group:has(textarea) {
+  padding-bottom: 1rem;
+  box-shadow: inset 0 -2px 0 0 var(--input-border);
+}
+
+.form-group:has(:focus)::before,
+.form-group:has(.form-input:not(:placeholder-shown))::before,
+.form-group:has(.form-textarea:not(:placeholder-shown))::before,
+.form-group.has-value::before {
+  width: 100%;
+}
+
+.form-group:has(.error)::before {
+  display: none;
+}
+
+/* ========================================
+   FORM - Label
+   ======================================== */
 
 .form-label {
   position: absolute;
   top: 5px;
-  left: 10px;
-  color: var(--text-primary);
+  left: 5px;
   font-size: 0.9rem;
   font-weight: 500;
-  text-transform: capitalize;
   letter-spacing: 0.5px;
+  color: var(--label-color);
+  pointer-events: none;
   transition:
     top var(--transition-normal) ease,
     left var(--transition-normal) ease,
@@ -35,49 +67,125 @@
     scale var(--transition-normal) ease;
 }
 
+/* Floating label - active state */
 .form-input:focus + .form-label,
 .form-textarea:focus + .form-label,
 .form-input:not(:placeholder-shown) + .form-label,
 .form-textarea:not(:placeholder-shown) + .form-label {
+  top: -15px;
+  left: 0px;
+  color: var(--label-active);
+  scale: 0.93;
+}
+
+/* ========================================
+   FORM - Input & Textarea
+   ======================================== */
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: var(--spacing-3) var(--spacing-2);
+  border: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  background: var(--input-bg);
+  resize: vertical;
+  caret-color: var(--input-border-focus);
+}
+
+.form-input {
+  box-shadow: inset 0 -2px 0 0 var(--input-border);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+}
+
+/* ========================================
+   FORM - Select
+   ======================================== */
+
+.form-select {
+  width: 100%;
+  padding: var(--spacing-3) var(--spacing-2);
+  padding-right: var(--spacing-8);
+  border: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  background: var(--input-bg);
+  box-shadow: inset 0 -2px 0 0 var(--input-border);
+  appearance: none;
+  cursor: pointer;
+}
+
+.form-select:focus {
+  outline: none;
+}
+
+.form-select option {
+  color: var(--text-primary);
+  background: var(--blue-800);
+}
+
+/* Floating label - active state */
+.form-select:focus + .form-label,
+.form-label.is-active {
   top: -15px;
   left: 5px;
   color: var(--label-active);
   scale: 0.93;
 }
 
-/* === FORM INPUTS & TEXTAREA === */
-
-.form-input,
-.form-textarea {
-  width: 100%;
-  padding: var(--spacing-1) var(--spacing-2);
-  border: none;
-  border-bottom: 2px solid var(--input-border);
-  font-family: inherit;
-  font-size: 0.95rem;
-  color: var(--text-primary);
-  background: var(--input-bg);
-  resize: vertical;
+/* Custom chevron */
+.select-group::after {
+  content: '';
+  position: absolute;
+  right: var(--spacing-4);
+  top: 12px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--label-color);
+  border-bottom: 2px solid var(--label-color);
+  rotate: 45deg;
+  pointer-events: none;
+  transition:
+    border-color var(--transition-fast) ease,
+    rotate var(--transition-fast) ease;
 }
 
-.form-input:focus,
-.form-textarea:focus {
-  outline: none;
-  border: none;
-  border-bottom: 2px solid var(--input-border);
+.select-group:has(.form-select:focus)::after {
   border-color: var(--input-border-focus);
-  background: var(--input-bg-focus);
+  rotate: 225deg;
 }
 
-/* === VALIDATION & ERROR MESSAGES === */
+/* ========================================
+   FORM - Validation
+   ======================================== */
 
-.form-input.error,
-.form-textarea.error {
-  border-color: var(--red-400);
+.form-input.error {
+  box-shadow: inset 0 -2px 0 0 var(--red-400);
 }
+
+.form-group:has(.form-textarea.error) {
+  box-shadow: inset 0 -2px 0 0 var(--red-400);
+}
+
+.form-select.error {
+  box-shadow: inset 0 -2px 0 0 var(--red-400);
+}
+
+/* ========================================
+   FORM - Error message
+   ======================================== */
 
 .error-message {
-  position: absolute;
+  position: relative;
   display: flex;
   align-items: center;
   gap: var(--spacing-2);
@@ -109,11 +217,32 @@
 }
 
 /* ========================================
-    RESPONSIVE
-  ======================================== */
+   FORM - Server error
+   ======================================== */
 
-@media (max-width: 992px) {
-  .form {
-    padding: var(--spacing-8) 0;
-  }
+.server-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--red-400);
+  opacity: 0.9;
+}
+
+/* ========================================
+   FORM - Submit
+   ======================================== */
+
+.form-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-submitted {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  color: var(--green-400);
 }

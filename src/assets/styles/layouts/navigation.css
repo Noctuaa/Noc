@@ -125,6 +125,7 @@
 
   /* Menu open state - Full height with backdrop */
   .nav.is-open {
+    transform: translateY(0);
     height: 100%;
     background: rgb(from var(--blue-950) r g b / 0.75);
     backdrop-filter: blur(var(--blur-glass));

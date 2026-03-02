@@ -41,6 +41,9 @@
   /* Reds */
   --red-400: rgb(242, 90, 90);
 
+  /* Greens */
+  --green-400: rgb(74, 222, 128);
+
   /* White */
   --white: rgb(255, 255, 255);
 
@@ -135,9 +138,10 @@
      ======================================== */
   --input-bg: transparent;
   --input-bg-focus: transparent;
-  --input-border: rgb(from var(--white) r g b / 0.3);
-  --input-border-focus: rgb(from var(--blue-400) r g b / 0.9);
-  --label-active: rgb(from var(--blue-400) r g b / 0.9);
+  --input-border: rgb(from var(--white) r g b / 0.5);
+  --input-border-focus: rgb(from var(--blue-400) r g b / 1);
+  --label-color: var(--white);
+  --label-active: rgb(from var(--blue-400) r g b / 1);
 
   /* ========================================
      STATES

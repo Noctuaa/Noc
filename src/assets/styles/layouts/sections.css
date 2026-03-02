@@ -25,14 +25,18 @@ section.bg-alt {
 
 .section-header {
   display: grid;
-  margin-bottom: clamp(2rem, 5vw, 4rem);
+  margin-bottom: clamp(2rem, 5vw, 5rem);
   width: 100%;
   place-items: center;
 }
 
+.section-header h2 {
+  margin-bottom: clamp(0.5rem, 1.5vw, 1.5rem);
+}
+
 .section-header .separator-h {
   width: 60%;
-  margin-bottom: 1.5rem;
+  margin-bottom: clamp(0.5rem, 1.5vw, 1.5rem);
 }
 
 /* Description avec effet machine à écrire */
