@@ -13,6 +13,20 @@
 }
 
 /* ===================================
+   BRAND
+   =================================== */
+
+.footer-email {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  transition: color var(--transition-fast) ease;
+}
+
+.footer-email:hover {
+  color: var(--text-primary);
+}
+
+/* ===================================
    BOTTOM SECTION
    =================================== */
 
@@ -22,6 +36,11 @@
 
 .footer-bottom p {
   color: var(--text-secondary);
+}
+
+.footer-sep {
+  color: var(--text-secondary);
+  user-select: none;
 }
 
 /* ===================================

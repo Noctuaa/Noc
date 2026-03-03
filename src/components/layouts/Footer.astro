@@ -1,8 +1,8 @@
 ---
-import SocialButtons from '../ui/SocialButtons.astro';
 import Modal from '../ui/Modal.vue';
 
 const currentYear = new Date().getFullYear();
+const email = import.meta.env.PUBLIC_EMAIL_TO;
 ---
 
 <footer class="footer p-relative">
@@ -14,7 +14,7 @@ const currentYear = new Date().getFullYear();
   <div class="container">
     <div class="footer-brand d-grid gap-2 mb-6">
       <h3 class="brand-name">Nocdev</h3>
-      <SocialButtons />
+      <a href={`mailto:${email}`} class="footer-email">{email}</a>
     </div>
     <div class="separator-h separator-h-gradient"></div>
     <div class="footer-bottom d-flex jc-between pt-4">
@@ -40,7 +40,8 @@ const currentYear = new Date().getFullYear();
           </p>
           <h4>Propriété intellectuelle</h4>
           <p>Tous droits réservés. Ce portfolio est protégé par le droit d'auteur.</p>
-        </Modal> .
+        </Modal>
+        <span class="footer-sep" aria-hidden="true">·</span>
         <Modal title="Politique de confidentialité" client:load>
           <h4>Données collectées</h4>
           <p>Via le formulaire de contact :</p>
