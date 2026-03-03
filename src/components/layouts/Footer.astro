@@ -28,7 +28,7 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
             <br />
             France
             <br />
-            Email : contact@nocdev.fr
+            Email : <a href={`mailto:${email}`}>{email}</a>
           </p>
           <h4>Hébergement</h4>
           <p>
@@ -53,7 +53,7 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
           <h4>Utilisation</h4>
           <p>Ces données servent uniquement à répondre à vos demandes.</p>
           <h4>Vos droits</h4>
-          <p>Accès, rectification, suppression : contact@nocdev.fr</p>
+          <p>Accès, rectification, suppression : <a href={`mailto:${email}`}>{email}</a></p>
         </Modal>
       </div>
       <div class="copy">
