@@ -42,8 +42,8 @@
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-neon);
   position: relative;
-  /* Bite effect: circular cutout in top-right corner for the close button */
-  mask-image: radial-gradient(circle at calc(100% - 13px) 13px, transparent 36px, white 29px);
+  overflow: clip;
+  padding: 3px;
 }
 
 .modal-card.neon-mask::before {
@@ -66,37 +66,27 @@
   margin: 0;
 }
 
-/* Close button - bite effect (top-right corner overlap) */
+/* Close button - inside card, top-right corner */
 .modal-close {
   position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(15%, -15%);
+  top: 3px;
+  right: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 0 var(--border-radius-md);
   border: none;
-  background: transparent;
+  background: rgb(from var(--blue-950) r g b / 0.75);
   color: var(--text-secondary);
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: color var(--transition-fast) ease;
+  transition:
+    color var(--transition-fast) ease,
+    box-shadow var(--transition-fast) ease;
   z-index: 1;
-}
-
-.modal-close::before {
-  content: '';
-  position: absolute;
-  z-index: 2;
-  width: 20px;
-  height: 20px;
-  background: transparent;
-  border-top-left-radius: var(--border-radius-md);
-  box-shadow: -6px -6px var(--bg-deep);
 }
 
 .modal-close:hover {

@@ -44,7 +44,7 @@ const closeModal = () => {
             <div class="modal-header">
               <h3 class="modal-title">{{ title }}</h3>
             </div>
-            <div class="modal-content">
+            <div class="modal-content" data-lenis-prevent>
               <slot></slot>
             </div>
           </div>
