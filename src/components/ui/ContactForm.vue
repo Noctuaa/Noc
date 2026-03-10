@@ -1,6 +1,6 @@
 <script setup>
 import { z } from 'zod';
-import { reactive, ref } from 'vue';
+import { reactive, ref, nextTick } from 'vue';
 
 const errors = ref({});
 const isFormSubmitted = ref(false);
@@ -51,6 +51,7 @@ const validateForm = () => {
   const result = contactSchema.safeParse(form);
   if (!result.success) {
     errors.value = result.error.flatten().fieldErrors;
+    nextTick(() => window.lenis?.resize());
     return null;
   } else {
     errors.value = {};
