@@ -4,27 +4,12 @@
    ======================================== */
 
 /* ===================================
-   TRANSITIONS
-   =================================== */
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity var(--transition-fast) ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-/* ===================================
    OVERLAY
    =================================== */
 
 .modal-overlay {
   inset: 0;
   background: rgb(from var(--blue-950) r g b / 0.75);
-  z-index: 9999;
   backdrop-filter: blur(var(--blur-glass));
 }
 
@@ -33,17 +18,15 @@
    =================================== */
 
 .modal-wrapper {
-  position: relative;
   width: min(560px, 90vw);
 }
 
 .modal-card {
-  background: var(--bg-surface);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-neon);
-  position: relative;
-  overflow: clip;
   padding: 3px;
+  overflow: clip;
+  border-radius: var(--border-radius-lg);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-neon);
 }
 
 .modal-card.neon-mask::before {
@@ -60,33 +43,25 @@
 }
 
 .modal-title {
+  margin: 0;
   font-size: 1rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin: 0;
 }
 
 /* Close button - inside card, top-right corner */
 .modal-close {
-  position: absolute;
   top: 3px;
   right: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 40px;
   height: 40px;
-  border-radius: 0 var(--border-radius-md);
   border: none;
-  background: rgb(from var(--blue-950) r g b / 0.75);
-  color: var(--text-secondary);
+  border-radius: 0 var(--border-radius-md);
   font-size: 1rem;
   font-weight: 700;
-  cursor: pointer;
-  transition:
-    color var(--transition-fast) ease,
-    box-shadow var(--transition-fast) ease;
-  z-index: 1;
+  color: var(--text-secondary);
+  background: rgb(from var(--blue-950) r g b / 0.75);
+  transition: color var(--transition-fast) ease;
 }
 
 .modal-close:hover {
@@ -98,8 +73,8 @@
    =================================== */
 
 .modal-content {
-  padding: clamp(var(--spacing-5), 4vw, var(--spacing-8));
   max-height: 60vh;
+  padding: clamp(var(--spacing-5), 4vw, var(--spacing-8));
   overflow-y: auto;
 }
 
@@ -108,13 +83,13 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-2);
+  margin-top: 0;
+  margin-bottom: var(--spacing-3);
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   color: var(--text-primary);
-  margin-top: 0;
-  margin-bottom: var(--spacing-3);
 }
 
 /* Neon bar accent before each title */
@@ -123,8 +98,8 @@
   flex-shrink: 0;
   width: 3px;
   height: 0.85em;
-  background: var(--gradient-neon);
   border-radius: 2px;
+  background: var(--gradient-neon);
 }
 
 /* Separator between sections */
@@ -136,10 +111,10 @@
 
 /* Body text */
 .modal-content p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
   margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
 }
 
 /* Lists */
@@ -151,8 +126,8 @@
 }
 
 .modal-content li {
-  font-size: 0.9rem;
   margin-bottom: var(--spacing-1);
+  font-size: 0.9rem;
   color: var(--text-secondary);
 }
 
@@ -171,11 +146,25 @@
    =================================== */
 
 .legal-link {
-  color: var(--text-secondary);
   font-size: var(--text-sm);
+  color: var(--text-secondary);
   transition: color var(--transition-fast) ease;
 }
 
 .legal-link:hover {
   color: var(--text-primary);
+}
+
+/* ===================================
+   TRANSITIONS
+   =================================== */
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity var(--transition-fast) ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }

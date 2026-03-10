@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onUnmounted } from 'vue';
 
 defineOptions({ inheritAttrs: false });
 
@@ -21,7 +21,8 @@ defineProps({
  */
 const openModal = () => {
   showModal.value = true;
-  if (window.lenis) window.lenis.stop();
+  window.lenis?.stop();
+  document.body.style.overflow = 'hidden';
 };
 
 /**
@@ -29,18 +30,27 @@ const openModal = () => {
  */
 const closeModal = () => {
   showModal.value = false;
-  if (window.lenis) window.lenis.start();
+  window.lenis?.start();
+  document.body.style.overflow = '';
 };
+
+onUnmounted(closeModal);
 </script>
 
 <template>
   <a href="#" @click.prevent="openModal" class="legal-link">{{ title }}</a>
   <transition name="fade">
     <Teleport to="body">
-      <div v-if="showModal" @click.prevent="closeModal" class="modal-overlay d-flex ai-center jc-center p-fixed">
-        <div class="modal-wrapper" @click.stop>
-          <button @click.prevent="closeModal" class="modal-close" aria-label="Fermer">✕</button>
-          <div class="modal-card neon-mask">
+      <div v-if="showModal" @click.prevent="closeModal" class="modal-overlay p-fixed z-100 d-flex ai-center jc-center">
+        <div class="modal-wrapper p-relative" @click.stop>
+          <button
+            @click.prevent="closeModal"
+            class="modal-close p-absolute z-1 d-flex ai-center jc-center cursor-p"
+            aria-label="Fermer"
+          >
+            ✕
+          </button>
+          <div class="modal-card neon-mask p-relative">
             <div class="modal-header">
               <h3 class="modal-title">{{ title }}</h3>
             </div>
