@@ -131,15 +131,7 @@
   color: var(--text-secondary);
 }
 
-/* Clickable email links */
-.modal-content a {
-  color: var(--blue-400);
-  transition: color var(--transition-fast) ease;
-}
-
-.modal-content a:hover {
-  color: var(--text-primary);
-}
+/* Clickable email links - color handled globally in base.css */
 
 /* ===================================
    LEGAL LINK (trigger)

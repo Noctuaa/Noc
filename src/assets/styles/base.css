@@ -23,6 +23,15 @@ ul {
   padding: 0;
 }
 
+a[href^="mailto:"] {
+  color: var(--blue-400);
+  transition: color var(--transition-fast) ease;
+}
+
+a[href^="mailto:"]:hover {
+  color: var(--text-primary);
+}
+
 /* ===================================
    SCROLLBAR
    =================================== */
