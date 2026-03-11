@@ -103,6 +103,9 @@
 
 .project-content {
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
   width: 100%;
   padding: var(--spacing-6);
   background: linear-gradient(to top, rgb(from var(--blue-950) r g b / 0.9), transparent);
@@ -122,14 +125,13 @@
 }
 
 .project-title {
-  margin-bottom: var(--spacing-2);
   font-size: var(--text-2xl);
   font-weight: 700;
   color: var(--text-primary);
 }
 
 .project-description {
-  margin-bottom: var(--spacing-4);
+  margin: 0;
   font-size: var(--text-sm);
   line-height: var(--leading-normal);
   color: var(--text-secondary);
@@ -143,6 +145,10 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-2);
+}
+
+.project-content .btn {
+  align-self: flex-start;
 }
 
 .project-tags span {
