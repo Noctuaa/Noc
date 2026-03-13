@@ -170,23 +170,46 @@
 
 /* Buttons Mini SVG */
 .btn-mini {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
-  border: 2px solid #1a1b2f;
-  border-radius: 8px;
-  width: 34px;
-  height: 34px;
-  transition: all 0.2s ease-in-out;
-  fill: #1a1b2f;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background: var(--white);
+  border: none;
+  border-radius: var(--border-radius-md);
+  width: 40px;
+  height: 40px;
+  fill: var(--blue-900);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.3);
+  overflow: hidden;
+  transition:
+    fill var(--transition-fast) ease,
+    transform var(--transition-fast) ease,
+    box-shadow var(--transition-fast) ease;
+}
+
+.btn-mini::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-neon);
+  opacity: 0;
+  transition: opacity var(--transition-fast) ease;
+}
+
+.btn-mini svg {
+  position: relative;
+  z-index: 1;
 }
 
 .btn-mini:hover {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  fill: #fff;
-  border-color: #fff;
+  fill: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgb(from var(--blue-400) r g b / 0.4);
+}
+
+.btn-mini:hover::before {
+  opacity: 1;
 }
 
 /* === BUTTON ROUNDED SMALL === */

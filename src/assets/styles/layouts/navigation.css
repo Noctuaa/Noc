@@ -54,10 +54,9 @@
 }
 
 .nav-item:last-child .nav-link {
-  border: 2px solid var(--purple-700);
   border-radius: var(--border-radius-md);
   color: var(--text-primary);
-  background: var(--gradient-cta);
+  background: var(--gradient-neon);
 }
 
 /* --- Active & Hover States --- */
