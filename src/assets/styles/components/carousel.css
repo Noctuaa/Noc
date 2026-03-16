@@ -52,7 +52,7 @@
   width: clamp(90px, calc(4rem + 4vw), 115px);
   height: clamp(90px, calc(4rem + 4vw), 115px);
   border-radius: var(--border-radius-lg);
-  background: rgb(from var(--blue-800) r g b / 0.6);
+  background: transparent;
   box-shadow: 4px 4px 12px rgb(0 0 0 / 0.4);
   transition: transform var(--transition-fast) ease;
 }
