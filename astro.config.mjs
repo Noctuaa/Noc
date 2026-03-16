@@ -5,7 +5,7 @@ import vue from '@astrojs/vue';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [vue({ devtools: true })],
+  integrations: [vue({ devtools: false })],
   env: {
     schema: {
       SMTP_HOST: envField.string({ context: 'server', access: 'secret' }),
