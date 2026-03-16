@@ -6,9 +6,7 @@
   background:
     radial-gradient(ellipse at 15% 25%, rgb(from var(--purple-500) r g b / 0.13) 0%, transparent 50%),
     radial-gradient(ellipse at 85% 15%, rgb(from var(--blue-400) r g b / 0.15) 0%, transparent 45%),
-    radial-gradient(ellipse at 60% 65%, rgb(from var(--purple-600) r g b / 0.1) 0%, transparent 55%),
-    url('../../images/land.svg') no-repeat bottom center/cover,
-    var(--bg-hero);
+    radial-gradient(ellipse at 60% 65%, rgb(from var(--purple-600) r g b / 0.1) 0%, transparent 55%), var(--bg-hero);
 }
 
 /* ============================================
@@ -104,7 +102,7 @@
   left: 0;
   right: 20px;
   width: 40%;
-  background: linear-gradient(to right, transparent, rgb(from var(--blue-400) r g b / 0.7) 50%);
+  background: linear-gradient(to right, transparent, rgb(from var(--blue-500) r g b / 0.7) 50%);
 }
 
 .deco-line-top::after {
@@ -113,7 +111,7 @@
   right: -20px;
   top: 0;
   width: 20px;
-  background: rgb(from var(--blue-400) r g b / 0.7);
+  background: rgb(from var(--blue-500) r g b / 0.7);
   transform: rotate(45deg);
   transform-origin: left center;
 }
@@ -121,7 +119,7 @@
 .deco-line-bottom {
   top: 49%;
   width: 30%;
-  background: rgb(from var(--blue-400) r g b / 0.8);
+  background: rgb(from var(--blue-500) r g b / 0.8);
 }
 
 .hero-deco-left .deco-line-bottom {
@@ -172,18 +170,17 @@
 
 .hero-vline {
   position: absolute;
-  z-index: 50;
+  z-index: 2;
   width: 2px;
   height: 90%;
   background: repeating-linear-gradient(
     to bottom,
-    rgb(from var(--blue-400) r g b / 0.6) 0px,
-    rgb(from var(--blue-400) r g b / 0.8) 4px,
+    rgb(from var(--blue-500) r g b / 0.6) 0px,
+    rgb(from var(--blue-750) r g b / 0.4) 4px,
     transparent 4px,
     transparent 8px
   );
-  mask-image: linear-gradient(to bottom, transparent, var(--white) 10%, var(--white) 90%, transparent);
-  opacity: 0.4;
+  mask-image: linear-gradient(to bottom, transparent, var(--white) 10%, var(--white) 50%, transparent);
   pointer-events: none;
 }
 
@@ -193,6 +190,44 @@
 
 .vline-l {
   left: clamp(1.5rem, 3vw, 2rem);
+}
+
+/* ============================================
+   LANDSCAPE - Aurora & Forest
+   aurora z-index: 1 (derrière forest)
+   forest z-index: 3 (SVG transparent, laisse passer la lueur)
+   ============================================ */
+
+.hero-aurora {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: -10%;
+  width: 120%;
+  height: clamp(150px, 21vh, 250px);
+  background:
+    radial-gradient(
+      ellipse at 30% 100%,
+      rgb(from var(--purple-500) r g b / 0.5) 0%,
+      rgb(from var(--blue-400) r g b / 0.2) 45%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse at 68% 100%,
+      rgb(from var(--blue-400) r g b / 0.45) 0%,
+      rgb(from var(--purple-400) r g b / 0.2) 45%,
+      transparent 70%
+    );
+  pointer-events: none;
+  animation: aurora 8s ease-in-out infinite alternate;
+}
+
+.hero-forest {
+  position: absolute;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  background: url('../../images/land.svg') no-repeat bottom center/cover;
 }
 
 /* ============================================
@@ -246,6 +281,17 @@
   }
   to {
     letter-spacing: 0.1em;
+    opacity: 1;
+  }
+}
+
+@keyframes aurora {
+  from {
+    transform: translateX(-4%);
+    opacity: 0.7;
+  }
+  to {
+    transform: translateX(4%);
     opacity: 1;
   }
 }
