@@ -1,20 +1,12 @@
 <script setup>
-import { z } from 'zod';
+import { actions } from 'astro:actions';
+import { contactSchema } from '../../schemas/contact';
 import { reactive, ref, nextTick } from 'vue';
 
 const errors = ref({});
 const isFormSubmitted = ref(false);
 const isLoading = ref(false);
 const serverError = ref('');
-
-const contactSchema = z.object({
-  name: z.string().min(2, 'Minimum 2 caractères.'),
-  email: z.string().email('Email invalide.'),
-  subject: z.enum(['vitrine', 'integration', 'refonte', 'autre'], {
-    errorMap: () => ({ message: 'Veuillez sélectionner un type de projet.' }),
-  }),
-  message: z.string().min(10, 'Minimum 10 caractères.'),
-});
 
 const form = reactive({
   name: '',
@@ -60,25 +52,15 @@ const validateForm = () => {
 };
 
 /**
- * Sends validated form data to the API endpoint.
+ * Sends validated form data via Astro Action.
  * @param {Object} validData - The validated form data to send.
- * @returns {Promise<Object>} The API response data.
- * @throws {Error} If the API returns a non-success response.
+ * @throws {Error} If the Action returns an error.
  */
 const sendToAPI = async (validData) => {
-  const response = await fetch('/api/contact', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(validData),
-  });
-
-  const data = await response.json();
-
-  if (!data.success) {
-    throw new Error(data.message || 'Erreur API');
+  const { error } = await actions.contact(validData);
+  if (error) {
+    throw new Error(error.message || 'Erreur Action');
   }
-
-  return data;
 };
 
 /**
