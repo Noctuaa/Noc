@@ -1,6 +1,16 @@
 /* ========================================
-   SECTIONS LAYOUT - Structure et contenu des sections
+   SECTIONS LAYOUT
    ======================================== */
+
+/* ========================================
+   CONTAINER - Conteneur principal
+   ======================================== */
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 3rem);
+}
 
 /* ========================================
    SECTION - Styles de base

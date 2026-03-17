@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
-import { throttle, DURATION } from '../../utils/ScrollManager';
+import { throttle, DURATION } from '../utils/ScrollManager';
 
 // Navigation sections list
 const sections = [

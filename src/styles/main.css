@@ -1,0 +1,24 @@
+/* ========================================
+  NOCDEV PORTFOLIO - MAIN CSS
+  Entry point for all stylesheets
+  ======================================== */
+
+/* === FOUNDATIONS === */
+@import './variables.css'; /* Design tokens (colors, spacing, fonts) */
+@import './base.css';      /* Resets, global styles, animations */
+@import './typography.css'; /* Headings, paragraphs, lists */
+@import './utilities.css'; /* Atomic classes + component utilities */
+
+/* === LAYOUT === */
+@import './layouts/navigation.css'; /* Top navigation bar */
+@import './layouts/layout.css';     /* Container, sections, curtain scroll */
+@import './layouts/footer.css';     /* Footer */
+
+/* === SECTIONS === */
+@import './sections/hero.css';      /* Hero section */
+@import './sections/profile.css';   /* Profile section */
+@import './sections/portfolio.css'; /* Portfolio section */
+@import './sections/contact.css';   /* Contact section */
+
+/* === COMPONENTS === */
+@import './components/buttons.css'; /* Buttons & mini buttons */

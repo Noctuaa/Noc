@@ -1,7 +1,7 @@
 ---
-import '../assets/styles/main.css';
-import Navigation from '../components/layouts/Navigation.vue';
-import Footer from '../components/layouts/Footer.astro';
+import '../styles/main.css';
+import Navigation from './Navigation.vue';
+import Footer from './Footer.astro';
 ---
 
 <!doctype html>
@@ -27,7 +27,7 @@ import Footer from '../components/layouts/Footer.astro';
     <slot />
     <Footer />
     <script>
-      import { initLenis, initCurtainEffect, initProfileAnimations, initAnchorLinks } from '../utils/ScrollManager';
+      import { initLenis, initCurtainEffect, initProfileAnimations, initAnchorLinks } from '../utils/ScrollManager.js';
       window.addEventListener('DOMContentLoaded', () => {
         initLenis();
         initCurtainEffect();

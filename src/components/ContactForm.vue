@@ -1,6 +1,6 @@
 <script setup>
 import { actions } from 'astro:actions';
-import { contactSchema } from '../../schemas/contact';
+import { contactSchema } from '../schemas/contact';
 import { reactive, ref, nextTick } from 'vue';
 
 const errors = ref({});
@@ -241,4 +241,4 @@ const submitForm = async () => {
   </form>
 </template>
 
-<style src="../../assets/styles/components/form.css"></style>
+<style src="../styles/components/form.css"></style>

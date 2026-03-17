@@ -1,3 +1,8 @@
+/* ========================================
+   ATOMIC UTILITIES
+   Single-purpose classes (display, position, spacing...)
+   ======================================== */
+
 /* === LAYOUT === */
 .d-flex {
   display: flex;
@@ -59,7 +64,7 @@
   text-transform: capitalize;
 }
 
-/* === TEXT ALIGNEMENT === */
+/* === TEXT ALIGNMENT === */
 .tt-center {
   text-align: center;
 }
@@ -226,4 +231,29 @@
 
 .pe-none {
   pointer-events: none;
+}
+
+/* ========================================
+   COMPONENT UTILITIES
+   Multi-property reusable classes
+   ========================================  */
+
+/* === NEON BORDER === */
+
+.neon-mask::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 3px;
+  border-radius: inherit;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 10;
 }
