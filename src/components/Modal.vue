@@ -1,27 +1,18 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onUnmounted } from 'vue';
 
 defineOptions({ inheritAttrs: false });
 
-/** Modal visibility state */
+// Modal visibility state - controls display and scroll locking
 const showModal = ref(false);
 
-/**
- * @property {string} title - Modal title displayed in header
- */
-defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-});
+// title - Modal title displayed in header
+defineProps<{ title: string }>();
 
-/**
- * Opens modal and stops page scrolling (Lenis)
- */
+// Opens modal and stops page scrolling (Lenis)
 const openModal = () => {
   showModal.value = true;
-  window.lenis?.stop();
+  (window as any).lenis?.stop();
   document.body.style.overflow = 'hidden';
 };
 
@@ -30,7 +21,7 @@ const openModal = () => {
  */
 const closeModal = () => {
   showModal.value = false;
-  window.lenis?.start();
+  (window as any).lenis?.start();
   document.body.style.overflow = '';
 };
 

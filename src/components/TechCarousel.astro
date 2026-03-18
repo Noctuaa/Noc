@@ -1,5 +1,11 @@
 ---
-const technologies = [
+type Technology = {
+  id: string;
+  name: string;
+  logo: string;
+};
+
+const technologies: Technology[] = [
   { id: 'html', name: 'HTML5', logo: '/icons/html.svg' },
   { id: 'css', name: 'CSS3', logo: '/icons/css.svg' },
   { id: 'js', name: 'JavaScript', logo: '/icons/js.svg' },
