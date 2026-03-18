@@ -37,7 +37,7 @@ const validateField = (field: string) => {
 
 /**
  * Validates the entire form before submission.
- * @returns {Object|null} The validated data, or null if validation fails.
+ * @returns The validated data, or null if validation fails.
  */
 const validateForm = () => {
   const result = contactSchema.safeParse(form);
@@ -53,7 +53,7 @@ const validateForm = () => {
 
 /**
  * Sends validated form data via Astro Action.
- * @param {Object} validData - The validated form data to send.
+ * @param validData - The validated form data to send.
  * @throws {Error} If the Action returns an error.
  */
 const sendToAPI = async (validData: ContactData) => {
