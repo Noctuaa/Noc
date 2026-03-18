@@ -10,13 +10,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
-/** @constant {number} DURATION - Default scroll animation duration in seconds */
+/** @constant DURATION - Default scroll animation duration in seconds */
 export const DURATION = 1.5;
 
 const SECTIONS_AFTER_PROFILE = ['#competences', '#portfolio', '#contact'];
 
 // Shared Lenis instance
-let lenis = null;
+let lenis: Lenis | null = null;
 
 /**
  * Initialize Lenis smooth scrolling
@@ -29,20 +29,21 @@ export const initLenis = () => {
   }
 
   lenis = new Lenis({
-    DURATION,
+    duration: DURATION,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: 'vertical',
     smoothWheel: true,
-    smoothTouch: false,
   });
 
-  window.lenis = lenis; // Expose for debugging
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (window as any).lenis = lenis;
+
 
   // Sync Lenis with GSAP ScrollTrigger
   lenis.on('scroll', ScrollTrigger.update);
 
   gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
+    lenis!.raf(time * 1000);
   });
 
   gsap.ticker.lagSmoothing(0);
@@ -53,15 +54,13 @@ export const initLenis = () => {
 
 /**
  * Throttle a function to execute at most once per delay period
- * Useful for performance optimization on high-frequency events+(scroll, resize, mousemove)
- * @param {Function} func - Function to throttle
- * @param {number} delay - Minimum delay between executions in +milliseconds
- * @returns {Function} Throttled function
- * @example  const handleScrollThrottled = throttle(handleScroll, 100); // +Max 10 executions/second
+ * @param func - Function to throttle
+ * @param delay - Minimum delay between executions in milliseconds
+ * @returns Throttled function
  */
-export const throttle = (func, delay) => {
+export const throttle = (func: (...args: unknown[]) => void, delay: number) => {
   let lastCall = 0;
-  return (...args) => {
+  return (...args: unknown[]) => {
     const now = Date.now();
     if (now - lastCall >= delay) {
       lastCall = now;
@@ -73,20 +72,19 @@ export const throttle = (func, delay) => {
 /**
  * Initialize smooth scroll for all anchor links
  * Intercepts all a[href^="#"] clicks and delegates to Lenis Special handling for #profile (scrolls to hero height to trigger curtain effect)
- * @returns {void}
  */
 export const initAnchorLinks = () => {
-  const anchors = document.querySelectorAll('a[href^="#"]');
-  const profileSection = document.querySelector('#profile');
+  const anchors = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]');
+  const profileSection = document.querySelector<HTMLElement>('#profile');
 
-  anchors.forEach((anchor) => {
+  anchors.forEach((anchor: Element) => {
     anchor.addEventListener('click', (e) => {
       e.preventDefault();
-      window.lenis?.start();
-      const href = anchor.getAttribute('href');
-      const target = href === '#profile' ? document.querySelector('#hero')?.offsetHeight || window.innerHeight : href;
+      (window as any).lenis?.start();
+      const href = anchor.getAttribute('href') ?? '';
+      const target = href === '#profile' ? document.querySelector<HTMLElement>('#hero')?.offsetHeight ?? window.innerHeight : href;
       if (SECTIONS_AFTER_PROFILE.includes(href)) profileSection?.classList.remove('curtain-fixed');
-      lenis.scrollTo(target, { duration: DURATION, offset: 0 });
+      lenis!.scrollTo(target, { duration: DURATION, offset: 0 });
     });
   });
 };
@@ -97,8 +95,8 @@ export const initAnchorLinks = () => {
  * Adds/removes 'curtain-fixed' class based on scroll position
  */
 export const initCurtainEffect = () => {
-  const heroSection = document.querySelector('#hero');
-  const profileSection = document.querySelector('#profile');
+  const heroSection = document.querySelector<HTMLElement>('#hero');
+  const profileSection = document.querySelector<HTMLElement>('#profile');
 
   if (!heroSection || !profileSection) {
     console.warn('⚠ Hero or Profile not found');
@@ -109,7 +107,7 @@ export const initCurtainEffect = () => {
     profileSection.classList.add('curtain-fixed');
   }
 
-  /// Toggle fixed class when Hero scrolls out of view
+  // Toggle fixed class when Hero scrolls out of view
   ScrollTrigger.create({
     trigger: heroSection,
     start: 'top top',
@@ -128,7 +126,7 @@ export const initCurtainEffect = () => {
  * - 0.3s delay between each bubble with bounce effect
  */
 export const initProfileAnimations = () => {
-  const chatBubbles = gsap.utils.toArray('.chat-bubbles .chat-bubble');
+  const chatBubbles = gsap.utils.toArray<HTMLElement>('.chat-bubbles .chat-bubble');
 
   // Trigger based on Hero section leaving (not Profile entering)
   ScrollTrigger.create({

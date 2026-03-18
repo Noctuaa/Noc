@@ -27,7 +27,7 @@ import Footer from './Footer.astro';
     <slot />
     <Footer />
     <script>
-      import { initLenis, initCurtainEffect, initProfileAnimations, initAnchorLinks } from '../utils/ScrollManager.js';
+      import { initLenis, initCurtainEffect, initProfileAnimations, initAnchorLinks } from '../utils/ScrollManager.ts';
       window.addEventListener('DOMContentLoaded', () => {
         initLenis();
         initCurtainEffect();
