@@ -8,3 +8,5 @@ export const contactSchema = z.object({
   }),
   message: z.string().trim().min(10, 'Minimum 10 caractères.').max(2000, 'Maximum 2000 caractères.'),
 })
+
+export type ContactData = z.infer<typeof contactSchema>;

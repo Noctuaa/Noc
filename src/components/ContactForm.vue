@@ -1,14 +1,14 @@
-<script setup>
+<script setup lang="ts">
 import { actions } from 'astro:actions';
-import { contactSchema } from '../schemas/contact';
+import { contactSchema, type ContactData } from '../schemas/contact';
 import { reactive, ref, nextTick } from 'vue';
 
-const errors = ref({});
+const errors = ref<Record<string, string[]>>({});
 const isFormSubmitted = ref(false);
 const isLoading = ref(false);
 const serverError = ref('');
 
-const form = reactive({
+const form = reactive<Record<string, string>>({
   name: '',
   email: '',
   subject: '',
@@ -17,21 +17,21 @@ const form = reactive({
 
 /**
  * Clears the error for a given field when the user starts typing again.
- * @param {string} field - The field name to clear the error for.
+ * @param field - The field name to clear the error for.
  */
-const clearError = (field) => {
+const clearError = (field: string) => {
   if (errors.value[field]) delete errors.value[field];
 };
 
 /**
  * Validates a single field on blur for immediate feedback.
- * @param {string} field - The field name to validate.
+ * @param field - The field name to validate.
  */
-const validateField = (field) => {
+const validateField = (field: string) => {
   if (!form[field]) return; // Empty field = not yet entered, let it pass
-  const result = contactSchema.shape[field].safeParse(form[field]);
+  const result = (contactSchema.shape as Record<string, any>)[field].safeParse(form[field]);
   if (!result.success) {
-    errors.value[field] = result.error.errors.map((e) => e.message);
+    errors.value[field] = result.error.errors.map((e: { message: string }) => e.message);
   }
 };
 
@@ -43,7 +43,7 @@ const validateForm = () => {
   const result = contactSchema.safeParse(form);
   if (!result.success) {
     errors.value = result.error.flatten().fieldErrors;
-    nextTick(() => window.lenis?.resize());
+    nextTick(() => (window as any).lenis?.resize());
     return null;
   } else {
     errors.value = {};
@@ -56,7 +56,7 @@ const validateForm = () => {
  * @param {Object} validData - The validated form data to send.
  * @throws {Error} If the Action returns an error.
  */
-const sendToAPI = async (validData) => {
+const sendToAPI = async (validData: ContactData) => {
   const { error } = await actions.contact(validData);
   if (error) {
     throw new Error(error.message || 'Erreur Action');
@@ -80,9 +80,10 @@ const submitForm = async () => {
     setTimeout(() => {
       isFormSubmitted.value = false;
     }, 6000);
-  } catch (error) {
+  } catch (error: unknown) {
+    const err = error instanceof Error ? error : new Error('Erreur inconnue');
     serverError.value = 'Une erreur est survenue, veuillez réessayer.';
-    console.error('❌ Erreur:', error.message);
+    console.error('❌ Erreur:', err.message);
   } finally {
     isLoading.value = false;
   }
