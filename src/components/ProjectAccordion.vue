@@ -1,11 +1,21 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 // Currently opened project index in accordion
 const activeIndex = ref(0);
 
+type Project = {
+  id: number;
+  title: string;
+  titleShort: string;
+  link: string;
+  tags: string[];
+  description: string;
+  image: string;
+};
+
 // Portfolio projects list
-const projects = [
+const projects: Project[] = [
   {
     id: 1,
     title: 'SkyCast',
@@ -28,9 +38,9 @@ const projects = [
 
 /**
  * Opens a project in the accordion
- * @param {number} index - Project index to open
+ * @param index - Project index to open
  */
-const openProject = (index) => {
+const openProject = (index: number) => {
   activeIndex.value = index;
 };
 </script>
