@@ -58,9 +58,9 @@ export const initLenis = () => {
  * @param delay - Minimum delay between executions in milliseconds
  * @returns Throttled function
  */
-export const throttle = (func: (...args: unknown[]) => void, delay: number) => {
+export const throttle = <T extends unknown[]>(func: (...args: T) => void, delay: number) => {
   let lastCall = 0;
-  return (...args: unknown[]) => {
+  return (...args: T) => {
     const now = Date.now();
     if (now - lastCall >= delay) {
       lastCall = now;

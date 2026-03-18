@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 import { throttle, DURATION } from '../utils/ScrollManager.ts';
 
@@ -17,12 +17,18 @@ const isScrolled = ref(false); // Scroll state for potential future use
 const hideNav = ref(false); // Hide Navigation on scroll down
 const isScrolling = ref(false); // Flag to prevent scroll spy flicker during programmatic scroll
 
+// Lenis scroll event shape
+type ScrollEvent = {
+  scroll: number;
+  direction: number;
+};
+
 /**
  * Handle scroll events: updates nav visibility and detects active section
  * Uses Lenis scroll and direction values — called via handleScrollThrottled
- * @returns {void}
+ * @returns
  */
-const handleScroll = ({ scroll, direction }) => {
+const handleScroll = ({ scroll, direction }: ScrollEvent) => {
   if (isScrolling.value) return;
 
   // Nav visibility
@@ -59,18 +65,18 @@ const handleScrollThrottled = throttle(handleScroll, 100);
 /**
  * Toggle or set the mobile menu open/close state
  * Stops or starts Lenis scroll accordingly
- * @param {boolean} open - Menu state (default: toggles current state)
+ * @param open - Menu state (default: toggles current state)
  */
 const setMenu = (open = !isMenuOpen.value) => {
   isMenuOpen.value = open;
-  open ? window.lenis?.stop() : window.lenis?.start();
+  open ? (window as any).lenis?.stop() : (window as any).lenis?.start();
 };
 
 /**
  * Handles nav link click: closes mobile menu and locks scroll spy during programmatic scroll
- * @param {string} id - Target section id
+ * @param id - Target section id
  */
-const handleNavClick = (id) => {
+const handleNavClick = (id: string) => {
   if (isMenuOpen.value) setMenu(false);
 
   isScrolling.value = true;
@@ -83,12 +89,12 @@ const handleNavClick = (id) => {
 
 // Attach scroll listener on mount
 onMounted(() => {
-  window.lenis.on('scroll', handleScrollThrottled);
+  (window as any).lenis.on('scroll', handleScrollThrottled);
 });
 
 // Remove scroll listener on unmount (cleanup)
 onUnmounted(() => {
-  window.lenis.off('scroll', handleScrollThrottled);
+  (window as any).lenis.off('scroll', handleScrollThrottled);
 });
 </script>
 
