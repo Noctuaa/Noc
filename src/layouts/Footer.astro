@@ -19,7 +19,7 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
     <div class="separator-h separator-h-gradient"></div>
     <div class="footer-bottom d-flex jc-between pt-4">
       <div class="footer-legal d-flex gap-2">
-        <Modal title="Mentions légales" client:load>
+        <Modal title="Mentions légales" client:visible>
           <h4>Éditeur du site</h4>
           <p>
             <strong>Noctua</strong>
@@ -42,7 +42,7 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
           <p>Tous droits réservés. Ce portfolio est protégé par le droit d'auteur.</p>
         </Modal>
         <span class="footer-sep" aria-hidden="true">·</span>
-        <Modal title="Politique de confidentialité" client:load>
+        <Modal title="Politique de confidentialité" client:visible>
           <h4>Données collectées</h4>
           <p>Via le formulaire de contact :</p>
           <ul>

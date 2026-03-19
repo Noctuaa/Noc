@@ -68,7 +68,6 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: letterSpacingReduce 1s cubic-bezier(0, 0, 0.2, 1) forwards;
 }
 
 .hero-content p {
@@ -77,7 +76,6 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.8em;
-  opacity: 0.9;
 }
 
 /* ============================================
@@ -306,17 +304,6 @@
   50% {
     opacity: 1;
     transform: scale(1.2);
-  }
-}
-
-@keyframes letterSpacingReduce {
-  from {
-    letter-spacing: 0.6em;
-    opacity: 0;
-  }
-  to {
-    letter-spacing: 0.1em;
-    opacity: 1;
   }
 }
 

@@ -6,29 +6,43 @@ import Footer from './Footer.astro';
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
 
-    <title>Noc</title>
-  </head>
+  <title>Noc</title>
+
+  <style is:inline>
+    [data-animate] {
+      opacity: 0;
+      visibility: hidden;
+    }
+  </style>
+  <noscript>
+    <style>
+      [data-animate] {
+        opacity: 1;
+        visibility: visible;
+      }
+    </style>
+  </noscript>
+
   <body>
-    <!--<div class="fixed-background"></div>-->
     <Navigation client:load />
     <div class="teleport-container"></div>
     <slot />
     <Footer />
     <script>
       import { initLenis, initCurtainEffect, initProfileAnimations, initAnchorLinks } from '../utils/ScrollManager.ts';
+      import { initHeroAnimations } from '../utils/AnimationManager';
+
       window.addEventListener('DOMContentLoaded', () => {
+        initHeroAnimations();
+
         initLenis();
         initCurtainEffect();
         initAnchorLinks();
@@ -39,4 +53,5 @@ import Footer from './Footer.astro';
       });
     </script>
   </body>
+
 </html>
