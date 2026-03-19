@@ -37,21 +37,19 @@ import Footer from './Footer.astro';
     <slot />
     <Footer />
     <script>
-      import { initLenis, initCurtainEffect, initProfileAnimations, initAnchorLinks } from '../utils/ScrollManager.ts';
-      import { initHeroAnimations } from '../utils/AnimationManager';
+      import { initLenis, initCurtainEffect, initAnchorLinks } from '../utils/ScrollManager.ts';
+      import { initHeroAnimations, initProfileAnimations } from '../utils/AnimationManager';
 
       window.addEventListener('DOMContentLoaded', () => {
         initHeroAnimations();
+        initProfileAnimations();
 
         initLenis();
         initCurtainEffect();
         initAnchorLinks();
-
-        setTimeout(() => {
-          initProfileAnimations();
-        }, 100);
       });
     </script>
   </body>
+
 
 </html>

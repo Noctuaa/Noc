@@ -39,14 +39,14 @@
   padding: clamp(var(--spacing-6), 3vw, var(--spacing-8)) clamp(var(--spacing-3), 2vw, var(--spacing-6));
   border-radius: var(--border-radius-md);
   background: var(--blue-800);
-  transition:
+  /*transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease;*/
 }
 
-.card:hover {
+/*.card:hover {
   transform: translateY(-2px);
-}
+}*/
 
 /* ========================================
    NOTCHES - Corner pseudo-elements
@@ -217,7 +217,6 @@
     ),
     var(--blue-800);
   mask-image: radial-gradient(circle 115px at calc(100% + 9px) -18px, transparent 115px, black 115px);
-  animation: pc-slide var(--transition-normal) ease-out forwards;
 }
 
 /* ========================================
@@ -258,8 +257,6 @@
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.3),
     0 4px 16px rgba(0, 0, 0, 0.15);
-  opacity: 0;
-  transform: translateY(30px);
 }
 
 .chat-bubble:first-child {
@@ -287,7 +284,6 @@
     ),
     var(--blue-800);
   mask-image: radial-gradient(circle 115px at -9px -18px, transparent 115px, black 115px);
-  animation: p-slide var(--transition-normal) ease-out forwards;
 }
 
 .profile-info .icon-header {
@@ -354,28 +350,6 @@
   50% {
     background: var(--color-online-pulse);
     box-shadow: 0 0 12px 4px var(--color-online-glow);
-  }
-}
-
-@keyframes p-slide {
-  0% {
-    opacity: 0;
-    transform: translateX(20%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0%);
-  }
-}
-
-@keyframes pc-slide {
-  0% {
-    opacity: 0;
-    transform: translateX(-20%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0%);
   }
 }
 

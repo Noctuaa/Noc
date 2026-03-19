@@ -73,15 +73,15 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
     <section id="profile" class="section bg-alt z-1 ow-hidden">
       <div class="container">
         <div class="section-header">
-          <h2>À propos</h2>
-          <div class="separator-h separator-h-gradient"></div>
-          <p class="section-description">
+          <h2 data-animate>À propos</h2>
+          <div class="separator-h separator-h-gradient" data-animate></div>
+          <p class="section-description" data-animate>
             Développeur passionné par la création d'expériences modernes et performantes.
           </p>
         </div>
         <div class="profile-content p-relative d-grid jc-center">
           <!-- Card: header (full width) -->
-          <div class="profile-header card d-flex">
+          <div class="profile-header card d-flex" data-animate>
             <div class="profile-identity d-flex fd-column jc-center gap-2">
               <p class="profile-role m-0">Développeur d'application</p>
               <p class="profile-tagline m-0">Curieux, rigoureux, attentif aux détails qui font la différence.</p>
@@ -98,7 +98,7 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
           </div>
 
           <!-- Video circle + binary ring -->
-          <div class="profile-avatar p-relative z-2 d-flex js-center">
+          <div class="profile-avatar p-relative z-2 d-flex js-center" data-animate>
             <!-- Binary ring -->
             <svg class="profile-ring p-absolute" viewBox="0 0 266 266" xmlns="http://www.w3.org/2000/svg">
               <defs>
@@ -121,7 +121,7 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
           </div>
 
           <!-- Card: chat (bottom left) -->
-          <div class="profile-chat card d-grid gap-6 h-100">
+          <div class="profile-chat card d-grid gap-6 h-100" data-animate>
             <div class="icon-header">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                 <path
@@ -132,16 +132,16 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
             </div>
 
             <div class="chat-bubbles d-flex fd-column gap-5 h-100">
-              <div class="chat-bubble">
+              <div class="chat-bubble" data-animate>
                 <span class="hello-greeting">Hello ! 👋</span>
               </div>
-              <div class="chat-bubble">
+              <div class="chat-bubble" data-animate>
                 <p>
                   Je m'appelle Geoffrey et je suis développeur d'application. Je conçois des interfaces modernes et
                   performantes.
                 </p>
               </div>
-              <div class="chat-bubble">
+              <div class="chat-bubble" data-animate>
                 <p>
                   J'aime relever de nouveaux défis techniques et créatifs. Je vous présente mes compétences — parlons de
                   votre projet !
@@ -151,7 +151,7 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
           </div>
 
           <!-- Card: info (bottom right) -->
-          <div class="profile-info card d-grid gap-6 h-100">
+          <div class="profile-info card d-grid gap-6 h-100" data-animate>
             <div class="icon-header">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
@@ -162,7 +162,8 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
               </svg>
             </div>
             <div class="d-grid as-start gap-6">
-              <div class="d-flex ai-start gap-4">
+              <!-- Location -->
+              <div class="info-item d-flex ai-start gap-4" data-animate>
                 <div class="info-icon-wrapper d-grid pi-center">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
                     <path
@@ -176,8 +177,8 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
                   <p class="info-value">France · Remote</p>
                 </div>
               </div>
-              <div class="separator-h"></div>
-              <div class="info-item d-flex ai-center gap-4">
+              <!-- Education -->
+              <div class="info-item d-flex ai-center gap-4" data-animate>
                 <div class="info-icon-wrapper d-flex ai-center jc-center">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                     <path
@@ -192,9 +193,8 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
                   <p class="info-sub">Openclassrooms · RNCP Niv. 6</p>
                 </div>
               </div>
-              <div class="separator-h"></div>
               <!-- Availability -->
-              <div class="info-item d-flex ai-center gap-4">
+              <div class="info-item d-flex ai-center gap-4" data-animate>
                 <div class="info-icon-wrapper d-flex ai-center jc-center">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path
