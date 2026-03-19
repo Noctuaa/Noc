@@ -26,7 +26,7 @@ const technologies: Technology[] = [
 
 <div class="scroller p-relative z-10 d-flex fd-column gap-6 mi-auto p-block-4 ow-hidden">
   <!-- Line 1 : Left → Right -->
-  <div class="scroller-inner" data-direction="right">
+  <div class="scroller-inner" data-direction="right" data-animate>
     <ul class="tech-list" role="list">
       {
         technologies.map((tech) => (
@@ -50,7 +50,7 @@ const technologies: Technology[] = [
   </div>
 
   <!-- Line 2 : Right → Left -->
-  <div class="scroller-inner" data-direction="left">
+  <div class="scroller-inner" data-direction="left" data-animate>
     <ul class="tech-list" role="list">
       {
         technologies.map((tech) => (

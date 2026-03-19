@@ -12,9 +12,9 @@ gsap.registerPlugin(ScrollTrigger);
    UTILS - Reusable internal functions
    ============================================ */
 
-const animateSectionHeader = (section: string, trigger?: string) => {
+const animateSectionHeader = (section: string, trigger?: string, start?: string) => {
   const tl = gsap.timeline({
-    scrollTrigger: { trigger: trigger ?? section, start: 'bottom 10%' }
+    scrollTrigger: { trigger: trigger ?? section, start: start ?? 'top 80%', once: true }
   });
 
   tl.fromTo(`${section} h2`,
@@ -40,7 +40,7 @@ const animateSectionHeader = (section: string, trigger?: string) => {
  * Initialize hero entrance animations on page load
  * Sequential appearance: title → subtitle → icons → scroll button
  */
-export const initHeroAnimations = () => {
+const initHeroAnimations = () => {
   const tl = gsap.timeline();
 
   tl.fromTo('.hero-content h1',
@@ -65,8 +65,8 @@ export const initHeroAnimations = () => {
  * Initialize profile section scroll animations
  * Sequential appearance triggered when section enters viewport
  */
-export const initProfileAnimations = () => {
-  animateSectionHeader('#profile', '.hero');
+const initProfileAnimations = () => {
+  animateSectionHeader('#profile', '#hero', 'bottom 10%');
 
   const tl = gsap.timeline({
     scrollTrigger: { trigger: '#hero', start: 'bottom 25%', once: true },
@@ -97,4 +97,31 @@ export const initProfileAnimations = () => {
       { x: 30 },
       { autoAlpha: 1, x: 0, duration: 0.5, ease: 'back.out(1.4)', stagger: 0.2 }, '-=0.7'
     )
+}
+
+/**
+  * Initialize competences section scroll animations
+  * Section header + carousel rows fade in on scroll
+  */
+const initCompetencesAnimations = () => {
+  animateSectionHeader('#competences');
+
+  gsap.to('.scroller-inner',
+    {
+      autoAlpha: 1, duration: 1, ease: 'back.out(1.7)',
+      stagger: 0.3,
+      scrollTrigger: { trigger: '#competences', start: 'top 55%', once: true },
+      delay: 0.6
+    }
+  );
+}
+
+/**
+ * Initialize all section animations
+ * Called once on page load to set up all scroll triggers and entrance animations
+ */
+export const initAnimations = () => {
+  initHeroAnimations();
+  initProfileAnimations();
+  initCompetencesAnimations();
 }

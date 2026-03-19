@@ -38,11 +38,10 @@ import Footer from './Footer.astro';
     <Footer />
     <script>
       import { initLenis, initCurtainEffect, initAnchorLinks } from '../utils/ScrollManager.ts';
-      import { initHeroAnimations, initProfileAnimations } from '../utils/AnimationManager';
+      import { initAnimations } from '../utils/AnimationManager';
 
       window.addEventListener('DOMContentLoaded', () => {
-        initHeroAnimations();
-        initProfileAnimations();
+        initAnimations();
 
         initLenis();
         initCurtainEffect();
