@@ -41,11 +41,10 @@ import Footer from './Footer.astro';
       import { initAnimations } from '../utils/AnimationManager';
 
       window.addEventListener('DOMContentLoaded', () => {
-        initAnimations();
-
-        initLenis();
-        initCurtainEffect();
-        initAnchorLinks();
+        initLenis();        // 1. Smooth scroll first
+        initCurtainEffect(); // 2. Curtain (depends on scroll)
+        initAnchorLinks();   // 3. Anchor links
+        initAnimations();    // 4. Animations last (ScrollTrigger calculates after)
       });
     </script>
   </body>

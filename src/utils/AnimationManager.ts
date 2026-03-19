@@ -2,6 +2,7 @@
  * @fileoverview AnimationManager - Manages GSAP animations for the portfolio   
  * Handles entrance animations and scroll-triggered animations for each section.
  */
+
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -110,8 +111,7 @@ const initCompetencesAnimations = () => {
     {
       autoAlpha: 1, duration: 1, ease: 'back.out(1.7)',
       stagger: 0.3,
-      scrollTrigger: { trigger: '#competences', start: 'top 55%', once: true },
-      delay: 0.6
+      scrollTrigger: { trigger: '#competences', start: 'top 55%', once: true }
     }
   );
 }
@@ -126,8 +126,23 @@ const initProjectAnimations = () => {
     { y: 40 },
     {
       autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out',
-      scrollTrigger: { trigger: '#portfolio', start: 'top 35%', once: true },
-      delay: 0.3
+      scrollTrigger: { trigger: '#portfolio', start: 'top 35%', once: true }
+    }
+  );
+
+}
+
+/**
+ * Initialize contact section scroll animations
+ * Section header + contact form entrance on scroll
+ */
+const initContactAnimations = () => {
+  animateSectionHeader('#contact');
+  gsap.fromTo('#contact .contact-form',
+    { y: 40 },
+    {
+      autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out',
+      scrollTrigger: { trigger: '#contact', start: 'top 45%', once: true }
     }
   );
 
@@ -142,4 +157,5 @@ export const initAnimations = () => {
   initProfileAnimations();
   initCompetencesAnimations();
   initProjectAnimations();
+  initContactAnimations();
 }

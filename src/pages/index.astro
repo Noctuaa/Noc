@@ -236,9 +236,9 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
   <section id="portfolio" class="section bg-alt">
     <div class="container">
       <div class="section-header">
-        <h2>Portfolio</h2>
-        <div class="separator-h separator-h-gradient"></div>
-        <p class="section-description">Découvrez mes projets et réalisations techniques.</p>
+        <h2 data-animate>Portfolio</h2>
+        <div class="separator-h separator-h-gradient" data-animate></div>
+        <p class="section-description" data-animate>Découvrez mes projets et réalisations techniques.</p>
       </div>
       <ProjectAccordion client:load />
     </div>
@@ -248,11 +248,11 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
   <section id="contact" class="section bg-surface">
     <div class="container">
       <div class="section-header">
-        <h2>Contact</h2>
-        <div class="separator-h separator-h-gradient"></div>
-        <p class="section-description">Disponible pour vos projets web et applications.</p>
+        <h2 data-animate>Contact</h2>
+        <div class="separator-h separator-h-gradient" data-animate></div>
+        <p class="section-description" data-animate>Disponible pour vos projets web et applications.</p>
       </div>
-      <div class="contact-form">
+      <div class="contact-form" data-animate>
         <ContactForm client:load />
       </div>
     </div>
