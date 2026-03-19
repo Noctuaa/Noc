@@ -117,6 +117,23 @@ const initCompetencesAnimations = () => {
 }
 
 /**
+ * Initialize portfolio section scroll animations
+ * Project accordion entrance on scroll
+ */
+const initProjectAnimations = () => {
+  animateSectionHeader('#portfolio');
+  gsap.fromTo('#portfolio .accordion',
+    { y: 40 },
+    {
+      autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out',
+      scrollTrigger: { trigger: '#portfolio', start: 'top 35%', once: true },
+      delay: 0.3
+    }
+  );
+
+}
+
+/**
  * Initialize all section animations
  * Called once on page load to set up all scroll triggers and entrance animations
  */
@@ -124,4 +141,5 @@ export const initAnimations = () => {
   initHeroAnimations();
   initProfileAnimations();
   initCompetencesAnimations();
+  initProjectAnimations();
 }

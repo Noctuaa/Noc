@@ -46,7 +46,7 @@ const openProject = (index: number) => {
 </script>
 
 <template>
-  <div class="accordion">
+  <div class="accordion" data-animate>
     <div
       v-for="(project, index) in projects"
       :key="project.id"
