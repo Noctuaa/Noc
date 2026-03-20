@@ -102,8 +102,11 @@ export const initCurtainEffect = () => {
     console.warn('⚠ Hero or Profile not found');
     return;
   }
+
+  const heroBottom = heroSection.offsetHeight;
+
   // Initial state: fix Profile if at top
-  if (window.scrollY === 0) {
+  if (window.scrollY < heroBottom) {
     profileSection.classList.add('curtain-fixed');
   }
 
