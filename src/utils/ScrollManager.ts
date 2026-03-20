@@ -115,7 +115,10 @@ export const initCurtainEffect = () => {
     trigger: heroSection,
     start: 'top top',
     end: 'bottom',
-    onLeave: () => profileSection.classList.remove('curtain-fixed'),
+    onLeave: () => {
+      profileSection.classList.remove('curtain-fixed')
+      ScrollTrigger.refresh();
+    },
     onEnterBack: () => profileSection.classList.add('curtain-fixed'),
     markers: false,
   });
