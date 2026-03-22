@@ -442,7 +442,13 @@
   .profile-info .icon-header {
     justify-self: center;
   }
+}
 
+/* ========================================
+   RESPONSIVE - MOBILE (≤576px)
+   ======================================== */
+
+@media (max-width: 576px) {
   .chat-bubble {
     max-width: 100%;
     font-size: 0.9rem;
