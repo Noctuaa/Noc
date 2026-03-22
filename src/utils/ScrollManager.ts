@@ -99,7 +99,7 @@ export const initCurtainEffect = () => {
   const profileSection = document.querySelector<HTMLElement>('#profile');
 
   // Disable curtain effect on mobile for better performance and UX
-  const isTabletOrMobile = window.matchMedia('(max-width: 991px)').matches;
+  const isTabletOrMobile = window.matchMedia('(max-width: 1024px)').matches;
   if (isTabletOrMobile) return;
 
   if (!heroSection || !profileSection) {

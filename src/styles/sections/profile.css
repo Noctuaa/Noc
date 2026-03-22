@@ -14,7 +14,6 @@
 
 #profile {
   min-height: auto;
-  padding-bottom: var(--spacing-16);
   transition: transform var(--transition-fast) ease;
 }
 
@@ -39,14 +38,7 @@
   padding: clamp(var(--spacing-6), 3vw, var(--spacing-8)) clamp(var(--spacing-3), 2vw, var(--spacing-6));
   border-radius: var(--border-radius-md);
   background: var(--blue-800);
-  /*transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;*/
 }
-
-/*.card:hover {
-  transform: translateY(-2px);
-}*/
 
 /* ========================================
    NOTCHES - Corner pseudo-elements

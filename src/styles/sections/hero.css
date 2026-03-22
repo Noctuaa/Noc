@@ -345,6 +345,15 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .curtain-container {
+    min-height: auto !important;
+  }
+  .curtain-container > #profile {
+    min-height: auto;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-scroll {
     display: none;
