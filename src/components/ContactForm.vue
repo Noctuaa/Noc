@@ -104,7 +104,7 @@ const submitForm = async () => {
         @blur="validateField('name')"
         @input="clearError('name')"
       />
-      <label for="name" class="form-label"><span>Nom complet</span></label>
+      <label for="name" :class="['form-label', { 'is-active': form.name }]"><span>Nom complet</span></label>
       <div v-if="errors.name" class="error-message">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +134,7 @@ const submitForm = async () => {
         @blur="validateField('email')"
         @input="clearError('email')"
       />
-      <label for="email" class="form-label"><span>Email</span></label>
+      <label for="email" :class="['form-label', { 'is-active': form.email }]"><span>Email</span></label>
       <div v-if="errors.email" class="error-message">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -198,7 +198,7 @@ const submitForm = async () => {
         @input="clearError('message')"
         rows="6"
       ></textarea>
-      <label for="message" class="form-label"><span>Message</span></label>
+      <label for="message" :class="['form-label', { 'is-active': form.message }]"><span>Message</span></label>
       <div v-if="errors.message" class="error-message">
         <svg
           xmlns="http://www.w3.org/2000/svg"
