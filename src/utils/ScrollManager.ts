@@ -98,6 +98,10 @@ export const initCurtainEffect = () => {
   const heroSection = document.querySelector<HTMLElement>('#hero');
   const profileSection = document.querySelector<HTMLElement>('#profile');
 
+  // Disable curtain effect on mobile for better performance and UX
+  const isTabletOrMobile = window.matchMedia('(max-width: 991px)').matches;
+  if (isTabletOrMobile) return;
+
   if (!heroSection || !profileSection) {
     console.warn('⚠ Hero or Profile not found');
     return;
