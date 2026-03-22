@@ -90,6 +90,12 @@ section.bg-alt {
    RESPONSIVE - TABLETTE & MOBILE
    ======================================== */
 
+@media (max-width: 576px) {
+  .section-header .separator-h {
+    width: 80%;
+  }
+}
+
 /* Désactiver animation machine à écrire en mobile */
 @media (max-width: 480px) {
   .section-description {

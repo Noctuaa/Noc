@@ -10,7 +10,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Max width for tablet/mobile
 const TABLET_BREAKPOINT = 991;
-const MOBILE_BREAKPOINT = 768;
 
 
 /* ============================================
@@ -68,55 +67,43 @@ const initHeroAnimations = () => {
 
 /**
  * Initialize profile section scroll animations
- * Sequential appearance triggered when section enters viewport
+ * Desktop: cascade timeline triggered by hero scroll
+ * Tablet/Mobile: individual scroll triggers per card
  */
-const initProfileAnimations = (isTabletOrMobile: boolean, isMobile: boolean) => {
+const initProfileAnimations = (isTabletOrMobile: boolean) => {
 
   if (isTabletOrMobile) {
-    animateSectionHeader('#profile', '#hero', 'bottom 6%');
+    animateSectionHeader('#profile', '#profile', 'top 80%');
     gsap.fromTo('.profile-header',
       { y: 40 },
       {
         autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out',
-        scrollTrigger: { trigger: '#hero', start: 'bottom 20%', once: true }
+        scrollTrigger: { trigger: '.profile-header', start: 'top 80%', once: true }
       }
     );
     gsap.fromTo('.profile-chat',
       { y: 40 },
       {
         autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '#hero', start: 'bottom 50%', once:
-            true
-        },
+        scrollTrigger: { trigger: '.profile-chat', start: 'top 80%', once: true },
         onComplete: () => {
           gsap.fromTo('.chat-bubble',
             { y: 20 },
-            {
-              autoAlpha: 1, y: 0, duration: 0.5, ease:
-                'back.out(1.4)', stagger: 0.2
-            }
+            { autoAlpha: 1, y: 0, duration: 0.5, ease: 'back.out(1.4)', stagger: 0.3 }
           );
         }
       }
     );
-
     gsap.fromTo('.profile-info',
       { y: 40 },
       {
         autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out',
-        scrollTrigger: { trigger: '#hero', start: `bottom ${isMobile ? '-50%' : '60%'}`, once: true }
-      }
-    )
-
-    gsap.fromTo('.profile-info .info-item',
-      { y: 20 },
-      {
-        autoAlpha: 1, y: 0, duration: 0.5, ease: 'back.out(1.4)',
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: '.profile-info', start: 'top 70%',
-          once: true
+        scrollTrigger: { trigger: '.profile-info', start: 'top 80%', once: true },
+        onComplete: () => {
+          gsap.fromTo('.profile-info .info-item',
+            { y: 20 },
+            { autoAlpha: 1, y: 0, duration: 0.5, ease: 'back.out(1.4)', stagger: 0.3 }
+          );
         }
       }
     );
@@ -209,9 +196,9 @@ const initContactAnimations = () => {
  */
 export const initAnimations = () => {
   const isTabletOrMobile = window.matchMedia(`(max-width: ${TABLET_BREAKPOINT}px)`).matches;
-  const isMobile = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`).matches;
+
   initHeroAnimations();
-  initProfileAnimations(isTabletOrMobile, isMobile);
+  initProfileAnimations(isTabletOrMobile);
   initCompetencesAnimations();
   initProjectAnimations();
   initContactAnimations();
