@@ -14,7 +14,23 @@ import Footer from './Footer.astro';
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
 
-  <title>Noc</title>
+  <title>Nocdev | Développeur d'application</title>
+  <meta
+    name="description"
+    content="Portfolio de Nocdev, développeur d'application freelance spécialisé en interfaces modernes et performantes avec Astro, Vue.js et GSAP."
+  />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nocdev | Développeur d'application" />
+  <meta
+    property="og:description"
+    content="Portfolio de Nocdev, développeur d'application freelance spécialisé en interfaces modernes et performantes."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nocdev.fr" />
+
+  <!-- Sitemap -->
+  <link rel="sitemap" href="/sitemap-index.xml" />
 
   <style is:inline>
     [data-animate] {
@@ -41,10 +57,10 @@ import Footer from './Footer.astro';
       import { initAnimations } from '../utils/AnimationManager';
 
       window.addEventListener('DOMContentLoaded', () => {
-        initLenis();        // 1. Smooth scroll first
+        initLenis(); // 1. Smooth scroll first
         initCurtainEffect(); // 2. Curtain (depends on scroll)
-        initAnchorLinks();   // 3. Anchor links
-        initAnimations();    // 4. Animations last (ScrollTrigger calculates after)
+        initAnchorLinks(); // 3. Anchor links
+        initAnimations(); // 4. Animations last (ScrollTrigger calculates after)
       });
     </script>
   </body>
