@@ -24,7 +24,6 @@ let lenis: Lenis | null = null;
  */
 export const initLenis = () => {
   if (lenis) {
-    console.warn('Lenis is already initialized.');
     return lenis;
   }
 
@@ -48,7 +47,6 @@ export const initLenis = () => {
 
   gsap.ticker.lagSmoothing(0);
 
-  console.log('✅ Lenis smooth scroll initialized');
   return lenis;
 };
 
@@ -103,7 +101,6 @@ export const initCurtainEffect = () => {
   if (isTabletOrMobile) return;
 
   if (!heroSection || !profileSection) {
-    console.warn('⚠ Hero or Profile not found');
     return;
   }
 
@@ -127,5 +124,4 @@ export const initCurtainEffect = () => {
     markers: false,
   });
 
-  console.log('✅ Curtain effect initialized');
 };
