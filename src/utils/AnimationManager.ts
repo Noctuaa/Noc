@@ -153,7 +153,7 @@ const initCompetencesAnimations = () => {
     {
       autoAlpha: 1, duration: 1, ease: 'back.out(1.7)',
       stagger: 0.3,
-      scrollTrigger: { trigger: '#competences', start: 'top 55%', once: true }
+      scrollTrigger: { trigger: '.scroller', start: 'top 80%', once: true }
     }
   );
 }
@@ -168,7 +168,7 @@ const initProjectAnimations = () => {
     { y: 40 },
     {
       autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out',
-      scrollTrigger: { trigger: '#portfolio', start: 'top 35%', once: true }
+      scrollTrigger: { trigger: '#portfolio .accordion', start: 'top 60%', once: true }
     }
   );
 
@@ -184,7 +184,7 @@ const initContactAnimations = () => {
     { y: 40 },
     {
       autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out',
-      scrollTrigger: { trigger: '#contact', start: 'top 45%', once: true }
+      scrollTrigger: { trigger: '#contact .contact-form', start: 'top 60%', once: true }
     }
   );
 
