@@ -18,6 +18,8 @@ h1 {
 }
 
 h2 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin: 0 0 var(--spacing-6);
   font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));

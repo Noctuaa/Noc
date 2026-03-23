@@ -52,6 +52,8 @@ section.bg-alt {
 /* Description avec effet machine à écrire */
 .section-description {
   width: 100%;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
   max-width: fit-content;
   color: var(--text-secondary);
   font-size: clamp(0.9rem, 2vw, 1.2rem);
@@ -70,6 +72,14 @@ section.bg-alt {
    ======================================== */
 
 /* Animation machine à écrire */
+@-webkit-keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
 @keyframes typing {
   from {
     width: 0;
@@ -80,6 +90,11 @@ section.bg-alt {
 }
 
 /* Animation curseur clignotant */
+@-webkit-keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
 @keyframes blink {
   50% {
     border-color: transparent;
@@ -105,6 +120,7 @@ section.bg-alt {
     white-space: normal;
     overflow: visible;
     border-right: none;
+    -webkit-animation: none;
     animation: none;
   }
 }

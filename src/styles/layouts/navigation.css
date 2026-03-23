@@ -26,6 +26,7 @@
   height: var(--nav-height-scrolled);
   background: linear-gradient(to bottom, rgba(11, 15, 23, 0.8), rgba(11, 15, 23, 0.35));
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  -webkit-backdrop-filter: blur(var(--blur-glass));
   backdrop-filter: blur(var(--blur-glass));
 }
 
@@ -119,6 +120,7 @@
   .nav.scrolled {
     background: transparent;
     box-shadow: none;
+    -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
 
@@ -127,6 +129,7 @@
     transform: translateY(0);
     height: 100%;
     background: rgb(from var(--blue-950) r g b / 0.75);
+    -webkit-backdrop-filter: blur(var(--blur-glass));
     backdrop-filter: blur(var(--blur-glass));
   }
 
@@ -146,23 +149,29 @@
   .nav.is-open .nav-item {
     display: block;
     font-size: var(--text-xl);
+    -webkit-animation: slideIn var(--transition-fast) both;
     animation: slideIn var(--transition-fast) both;
   }
 
   /* Stagger animation delays */
   .nav.is-open .nav-item:nth-child(1) {
+    -webkit-animation-delay: 0.2s;
     animation-delay: 0.2s;
   }
   .nav.is-open .nav-item:nth-child(2) {
+    -webkit-animation-delay: 0.25s;
     animation-delay: 0.25s;
   }
   .nav.is-open .nav-item:nth-child(3) {
+    -webkit-animation-delay: 0.3s;
     animation-delay: 0.3s;
   }
   .nav.is-open .nav-item:nth-child(4) {
+    -webkit-animation-delay: 0.35s;
     animation-delay: 0.35s;
   }
   .nav.is-open .nav-item:nth-child(5) {
+    -webkit-animation-delay: 0.4s;
     animation-delay: 0.4s;
   }
 
@@ -195,6 +204,17 @@
 /* ============================================
    ANIMATIONS
    ============================================ */
+
+@-webkit-keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(55px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 @keyframes slideIn {
   from {

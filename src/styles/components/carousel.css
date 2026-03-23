@@ -3,6 +3,7 @@
    ======================================== */
 
 .scroller {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
   mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
   padding-block: var(--spacing-4);
   max-width: 1400px;
@@ -14,15 +15,19 @@
 
 .scroller-inner {
   display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   will-change: transform;
 }
 
 .scroller-inner[data-direction='right'] {
+  -webkit-animation: marquee-right 70s linear infinite;
   animation: marquee-right 70s linear infinite;
 }
 
 .scroller-inner[data-direction='left'] {
+  -webkit-animation: marquee-left 90s linear infinite;
   animation: marquee-left 90s linear infinite;
 }
 
@@ -33,6 +38,7 @@
 .tech-list {
   display: flex;
   gap: var(--spacing-4);
+  -webkit-padding-end: var(--spacing-4);
   padding-inline-end: var(--spacing-4);
 }
 
@@ -69,7 +75,9 @@
   flex-shrink: 0;
   width: clamp(28px, calc(1rem + 2vw), 38px);
   height: clamp(28px, calc(1rem + 2vw), 38px);
+  -o-object-fit: contain;
   object-fit: contain;
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.5));
   filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.5));
 }
 
@@ -90,12 +98,30 @@
    ANIMATIONS
    ======================================== */
 
+@-webkit-keyframes marquee-right {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 @keyframes marquee-right {
   from {
     transform: translate3d(0, 0, 0);
   }
   to {
     transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@-webkit-keyframes marquee-left {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -120,6 +146,7 @@
     max-width: 900px;
     padding-inline: var(--spacing-4);
     overflow: visible;
+    -webkit-mask-image: none;
     mask-image: none;
   }
 
@@ -128,12 +155,14 @@
     flex-wrap: wrap;
     justify-content: center;
     width: auto;
+    -webkit-animation: none;
     animation: none;
   }
 
   .tech-list {
     flex-wrap: wrap;
     justify-content: center;
+    -webkit-padding-end: 0;
     padding-inline-end: 0;
   }
 

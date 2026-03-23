@@ -152,6 +152,7 @@
   background-position: 0% 0%;
   border: 1px solid rgb(from var(--blue-400) r g b / 0.6);
   color: var(--white);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   transition:
     background-position var(--transition-normal) ease-out,

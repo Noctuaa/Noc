@@ -125,6 +125,7 @@
       transparent 70%
     ),
     rgb(from var(--purple-700) r g b / 0.85);
+  -webkit-mask-image: radial-gradient(circle 115px at 50% 100%, transparent 115px, black 115px);
   mask-image: radial-gradient(circle 115px at 50% 100%, transparent 115px, black 115px);
 }
 
@@ -163,6 +164,7 @@
 .profile-video-container video {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
@@ -174,6 +176,7 @@
   transform-box: fill-box;
   transform-origin: center;
   pointer-events: none;
+  -webkit-animation: ring-rotate 20s linear infinite;
   animation: ring-rotate 20s linear infinite;
 }
 
@@ -208,6 +211,7 @@
       transparent
     ),
     var(--blue-800);
+  -webkit-mask-image: radial-gradient(circle 115px at calc(100% + 9px) -18px, transparent 115px, black 115px);
   mask-image: radial-gradient(circle 115px at calc(100% + 9px) -18px, transparent 115px, black 115px);
 }
 
@@ -237,6 +241,8 @@
 
 .chat-bubble {
   max-width: 85%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   padding: var(--spacing-4) var(--spacing-5);
   border: 1px solid rgb(from var(--blue-400) r g b / 0.2);
@@ -275,6 +281,7 @@
       transparent
     ),
     var(--blue-800);
+  -webkit-mask-image: radial-gradient(circle 115px at -9px -18px, transparent 115px, black 115px);
   mask-image: radial-gradient(circle 115px at -9px -18px, transparent 115px, black 115px);
 }
 
@@ -326,12 +333,25 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
+  -webkit-animation: pulse-green 2s ease-in-out infinite;
   animation: pulse-green 2s ease-in-out infinite;
 }
 
 /* ========================================
    ANIMATIONS
    ======================================== */
+
+@-webkit-keyframes pulse-green {
+  0%,
+  100% {
+    background: var(--color-online);
+    box-shadow: 0 0 0 0 transparent;
+  }
+  50% {
+    background: var(--color-online-pulse);
+    box-shadow: 0 0 12px 4px var(--color-online-glow);
+  }
+}
 
 @keyframes pulse-green {
   0%,
@@ -342,6 +362,15 @@
   50% {
     background: var(--color-online-pulse);
     box-shadow: 0 0 12px 4px var(--color-online-glow);
+  }
+}
+
+@-webkit-keyframes ring-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -371,6 +400,7 @@
   .profile-header,
   .profile-chat,
   .profile-info {
+    -webkit-mask: none;
     mask: none;
   }
 

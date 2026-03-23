@@ -96,6 +96,7 @@
   resize: vertical;
   caret-color: var(--input-border-focus);
   -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
 }
 
@@ -123,6 +124,8 @@
   color: var(--text-primary);
   background: var(--input-bg);
   box-shadow: inset 0 -2px 0 0 var(--input-border);
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   cursor: pointer;
 }
@@ -199,6 +202,7 @@
   font-weight: 500;
   color: var(--red-400);
   opacity: 0.9;
+  -webkit-animation: fadeInError var(--transition-fast) ease-out;
   animation: fadeInError var(--transition-fast) ease-out;
 }
 
@@ -206,6 +210,17 @@
   flex-shrink: 0;
   width: 16px;
   height: 16px;
+}
+
+@-webkit-keyframes fadeInError {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeInError {
