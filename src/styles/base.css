@@ -23,18 +23,23 @@ ul {
   padding: 0;
 }
 
-a[href^="mailto:"] {
+a[href^='mailto:'] {
   color: var(--blue-400);
   transition: color var(--transition-fast) ease;
 }
 
-a[href^="mailto:"]:hover {
+a[href^='mailto:']:hover {
   color: var(--text-primary);
 }
 
 /* ===================================
    SCROLLBAR
    =================================== */
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--gradient-neon);
+}
 
 ::-webkit-scrollbar {
   width: 6px;
