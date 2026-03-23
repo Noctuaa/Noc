@@ -119,6 +119,7 @@ export const initCurtainEffect = () => {
     onLeave: () => {
       profileSection.classList.remove('curtain-fixed')
       ScrollTrigger.refresh();
+      (window as any).lenis?.resize();
     },
     onEnterBack: () => profileSection.classList.add('curtain-fixed'),
     markers: false,
