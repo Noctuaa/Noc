@@ -10,8 +10,8 @@ export const server = {
     input: contactSchema,
     handler: async ({ name, email, subject, message }) => {
       const { error } = await resend.emails.send({
-        from: 'Portfolio Nocdev <onboarding@resend.dev>',
-        to: `titgeogeo@gmail.com`,
+        from: 'Nocdev <contact@nocdev.fr>',
+        to: EMAIL_TO,
         subject: `Contact Nocdev - ${subject} - ${name}`,
         html: `
           <h3>Nouveau message de contact</h3>
