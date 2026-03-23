@@ -127,7 +127,7 @@
 }
 
 .modal-content li {
-  margin-bottom: var(--spacing-1);
+  margin-bottom: var(--spacing);
   font-size: 0.9rem;
   color: var(--text-secondary);
 }

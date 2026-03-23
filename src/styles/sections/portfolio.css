@@ -83,7 +83,7 @@
   font-size: var(--text-2xl);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: var(--spacing-1);
+  letter-spacing: var(--spacing);
   white-space: nowrap;
   color: transparent;
   background: var(--gradient-neon);
@@ -154,7 +154,7 @@
 }
 
 .project-tags span {
-  padding: var(--spacing-1) var(--spacing-3);
+  padding: var(--spacing) var(--spacing-3);
   border: 1px solid var(--purple-500);
   border-radius: var(--border-radius-sm);
   font-size: var(--text-sm);

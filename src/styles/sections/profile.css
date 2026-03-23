@@ -305,7 +305,7 @@
 }
 
 .info-label {
-  margin: 0 0 var(--spacing-1) 0;
+  margin: 0 0 var(--spacing) 0;
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -320,7 +320,7 @@
 }
 
 .info-sub {
-  margin: var(--spacing-1) 0 0 0;
+  margin: var(--spacing) 0 0 0;
   font-size: 0.8rem;
   color: var(--text-secondary);
 }

@@ -102,14 +102,19 @@ onUnmounted(() => {
   <nav :class="['nav', { 'is-open': isMenuOpen, scrolled: isScrolled, hidden: hideNav }, 'p-fixed z-100 w-100']">
     <div class="container h-100">
       <div class="nav-inner d-flex ai-center w-100 h-100">
-        <ul class="nav-list d-flex ai-center gap-3">
+        <ul class="nav-list d-flex ai-center gap-5">
           <li
             v-for="section in sections"
             :key="section.id"
             @click="handleNavClick(section.id)"
             :class="['nav-item cursor-p', { active: activeSection === section.id }]"
           >
-            <a :href="`#${section.id}`" class="nav-link d-flex">{{ section.label }}</a>
+            <a
+              :href="`#${section.id}`"
+              class="nav-link d-flex p-2 text-sm fw-semibold tracking-wide uppercase c-secondary"
+            >
+              {{ section.label }}
+            </a>
           </li>
         </ul>
         <button @click="setMenu()" class="nav-burger" aria-label="Toggle menu">

@@ -40,14 +40,10 @@
    ============================================ */
 
 .nav-list .nav-item {
-  font-size: var(--text-base);
-  font-weight: 600;
   transition: transform var(--transition-fast) ease;
 }
 
 .nav-link {
-  padding: var(--spacing-2) var(--spacing-4);
-  color: var(--text-secondary);
   transition:
     color var(--transition-fast) ease,
     text-shadow var(--transition-fast) ease,
@@ -55,6 +51,7 @@
 }
 
 .nav-item:last-child .nav-link {
+  padding: var(--spacing-3) var(--spacing-4);
   border-radius: var(--border-radius-md);
   color: var(--text-primary);
   background: var(--gradient-neon);
@@ -90,8 +87,8 @@
   z-index: 1001;
   display: none;
   flex-direction: column;
-  gap: var(--spacing-1);
-  padding: var(--spacing-1);
+  gap: var(--spacing);
+  padding: var(--spacing);
   border: none;
   background: transparent;
   cursor: pointer;
@@ -148,7 +145,6 @@
 
   .nav.is-open .nav-item {
     display: block;
-    font-size: var(--text-xl);
     -webkit-animation: slideIn var(--transition-fast) both;
     animation: slideIn var(--transition-fast) both;
   }
