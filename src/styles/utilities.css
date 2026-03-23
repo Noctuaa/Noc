@@ -110,6 +110,7 @@
 }
 
 /* --- Font weight --- */
+
 .fw-semibold {
   font-weight: var(--font-semibold);
 }
@@ -117,6 +118,12 @@
 /* --- Letter spacing --- */
 .tracking-wide {
   letter-spacing: var(--tracking-wide);
+}
+.tracking-wider {
+  letter-spacing: var(--tracking-wider);
+}
+.tracking-widest {
+  letter-spacing: var(--tracking-widest);
 }
 
 /* --- Text transform --- */

@@ -72,9 +72,7 @@
 
 .hero-content p {
   font-family: var(--font-family-hero);
-  font-size: clamp(0.9rem, 2vw, 1.5rem);
-  font-weight: 500;
-  text-transform: uppercase;
+  font-size: clamp(var(--text-sm), 2vw, var(--text-2xl)); /* 14px → 2vw → 24px */
   letter-spacing: 0.8em;
 }
 

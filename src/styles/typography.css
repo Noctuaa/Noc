@@ -9,11 +9,12 @@
 h1 {
   display: block;
   width: 100%;
+  margin: 0 auto;
   overflow: hidden;
   font-family: var(--font-family-hero);
   text-transform: uppercase;
-  margin: 0 auto;
-  font-size: clamp(var(--text-5xl), 8vw, 8rem); /* 40px → 8vw → 64px */
+  letter-spacing: var(--tracking-wide);
+  font-size: clamp(var(--text-4xl), 8vw, var(--text-6xl)); /* 40px → 8vw → 64px */
   font-weight: 500;
 }
 
