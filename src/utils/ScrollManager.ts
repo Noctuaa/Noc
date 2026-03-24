@@ -66,21 +66,18 @@ export const throttle = <T extends unknown[]>(func: (...args: T) => void, delay:
 };
 
 /**
- * Initialize smooth scroll for all anchor links
- * Intercepts all a[href^="#"] clicks and delegates to Lenis Special handling for #profile (scrolls to hero height to trigger curtain effect)
+ * Initialize smooth scroll for all anchor links                   
+ * Intercepts all a[href^="#"] clicks and delegates to Lenis
  */
 export const initAnchorLinks = () => {
   const anchors = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]');
-  const profileSection = document.querySelector<HTMLElement>('#profile');
 
   anchors.forEach((anchor: Element) => {
     anchor.addEventListener('click', (e) => {
       e.preventDefault();
       (window as any).lenis?.start();
       const href = anchor.getAttribute('href') ?? '';
-      const target = href === '#profile' ? document.querySelector<HTMLElement>('#hero')?.offsetHeight ?? window.innerHeight : href;
-      lenis!.scrollTo(target, { duration: DURATION, offset: 0 });
+      lenis!.scrollTo(href, { duration: DURATION, offset: 0 });
     });
   });
-};
-
+};  
