@@ -251,8 +251,7 @@
   padding: var(--spacing-4) var(--spacing-5);
   border: 1px solid rgb(from var(--blue-400) r g b / 0.2);
   border-radius: 22px 22px 22px 4px;
-  font-family: var(--font-family-secondary);
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   line-height: 1.6;
   color: var(--text-primary);
   background: rgb(from var(--blue-400) r g b / 0.1);
