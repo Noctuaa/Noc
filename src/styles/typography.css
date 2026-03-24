@@ -22,7 +22,7 @@ h2 {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin-bottom: var(--spacing-4);
+  margin-bottom: clamp(var(--spacing-2), 2vw, var(--spacing-4));
   font-size: clamp(var(--text-3xl), 5vw, var(--text-4xl));
   font-weight: var(--font-bold);
   color: transparent;
@@ -54,7 +54,7 @@ h4 + p {
    ======================================== */
 
 p {
-  margin-block: var(--spacing-4);
+  margin-block: clamp(var(--spacing-2), 2vw, var(--spacing-4));
   font-size: var(--text-base);
   line-height: var(--leading-normal);
 }

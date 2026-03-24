@@ -35,7 +35,7 @@ section.bg-alt {
 
 .section-header {
   display: grid;
-  margin-bottom: var(--spacing-12);
+  margin-bottom: clamp(var(--spacing-6), 5vw, var(--spacing-12));
   width: 100%;
   place-items: center;
 }
@@ -48,7 +48,8 @@ section.bg-alt {
 .section-description {
   width: 100%;
   max-width: 65ch;
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
+  text-wrap: balance;
   color: rgb(150, 161, 192);
   text-align: center;
 }
