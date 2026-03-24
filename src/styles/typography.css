@@ -22,9 +22,9 @@ h2 {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin: 0 0 var(--spacing-6);
-  font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
-  font-weight: 700;
+  margin-bottom: var(--spacing-4);
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-4xl));
+  font-weight: var(--font-bold);
   color: transparent;
   background: var(--gradient-neon);
   background-clip: text;
@@ -54,7 +54,8 @@ h4 + p {
    ======================================== */
 
 p {
-  margin: 0 0 var(--spacing-4);
+  margin-block: var(--spacing-4);
+  font-size: var(--text-base);
   line-height: var(--leading-normal);
 }
 

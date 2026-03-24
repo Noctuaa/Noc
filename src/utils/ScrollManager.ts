@@ -13,8 +13,6 @@ gsap.registerPlugin(ScrollTrigger);
 /** @constant DURATION - Default scroll animation duration in seconds */
 export const DURATION = 1.5;
 
-const SECTIONS_AFTER_PROFILE = ['#competences', '#portfolio', '#contact'];
-
 // Shared Lenis instance
 let lenis: Lenis | null = null;
 
@@ -81,48 +79,8 @@ export const initAnchorLinks = () => {
       (window as any).lenis?.start();
       const href = anchor.getAttribute('href') ?? '';
       const target = href === '#profile' ? document.querySelector<HTMLElement>('#hero')?.offsetHeight ?? window.innerHeight : href;
-      if (SECTIONS_AFTER_PROFILE.includes(href)) profileSection?.classList.remove('curtain-fixed');
       lenis!.scrollTo(target, { duration: DURATION, offset: 0 });
     });
   });
 };
 
-/**
- * Initialize curtain effect between Hero and Profile sections
- * Profile section stays fixed behind Hero, then reveals when Hero scrolls away
- * Adds/removes 'curtain-fixed' class based on scroll position
- */
-export const initCurtainEffect = () => {
-  const heroSection = document.querySelector<HTMLElement>('#hero');
-  const profileSection = document.querySelector<HTMLElement>('#profile');
-
-  // Disable curtain effect on mobile for better performance and UX
-  const isTabletOrMobile = window.matchMedia('(max-width: 1024px)').matches;
-  if (isTabletOrMobile) return;
-
-  if (!heroSection || !profileSection) {
-    return;
-  }
-
-  const heroBottom = heroSection.offsetHeight;
-
-  // Initial state: fix Profile if at top
-  if (window.scrollY < heroBottom) {
-    profileSection.classList.add('curtain-fixed');
-  }
-
-  // Toggle fixed class when Hero scrolls out of view
-  ScrollTrigger.create({
-    trigger: heroSection,
-    start: 'top top',
-    end: 'bottom',
-    onLeave: () => {
-      profileSection.classList.remove('curtain-fixed')
-      ScrollTrigger.refresh();
-      (window as any).lenis?.resize();
-    },
-    onEnterBack: () => profileSection.classList.add('curtain-fixed'),
-    markers: false,
-  });
-
-};

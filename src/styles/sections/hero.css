@@ -1,38 +1,3 @@
-/* ========================================
-   CURTAIN SCROLL - Système de scroll Hero/Profile
-   ======================================== */
-
-.curtain-container {
-  min-height: 200svh !important;
-  height: auto;
-  position: relative;
-  background-color: var(--blue-950);
-}
-
-.curtain-container > #hero,
-.curtain-container > #profile {
-  min-height: 100svh;
-}
-
-.curtain-container > #hero {
-  z-index: 2;
-}
-
-.curtain-container > #profile {
-  z-index: 1;
-}
-
-#profile.curtain-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 100vh;
-  background-color: var(--blue-950);
-  transform: translateZ(0);
-}
-
 /* ============================================
    HERO SECTION
    ============================================ */
@@ -71,6 +36,7 @@
 }
 
 .hero-content p {
+  margin-top: 0;
   font-family: var(--font-family-hero);
   font-size: clamp(var(--text-sm), 2vw, var(--text-2xl)); /* 14px → 2vw → 24px */
   letter-spacing: 0.8em;

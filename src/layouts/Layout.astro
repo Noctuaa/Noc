@@ -53,12 +53,11 @@ import Footer from './Footer.astro';
     <slot />
     <Footer />
     <script>
-      import { initLenis, initCurtainEffect, initAnchorLinks } from '../utils/ScrollManager.ts';
+      import { initLenis, initAnchorLinks } from '../utils/ScrollManager.ts';
       import { initAnimations } from '../utils/AnimationManager';
 
       window.addEventListener('DOMContentLoaded', () => {
         initLenis(); // 1. Smooth scroll first
-        initCurtainEffect(); // 2. Curtain (depends on scroll)
         initAnchorLinks(); // 3. Anchor links
         initAnimations(); // 4. Animations last (ScrollTrigger calculates after)
       });

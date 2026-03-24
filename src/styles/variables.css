@@ -98,6 +98,7 @@
 
   /* Font weight */
   --font-semibold: 600;
+  --font-bold: 700;
 
   /* Letter spacing */
   --tracking-wide: 0.05em;

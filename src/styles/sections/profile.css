@@ -13,8 +13,7 @@
 }
 
 #profile {
-  min-height: auto;
-  transition: transform var(--transition-fast) ease;
+  transition: none;
 }
 
 /* ========================================
