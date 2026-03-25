@@ -1,0 +1,67 @@
+---
+type Project = {
+  id: number;
+  title: string;
+  link: string;
+  tags: string[];
+  description: string;
+  image: string;
+};
+
+// Portfolio projects list
+const projects: Project[] = [
+  {
+    id: 1,
+    title: 'SkyCast',
+    link: 'https://weather.nocdev.fr/',
+    tags: ['Vue.js', 'API Weather', 'Responsive'],
+    description: 'Application météo temps réel avec API de géolocalisation et design responsive.',
+    image: '/weather.webp',
+  },
+  {
+    id: 3,
+    title: 'EstateHub',
+    link: 'https://nocimmo.nocdev.fr/',
+    tags: ['Vue.js', 'Laravel', 'MySQL'],
+    description: 'Plateforme immobilière full-stack avec système de recherche avancée et gestion des annonces.',
+    image: '/chalets.webp',
+  },
+];
+---
+
+<div class="accordion">
+  {
+    projects.map((project) => (
+      <div class="project-item neon-mask">
+        <img src={project.image} alt={project.title} class="project-img" />
+        <h3 class="title-vertical">{project.title}</h3>
+        <div class="project-content">
+          <h3 class="project-title">{project.title}</h3>
+          <p class="project-description">{project.description}</p>
+          <div class="project-tags">
+            {project.tags.map((tag) => (
+              <span>{tag}</span>
+            ))}
+          </div>
+          <a href={project.link} class="btn btn-outline" target="_blank">
+            Voir le projet
+          </a>
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  const accordion = document.querySelector<HTMLElement>('.accordion');
+
+  // Init first item as active
+  accordion?.querySelector<HTMLElement>('.project-item')?.classList.add('active');
+
+  accordion?.addEventListener('click', (e) => {
+    const item = (e.target as Element).closest('.project-item');
+    if (!item) return;
+    document.querySelector<HTMLElement>('.project-item.active')?.classList.remove('active');
+    item.classList.add('active');
+  });
+</script>

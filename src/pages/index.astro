@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import TechCarousel from '../components/TechCarousel.astro';
-import ProjectAccordion from '../components/ProjectAccordion.vue';
+import ProjectAccordion from '../components/ProjectAccordion.astro';
 import ContactForm from '../components/ContactForm.vue';
 
 const email = import.meta.env.PUBLIC_EMAIL_TO;
@@ -240,7 +240,8 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
           Une sélection de <span class="c-primary">projets personnels et techniques</span> qui reflètent mon approche du développement.
         </p>
       </div>
-      <ProjectAccordion client:load />
+      <ProjectAccordion />
+      <!--<ProjectAccordion client:load />-->
     </div>
   </section>
 
