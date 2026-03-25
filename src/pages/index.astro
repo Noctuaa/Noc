@@ -263,12 +263,11 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
   </section>
 </Layout>
 
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Génération des étoiles
-    const starsContainer = document.querySelector('.stars');
-
-    // Grille 6 colonnes x 5 lignes = 30 étoiles réparties uniformément
+<script>
+  // Star formation
+  const starsContainer = document.querySelector<HTMLElement>('.stars');
+  if (starsContainer) {
+    // Grid with 5 columns and 5 rows = 25 stars evenly spaced
     const cols = 5,
       rows = 5;
 
@@ -278,16 +277,16 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
         star.className = 'star';
         star.textContent = '+';
 
-        // Position dans la cellule + décalage aléatoire (jitter)
-        // → distribution uniforme mais aspect naturel
+        // Position within the cell + random offset (jitter)
+        // → uniform distribution but natural appearance
         star.style.left = `${(col / cols) * 100 + Math.random() * (100 / cols)}%`;
         star.style.top = `${(row / rows) * 100 + Math.random() * (100 / rows)}%`;
 
-        // Délai aléatoire pour que les étoiles ne clignotent pas toutes en même temps
+        // Random delay to prevent all the stars from blinking at the same time
         star.style.animationDelay = `${Math.random() * 3}s`;
 
         starsContainer.appendChild(star);
       }
     }
-  });
+  }
 </script>
