@@ -23,13 +23,13 @@ const animateSectionHeader = (section: string, trigger?: string, start?: string)
 
   tl.fromTo(`${section} h2`,
     { autoAlpha: 0, immediateRender: false },
-    { autoAlpha: 1, duration: 0.7, ease: 'power3.out' }
+    { autoAlpha: 1, duration: 0.6, ease: 'power3.out' }
   )
     .fromTo(`${section} .section-description`,
       { y: 30 },
       {
-        autoAlpha: 1, y: 0, duration: 0.7, ease: 'power3.out'
-      }, '-=0.2'
+        autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out'
+      }, '-=0.4'
     )
     .fromTo(`${section} .separator-h`,
       { scaleX: 0 },
@@ -67,78 +67,60 @@ const initHeroAnimations = () => {
 
 /**
  * Initialize profile section scroll animations
- * Desktop: cascade timeline triggered by hero scroll
- * Tablet/Mobile: individual scroll triggers per card
+  * Chat bubbles and info items fade in with stagger on scroll
  */
 const initProfileAnimations = (isTabletOrMobile: boolean) => {
+  animateSectionHeader('#profile');
 
-  if (isTabletOrMobile) {
-    animateSectionHeader('#profile', '#profile', 'top 80%');
-    gsap.fromTo('.profile-header',
-      { y: 40 },
+  gsap.fromTo('.profile-header',
+    { y: 60 },
+    {
+      autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out',
+      scrollTrigger: { trigger: '.profile-header', start: 'top 80%', once: true }
+    }
+  );
+
+  gsap.fromTo('.profile-chat',
+    { x: -100 },
+    {
+      autoAlpha: 1, x: 0, duration: 0.6, ease: 'power3.out',
+      scrollTrigger: { trigger: '.profile-chat', start: 'top 80%', once: true }
+    }
+  );
+
+  gsap.fromTo('.chat-bubble',
+    { x: -100 },
+    {
+      autoAlpha: 1, x: 0, duration: 0.6, ease: 'back.out(1.4)', stagger: 0.3, delay: .4,
+      scrollTrigger: { trigger: '.profile-chat', start: 'top 80%', once: true }
+    }
+  );
+
+  gsap.fromTo('.profile-info',
+    { x: 100 },
+    {
+      autoAlpha: 1, x: 0, duration: 0.6, ease: 'power3.out',
+      scrollTrigger: { trigger: '.profile-info', start: 'top 80%', once: true }
+    }
+  );
+
+  gsap.fromTo('.profile-info .info-item',
+    { y: 20 },
+    {
+      autoAlpha: 1, y: 0, duration: 0.6, ease: 'back.out(1.4)', stagger: 0.3, delay: .4,
+      scrollTrigger: { trigger: '.profile-info', start: 'top 80%', once: true }
+    }
+  );
+
+  // Avatar desktop only
+  if (!isTabletOrMobile) {
+    gsap.fromTo('.profile-avatar',
+      { scale: 0.8 },
       {
-        autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out',
-        scrollTrigger: { trigger: '.profile-header', start: 'top 80%', once: true }
+        autoAlpha: 1, scale: 1, duration: 0.8, ease: 'back.out(1.7)', delay: 0.4,
+        scrollTrigger: { trigger: '.profile-chat', start: 'top 80%', once: true }
       }
     );
-    gsap.fromTo('.profile-chat',
-      { y: 40 },
-      {
-        autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out',
-        scrollTrigger: { trigger: '.profile-chat', start: 'top 80%', once: true },
-        onComplete: () => {
-          gsap.fromTo('.chat-bubble',
-            { y: 20 },
-            { autoAlpha: 1, y: 0, duration: 0.5, ease: 'back.out(1.4)', stagger: 0.3 }
-          );
-        }
-      }
-    );
-    gsap.fromTo('.profile-info',
-      { y: 40 },
-      {
-        autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out',
-        scrollTrigger: { trigger: '.profile-info', start: 'top 80%', once: true },
-        onComplete: () => {
-          gsap.fromTo('.profile-info .info-item',
-            { y: 20 },
-            { autoAlpha: 1, y: 0, duration: 0.5, ease: 'back.out(1.4)', stagger: 0.3 }
-          );
-        }
-      }
-    );
-
-  } else {
-    animateSectionHeader('#profile', '#hero', 'bottom 15%');
-    const tl = gsap.timeline({
-      scrollTrigger: { trigger: '#hero', start: 'bottom 25%', once: true },
-      delay: 0.8
-    });
-
-    tl.fromTo('.profile-header',
-      { y: -60 },
-      { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out' }
-    )
-      .fromTo('.profile-info',
-        { x: 100 },
-        { autoAlpha: 1, x: 0, duration: 0.8, ease: 'power3.out' }, '-=0.8'
-      )
-      .fromTo('.profile-chat',
-        { x: -100 },
-        { autoAlpha: 1, x: 0, duration: 0.8, ease: 'power3.out' }, '-=0.8'
-      )
-      .fromTo('.profile-avatar',
-        { autoAlpha: 0, scale: 0.8 },
-        { autoAlpha: 1, scale: 1, duration: 0.8, ease: 'back.out(1.7)' }
-      )
-      .fromTo('.chat-bubble',
-        { x: -30 },
-        { autoAlpha: 1, x: 0, duration: 0.5, ease: 'back.out(1.4)', stagger: 0.2 }, '-=0.2'
-      )
-      .fromTo('.profile-info .info-item',
-        { x: 30 },
-        { autoAlpha: 1, x: 0, duration: 0.5, ease: 'back.out(1.4)', stagger: 0.2 }, '-=0.7'
-      )
   }
 }
 
