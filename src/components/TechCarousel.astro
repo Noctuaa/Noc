@@ -26,7 +26,7 @@ const technologies: Technology[] = [
 
 <div class="scroller p-relative z-10 d-flex fd-column gap-6 mi-auto p-block-4 ow-hidden">
   <!-- Line 1 : Left → Right -->
-  <div class="scroller-inner" data-direction="right" data-animate>
+  <div class="scroller-inner" data-animate>
     <ul class="tech-list" role="list">
       {
         technologies.map((tech) => (
@@ -50,10 +50,10 @@ const technologies: Technology[] = [
   </div>
 
   <!-- Line 2 : Right → Left -->
-  <div class="scroller-inner" data-direction="left" data-animate>
+  <div class="scroller-inner" data-animate>
     <ul class="tech-list" role="list">
       {
-        technologies.map((tech) => (
+        [...technologies].reverse().map((tech) => (
           <li class="tech-card neon-mask">
             <img src={tech.logo} alt={`${tech.name} logo`} width="48" height="48" />
             <span class="tech-name">{tech.name}</span>
@@ -63,7 +63,7 @@ const technologies: Technology[] = [
     </ul>
     <ul class="tech-list" aria-hidden="true" role="presentation">
       {
-        technologies.map((tech) => (
+        [...technologies].reverse().map((tech) => (
           <li class="tech-card neon-mask">
             <img src={tech.logo} alt="" width="48" height="48" />
             <span class="tech-name">{tech.name}</span>

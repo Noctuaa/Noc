@@ -21,14 +21,20 @@
   will-change: transform;
 }
 
-.scroller-inner[data-direction='right'] {
-  -webkit-animation: marquee-right 70s linear infinite;
-  animation: marquee-right 70s linear infinite;
+.scroller-inner:nth-child(1) {
+  -webkit-animation: marquee 70s linear infinite;
+  animation: marquee 70s linear infinite;
 }
 
-.scroller-inner[data-direction='left'] {
-  -webkit-animation: marquee-left 90s linear infinite;
-  animation: marquee-left 90s linear infinite;
+.scroller-inner:nth-child(2) {
+  -webkit-animation: marquee 70s linear infinite reverse;
+  animation: marquee 70s linear infinite reverse;
+}
+
+.scroller-inner:nth-child(1):hover,
+.scroller-inner:nth-child(2):hover {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
 }
 
 /* ========================================
@@ -98,39 +104,15 @@
    ANIMATIONS
    ======================================== */
 
-@-webkit-keyframes marquee-right {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
+@-webkit-keyframes marquee {
+  100% {
     transform: translate3d(-50%, 0, 0);
   }
 }
 
-@keyframes marquee-right {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
+@keyframes marquee {
+  100% {
     transform: translate3d(-50%, 0, 0);
-  }
-}
-
-@-webkit-keyframes marquee-left {
-  from {
-    transform: translate3d(-50%, 0, 0);
-  }
-  to {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes marquee-left {
-  from {
-    transform: translate3d(-50%, 0, 0);
-  }
-  to {
-    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -150,8 +132,8 @@
     mask-image: none;
   }
 
-  .scroller-inner[data-direction='left'],
-  .scroller-inner[data-direction='right'] {
+  .scroller-inner:nth-child(1),
+  .scroller-inner:nth-child(2) {
     flex-wrap: wrap;
     justify-content: center;
     width: auto;
@@ -167,7 +149,7 @@
   }
 
   .tech-list[aria-hidden='true'],
-  .scroller-inner[data-direction='right'] {
+  .scroller-inner:nth-child(2) {
     display: none;
   }
 }
