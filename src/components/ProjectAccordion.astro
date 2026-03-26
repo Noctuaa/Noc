@@ -1,11 +1,16 @@
 ---
+import { Image } from 'astro:assets';
+import weatherImg from '../images/weather.webp';
+import chaletsImg from '../images/chalets.webp';
+import type { ImageMetadata } from 'astro';
+
 type Project = {
   id: number;
   title: string;
   link: string;
   tags: string[];
   description: string;
-  image: string;
+  image: ImageMetadata;
 };
 
 // Portfolio projects list
@@ -16,7 +21,7 @@ const projects: Project[] = [
     link: 'https://weather.nocdev.fr/',
     tags: ['Vue.js', 'API Weather', 'Responsive'],
     description: 'Application météo temps réel avec API de géolocalisation et design responsive.',
-    image: '/weather.webp',
+    image: weatherImg,
   },
   {
     id: 3,
@@ -24,7 +29,7 @@ const projects: Project[] = [
     link: 'https://nocimmo.nocdev.fr/',
     tags: ['Vue.js', 'Laravel', 'MySQL'],
     description: 'Plateforme immobilière full-stack avec système de recherche avancée et gestion des annonces.',
-    image: '/chalets.webp',
+    image: chaletsImg,
   },
 ];
 ---
@@ -33,17 +38,17 @@ const projects: Project[] = [
   {
     projects.map((project) => (
       <li class="project-item neon-mask">
-        <img src={project.image} alt={project.title} class="project-img" />
-        <h3 class="title-vertical">{project.title}</h3>
+        <Image src={project.image} alt={project.title} class="project-img" />
+        <span class="title-vertical">{project.title}</span>
         <div class="project-content">
-          <h3 class="project-title">{project.title}</h3>
+          <p class="project-title">{project.title}</p>
           <p class="project-description">{project.description}</p>
           <ul class="project-tags">
             {project.tags.map((tag) => (
               <li>{tag}</li>
             ))}
           </ul>
-          <a href={project.link} class="btn btn-outline" target="_blank">
+          <a href={project.link} class="btn btn-outline" target="_blank" aria-label={`Voir le projet ${project.title}`}>
             Voir le projet
           </a>
         </div>
