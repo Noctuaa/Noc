@@ -43,9 +43,9 @@
 
 .tech-list {
   display: flex;
-  gap: var(--spacing-4);
-  -webkit-padding-end: var(--spacing-4);
-  padding-inline-end: var(--spacing-4);
+  gap: var(--spacing-3);
+  -webkit-padding-end: var(--spacing-3);
+  padding-inline-end: var(--spacing-3);
 }
 
 /* ========================================
@@ -151,5 +151,22 @@
   .tech-list[aria-hidden='true'],
   .scroller-inner:nth-child(2) {
     display: none;
+  }
+}
+
+/* ========================================
+  RESPONSIVE - MOBILE
+  ======================================== */
+
+@media (max-width: 992px) {
+  .scroller-inner:nth-child(1),
+  .scroller-inner:nth-child(2) {
+    animation-duration: 40s;
+  }
+
+  .tech-list {
+    gap: var(--spacing-2);
+    -webkit-padding-end: var(--spacing-2);
+    padding-inline-end: var(--spacing-2);
   }
 }

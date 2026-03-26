@@ -153,7 +153,7 @@
   align-self: flex-start;
 }
 
-.project-tags span {
+.project-tags li {
   padding: var(--spacing) var(--spacing-3);
   border: 1px solid var(--purple-500);
   border-radius: var(--border-radius-sm);
@@ -171,21 +171,21 @@
 }
 
 /* Animation staggered des tags */
-.project-item.active .project-tags span {
+.project-item.active .project-tags li {
   opacity: 1;
   transform: translateY(0);
 }
 
-.project-tags span:nth-child(1) {
+.project-tags li:nth-child(1) {
   transition-delay: 0.1s;
 }
-.project-tags span:nth-child(2) {
+.project-tags li:nth-child(2) {
   transition-delay: 0.15s;
 }
-.project-tags span:nth-child(3) {
+.project-tags li:nth-child(3) {
   transition-delay: 0.2s;
 }
-.project-tags span:nth-child(4) {
+.project-tags li:nth-child(4) {
   transition-delay: 0.25s;
 }
 
@@ -193,43 +193,28 @@
   RESPONSIVE - MOBILE
   ======================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
+  /* Carousel horizontal scroll-snap */
   .accordion {
-    flex-direction: column;
-    height: auto;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    height: 460px;
   }
 
-  #padding-bottom {
-    padding-bottom: 0;
+  .accordion::-webkit-scrollbar {
+    display: none;
   }
 
+  /* Each item takes 85% width — shows a peek of next card */
   .project-item {
-    align-items: center;
-    justify-content: center;
-    height: 80px;
+    scroll-snap-align: center;
+    flex: 0 0 85%;
+    height: 100%;
+    align-items: flex-end;
   }
 
   .project-item.active {
-    flex: 1;
-  }
-
-  .project-img {
-    opacity: 0.3;
-  }
-
-  .title-vertical {
-    transform: translate(-50%, -50%) rotate(0);
-  }
-
-  .project-content {
-    padding: var(--spacing-4);
-  }
-
-  .project-title {
-    font-size: var(--text-xl);
-  }
-
-  .project-description {
-    font-size: var(--text-sm);
+    flex: 0 0 85%;
   }
 }

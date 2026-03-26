@@ -29,28 +29,28 @@ const projects: Project[] = [
 ];
 ---
 
-<div class="accordion">
+<ul class="accordion">
   {
     projects.map((project) => (
-      <div class="project-item neon-mask">
+      <li class="project-item neon-mask">
         <img src={project.image} alt={project.title} class="project-img" />
         <h3 class="title-vertical">{project.title}</h3>
         <div class="project-content">
           <h3 class="project-title">{project.title}</h3>
           <p class="project-description">{project.description}</p>
-          <div class="project-tags">
+          <ul class="project-tags">
             {project.tags.map((tag) => (
-              <span>{tag}</span>
+              <li>{tag}</li>
             ))}
-          </div>
+          </ul>
           <a href={project.link} class="btn btn-outline" target="_blank">
             Voir le projet
           </a>
         </div>
-      </div>
+      </li>
     ))
   }
-</div>
+</ul>
 
 <script>
   const accordion = document.querySelector<HTMLElement>('.accordion');
@@ -64,4 +64,22 @@ const projects: Project[] = [
     document.querySelector<HTMLElement>('.project-item.active')?.classList.remove('active');
     item.classList.add('active');
   });
+
+  // Mobile carousel: update active item based on visibility
+  if (window.matchMedia('(max-width: 992px)').matches) {
+    const carouselObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            accordion?.querySelector<HTMLElement>('.project-item.active')?.classList.remove('active');
+            entry.target.classList.add('active');
+          }
+        });
+      },
+      { root: accordion, threshold: 0.5 },
+    );
+    accordion?.querySelectorAll<HTMLElement>('.project-item').forEach((item) => {
+      carouselObserver.observe(item);
+    });
+  }
 </script>
