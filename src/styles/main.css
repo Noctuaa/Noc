@@ -4,6 +4,7 @@
   ======================================== */
 
 /* === FOUNDATIONS === */
+@import './fonts.css';     /* Custom fonts (Codex, Inter) */
 @import './variables.css'; /* Design tokens (colors, spacing, fonts) */
 @import './base.css'; /* Resets, global styles, animations */
 @import './typography.css'; /* Headings, paragraphs, lists */
