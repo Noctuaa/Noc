@@ -68,7 +68,7 @@ onMounted(() => {
 
 // Clean up listeners and observer to prevent memory leaks
 onUnmounted(() => {
-  (window as any).lenis.off('scroll', handleScrollThrottled);
+  (window as any).lenis?.off('scroll', handleScrollThrottled);
   sectionObserver?.disconnect();
 });
 </script>
