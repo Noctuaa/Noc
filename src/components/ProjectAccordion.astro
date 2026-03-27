@@ -59,26 +59,28 @@ const projects: Project[] = [
 
 <script>
   const accordion = document.querySelector<HTMLElement>('.accordion');
+  const isMobile = window.matchMedia('(max-width: 992px)').matches;
 
-  // Init first item as active
+  // Set active item
+  const setActive = (item: Element) => {
+    accordion?.querySelector<HTMLElement>('.project-item.active')?.classList.remove('active');
+    item.classList.add('active');
+  };
+
   accordion?.querySelector<HTMLElement>('.project-item')?.classList.add('active');
 
   accordion?.addEventListener('click', (e) => {
     const item = (e.target as Element).closest('.project-item');
     if (!item) return;
-    document.querySelector<HTMLElement>('.project-item.active')?.classList.remove('active');
-    item.classList.add('active');
+    setActive(item);
+    if (isMobile) item.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   });
 
-  // Mobile carousel: update active item based on visibility
-  if (window.matchMedia('(max-width: 992px)').matches) {
+  if (isMobile) {
     const carouselObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            accordion?.querySelector<HTMLElement>('.project-item.active')?.classList.remove('active');
-            entry.target.classList.add('active');
-          }
+          if (entry.isIntersecting) setActive(entry.target);
         });
       },
       { root: accordion, threshold: 0.5 },
