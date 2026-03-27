@@ -54,7 +54,10 @@ const createSectionObserver = () =>
 
 // Register scroll listener and observe all sections
 onMounted(() => {
-  (window as any).lenis.on('scroll', handleScrollThrottled);
+  const init = (window as any).lenis.on('scroll', handleScrollThrottled);
+
+  if ((window as any).lenis) init();
+  else window.addEventListener('lenis:ready', init, { once: true });
 
   sectionObserver = createSectionObserver();
   sections.forEach(({ id }) => {

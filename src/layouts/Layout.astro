@@ -75,6 +75,7 @@ import Footer from './Footer.astro';
 
       window.addEventListener('DOMContentLoaded', () => {
         initLenis(); // 1. Smooth scroll first
+        window.dispatchEvent(new Event('lenis:ready')); // 2. Lenis ready
         initAnchorLinks(); // 3. Anchor links
         initAnimations(); // 4. Animations last (ScrollTrigger calculates after)
       });
