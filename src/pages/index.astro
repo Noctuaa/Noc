@@ -112,9 +112,7 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
 
           <!-- Video -->
           <div class="profile-video-container ow-hidden">
-            <video autoplay muted loop>
-              <source src="/profile-video.mp4" type="video/mp4" />
-            </video>
+            <video autoplay muted loop></video>
           </div>
         </div>
 
@@ -265,6 +263,16 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
 </Layout>
 
 <script>
+  const video = document.querySelector<HTMLVideoElement>('.profile-video-container video');
+  // Display Video on Desktop
+  if (video && window.matchMedia('(min-width: 993px)').matches) {
+    const source = document.createElement('source');
+    source.src = '/profile-video.mp4';
+    source.type = 'video/mp4';
+    video.appendChild(source);
+    video.load();
+  }
+
   // Star formation
   const starsContainer = document.querySelector<HTMLElement>('.stars');
   if (starsContainer) {
