@@ -31,7 +31,7 @@ const technologies: Technology[] = [
       {
         technologies.map((tech) => (
           <li class="tech-card neon-mask">
-            <img src={tech.logo} alt={`${tech.name} logo`} width="48" height="48" />
+            <img src={tech.logo} alt={`${tech.name} logo`} width="48" height="48" loading="lazy" decoding="async" />
             <span class="tech-name">{tech.name}</span>
           </li>
         ))
@@ -41,7 +41,7 @@ const technologies: Technology[] = [
       {
         technologies.map((tech) => (
           <li class="tech-card neon-mask">
-            <img src={tech.logo} alt="" width="48" height="48" />
+            <img src={tech.logo} alt="" width="48" height="48" loading="lazy" decoding="async" />
             <span class="tech-name">{tech.name}</span>
           </li>
         ))
@@ -55,7 +55,7 @@ const technologies: Technology[] = [
       {
         [...technologies].reverse().map((tech) => (
           <li class="tech-card neon-mask">
-            <img src={tech.logo} alt={`${tech.name} logo`} width="48" height="48" />
+            <img src={tech.logo} alt={`${tech.name} logo`} width="48" height="48" loading="lazy" decoding="async" />
             <span class="tech-name">{tech.name}</span>
           </li>
         ))
@@ -65,7 +65,7 @@ const technologies: Technology[] = [
       {
         [...technologies].reverse().map((tech) => (
           <li class="tech-card neon-mask">
-            <img src={tech.logo} alt="" width="48" height="48" />
+            <img src={tech.logo} alt="" width="48" height="48" loading="lazy" decoding="async" />
             <span class="tech-name">{tech.name}</span>
           </li>
         ))

@@ -27,12 +27,16 @@
   /* White */
   --white: rgb(255, 255, 255);
 
+  /* Neutrals */
+  --slate-300: rgb(150, 161, 192);
+
   /* ========================================
      SEMANTIC COLORS
      ======================================== */
   --text-primary: var(--white);
   --text-secondary: rgb(from var(--white) r g b / 0.7);
   --text-inverse: var(--blue-950);
+  --text-muted: var(--slate-300);
   --separator-glow: rgb(from var(--purple-400) r g b / 0.5);
   --error: var(--red-400);
 
@@ -127,9 +131,9 @@
      ======================================== */
   --input-bg: transparent;
   --input-bg-focus: transparent;
-  --input-border: rgb(from var(--white) r g b / 0.5);
+  --input-border: var(--slate-300);
   --input-border-focus: rgb(from var(--blue-400) r g b / 1);
-  --label-color: var(--white);
+  --label-color: var(--text-muted);
   --label-active: rgb(from var(--blue-400) r g b / 1);
 
   /* ========================================
