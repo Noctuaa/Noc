@@ -6,44 +6,64 @@ import Footer from './Footer.astro';
 
 <!doctype html>
 <html lang="fr">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
-  <meta name="generator" content={Astro.generator} />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <!-- <meta name="generator" content={Astro.generator} /> -->
 
-  <title>Nocdev | Développeur d'application</title>
-  <meta
-    name="description"
-    content="Bienvenue sur Nocdev, développeur d'application freelance spécialisé en interfaces modernes et performantes."
-  />
+    <title>Nocdev | Développeur freelance d'applications web modernes</title>
+    <meta
+      name="description"
+      content="Développeur freelance spécialisé en applications web modernes avec Astro et Vue.js. Interfaces performantes, responsive et accessibles."
+    />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Nocdev | Développeur d'application" />
-  <meta
-    property="og:description"
-    content="Bienvenue sur Nocdev, développeur d'application freelance spécialisé en interfaces modernes et performantes."
-  />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://nocdev.fr" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Nocdev | Développeur freelance d'applications web modernes" />
+    <meta
+      property="og:description"
+      content="Développeur freelance spécialisé en applications web modernes avec Astro et Vue.js. Interfaces performantes, responsive et accessibles."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nocdev.fr" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Nocdev" />
 
-  <!-- Sitemap -->
-  <link rel="sitemap" href="/sitemap-index.xml" />
+    <!-- Sitemap -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
-  <style is:inline>
-    [data-animate] {
-      opacity: 0;
-      visibility: hidden;
-    }
-  </style>
-  <noscript>
-    <style>
+    <!-- Canonical -->
+    <link rel="canonical" href="https://nocdev.fr" />
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Noctua",
+        "url": "https://nocdev.fr",
+        "jobTitle": "Développeur freelance d'applications web modernes",
+        "description": "Développeur freelance spécialisé en applications web modernes avec Astro et Vue.js.",
+        "knowsAbout": ["Astro", "Vue.js", "JavaScript", "TypeScript", "CSS", "HTML", "Linux", "Git", "Gsap", "Node.js"],
+        "email": "contact@nocdev.fr"
+      }
+    </script>
+
+    <style is:inline>
       [data-animate] {
-        opacity: 1;
-        visibility: visible;
+        opacity: 0;
+        visibility: hidden;
       }
     </style>
-  </noscript>
-
+    <noscript>
+      <style>
+        [data-animate] {
+          opacity: 1;
+          visibility: visible;
+        }
+      </style>
+    </noscript>
+  </head>
   <body>
     <Navigation client:load />
     <div class="teleport-container"></div>
@@ -60,6 +80,4 @@ import Footer from './Footer.astro';
       });
     </script>
   </body>
-
-
 </html>
