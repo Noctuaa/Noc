@@ -15,7 +15,10 @@ export default defineConfig({
 
   env: {
     schema: {
-      RESEND_API_KEY: envField.string({ context: 'server', access: 'secret' }),
+      SMTP_HOST: envField.string({ context: 'server', access: 'secret' }),
+      SMTP_PORT: envField.number({ context: 'server', access: 'secret' }),
+      SMTP_USER: envField.string({ context: 'server', access: 'secret' }),
+      SMTP_PASS: envField.string({ context: 'server', access: 'secret' }),
       EMAIL_TO: envField.string({ context: 'server', access: 'secret' }),
       PUBLIC_EMAIL_TO: envField.string({ context: 'client', access: 'public' }),
     },
