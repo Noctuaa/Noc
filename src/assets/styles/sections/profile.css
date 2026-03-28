@@ -1,4 +1,15 @@
 /* ========================================
+   SECTION #PROFILE - Local variables
+   ======================================== */
+
+:root {
+  --profile-ring-radius: 119px;
+  --profile-video-size: 230px;
+  --profile-video-border: 18px;
+  --profile-bento-gap: 18px;
+}
+
+/* ========================================
    SECTION #PROFILE
    ======================================== */
 

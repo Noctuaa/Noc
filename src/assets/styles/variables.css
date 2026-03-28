@@ -103,14 +103,6 @@
   --section-overlap: 9rem; /* For overlapping section effect */
 
   /* ========================================
-     PROFILE      
-     ======================================== */
-  --profile-ring-radius: 119px;
-  --profile-video-size: 230px;
-  --profile-video-border: 18px;
-  --profile-bento-gap: 18px;
-
-  /* ========================================
      TRANSITIONS
      ======================================== */
   --transition-fast: 0.3s;
