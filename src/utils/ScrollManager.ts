@@ -80,4 +80,4 @@ export const initAnchorLinks = () => {
       lenis!.scrollTo(href, { duration: DURATION, offset: 0 });
     });
   });
-};  
+};

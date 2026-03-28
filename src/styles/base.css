@@ -25,12 +25,14 @@ ul {
   padding: 0;
 }
 
-a[href^='mailto:'] {
+a[href^='mailto:'],
+a[data-href] {
   color: var(--blue-400);
   transition: color var(--transition-fast) ease;
 }
 
-a[href^='mailto:']:hover {
+a[href^='mailto:']:hover,
+a[data-href]:hover {
   color: var(--text-primary);
 }
 

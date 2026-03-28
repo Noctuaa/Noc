@@ -1,0 +1,26 @@
+---
+interface Props {
+  email: string;
+  class?: string;
+  'aria-label'?: string;
+}
+
+const { email, ...rest } = Astro.props as Props;
+const encoded = btoa(email).split('').reverse().join('');
+---
+
+<a href="#" data-href={encoded} {...rest}>
+  <slot />
+</a>
+
+<script>
+  //prettier-ignore
+  document.addEventListener('click', (e) => {
+    const a = (e.target as Element).closest('a[data-href]');
+    if (!a) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const email = atob(a.getAttribute('data-href')!.split('').reverse().join(''));
+    window.location.href = `mailto:${email}`;
+  },true,);
+</script>

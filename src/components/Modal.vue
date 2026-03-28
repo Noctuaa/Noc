@@ -31,8 +31,12 @@ onUnmounted(closeModal);
 <template>
   <a href="#" @click.prevent="openModal" class="legal-link">{{ title }}</a>
   <transition name="fade" defer>
-    <div v-if="showModal" @click.prevent="closeModal" class="modal-overlay p-fixed z-100 d-flex ai-center jc-center">
-      <div class="modal-wrapper p-relative" @click.stop>
+    <div
+      v-if="showModal"
+      @click.self.prevent="closeModal"
+      class="modal-overlay p-fixed z-100 d-flex ai-center jc-center"
+    >
+      <div class="modal-wrapper p-relative">
         <button
           @click.prevent="closeModal"
           class="modal-close p-absolute z-1 d-flex ai-center jc-center cursor-p"
