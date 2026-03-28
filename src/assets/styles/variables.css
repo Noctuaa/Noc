@@ -80,11 +80,7 @@
   --text-5xl: 3.5rem; /* 48px - Extra large titles */
   --text-6xl: 6rem; /* 64px - Massive titles */
 
-  /* Font weight */
-  --font-semibold: 600;
-  --font-bold: 700;
-
-  /* Letter spacing */
+  /* Letter space */
   --tracking-wide: 0.05em;
   --tracking-wider: 0.08em;
   --tracking-widest: 0.1em;
@@ -96,16 +92,7 @@
   /* ========================================
      SPACING SYSTEM
      ======================================== */
-  --spacing: 0.25rem; /* 4px - Extra tight */
-  --spacing-2: calc(var(--spacing) * 2); /* 8px */
-  --spacing-3: calc(var(--spacing) * 3); /* 12px */
-  --spacing-4: calc(var(--spacing) * 4); /* 16px */
-  --spacing-5: calc(var(--spacing) * 5); /* 20px */
-  --spacing-6: calc(var(--spacing) * 6); /* 24px */
-  --spacing-8: calc(var(--spacing) * 8); /* 32px */
-  --spacing-10: calc(var(--spacing) * 10); /* 40px */
-  --spacing-12: calc(var(--spacing) * 12); /* 48px */
-  --spacing-16: calc(var(--spacing) * 16); /* 64px */
+  --space: 0.25rem; /* 4px */
 
   /* ========================================
      LAYOUT
@@ -116,34 +103,30 @@
   --section-overlap: 9rem; /* For overlapping section effect */
 
   /* ========================================
+     PROFILE      
+     ======================================== */
+  --profile-ring-radius: 119px;
+  --profile-video-size: 230px;
+  --profile-video-border: 18px;
+  --profile-bento-gap: 18px;
+
+  /* ========================================
      TRANSITIONS
      ======================================== */
   --transition-fast: 0.3s;
   --transition-normal: 0.5s;
 
   /* ========================================
-     GEOMETRIC SHAPES
-     ======================================== */
-  --octagon-clip: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-
-  /* ========================================
      FORM INPUTS
      ======================================== */
-  --input-bg: transparent;
-  --input-bg-focus: transparent;
   --input-border: var(--slate-300);
   --input-border-focus: rgb(from var(--blue-400) r g b / 1);
   --label-color: var(--text-muted);
   --label-active: rgb(from var(--blue-400) r g b / 1);
 
   /* ========================================
-     STATES
-     ======================================== */
-
-  /* ========================================
      EFFECTS
      ======================================== */
   --blur-glass: 10px;
-  --filter-inactive: grayscale(70%);
   --shadow-neon: 0 0 10px rgb(from var(--blue-500) r g b / 0.4), 0 0 20px rgb(from var(--blue-400) r g b / 0.2);
 }

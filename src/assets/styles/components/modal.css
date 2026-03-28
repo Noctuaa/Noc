@@ -39,7 +39,7 @@
    =================================== */
 
 .modal-header {
-  padding: var(--spacing-5) clamp(var(--spacing-5), 4vw, var(--spacing-8));
+  padding: calc(var(--space) * 5) clamp(calc(var(--space) * 5), 4vw, calc(var(--space) * 8));
   border-bottom: var(--border-subtle);
 }
 
@@ -75,7 +75,7 @@
 
 .modal-content {
   max-height: 60vh;
-  padding: clamp(var(--spacing-5), 4vw, var(--spacing-8));
+  padding: clamp(calc(var(--space) * 5), 4vw, calc(var(--space) * 8));
   overflow-y: auto;
 }
 
@@ -83,9 +83,9 @@
 .modal-content h4 {
   display: flex;
   align-items: center;
-  gap: var(--spacing-2);
+  gap: calc(var(--space) * 2);
   margin-top: 0;
-  margin-bottom: var(--spacing-3);
+  margin-bottom: calc(var(--space) * 3);
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -105,8 +105,8 @@
 
 /* Separator between sections */
 .modal-content h4:not(:first-child) {
-  margin-top: var(--spacing-6);
-  padding-top: var(--spacing-6);
+  margin-top: calc(var(--space) * 6);
+  padding-top: calc(var(--space) * 6);
   border-top: var(--border-subtle);
 }
 
@@ -121,13 +121,13 @@
 /* Lists */
 .modal-content ul,
 .modal-content ol {
-  margin: var(--spacing-2) 0 0;
-  padding-left: var(--spacing-5);
+  margin: calc(var(--space) * 2) 0 0;
+  padding-left: calc(var(--space) * 5);
   list-style: disc;
 }
 
 .modal-content li {
-  margin-bottom: var(--spacing);
+  margin-bottom: var(--space);
   font-size: 0.9rem;
   color: var(--text-secondary);
 }

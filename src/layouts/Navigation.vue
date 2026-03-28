@@ -74,10 +74,10 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <nav :class="['nav', { 'is-open': isMenuOpen, hidden: hideNav, scrolled: isScrolled }, 'p-fixed z-100 w-100']">
-    <div class="container h-100">
-      <div class="nav-inner d-flex ai-center w-100 h-100">
-        <ul class="nav-list d-flex ai-center gap-5">
+  <nav :class="['nav', { 'is-open': isMenuOpen, hidden: hideNav, scrolled: isScrolled }, 'fixed z-100 w-full']">
+    <div class="container h-full">
+      <div class="nav-inner flex ai-center w-full h-full">
+        <ul class="nav-list flex ai-center gap-5">
           <li
             v-for="section in sections"
             :key="section.id"
@@ -86,7 +86,7 @@ onUnmounted(() => {
           >
             <a
               :href="`#${section.id}`"
-              class="nav-link d-flex p-2 text-sm fw-semibold tracking-wide uppercase c-secondary"
+              class="nav-link flex p-2 text-sm fw-semibold tracking-wide uppercase c-secondary"
             >
               {{ section.label }}
             </a>

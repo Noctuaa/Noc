@@ -5,7 +5,7 @@
 .scroller {
   -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
   mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-  padding-block: var(--spacing-4);
+  padding-block: calc(var(--space) * 4);
   max-width: 1400px;
 }
 
@@ -43,9 +43,9 @@
 
 .tech-list {
   display: flex;
-  gap: var(--spacing-3);
-  -webkit-padding-end: var(--spacing-3);
-  padding-inline-end: var(--spacing-3);
+  gap: calc(var(--space) * 3);
+  -webkit-padding-end: calc(var(--space) * 3);
+  padding-inline-end: calc(var(--space) * 3);
 }
 
 /* ========================================
@@ -60,7 +60,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  gap: var(--spacing-4);
+  gap: calc(var(--space) * 4);
   width: clamp(90px, calc(4rem + 4vw), 115px);
   height: clamp(90px, calc(4rem + 4vw), 115px);
   border-radius: var(--border-radius-lg);
@@ -126,7 +126,7 @@
     flex-wrap: wrap;
     justify-content: center;
     max-width: 900px;
-    padding-inline: var(--spacing-4);
+    padding-inline: calc(var(--space) * 4);
     overflow: visible;
     -webkit-mask-image: none;
     mask-image: none;
@@ -165,8 +165,8 @@
   }
 
   .tech-list {
-    gap: var(--spacing-2);
-    -webkit-padding-end: var(--spacing-2);
-    padding-inline-end: var(--spacing-2);
+    gap: calc(var(--space) * 2);
+    -webkit-padding-end: calc(var(--space) * 2);
+    padding-inline-end: calc(var(--space) * 2);
   }
 }

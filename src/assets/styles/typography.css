@@ -22,9 +22,9 @@ h2 {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin-bottom: clamp(var(--spacing-2), 2vw, var(--spacing-4));
+  margin-bottom: clamp(calc(var(--space) * 2), 2vw, calc(var(--space) * 4));
   font-size: clamp(var(--text-3xl), 5vw, var(--text-4xl));
-  font-weight: var(--font-bold);
+  font-weight: 700;
   color: transparent;
   background: var(--gradient-neon);
   background-clip: text;
@@ -32,14 +32,14 @@ h2 {
 }
 
 h3 {
-  margin-bottom: var(--spacing);
+  margin-bottom: var(--space);
   font-size: clamp(var(--text-xl), 2.5vw, var(--text-2xl));
   font-weight: 600;
   color: var(--text-primary);
 }
 
 h4 {
-  margin: var(--spacing-5) 0 var(--spacing-2);
+  margin: calc(var(--space) * 5) 0 calc(var(--space) * 2);
   font-size: clamp(var(--text-base), 1.8vw, var(--text-xl));
   font-weight: 600;
   color: var(--text-primary);
@@ -54,7 +54,7 @@ h4 + p {
    ======================================== */
 
 p {
-  margin-block: clamp(var(--spacing-2), 2vw, var(--spacing-4));
+  margin-block: clamp(calc(var(--space) * 2), 2vw, calc(var(--space) * 4));
   font-size: var(--text-base);
   line-height: var(--leading-normal);
 }
@@ -79,5 +79,5 @@ ul {
    ======================================== */
 
 hr {
-  margin: var(--spacing-4) 0;
+  margin: calc(var(--space) * 4) 0;
 }

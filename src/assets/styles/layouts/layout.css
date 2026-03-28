@@ -35,7 +35,7 @@ section.bg-alt {
 
 .section-header {
   display: grid;
-  margin-bottom: clamp(var(--spacing-6), 5vw, var(--spacing-12));
+  margin-bottom: clamp(calc(var(--space) * 6), 5vw, calc(var(--space) * 12));
   width: 100%;
   place-items: center;
 }
