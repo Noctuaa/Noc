@@ -31,18 +31,20 @@ h2 {
   -webkit-background-clip: text;
 }
 
+h3,
+h4 {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
 h3 {
   margin-bottom: var(--space);
   font-size: clamp(var(--text-xl), 2.5vw, var(--text-2xl));
-  font-weight: 600;
-  color: var(--text-primary);
 }
 
 h4 {
   margin: calc(var(--space) * 5) 0 calc(var(--space) * 2);
   font-size: clamp(var(--text-base), 1.8vw, var(--text-xl));
-  font-weight: 600;
-  color: var(--text-primary);
 }
 
 h4 + p {

@@ -110,12 +110,16 @@
   border-top: var(--border-subtle);
 }
 
-/* Body text */
+/* Body text & list items */
+.modal-content p,
+.modal-content li {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
 .modal-content p {
   margin: 0;
-  font-size: 0.9rem;
   line-height: 1.7;
-  color: var(--text-secondary);
 }
 
 /* Lists */
@@ -128,8 +132,6 @@
 
 .modal-content li {
   margin-bottom: var(--space);
-  font-size: 0.9rem;
-  color: var(--text-secondary);
 }
 
 /* Clickable email links - color handled globally in base.css */

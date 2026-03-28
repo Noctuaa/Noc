@@ -25,16 +25,12 @@
    BOTTOM SECTION
    =================================== */
 
-.footer-bottom {
-  font-size: var(--text-sm);
-}
-
-.footer-bottom p {
+.footer-bottom p,
+.footer-sep {
   color: var(--text-secondary);
 }
 
 .footer-sep {
-  color: var(--text-secondary);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

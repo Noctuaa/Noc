@@ -243,9 +243,6 @@
 .pt-4 {
   padding-top: calc(var(--space) * 4);
 }
-.p-block-4 {
-  padding-block: calc(var(--space) * 4);
-}
 
 /* ========================================
    SIZING

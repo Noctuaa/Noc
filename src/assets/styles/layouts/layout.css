@@ -50,7 +50,7 @@ section.bg-alt {
   max-width: 65ch;
   font-size: var(--text-base);
   text-wrap: balance;
-  color: rgb(150, 161, 192);
+  color: var(--text-muted);
   text-align: center;
 }
 
