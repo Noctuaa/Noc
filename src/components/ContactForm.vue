@@ -242,4 +242,4 @@ const submitForm = async () => {
   </form>
 </template>
 
-<style src="../styles/components/form.css"></style>
+<style src="../assets/styles/components/form.css"></style>

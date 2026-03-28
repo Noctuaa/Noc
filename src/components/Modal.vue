@@ -57,4 +57,4 @@ onUnmounted(closeModal);
   </transition>
 </template>
 
-<style src="../styles/components/modal.css"></style>
+<style src="../assets/styles/components/modal.css"></style>
