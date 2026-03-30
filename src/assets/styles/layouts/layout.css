@@ -22,11 +22,11 @@ section {
 }
 
 section.bg-surface {
-  background: var(--bg-surface);
+  background: var(--background-light);
 }
 
 section.bg-alt {
-  background: var(--bg-deep);
+  background: var(--background);
 }
 
 /* ========================================
@@ -50,7 +50,7 @@ section.bg-alt {
   max-width: 65ch;
   font-size: var(--text-base);
   text-wrap: balance;
-  color: var(--text-muted);
+  color: var(--color-muted);
   text-align: center;
 }
 
@@ -98,7 +98,7 @@ section.bg-alt {
 }
 
 .separator-h-gradient {
-  background: linear-gradient(90deg, transparent, var(--separator-glow), transparent);
+  background: linear-gradient(90deg, transparent, rgb(from var(--glow) r g b / 0.5), transparent);
 }
 
 /* ========================================

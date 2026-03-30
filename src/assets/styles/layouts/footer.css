@@ -8,7 +8,7 @@
 
 .footer {
   padding: calc(var(--space) * 8) 0;
-  background-color: var(--blue-950);
+  background-color: var(--background);
   font-size: var(--text-sm);
 }
 
@@ -27,7 +27,7 @@
 
 .footer-bottom p,
 .footer-sep {
-  color: var(--text-secondary);
+  color: var(--color-light);
 }
 
 .footer-sep {
@@ -47,7 +47,7 @@
   left: 0;
   width: 100%;
   height: clamp(30px, 8vw, 80px);
-  fill: var(--blue-950);
+  fill: var(--background);
   pointer-events: none;
   transform: rotate(180deg);
 }

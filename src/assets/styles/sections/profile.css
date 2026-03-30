@@ -33,7 +33,7 @@
   padding: clamp(calc(var(--space) * 6), 3vw, calc(var(--space) * 8))
     clamp(calc(var(--space) * 3), 2vw, calc(var(--space) * 6));
   border-radius: var(--border-radius-md);
-  background: var(--blue-800);
+  background: var(--background-card);
 }
 
 /* ========================================
@@ -59,21 +59,21 @@
   bottom: -1px;
   left: calc(50% - 135px);
   border-bottom-right-radius: var(--border-radius-md);
-  box-shadow: 6px 6px var(--bg-deep);
+  box-shadow: 6px 6px var(--background);
 }
 
 .profile-header::after {
   bottom: -1px;
   right: calc(50% - 132px);
   border-bottom-left-radius: var(--border-radius-md);
-  box-shadow: -6px 6px var(--bg-deep);
+  box-shadow: -6px 6px var(--background);
 }
 
 /* Chat - top corners */
 .profile-chat::before,
 .profile-chat::after {
   border-top-right-radius: var(--border-radius-md);
-  box-shadow: 6px -6px var(--bg-deep);
+  box-shadow: 6px -6px var(--background);
 }
 
 .profile-chat::before {
@@ -90,7 +90,7 @@
 .profile-info::before,
 .profile-info::after {
   border-top-left-radius: var(--border-radius-md);
-  box-shadow: -6px -6px var(--bg-deep);
+  box-shadow: -6px -6px var(--background);
 }
 
 .profile-info::before {
@@ -113,22 +113,22 @@
   align-self: flex-end;
   height: 185px;
   padding: clamp(calc(var(--space) * 4), 2vw, calc(var(--space) * 6));
-  border: 1px solid rgb(from var(--purple-400) r g b / 0.2);
-  border-left: 3px solid rgb(from var(--blue-400) r g b / 0.6);
+  border: 1px solid rgb(from var(--glow) r g b / 0.2);
+  border-left: 3px solid rgb(from var(--contrast) r g b / 0.6);
   background:
     radial-gradient(
       ellipse 40% 150% at 50% 100%,
-      rgb(from var(--blue-400) r g b / 0.35),
-      rgb(from var(--purple-400) r g b / 0.18),
+      rgb(from var(--contrast) r g b / 0.35),
+      rgb(from var(--glow) r g b / 0.18),
       transparent 70%
     ),
-    rgb(from var(--purple-700) r g b / 0.85);
+    rgba(55, 63, 119, 0.85);
   -webkit-mask-image: radial-gradient(circle 115px at 50% 100%, transparent 115px, black 115px);
   mask-image: radial-gradient(circle 115px at 50% 100%, transparent 115px, black 115px);
 }
 
 .profile-header .icon-header {
-  background: var(--blue-400);
+  background: var(--contrast);
 }
 
 .profile-role {
@@ -140,7 +140,7 @@
   max-width: 38ch;
   font-size: clamp(0.85rem, 1.5vw, 0.95rem);
   font-style: italic;
-  color: rgb(from var(--text-secondary) r g b / 0.85);
+  color: rgb(from var(--color-light) r g b / 0.85);
 }
 
 /* ========================================
@@ -157,7 +157,7 @@
 .profile-video-container {
   width: var(--profile-video-size);
   height: var(--profile-video-size);
-  border: var(--profile-video-border) solid var(--bg-deep);
+  border: var(--profile-video-border) solid var(--background);
   border-radius: 50%;
 }
 
@@ -206,11 +206,11 @@
   background:
     radial-gradient(
       ellipse 50% 50% at 100% 0%,
-      rgb(from var(--blue-400) r g b / 0.2),
-      rgb(from var(--purple-400) r g b / 0.18),
+      rgb(from var(--contrast) r g b / 0.2),
+      rgb(from var(--glow) r g b / 0.18),
       transparent
     ),
-    var(--blue-800);
+    var(--background-card);
   -webkit-mask-image: radial-gradient(circle 115px at calc(100% + 9px) -18px, transparent 115px, black 115px);
   mask-image: radial-gradient(circle 115px at calc(100% + 9px) -18px, transparent 115px, black 115px);
 }
@@ -245,21 +245,21 @@
   width: -moz-fit-content;
   width: fit-content;
   padding: calc(var(--space) * 4) calc(var(--space) * 5);
-  border: 1px solid rgb(from var(--blue-400) r g b / 0.2);
+  border: 1px solid rgb(from var(--contrast) r g b / 0.2);
   border-radius: 22px 22px 22px 4px;
   font-size: var(--text-base);
   line-height: 1.6;
-  color: var(--text-primary);
-  background: rgb(from var(--blue-400) r g b / 0.1);
+  color: var(--color);
+  background: rgb(from var(--contrast) r g b / 0.1);
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.3),
     0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .chat-bubble:first-child {
-  border-color: rgb(from var(--purple-400) r g b / 0.3);
+  border-color: rgb(from var(--glow) r g b / 0.3);
   font-weight: 600;
-  background: rgb(from var(--purple-400) r g b / 0.15);
+  background: rgb(from var(--glow) r g b / 0.15);
 }
 
 .chat-bubble p {
@@ -275,11 +275,11 @@
   background:
     radial-gradient(
       ellipse 50% 50% at 0% 0%,
-      rgb(from var(--blue-400) r g b / 0.2),
-      rgb(from var(--purple-400) r g b / 0.18),
+      rgb(from var(--contrast) r g b / 0.2),
+      rgb(from var(--glow) r g b / 0.18),
       transparent
     ),
-    var(--blue-800);
+    var(--background-card);
   -webkit-mask-image: radial-gradient(circle 115px at -9px -18px, transparent 115px, black 115px);
   mask-image: radial-gradient(circle 115px at -9px -18px, transparent 115px, black 115px);
 }
@@ -292,15 +292,15 @@
   flex-shrink: 0;
   width: 40px;
   height: 40px;
-  border: 1px solid rgb(from var(--blue-400) r g b / 0.2);
+  border: 1px solid rgb(from var(--contrast) r g b / 0.2);
   border-radius: var(--border-radius-sm);
-  background: rgb(from var(--blue-400) r g b / 0.1);
+  background: rgb(from var(--contrast) r g b / 0.1);
 }
 
 .info-icon-wrapper svg {
   width: 18px;
   height: 18px;
-  fill: var(--blue-400);
+  fill: var(--contrast);
 }
 
 .info-label {
@@ -308,20 +308,20 @@
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: var(--color-light);
 }
 
 .info-value {
   margin: 0;
   font-size: clamp(0.9rem, 1.5vw, 1rem);
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--color);
 }
 
 .info-sub {
   margin: var(--space) 0 0 0;
   font-size: 0.8rem;
-  color: var(--text-secondary);
+  color: var(--color-light);
 }
 
 /* ========================================
@@ -343,24 +343,24 @@
 @-webkit-keyframes pulse-green {
   0%,
   100% {
-    background: rgb(from var(--green-400) r g b / 0.8);
+    background: rgb(from var(--success) r g b / 0.8);
     box-shadow: 0 0 0 0 transparent;
   }
   50% {
-    background: var(--green-400);
-    box-shadow: 0 0 12px 2px var(--green-400);
+    background: var(--success);
+    box-shadow: 0 0 12px 2px var(--success);
   }
 }
 
 @keyframes pulse-green {
   0%,
   100% {
-    background: rgb(from var(--green-400) r g b / 0.8);
+    background: rgb(from var(--success) r g b / 0.8);
     box-shadow: 0 0 0 0 transparent;
   }
   50% {
-    background: var(--green-400);
-    box-shadow: 0 0 12px 2px var(--green-400);
+    background: var(--success);
+    box-shadow: 0 0 12px 2px var(--success);
   }
 }
 

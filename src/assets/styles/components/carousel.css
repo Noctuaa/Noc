@@ -92,7 +92,7 @@
   font-weight: 700;
   font-family: var(--font-family-secondary);
   letter-spacing: 0.03em;
-  color: var(--text-primary);
+  color: var(--color);
   white-space: nowrap;
   text-align: center;
   overflow: hidden;

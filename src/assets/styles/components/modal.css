@@ -9,7 +9,7 @@
 
 .modal-overlay {
   inset: 0;
-  background: rgb(from var(--blue-950) r g b / 0.75);
+  background: rgb(from var(--background) r g b / 0.75);
   -webkit-backdrop-filter: blur(var(--blur-glass));
   backdrop-filter: blur(var(--blur-glass));
 }
@@ -26,7 +26,7 @@
   padding: 3px;
   overflow: clip;
   border-radius: var(--border-radius-lg);
-  background: var(--bg-surface);
+  background: var(--background-light);
   box-shadow: var(--shadow-neon);
 }
 
@@ -47,7 +47,7 @@
   margin: 0;
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--color);
 }
 
 /* Close button - inside card, top-right corner */
@@ -60,13 +60,13 @@
   border-radius: 0 var(--border-radius-md);
   font-size: 1rem;
   font-weight: 700;
-  color: var(--text-secondary);
-  background: rgb(from var(--blue-950) r g b / 0.75);
+  color: var(--color-light);
+  background: rgb(from var(--background) r g b / 0.75);
   transition: color var(--transition-fast) ease;
 }
 
 .modal-close:hover {
-  color: var(--text-primary);
+  color: var(--color);
 }
 
 /* ===================================
@@ -90,7 +90,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.8px;
-  color: var(--text-primary);
+  color: var(--color);
 }
 
 /* Neon bar accent before each title */
@@ -114,7 +114,7 @@
 .modal-content p,
 .modal-content li {
   font-size: 0.9rem;
-  color: var(--text-secondary);
+  color: var(--color-light);
 }
 
 .modal-content p {
@@ -142,12 +142,12 @@
 
 .legal-link {
   font-size: var(--text-sm);
-  color: var(--text-secondary);
+  color: var(--color-light);
   transition: color var(--transition-fast) ease;
 }
 
 .legal-link:hover {
-  color: var(--text-primary);
+  color: var(--color);
 }
 
 /* ===================================

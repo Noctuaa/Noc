@@ -2,6 +2,12 @@
    NAVIGATION - Desktop & Mobile Menu
    ============================================ */
 
+:root {
+  --nav-height-desktop: 6.25rem; /* 100px */
+  --nav-height-scrolled: 5rem; /* 80px */
+  --nav-width-desktop: 36rem; /* 580px */
+}
+
 /* ============================================
    BASE NAVIGATION (Desktop)
    ============================================ */
@@ -24,7 +30,7 @@
 /* Scrolled state - Glassmorphism effect */
 .nav.scrolled {
   height: var(--nav-height-scrolled);
-  background: rgb(from var(--bg-deep) r g b / 0.85);
+  background: rgb(from var(--background) r g b / 0.85);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   -webkit-backdrop-filter: blur(var(--blur-glass));
   backdrop-filter: blur(var(--blur-glass));
@@ -48,7 +54,7 @@
   font-weight: 600;
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: var(--color-light);
   transition:
     color var(--transition-fast) ease,
     text-shadow var(--transition-fast) ease,
@@ -58,7 +64,7 @@
 .nav-item:last-child .nav-link {
   padding: calc(var(--space) * 3) calc(var(--space) * 4);
   border-radius: var(--border-radius-md);
-  color: var(--text-primary);
+  color: var(--color);
   background: var(--gradient-neon);
 }
 
@@ -66,7 +72,7 @@
 
 .nav-item.active .nav-link,
 .nav-item:hover .nav-link {
-  color: var(--text-primary);
+  color: var(--color);
   transform: scale(1.05);
 }
 
@@ -105,7 +111,7 @@
 .nav-burger span {
   width: 25px;
   height: 3px;
-  background: var(--white);
+  background: var(--color);
   transform-origin: center;
   transition:
     opacity var(--transition-fast) ease,
@@ -133,7 +139,7 @@
   .nav.is-open {
     transform: translateY(0);
     height: 100%;
-    background: rgb(from var(--blue-950) r g b / 0.85);
+    background: rgb(from var(--background) r g b / 0.85);
     -webkit-backdrop-filter: blur(var(--blur-glass));
     backdrop-filter: blur(var(--blur-glass));
   }

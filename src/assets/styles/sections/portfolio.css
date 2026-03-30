@@ -26,14 +26,14 @@
   flex: 1;
   overflow: hidden;
   border-radius: var(--border-radius-lg);
-  background: var(--blue-950);
+  background: var(--background);
   cursor: pointer;
   transition: flex var(--transition-normal) cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* Hover effect (léger) */
 .project-item:hover {
-  background: var(--bg-hero);
+  background: var(--background-gradient);
 }
 
 /* Active state (expanded) */
@@ -109,7 +109,7 @@
   gap: calc(var(--space) * 3);
   width: 100%;
   padding: calc(var(--space) * 6);
-  background: linear-gradient(to top, rgb(from var(--blue-950) r g b / 0.9), transparent);
+  background: linear-gradient(to top, rgb(from var(--background) r g b / 0.9), transparent);
   opacity: 0;
   -webkit-backdrop-filter: blur(var(--blur-glass));
   backdrop-filter: blur(var(--blur-glass));
@@ -129,14 +129,14 @@
 .project-title {
   font-size: var(--text-2xl);
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--color);
 }
 
 .project-description {
   margin: 0;
   font-size: var(--text-sm);
   line-height: var(--leading-normal);
-  color: var(--text-secondary);
+  color: var(--color-light);
 }
 
 /* ========================================
@@ -155,14 +155,14 @@
 
 .project-tags li {
   padding: var(--space) calc(var(--space) * 3);
-  border: 1px solid var(--purple-500);
+  border: 1px solid var(--accent);
   border-radius: var(--border-radius-sm);
   font-size: var(--text-sm);
   font-family: var(--font-family-secondary);
   font-weight: 600;
   letter-spacing: 0.03em;
-  color: var(--text-primary);
-  background: rgb(from var(--blue-800) r g b / 0.6);
+  color: var(--color);
+  background: rgb(from var(--background-card) r g b / 0.6);
   opacity: 0;
   transform: translateY(10px);
   transition:

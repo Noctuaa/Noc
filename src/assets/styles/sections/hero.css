@@ -4,9 +4,9 @@
 
 #hero {
   background:
-    radial-gradient(ellipse at 15% 25%, rgb(from var(--purple-500) r g b / 0.13) 0%, transparent 50%),
-    radial-gradient(ellipse at 85% 15%, rgb(from var(--blue-400) r g b / 0.15) 0%, transparent 45%),
-    radial-gradient(ellipse at 60% 65%, rgb(from var(--purple-600) r g b / 0.1) 0%, transparent 55%), var(--bg-hero);
+    radial-gradient(ellipse at 15% 25%, rgb(from var(--accent) r g b / 0.13) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 15%, rgb(from var(--contrast) r g b / 0.15) 0%, transparent 45%),
+    radial-gradient(ellipse at 60% 65%, rgba(117, 74, 161, 0.1) 0%, transparent 55%), var(--background-gradient);
 }
 
 /* ============================================
@@ -60,10 +60,10 @@
   position: absolute;
   font-size: 8px;
   line-height: var(--leading-tight);
-  color: var(--white);
+  color: var(--color);
   text-shadow:
-    0 0 6px var(--blue-400),
-    0 0 12px var(--blue-400);
+    0 0 6px var(--contrast),
+    0 0 12px var(--contrast);
   opacity: 0.6;
   -webkit-animation: twinkle 3s infinite;
   animation: twinkle 3s infinite;
@@ -107,7 +107,7 @@
   left: 0;
   right: 20px;
   width: 40%;
-  background: linear-gradient(to right, transparent, rgb(from var(--blue-500) r g b / 0.7) 50%);
+  background: linear-gradient(to right, transparent, rgb(from var(--contrast) r g b / 0.7) 50%);
 }
 
 .deco-line-top::after {
@@ -116,7 +116,7 @@
   right: -20px;
   top: 0;
   width: 20px;
-  background: rgb(from var(--blue-500) r g b / 0.7);
+  background: rgb(from var(--contrast) r g b / 0.7);
   transform: rotate(45deg);
   transform-origin: left center;
 }
@@ -124,7 +124,7 @@
 .deco-line-bottom {
   top: 49%;
   width: 30%;
-  background: rgb(from var(--blue-500) r g b / 0.8);
+  background: rgb(from var(--contrast) r g b / 0.8);
 }
 
 .hero-deco-left .deco-line-bottom {
@@ -157,7 +157,7 @@
   content: '';
   width: 100%;
   height: 50%;
-  border: 3px solid rgb(from var(--blue-400) r g b / 0.8);
+  border: 3px solid rgb(from var(--contrast) r g b / 0.8);
 }
 
 .square::before {
@@ -180,13 +180,19 @@
   height: 90%;
   background: repeating-linear-gradient(
     to bottom,
-    rgb(from var(--blue-500) r g b / 0.6) 0px,
-    rgb(from var(--blue-750) r g b / 0.4) 4px,
+    rgb(from var(--contrast) r g b / 0.6) 0px,
+    rgb(from var(--background-light) r g b / 0.4) 4px,
     transparent 4px,
     transparent 8px
   );
-  -webkit-mask-image: linear-gradient(to bottom, transparent, var(--white) 10%, var(--white) 50%, transparent);
-  mask-image: linear-gradient(to bottom, transparent, var(--white) 10%, var(--white) 50%, transparent);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(255, 255, 255) 10%,
+    rgb(255, 255, 255) 50%,
+    transparent
+  );
+  mask-image: linear-gradient(to bottom, transparent, rgb(255, 255, 255) 10%, rgb(255, 255, 255) 50%, transparent);
   pointer-events: none;
 }
 
@@ -214,14 +220,14 @@
   background:
     radial-gradient(
       ellipse at 30% 100%,
-      rgb(from var(--purple-500) r g b / 0.5) 0%,
-      rgb(from var(--blue-400) r g b / 0.2) 45%,
+      rgb(from var(--accent) r g b / 0.5) 0%,
+      rgb(from var(--contrast) r g b / 0.2) 45%,
       transparent 70%
     ),
     radial-gradient(
       ellipse at 68% 100%,
-      rgb(from var(--blue-400) r g b / 0.45) 0%,
-      rgb(from var(--purple-400) r g b / 0.2) 45%,
+      rgb(from var(--contrast) r g b / 0.45) 0%,
+      rgb(from var(--glow) r g b / 0.2) 45%,
       transparent 70%
     );
   pointer-events: none;
@@ -245,9 +251,9 @@
   position: relative;
   width: 33px;
   height: 55px;
-  border: 3px solid rgb(from var(--white) r g b / 0.7);
+  border: 3px solid rgb(from var(--color) r g b / 0.7);
   border-radius: 23px;
-  box-shadow: 0 0 5px 2px var(--bg-hero);
+  box-shadow: 0 0 5px 2px var(--background-gradient);
   cursor: pointer;
 }
 
@@ -259,8 +265,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgb(from var(--white) r g b / 1);
-  box-shadow: -1px -1px 2px 2px var(--bg-hero);
+  background: rgb(from var(--color) r g b / 1);
+  box-shadow: -1px -1px 2px 2px var(--background-gradient);
   transform: translateX(-50%);
   -webkit-animation: rev-ani-mouse 2s 1s linear infinite;
   animation: rev-ani-mouse 2s 1s linear infinite;

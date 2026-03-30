@@ -34,7 +34,7 @@ h2 {
 h3,
 h4 {
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--color);
 }
 
 h3 {
@@ -63,7 +63,7 @@ p {
 
 strong {
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--color);
 }
 
 /* ========================================
@@ -71,7 +71,7 @@ strong {
    ======================================== */
 
 .text-accent {
-  color: var(--text-primary);
+  color: var(--color);
 }
 
 /* ========================================
