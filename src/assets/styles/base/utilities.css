@@ -69,9 +69,6 @@
    Consistent stacking order across the application
    ======================================== */
 
-.z-0 {
-  z-index: 0;
-}
 .z-1 {
   z-index: 1; /* Local stacking - Base element */
 }
@@ -84,69 +81,11 @@
 .z-10 {
   z-index: 10; /* Base layer - Cards, sections */
 }
-.z-20 {
-  z-index: 20; /* Overlapping elements - Elevated cards */
-}
-.z-30 {
-  z-index: 30; /* Overlays - Dropdowns, popovers */
-}
-.z-40 {
-  z-index: 40; /* Modals - Dialog boxes */
-}
 .z-50 {
   z-index: 50; /* Tooltips - Always on top */
 }
 .z-100 {
   z-index: 100; /* Critical UI - Notifications, alerts */
-}
-
-/* ========================================
-   TYPOGRAPHY
-   ======================================== */
-
-/* --- Font family --- */
-.ff-hero {
-  font-family: var(--font-family-hero);
-}
-
-/* --- Font size --- */
-.text-sm {
-  font-size: var(--text-sm);
-}
-
-/* --- Font weight --- */
-
-.fw-semibold {
-  font-weight: 600;
-}
-
-/* --- Letter space --- */
-.tracking-wide {
-  letter-spacing: var(--tracking-wide);
-}
-.tracking-wider {
-  letter-spacing: var(--tracking-wider); /*0.08em;*/
-}
-.tracking-widest {
-  letter-spacing: var(--tracking-widest);
-}
-
-/* --- Text transform --- */
-.uppercase {
-  text-transform: uppercase;
-}
-
-/* --- Text align --- */
-.ta-center {
-  text-align: center;
-}
-
-/* --- Colors --- */
-.c-primary {
-  color: var(--text-primary);
-}
-.c-secondary {
-  color: var(--text-secondary);
 }
 
 /* ========================================
@@ -253,41 +192,6 @@
 }
 
 /* ========================================
-   BORDER
-   ======================================== */
-
-.rounded-sm {
-  border-radius: var(--border-radius-sm);
-}
-.rounded-md {
-  border-radius: var(--border-radius-md);
-}
-.rounded-lg {
-  border-radius: var(--border-radius-lg);
-}
-.rounded {
-  border-radius: 50%;
-}
-
-/* ========================================
-   SEPARATOR
-   ======================================== */
-
-.separator-gradient {
-  background: linear-gradient(180deg, transparent, var(--separator-glow), transparent);
-}
-.separator-h {
-  width: 100%;
-  height: 2px;
-}
-.separator-h-normal {
-  background: rgba(255, 255, 255, 0.2);
-}
-.separator-h-gradient {
-  background: linear-gradient(90deg, transparent, var(--separator-glow), transparent);
-}
-
-/* ========================================
    INTERACTION
    ======================================== */
 
@@ -314,9 +218,13 @@
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
   z-index: 10;

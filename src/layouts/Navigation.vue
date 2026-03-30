@@ -86,7 +86,7 @@ onUnmounted(() => {
           >
             <a
               :href="`#${section.id}`"
-              class="nav-link flex p-2 text-sm fw-semibold tracking-wide uppercase c-secondary"
+              class="nav-link flex p-2"
             >
               {{ section.label }}
             </a>

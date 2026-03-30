@@ -44,6 +44,11 @@
 }
 
 .nav-link {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-secondary);
   transition:
     color var(--transition-fast) ease,
     text-shadow var(--transition-fast) ease,

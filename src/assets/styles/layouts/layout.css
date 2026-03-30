@@ -89,6 +89,19 @@ section.bg-alt {
 }
 
 /* ========================================
+   SEPARATOR
+   ======================================== */
+
+.separator-h {
+  width: 100%;
+  height: 2px;
+}
+
+.separator-h-gradient {
+  background: linear-gradient(90deg, transparent, var(--separator-glow), transparent);
+}
+
+/* ========================================
    RESPONSIVE - TABLETTE & MOBILE
    ======================================== */
 
