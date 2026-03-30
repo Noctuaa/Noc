@@ -23,10 +23,12 @@
 }
 
 /* ========================================
-   CARD - Generic
+   CARDS - Shared styles
    ======================================== */
 
-.card {
+.profile-header,
+.profile-chat,
+.profile-info {
   position: relative;
   padding: clamp(calc(var(--space) * 6), 3vw, calc(var(--space) * 8))
     clamp(calc(var(--space) * 3), 2vw, calc(var(--space) * 6));
@@ -390,7 +392,7 @@
     gap: calc(var(--space) * 3);
   }
 
-  .card:hover {
+  .profile-card:hover {
     transform: none;
   }
 

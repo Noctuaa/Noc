@@ -4,11 +4,11 @@
   ======================================== */
 
 /* === FOUNDATIONS === */
-@import './fonts.css'; /* Custom fonts (Codex, Inter) */
-@import './variables.css'; /* Design tokens (colors, space, fonts) */
-@import './base.css'; /* Resets, global styles, animations */
-@import './typography.css'; /* Headings, paragraphs, lists */
-@import './utilities.css'; /* Atomic classes + component utilities */
+@import './base/fonts.css'; /* Custom fonts (Codex, Inter) */
+@import './base/variables.css'; /* Design tokens (colors, space, fonts) */
+@import './base/base.css'; /* Resets, global styles, animations */
+@import './base/typography.css'; /* Headings, paragraphs, lists */
+@import './base/utilities.css'; /* Atomic classes + component utilities */
 
 /* === LAYOUT === */
 @import './layouts/navigation.css'; /* Top navigation bar */
