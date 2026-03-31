@@ -117,7 +117,7 @@
 
 .form-input {
   resize: vertical;
-  caret-color: var(--color-muted-focus);
+  caret-color: var(--contrast);
 }
 
 /* ========================================
@@ -152,7 +152,7 @@
 }
 
 .select-group:has(.form-select:focus)::after {
-  border-color: var(--color-muted-focus);
+  border-color: var(--contrast);
   rotate: 225deg;
 }
 
