@@ -64,7 +64,6 @@
   height: clamp(90px, calc(4rem + 4vw), 115px);
   border-radius: var(--border-radius-lg);
   background: transparent;
-  box-shadow: 4px 4px 12px rgb(0 0 0 / 0.4);
   transition: transform var(--transition-fast) ease;
 }
 
