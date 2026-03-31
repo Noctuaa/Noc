@@ -5,6 +5,7 @@
 .nav {
   height: var(--nav-height-desktop);
   transition:
+    background-color var(--transition-fast) ease,
     transform var(--transition-fast) ease-out,
     height var(--transition-fast) ease-out;
 }

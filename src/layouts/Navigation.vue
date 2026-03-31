@@ -25,9 +25,11 @@ let sectionObserver: IntersectionObserver | null = null;
 
 /** Updates nav hide/show based on scroll direction */
 const updateNavVisibility = (scroll: number, direction: number) => {
-  isScrolled.value = scroll > 100;
   if (direction === 1 && scroll > 100) hideNav.value = true;
-  else if (direction === -1) hideNav.value = false;
+  else if (direction === -1) {
+    isScrolled.value = scroll > 200;
+    hideNav.value = false;
+  }
 };
 
 /** Throttled scroll handler — updates nav visibility at most every 100ms */
@@ -84,10 +86,7 @@ onUnmounted(() => {
             @click="setMenuMobile(false)"
             :class="['nav-item cursor-p', { active: activeSection === section.id }]"
           >
-            <a
-              :href="`#${section.id}`"
-              class="nav-link flex p-2"
-            >
+            <a :href="`#${section.id}`" class="nav-link flex p-2">
               {{ section.label }}
             </a>
           </li>
