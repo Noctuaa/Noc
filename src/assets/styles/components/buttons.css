@@ -17,7 +17,7 @@
   background: var(--gradient-cta);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 2px 1px rgba(102, 126, 234, 0.3);
-  letter-spacing: 1px;
+  letter-spacing: 0.05em;
   border-radius: 25px;
   padding: calc(var(--space) * 3) calc(var(--space) * 8);
   background-image: linear-gradient(135deg, transparent 0%, transparent 50%, var(--contrast) 50%, var(--accent) 100%);
@@ -37,7 +37,7 @@
 .btn-outline {
   font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.05em;
   padding: calc(var(--space) * 3) calc(var(--space) * 6);
   border: 2px solid transparent;
   background-image:

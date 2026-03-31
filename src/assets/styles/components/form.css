@@ -33,7 +33,7 @@
 
 .form-group:has(textarea) {
   padding-bottom: 1rem;
-  box-shadow: inset 0 -2px 0 0 var(--input-border);
+  box-shadow: inset 0 -2px 0 0 var(--color-muted);
 }
 
 .form-group:has(:focus)::before,
@@ -57,8 +57,8 @@
   left: 5px;
   font-size: 0.9rem;
   font-weight: 500;
-  letter-spacing: 0.5px;
-  color: var(--label-color);
+  letter-spacing: 0.03em;
+  color: var(--color-muted);
   pointer-events: none;
   transition:
     top var(--transition-normal) ease,
@@ -76,7 +76,7 @@
 .form-label.is-active {
   top: -15px;
   left: 0px;
-  color: var(--label-active);
+  color: var(--contrast);
   scale: 0.93;
 }
 
@@ -102,7 +102,7 @@
 
 .form-input,
 .form-select {
-  box-shadow: inset 0 -2px 0 0 var(--input-border);
+  box-shadow: inset 0 -2px 0 0 var(--color-muted);
 }
 
 .form-input:focus,
@@ -117,7 +117,7 @@
 
 .form-input {
   resize: vertical;
-  caret-color: var(--input-border-focus);
+  caret-color: var(--color-muted-focus);
 }
 
 /* ========================================
@@ -142,8 +142,8 @@
   top: 12px;
   width: 8px;
   height: 8px;
-  border-right: 2px solid var(--label-color);
-  border-bottom: 2px solid var(--label-color);
+  border-right: 2px solid var(--color-muted);
+  border-bottom: 2px solid var(--color-muted);
   rotate: 45deg;
   pointer-events: none;
   transition:
@@ -152,7 +152,7 @@
 }
 
 .select-group:has(.form-select:focus)::after {
-  border-color: var(--input-border-focus);
+  border-color: var(--color-muted-focus);
   rotate: 225deg;
 }
 

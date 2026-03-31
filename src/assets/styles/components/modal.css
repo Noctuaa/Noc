@@ -40,7 +40,7 @@
 
 .modal-header {
   padding: calc(var(--space) * 5) clamp(calc(var(--space) * 5), 4vw, calc(var(--space) * 8));
-  border-bottom: var(--border-subtle);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .modal-title {
@@ -89,7 +89,7 @@
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.05em;
   color: var(--color);
 }
 
@@ -107,7 +107,7 @@
 .modal-content h4:not(:first-child) {
   margin-top: calc(var(--space) * 6);
   padding-top: calc(var(--space) * 6);
-  border-top: var(--border-subtle);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Body text & list items */

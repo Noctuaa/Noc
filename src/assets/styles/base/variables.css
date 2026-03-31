@@ -31,7 +31,12 @@
   --border-radius-sm: 8px;
   --border-radius-md: 12px;
   --border-radius-lg: 16px;
-  --border-subtle: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* ========================================                              
+     LAYOUT                                                                
+     ======================================== */
+  --nav-height-desktop: 6.25rem; /* 100px */
+  --nav-width-desktop: 36rem; /* 580px */
 
   /* ========================================
      TYPOGRAPHY
@@ -49,9 +54,6 @@
   --text-4xl: 3rem; /* 40px - Hero titles */
   --text-6xl: 6rem; /* 64px - Massive titles */
 
-  /* Letter space */
-  --tracking-wide: 0.05em;
-
   /* Line Heights */
   --leading-tight: 1.25;
   --leading-normal: 1.5;
@@ -66,14 +68,6 @@
      ======================================== */
   --transition-fast: 0.3s;
   --transition-normal: 0.5s;
-
-  /* ========================================
-     FORM INPUTS
-     ======================================== */
-  --input-border: var(--color-muted);
-  --input-border-focus: var(--contrast);
-  --label-color: var(--color-muted);
-  --label-active: var(--contrast);
 
   /* ========================================
      EFFECTS

@@ -13,7 +13,7 @@ h1 {
   overflow: hidden;
   font-family: var(--font-family-hero);
   text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
+  letter-spacing: 0.05em;
   font-size: clamp(var(--text-4xl), 8vw, var(--text-6xl)); /* 40px → 8vw → 64px */
   font-weight: 500;
 }

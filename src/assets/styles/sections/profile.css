@@ -1,15 +1,4 @@
 /* ========================================
-   SECTION #PROFILE - Local variables
-   ======================================== */
-
-:root {
-  --profile-ring-radius: 119px;
-  --profile-video-size: 230px;
-  --profile-video-border: 18px;
-  --profile-bento-gap: 18px;
-}
-
-/* ========================================
    SECTION #PROFILE
    ======================================== */
 
@@ -17,7 +6,7 @@
   position: relative;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  gap: var(--profile-bento-gap);
+  gap: 18px;
   max-width: 1200px;
   margin-inline: auto;
 }
@@ -155,9 +144,9 @@
 }
 
 .profile-video-container {
-  width: var(--profile-video-size);
-  height: var(--profile-video-size);
-  border: var(--profile-video-border) solid var(--background);
+  width: 230px;
+  height: 230px;
+  border: 18px solid var(--background);
   border-radius: 50%;
 }
 
@@ -184,7 +173,7 @@
   fill: rgb(255 255 255 / 0.35);
   font-family: var(--font-family-secondary);
   font-size: 12px;
-  letter-spacing: 3px;
+  letter-spacing: 0.2em;
 }
 
 /* ========================================
@@ -306,7 +295,7 @@
 .info-label {
   margin: 0 0 var(--space) 0;
   font-size: 0.75rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-light);
 }
