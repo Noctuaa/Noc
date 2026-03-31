@@ -161,15 +161,16 @@
   transform-box: fill-box;
   transform-origin: center;
   pointer-events: none;
-  -webkit-animation: ring-rotate 20s linear infinite;
-  animation: ring-rotate 20s linear infinite;
+  -webkit-animation: ring-rotate 30s linear infinite;
+  animation: ring-rotate 30s linear infinite;
 }
 
 .ring-text {
-  fill: rgb(255 255 255 / 0.35);
+  fill: url(#ring-gradient);
   font-family: var(--font-family-secondary);
   font-size: 12px;
   letter-spacing: 0.2em;
+  filter: drop-shadow(0 0 1px rgb(97, 125, 250));
 }
 
 /* ========================================

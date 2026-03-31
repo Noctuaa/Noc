@@ -78,7 +78,7 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
           </span>.
         </p>
       </div>
-      <div class="profile-content relative grid js-center gap-5">
+      <div class="profile-content relative grid gap-5 mi-auto">
         <!-- Card: header (full width) -->
         <div class="profile-header flex" data-animate>
           <div class="profile-identity flex fd-column jc-center gap-2">
@@ -102,6 +102,10 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
           <svg class="profile-ring absolute" viewBox="0 0 266 266" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <path id="ring-path" d="M 133,133 m -119,0 a 119,119 0 1,1 238,0 a 119,119 0 1,1 -238,0"></path>
+              <linearGradient id="ring-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="rgb(97, 166, 250)"></stop>
+                <stop offset="100%" stop-color="rgb(139, 92, 246)"></stop>
+              </linearGradient>
             </defs>
             <text class="ring-text">
               <textPath href="#ring-path">
