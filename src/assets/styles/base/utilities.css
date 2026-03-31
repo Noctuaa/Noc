@@ -30,9 +30,6 @@
    FLEXBOX & ALIGNMENT
    ======================================== */
 
-.fl-wrap {
-  flex-wrap: wrap;
-}
 .fd-column {
   flex-direction: column;
 }
@@ -48,9 +45,6 @@
 .jc-between {
   justify-content: space-between;
 }
-.jc-around {
-  justify-content: space-around;
-}
 .js-center {
   justify-self: center;
 }
@@ -60,8 +54,8 @@
 .pi-center {
   place-items: center;
 }
-.ps-center {
-  place-self: center;
+.shrink-0 {
+  flex-shrink: 0;
 }
 
 /* ========================================
@@ -115,9 +109,6 @@
    SPACING - MARGIN
    ======================================== */
 
-.m-auto {
-  margin: 0 auto;
-}
 .mi-auto {
   margin-inline: auto;
 }
@@ -132,46 +123,13 @@
 .mb-6 {
   margin-bottom: calc(var(--space) * 6);
 }
-.mt-4 {
-  margin-top: calc(var(--space) * 4);
-}
-.mt-5 {
-  margin-top: calc(var(--space) * 5);
-}
-.mt-16 {
-  margin-top: calc(var(--space) * 16);
-}
-.mx-5 {
-  margin-inline: calc(var(--space) * 5);
-}
 
 /* ========================================
    SPACING - PADDING
    ======================================== */
 
-.p-0 {
-  padding: 0;
-}
 .p-2 {
   padding: calc(var(--space) * 2);
-}
-.p-4 {
-  padding: calc(var(--space) * 4);
-}
-.p-8 {
-  padding: calc(var(--space) * 8);
-}
-.px-2 {
-  padding-inline: calc(var(--space) * 2);
-}
-.px-4 {
-  padding-inline: calc(var(--space) * 4);
-}
-.py-2 {
-  padding-block: calc(var(--space) * 2);
-}
-.py-3 {
-  padding-block: calc(var(--space) * 3);
 }
 .py-4 {
   padding-block: calc(var(--space) * 4);

@@ -3,12 +3,9 @@
    ======================================== */
 
 .profile-content {
-  position: relative;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  gap: 18px;
   max-width: 1200px;
-  margin-inline: auto;
 }
 
 /* ========================================
@@ -137,7 +134,6 @@
    ======================================== */
 
 .profile-avatar {
-  position: absolute;
   top: 185px;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -209,9 +205,6 @@
    ======================================== */
 
 .icon-header {
-  position: relative;
-  display: grid;
-  place-items: center;
   height: 42px;
   width: 42px;
   border-radius: 50%;
@@ -273,12 +266,7 @@
   mask-image: radial-gradient(circle 115px at -9px -18px, transparent 115px, black 115px);
 }
 
-.profile-info .icon-header {
-  justify-self: end;
-}
-
-.info-icon-wrapper {
-  flex-shrink: 0;
+.info-icon {
   width: 40px;
   height: 40px;
   border: 1px solid rgb(from var(--contrast) r g b / 0.2);
@@ -286,18 +274,22 @@
   background: rgb(from var(--contrast) r g b / 0.1);
 }
 
-.info-icon-wrapper svg {
+.info-icon svg {
   width: 18px;
   height: 18px;
   fill: var(--contrast);
 }
 
+.info-label,
+.info-sub {
+  color: var(--color-light);
+}
+
 .info-label {
-  margin: 0 0 var(--space) 0;
+  margin-bottom: var(--space);
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-light);
 }
 
 .info-value {
@@ -308,9 +300,8 @@
 }
 
 .info-sub {
-  margin: var(--space) 0 0 0;
+  margin-top: var(--space);
   font-size: 0.8rem;
-  color: var(--color-light);
 }
 
 /* ========================================

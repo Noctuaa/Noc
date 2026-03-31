@@ -48,6 +48,7 @@ section.bg-alt {
 .section-description {
   width: 100%;
   max-width: 65ch;
+  margin-block: clamp(calc(var(--space) * 2), 2vw, calc(var(--space) * 4));
   font-size: var(--text-base);
   text-wrap: balance;
   color: var(--color-muted);
