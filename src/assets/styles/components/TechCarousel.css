@@ -5,7 +5,6 @@
 .scroller {
   -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
   mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-  padding-block: calc(var(--space) * 4);
   max-width: 1400px;
 }
 
