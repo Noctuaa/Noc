@@ -126,8 +126,6 @@
    ============================================ */
 
 @media (max-width: 992px) {
-  /* --- Mobile Navigation Layout --- */
-
   /* --- Mobile States Override --- */
 
   /* Override glassmorphism when menu is closed */
@@ -148,6 +146,10 @@
   }
 
   /* --- Mobile Navigation List --- */
+
+  .nav-inner {
+    justify-content: center;
+  }
 
   .nav .nav-list {
     flex-direction: column;
@@ -186,6 +188,12 @@
   .nav.is-open .nav-item:nth-child(5) {
     -webkit-animation-delay: 0.4s;
     animation-delay: 0.4s;
+  }
+
+  /* --- Mobile Logo --- */
+
+  .nav-logo {
+    display: none;
   }
 
   /* --- Mobile Hamburger --- */
