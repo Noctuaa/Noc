@@ -26,7 +26,7 @@ let sectionObserver: IntersectionObserver | null = null;
 /** Updates nav hide/show based on scroll direction */
 const updateNavVisibility = (scroll: number, direction: number) => {
   if (direction === 1 && scroll > 100) hideNav.value = true;
-  else if (direction === -1) {
+  else {
     isScrolled.value = scroll > 200;
     hideNav.value = false;
   }
