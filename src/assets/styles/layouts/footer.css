@@ -16,6 +16,14 @@
    BRAND
    =================================== */
 
+.footer-brand {
+  place-items: center;
+}
+
+.footer-logo {
+  opacity: 0.7;
+}
+
 .brand-name {
   font-size: var(--text-xl);
   font-weight: 700;
@@ -57,10 +65,6 @@
    ======================================== */
 
 @media (max-width: 576px) {
-  .footer-brand {
-    place-items: center;
-  }
-
   .footer-bottom {
     flex-direction: column;
     align-items: center;
