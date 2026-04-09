@@ -10,8 +10,20 @@
     height var(--transition-fast) ease-out;
 }
 
-.nav-inner {
-  justify-content: center;
+/* ============================================
+   NAVIGATION LOGO
+   ============================================ */
+
+.nav-logo {
+  flex-shrink: 0;
+  transition:
+    opacity var(--transition-fast) ease,
+    transform var(--transition-fast) ease;
+}
+
+.nav-logo:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
 }
 
 /* ============================================
@@ -193,12 +205,6 @@
 
   .nav.is-open .nav-burger span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
-  }
-
-  /* --- Mobile Elements Hide --- */
-
-  .logo-placeholder {
-    display: none;
   }
 }
 

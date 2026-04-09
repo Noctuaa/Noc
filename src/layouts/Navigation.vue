@@ -78,7 +78,9 @@ onUnmounted(() => {
 <template>
   <nav :class="['nav', { 'is-open': isMenuOpen, hidden: hideNav, scrolled: isScrolled }, 'fixed z-100 w-full']">
     <div class="container h-full">
-      <div class="nav-inner flex ai-center w-full h-full">
+      <div class="nav-inner flex ai-center jc-between w-full h-full">
+        <img src="/logo.svg" alt="Nocdev logo" class="nav-logo" width="70" height="70" />
+
         <ul class="nav-list flex ai-center gap-5">
           <li
             v-for="section in sections"
