@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import LoadingScreen from '../components/LoadingScreen.astro';
 import TechCarousel from '../components/TechCarousel.astro';
 import ProjectAccordion from '../components/ProjectAccordion.astro';
 import ContactForm from '../components/ContactForm.vue';
@@ -12,6 +13,7 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
 ---
 
 <Layout>
+  <LoadingScreen />
   <!-- ============ HERO ============ -->
   <section id="hero" class="section relative z-10 grid pi-center h-full ow-hidden">
     <div class="stars absolute z-1 w-full pe-none"></div>

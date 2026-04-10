@@ -1,0 +1,23 @@
+<div id="loading-screen" class="fixed">
+  <img src="/logo.svg" alt="Nocdev logo" class="loading-logo" width="150px" height="150px" />
+  <div class="loader"></div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      const loader = document.getElementById('loading-screen');
+      /*if (loader) {
+        loader.classList.add('hide');
+        document.documentElement.style.overflow = '';
+        setTimeout(() => {
+          loader.remove();
+        }, 800);
+      }*/
+    }, 800);
+  });
+</script>
+
+<style>
+  @import '../assets/styles/components/LoadingScreen.css';
+</style>
