@@ -1,12 +1,7 @@
 #loading-screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   height: 100svh;
   inset: 0;
   background: var(--background);
-  gap: 1rem;
   z-index: 9999;
 }
 
