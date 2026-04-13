@@ -1,3 +1,8 @@
+/* ========================================
+     LOADING SCREEN                            
+     Full-screen overlay displayed on page load 
+     ======================================== */
+
 #loading-screen {
   height: 100svh;
   inset: 0;
@@ -5,13 +10,22 @@
   z-index: 9999;
 }
 
+/* ========================================             
+     LOGO
+     ======================================== */
+
 .loading-logo {
   width: clamp(150px, 40vw, 250px);
   height: auto;
 }
 
+/* ========================================
+     SPINNER
+     Neon gradient rotating ring
+     ======================================== */
+
 .loader {
-  width: 60px;
+  width: clamp(40px, 8vw, 60px);
   --b: 9px;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -27,18 +41,35 @@
   -webkit-animation: l5 2s infinite;
   animation: l5 2s infinite;
 }
+
 @-webkit-keyframes l5 {
   to {
     transform: rotate(360deg);
   }
 }
+
 @keyframes l5 {
   to {
     transform: rotate(360deg);
   }
 }
 
+/* ========================================
+     ANIMATION — HIDE
+     Curtain slides up on DOMContentLoaded
+     ======================================== */
+
 #loading-screen.hide {
   transform: translateY(-100%);
   transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* ======================================== 
+     RESPONSIVE                                           
+     ======================================== */
+
+@media (max-width: 768px) {
+  .loader {
+    --b: 7px;
+  }
 }
