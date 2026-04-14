@@ -3,130 +3,37 @@
    ======================================== */
 
 .profile-content {
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: 500px 520px;
+  place-content: center;
   max-width: 1200px;
 }
 
 /* ========================================
-   CARDS - Shared styles
+   IDENTITY - Left column
    ======================================== */
 
-.profile-header,
-.profile-chat,
-.profile-info {
+.profile-identity {
   position: relative;
-  padding: clamp(calc(var(--space) * 6), 3vw, calc(var(--space) * 8))
-    clamp(calc(var(--space) * 3), 2vw, calc(var(--space) * 6));
-  border-radius: var(--border-radius-md);
-  background: var(--background-card);
+  border-radius: var(--border-radius-lg);
+  padding: 150px 2rem 2.5rem;
+  margin-top: 115px;
+  text-align: center;
 }
 
-/* ========================================
-   NOTCHES - Corner pseudo-elements
-   ======================================== */
-
-.profile-header::before,
-.profile-header::after,
-.profile-chat::before,
-.profile-chat::after,
-.profile-info::before,
-.profile-info::after {
-  content: '';
-  position: absolute;
-  z-index: 2;
-  width: 20px;
-  height: 20px;
-  background: transparent;
+.profile-identity.neon-mask::before {
+  background: var(--gradient-neon);
 }
 
-/* Header - bottom corners */
-.profile-header::before {
-  bottom: -1px;
-  left: calc(50% - 135px);
-  border-bottom-right-radius: var(--border-radius-md);
-  box-shadow: 6px 6px var(--background);
-}
-
-.profile-header::after {
-  bottom: -1px;
-  right: calc(50% - 132px);
-  border-bottom-left-radius: var(--border-radius-md);
-  box-shadow: -6px 6px var(--background);
-}
-
-/* Chat - top corners */
-.profile-chat::before,
-.profile-chat::after {
-  border-top-right-radius: var(--border-radius-md);
-  box-shadow: 6px -6px var(--background);
-}
-
-.profile-chat::before {
-  top: -1px;
-  right: 102px;
-}
-
-.profile-chat::after {
-  top: 95px;
-  right: 0;
-}
-
-/* Info - top corners */
-.profile-info::before,
-.profile-info::after {
-  border-top-left-radius: var(--border-radius-md);
-  box-shadow: -6px -6px var(--background);
-}
-
-.profile-info::before {
-  top: 0;
-  left: 102px;
-}
-
-.profile-info::after {
-  top: 95px;
-  left: 0;
-}
-
-/* ========================================
-   CARD 1 - HEADER (full width)
-   ======================================== */
-
-.profile-header {
-  grid-area: 1 / 1 / 2 / 3;
-  justify-content: space-between;
-  align-self: flex-end;
-  height: 185px;
-  padding: clamp(calc(var(--space) * 4), 2vw, calc(var(--space) * 6));
-  border: 1px solid rgb(from var(--glow) r g b / 0.2);
-  border-left: 3px solid rgb(from var(--contrast) r g b / 0.6);
-  background:
-    radial-gradient(
-      ellipse 40% 150% at 50% 100%,
-      rgb(from var(--contrast) r g b / 0.35),
-      rgb(from var(--glow) r g b / 0.18),
-      transparent 70%
-    ),
-    rgba(55, 63, 119, 0.85);
-  -webkit-mask-image: radial-gradient(circle 115px at 50% 100%, transparent 115px, black 115px);
-  mask-image: radial-gradient(circle 115px at 50% 100%, transparent 115px, black 115px);
-}
-
-.profile-header .icon-header {
-  background: var(--contrast);
-}
-
-.profile-role {
-  font-size: clamp(1.4rem, 3vw, 1.8rem);
+.profile-name {
+  font-size: var(--text-xl);
   font-weight: 700;
+  color: var(--color);
 }
 
-.profile-tagline {
-  max-width: 38ch;
-  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
-  font-style: italic;
-  color: rgb(from var(--color-light) r g b / 0.85);
+.profile-title {
+  font-size: var(--text-base);
+  color: var(--contrast);
+  font-weight: 500;
 }
 
 /* ========================================
@@ -134,9 +41,13 @@
    ======================================== */
 
 .profile-avatar {
-  top: 185px;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  top: -115px;
 }
 
 .profile-video-container {
@@ -174,53 +85,22 @@
 }
 
 /* ========================================
-   CARDS SHARED - Chat & Info
+    SHARED - Chat & Info
    ======================================== */
 
 .profile-chat,
 .profile-info {
-  padding-top: clamp(calc(var(--space) * 6), 3vw, calc(var(--space) * 8));
-  padding-bottom: clamp(calc(var(--space) * 8), 4vw, calc(var(--space) * 12));
+  padding-block: clamp(calc(var(--space) * 6), 4vw, calc(var(--space) * 8));
 }
 
 /* ========================================
-   CARD 2 - CHAT (bottom left)
+    CHAT 
    ======================================== */
 
 .profile-chat {
-  grid-area: 2 / 1 / 3 / 2;
-  background:
-    radial-gradient(
-      ellipse 50% 50% at 100% 0%,
-      rgb(from var(--contrast) r g b / 0.2),
-      rgb(from var(--glow) r g b / 0.18),
-      transparent
-    ),
-    var(--background-card);
-  -webkit-mask-image: radial-gradient(circle 115px at calc(100% + 9px) -18px, transparent 115px, black 115px);
-  mask-image: radial-gradient(circle 115px at calc(100% + 9px) -18px, transparent 115px, black 115px);
+  grid-area: 1 / 2 / 2 / 3;
+  margin-top: 115px;
 }
-
-/* ========================================
-   ICONS
-   ======================================== */
-
-.icon-header {
-  height: 42px;
-  width: 42px;
-  border-radius: 50%;
-  background: var(--gradient-cta);
-}
-
-.icon-header svg {
-  z-index: 2;
-  width: 20px;
-  fill: white;
-}
-
-/* ========================================
-   CHAT BUBBLES
-   ======================================== */
 
 .chat-bubble {
   max-width: 85%;
@@ -228,62 +108,54 @@
   width: -moz-fit-content;
   width: fit-content;
   padding: calc(var(--space) * 4) calc(var(--space) * 5);
-  border: 1px solid rgb(from var(--contrast) r g b / 0.2);
   border-radius: 22px 22px 22px 4px;
   font-size: var(--text-base);
+  text-wrap: pretty;
   line-height: 1.6;
   color: var(--color);
-  background: rgb(from var(--contrast) r g b / 0.1);
+  background: rgb(from var(--glow) r g b / 0.08);
+  border: 1px solid rgb(from var(--glow) r g b / 0.25);
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.3),
     0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
-.chat-bubble:first-child {
-  border-color: rgb(from var(--glow) r g b / 0.3);
-  font-weight: 600;
-  background: rgb(from var(--glow) r g b / 0.15);
-}
-
-.chat-bubble p {
-  margin: 0;
-}
-
 /* ========================================
-   CARD 3 - INFO (bottom right)
+    INFO
    ======================================== */
 
 .profile-info {
-  grid-area: 2 / 2 / 3 / 3;
-  background:
-    radial-gradient(
-      ellipse 50% 50% at 0% 0%,
-      rgb(from var(--contrast) r g b / 0.2),
-      rgb(from var(--glow) r g b / 0.18),
-      transparent
-    ),
-    var(--background-card);
-  -webkit-mask-image: radial-gradient(circle 115px at -9px -18px, transparent 115px, black 115px);
-  mask-image: radial-gradient(circle 115px at -9px -18px, transparent 115px, black 115px);
+  text-align: left;
 }
 
 .info-icon {
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgb(from var(--contrast) r g b / 0.2);
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: var(--border-radius-sm);
   background: rgb(from var(--contrast) r g b / 0.1);
 }
 
 .info-icon svg {
-  width: 18px;
-  height: 18px;
+  width: 1em;
+  height: 1em;
   fill: var(--contrast);
 }
 
 .info-label,
 .info-sub {
   color: var(--color-light);
+}
+
+.info-icon:hover {
+  background: var(--gradient-neon);
+  border-color: rgb(from var(--contrast) r g b / 0.4);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.info-icon:hover svg {
+  fill: var(--color);
 }
 
 .info-label {
@@ -370,79 +242,12 @@
 @media (max-width: 991px) {
   .profile-content {
     grid-template-columns: 1fr;
-    gap: calc(var(--space) * 3);
-  }
-
-  .profile-card:hover {
-    transform: none;
-  }
-
-  .profile-header,
-  .profile-chat,
-  .profile-info {
-    -webkit-mask: none;
-    mask: none;
-  }
-
-  .profile-header {
-    grid-area: 1 / 1 / 2 / 2;
-    flex-direction: row;
-    justify-content: flex-start;
     gap: calc(var(--space) * 4);
-    padding-inline: clamp(calc(var(--space) * 3), 2vw, calc(var(--space) * 6));
   }
 
-  .profile-header::before,
-  .profile-header::after,
-  .profile-chat::before,
-  .profile-chat::after,
-  .profile-info::before,
-  .profile-info::after {
-    display: none;
-  }
-
-  .profile-header .icon-header {
-    margin-top: 2px;
-    order: -1;
-    flex-shrink: 0;
-  }
-
-  .profile-avatar {
-    display: none;
-  }
-
-  .profile-chat {
-    grid-area: 2 / 1 / 3 / 2;
-  }
-
-  .profile-info {
-    grid-area: 3 / 1 / 4 / 2;
-  }
-
-  .profile-info .icon-header {
-    justify-self: start;
-  }
-}
-
-/* ========================================
-   RESPONSIVE - MOBILE (≤768px)
-   ======================================== */
-
-@media (max-width: 768px) {
-  .profile-content {
-    gap: calc(var(--space) * 2);
-  }
-
-  .profile-header {
-    flex-direction: column;
-    align-items: center;
-    gap: calc(var(--space) * 3);
-    text-align: center;
-  }
-
-  .icon-header,
-  .profile-info .icon-header {
-    justify-self: center;
+  .profile-identity {
+    max-width: 400px;
+    margin-inline: auto;
   }
 }
 
