@@ -3,37 +3,18 @@
    ======================================== */
 
 .profile-content {
-  grid-template-columns: 500px 520px;
+  grid-template-columns: max-content minmax(420px, 520px);
+  gap: calc(var(--space) * 16);
   place-content: center;
+  align-content: center;
   max-width: 1200px;
 }
 
-/* ========================================
-   IDENTITY - Left column
-   ======================================== */
-
-.profile-identity {
-  position: relative;
-  border-radius: var(--border-radius-lg);
-  padding: 150px 2rem 2.5rem;
-  margin-top: 115px;
-  text-align: center;
-}
-
-.profile-identity.neon-mask::before {
-  background: var(--gradient-neon);
-}
-
-.profile-name {
-  font-size: var(--text-xl);
-  font-weight: 700;
-  color: var(--color);
-}
-
-.profile-title {
-  font-size: var(--text-base);
-  color: var(--contrast);
-  font-weight: 500;
+.profile-chats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: calc(var(--space) * 4);
 }
 
 /* ========================================
@@ -41,69 +22,48 @@
    ======================================== */
 
 .profile-avatar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  margin-top: 16px;
+  width: clamp(180px, 30vw, 250px);
+  height: clamp(170px, 29vw, 240px);
+  justify-self: center;
+  align-self: center;
+}
+
+.profile-avatar::before {
+  content: '';
   position: absolute;
-  width: 230px;
-  height: 230px;
-  top: -115px;
-}
-
-.profile-video-container {
-  width: 230px;
-  height: 230px;
-  border: 18px solid var(--background);
-  border-radius: 50%;
-}
-
-.profile-video-container video {
+  top: -16px;
+  left: -16px;
   width: 100%;
   height: 100%;
+  border-radius: calc(var(--border-radius-md) + 16px);
+  background: var(--gradient-neon);
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.profile-avatar video,
+.profile-avatar img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 103%;
+  height: 100%;
+  border-radius: var(--border-radius-md);
   -o-object-fit: cover;
   object-fit: cover;
 }
 
-/* Binary ring */
-.profile-ring {
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  transform-box: fill-box;
-  transform-origin: center;
-  pointer-events: none;
-  -webkit-animation: ring-rotate 30s linear infinite;
-  animation: ring-rotate 30s linear infinite;
-}
-
-.ring-text {
-  fill: url(#ring-gradient);
-  font-family: var(--font-family-secondary);
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  filter: drop-shadow(0 0 1px rgb(97, 125, 250));
+.profile-avatar img {
+  display: none;
 }
 
 /* ========================================
-    SHARED - Chat & Info
+   CHAT
    ======================================== */
-
-.profile-chat,
-.profile-info {
-  padding-block: clamp(calc(var(--space) * 6), 4vw, calc(var(--space) * 8));
-}
-
-/* ========================================
-    CHAT 
-   ======================================== */
-
-.profile-chat {
-  grid-area: 1 / 2 / 2 / 3;
-  margin-top: 115px;
-}
 
 .chat-bubble {
-  max-width: 85%;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -121,12 +81,8 @@
 }
 
 /* ========================================
-    INFO
+   INFO
    ======================================== */
-
-.profile-info {
-  text-align: left;
-}
 
 .info-icon {
   width: 2.5rem;
@@ -146,7 +102,7 @@
   color: var(--color-light);
 }
 
-.info-icon:hover {
+.info-item:hover .info-icon {
   background: var(--gradient-neon);
   border-color: rgb(from var(--contrast) r g b / 0.4);
   box-shadow:
@@ -154,7 +110,7 @@
     0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
-.info-icon:hover svg {
+.info-item:hover svg {
   fill: var(--color);
 }
 
@@ -217,37 +173,28 @@
   }
 }
 
-@-webkit-keyframes ring-rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes ring-rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* ========================================
-   RESPONSIVE - TABLET (≤991px)
+   RESPONSIVE - TABLET (≤768px)
    ======================================== */
 
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .profile-content {
     grid-template-columns: 1fr;
-    gap: calc(var(--space) * 4);
+    gap: calc(var(--space) * 12);
   }
 
   .profile-identity {
-    max-width: 400px;
-    margin-inline: auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-avatar {
+    flex-shrink: 0;
+  }
+
+  .profile-info {
+    align-content: center;
   }
 }
 
@@ -256,6 +203,20 @@
    ======================================== */
 
 @media (max-width: 576px) {
+  .profile-content,
+  .profile-identity {
+    gap: calc(var(--space) * 12);
+  }
+
+  .profile-identity {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-avatar img {
+    display: block;
+  }
+
   .chat-bubble {
     max-width: 100%;
     font-size: 0.9rem;
