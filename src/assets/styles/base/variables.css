@@ -24,6 +24,7 @@
      ======================================== */
   --gradient-cta: linear-gradient(135deg, var(--glow), rgb(117, 74, 161));
   --gradient-neon: linear-gradient(90deg, var(--contrast), var(--accent));
+  --gradient-section: linear-gradient(90deg, transparent, rgb(from var(--accent) r g b / 0.2));
 
   /* ========================================
      BORDERS

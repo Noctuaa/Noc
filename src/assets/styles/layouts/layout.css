@@ -22,7 +22,7 @@ section {
 }
 
 section.bg-surface {
-  background: var(--background-light);
+  background: var(--gradient-section);
 }
 
 section.bg-alt {
