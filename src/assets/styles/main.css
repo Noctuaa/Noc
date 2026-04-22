@@ -15,11 +15,8 @@
 @import './layouts/layout.css'; /* Container, sections, curtain scroll */
 @import './layouts/footer.css'; /* Footer */
 
-/* === SECTIONS === */
-@import './sections/hero.css'; /* Hero section */
-@import './sections/profile.css'; /* Profile section */
-@import './sections/portfolio.css'; /* Portfolio section */
-@import './sections/contact.css'; /* Contact section */
+/* === PAGES === */
+@import './pages/index.css'; /* Home page */
 
 /* === COMPONENTS === */
 @import './components/buttons.css'; /* Buttons & mini buttons */
