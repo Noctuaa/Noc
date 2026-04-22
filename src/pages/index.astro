@@ -69,12 +69,12 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
 
       <div class="profile-content relative grid mi-auto">
         <div class="profile-identity flex fd-column ai-center gap-6">
-          <div class="profile-avatar z-50">
+          <div class="profile-avatar z-50" data-animate>
             <video autoplay muted loop></video>
             <Image src={avatarImg} alt="Avatar Nocdev" class="profile-avatar-img" loading="lazy" />
           </div>
 
-          <div class="profile-info grid gap-6" data-animate>
+          <div class="profile-info grid gap-6">
             <!-- Location -->
             <div class="info-item flex ai-center gap-4" data-animate>
               <div class="info-icon grid pi-center">
@@ -127,8 +127,8 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
           </div>
         </div>
 
-        <div class="profile-chats flex fd-column jc-center gap-4">
-          <div class="chat-bubble">
+        <div class="flex fd-column jc-center gap-4">
+          <div class="chat-bubble" data-animate>
             <p>Hello ! Bienvenue sur Nocdev. 🦉</p>
           </div>
           <div class="chat-bubble" data-animate>

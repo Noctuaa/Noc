@@ -12,6 +12,7 @@
         document.documentElement.style.overflow = '';
         setTimeout(() => {
           loader.remove();
+          document.dispatchEvent(new Event('loader:done'));
         }, 800);
       }
     }, 800);

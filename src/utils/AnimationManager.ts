@@ -8,10 +8,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Max width for tablet/mobile
-const TABLET_BREAKPOINT = 991;
-
-
 /* ============================================
    UTILS - Reusable internal functions
    ============================================ */
@@ -69,59 +65,32 @@ const initHeroAnimations = () => {
  * Initialize profile section scroll animations
   * Chat bubbles and info items fade in with stagger on scroll
  */
-const initProfileAnimations = (isTabletOrMobile: boolean) => {
+const initProfileAnimations = () => {
   animateSectionHeader('#profile');
 
-  gsap.fromTo('.profile-header',
-    { y: 60 },
+  gsap.fromTo('.profile-avatar',
+    { scale: 0.8 },
     {
-      autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out',
-      scrollTrigger: { trigger: '.profile-header', start: 'top 80%', once: true }
-    }
-  );
-
-  gsap.fromTo('.profile-chat',
-    { x: -100 },
-    {
-      autoAlpha: 1, x: 0, duration: 0.6, ease: 'power3.out',
-      scrollTrigger: { trigger: '.profile-chat', start: 'top 80%', once: true }
-    }
-  );
-
-  gsap.fromTo('.chat-bubble',
-    { x: -100 },
-    {
-      autoAlpha: 1, x: 0, duration: 0.6, ease: 'back.out(1.4)', stagger: 0.3, delay: .4,
-      scrollTrigger: { trigger: '.profile-chat', start: 'top 80%', once: true }
-    }
-  );
-
-  gsap.fromTo('.profile-info',
-    { x: 100 },
-    {
-      autoAlpha: 1, x: 0, duration: 0.6, ease: 'power3.out',
-      scrollTrigger: { trigger: '.profile-info', start: 'top 80%', once: true }
+      autoAlpha: 1, scale: 1, duration: 0.3, ease: 'back.out(1.7)',
+      scrollTrigger: { trigger: '.profile-avatar', start: 'top 80%', once: true }
     }
   );
 
   gsap.fromTo('.profile-info .info-item',
     { y: 20 },
     {
-      autoAlpha: 1, y: 0, duration: 0.6, ease: 'back.out(1.4)', stagger: 0.3, delay: .4,
+      autoAlpha: 1, y: 0, duration: 0.3, ease: 'back.out(1.4)', stagger: 0.3, delay: .3,
       scrollTrigger: { trigger: '.profile-info', start: 'top 80%', once: true }
     }
   );
 
-  // Avatar desktop only
-  if (!isTabletOrMobile) {
-    gsap.fromTo('.profile-avatar',
-      { scale: 0.8 },
-      {
-        autoAlpha: 1, scale: 1, duration: 0.8, ease: 'back.out(1.7)', delay: 0.4,
-        scrollTrigger: { trigger: '.profile-chat', start: 'top 80%', once: true }
-      }
-    );
-  }
+  gsap.fromTo('.chat-bubble',
+    { x: -100 },
+    {
+      autoAlpha: 1, x: 0, duration: 0.3, ease: 'back.out(1.4)', stagger: 0.3, delay: .3,
+      scrollTrigger: { trigger: '.chat-bubble', start: 'top 80%', once: true }
+    }
+  );
 }
 
 /**
@@ -177,10 +146,8 @@ const initContactAnimations = () => {
  * Called once on page load to set up all scroll triggers and entrance animations
  */
 export const initAnimations = () => {
-  const isTabletOrMobile = window.matchMedia(`(max-width: ${TABLET_BREAKPOINT}px)`).matches;
-
   initHeroAnimations();
-  initProfileAnimations(isTabletOrMobile);
+  initProfileAnimations();
   initCompetencesAnimations();
   initProjectAnimations();
   initContactAnimations();

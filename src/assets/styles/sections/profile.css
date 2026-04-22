@@ -10,13 +10,6 @@
   max-width: 1200px;
 }
 
-.profile-chats {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: calc(var(--space) * 4);
-}
-
 /* ========================================
    AVATAR
    ======================================== */
