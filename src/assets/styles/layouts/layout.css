@@ -21,12 +21,12 @@ section {
   padding: clamp(4rem, 8vw, 7rem) 0;
 }
 
-section.bg-surface {
-  background: var(--gradient-section);
+section:nth-child(even) {
+  background: var(--background);
 }
 
-section.bg-alt {
-  background: var(--background);
+section:nth-child(odd) {
+  background: var(--gradient-section);
 }
 
 /* ========================================
