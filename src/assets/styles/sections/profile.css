@@ -3,6 +3,7 @@
    ======================================== */
 
 .profile-content {
+  grid-template-columns: -webkit-max-content minmax(420px, 520px);
   grid-template-columns: max-content minmax(420px, 520px);
   gap: calc(var(--space) * 16);
   place-content: center;
