@@ -11,7 +11,7 @@ const sections = [
   { id: 'contact', label: 'Contact' },
 ];
 
-const activeSection = ref('');
+const activeSection = ref('hero');
 const isMenuOpen = ref(false);
 const hideNav = ref(false);
 const isScrolled = ref(false);
@@ -20,8 +20,6 @@ type ScrollEvent = {
   scroll: number;
   direction: number;
 };
-
-let sectionObserver: IntersectionObserver | null = null;
 
 /** Updates nav hide/show based on scroll direction */
 const updateNavVisibility = (scroll: number, direction: number) => {
@@ -32,9 +30,22 @@ const updateNavVisibility = (scroll: number, direction: number) => {
   }
 };
 
+/** Updates active nav link based on current scroll position */
+const updateActiveSection = (scroll: number) => {
+  const offset = scroll + window.innerHeight * 0.4;
+  for (let i = sections.length - 1; i >= 0; i--) {
+    const el = document.getElementById(sections[i].id);
+    if (el && el.offsetTop <= offset) {
+      activeSection.value = sections[i].id;
+      break;
+    }
+  }
+};
+
 /** Throttled scroll handler — updates nav visibility at most every 100ms */
 const handleScrollThrottled = throttle(({ scroll, direction }: ScrollEvent) => {
   updateNavVisibility(scroll, direction);
+  updateActiveSection(scroll);
 }, 100);
 
 /** Toggles mobile menu — stops/starts Lenis scroll accordingly */
@@ -43,35 +54,20 @@ const setMenuMobile = (open = !isMenuOpen.value) => {
   open ? (window as any).lenis?.stop() : (window as any).lenis?.start();
 };
 
-/** Observes section intersections to update active nav link */
-const createSectionObserver = () =>
-  new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) activeSection.value = entry.target.id;
-      });
-    },
-    { rootMargin: '-40% 0px -80% 0px', threshold: 0 },
-  );
-
 // Register scroll listener and observe all sections
 onMounted(() => {
-  const init = () => (window as any).lenis.on('scroll', handleScrollThrottled);
+  const init = () => {
+    (window as any).lenis.on('scroll', handleScrollThrottled);
+    updateActiveSection((window as any).lenis.scroll ?? window.scrollY);
+  };
 
   if ((window as any).lenis) init();
   else window.addEventListener('lenis:ready', init, { once: true });
-
-  sectionObserver = createSectionObserver();
-  sections.forEach(({ id }) => {
-    const el = document.querySelector(`#${id}`);
-    if (el) sectionObserver!.observe(el);
-  });
 });
 
 // Clean up listeners and observer to prevent memory leaks
 onUnmounted(() => {
   (window as any).lenis?.off('scroll', handleScrollThrottled);
-  sectionObserver?.disconnect();
 });
 </script>
 
