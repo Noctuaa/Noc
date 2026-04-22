@@ -217,7 +217,6 @@
   }
 }
 
-
 /* ============================================================
    PROFILE
    ============================================================ */
@@ -423,7 +422,6 @@
   }
 }
 
-
 /* ============================================================
    PORTFOLIO
    ============================================================ */
@@ -585,16 +583,25 @@
   transform: translateY(0);
 }
 
-.project-tags li:nth-child(1) { transition-delay: 0.1s; }
-.project-tags li:nth-child(2) { transition-delay: 0.15s; }
-.project-tags li:nth-child(3) { transition-delay: 0.2s; }
-.project-tags li:nth-child(4) { transition-delay: 0.25s; }
+.project-tags li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.project-tags li:nth-child(2) {
+  transition-delay: 0.15s;
+}
+.project-tags li:nth-child(3) {
+  transition-delay: 0.2s;
+}
+.project-tags li:nth-child(4) {
+  transition-delay: 0.25s;
+}
 
 /* Responsive ------------------------------------ */
 
 @media (max-width: 992px) {
   .accordion {
     overflow-x: scroll;
+    -ms-scroll-snap-type: x mandatory;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     height: 460px;
@@ -615,7 +622,6 @@
     flex: 0 0 85%;
   }
 }
-
 
 /* ============================================================
    CONTACT
