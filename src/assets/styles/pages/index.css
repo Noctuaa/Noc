@@ -3,6 +3,7 @@
    ============================================================ */
 
 #hero {
+  min-height: 100svh;
   background:
     radial-gradient(ellipse at 15% 25%, rgb(from var(--accent) r g b / 0.13) 0%, transparent 50%),
     radial-gradient(ellipse at 85% 15%, rgb(from var(--contrast) r g b / 0.15) 0%, transparent 45%),
@@ -22,13 +23,73 @@
   bottom: 5%;
 }
 
+/* Corner badge (eyebrow) ------------------------- */
+
+.corner-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-self: center;
+  padding: 8px 20px;
+}
+
+.corner {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border: 0 solid var(--accent);
+}
+.corner-tl {
+  top: 0;
+  left: 0;
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+.corner-tr {
+  top: 0;
+  right: 0;
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+.corner-bl {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+.corner-br {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+}
+
+.eyebrow-badge {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-display);
+  gap: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  display: inline-block;
+}
+
 /* Typography ------------------------------------ */
 
 .hero-content {
   text-align: center;
 }
 
-.hero-content h1 {
+.hero-content h1 span {
   background: var(--gradient-neon);
   background-clip: text;
   -webkit-background-clip: text;
@@ -36,10 +97,13 @@
 }
 
 .hero-content p {
-  font-family: var(--font-family-hero);
-  font-size: clamp(var(--text-sm), 2vw, var(--text-2xl));
-  letter-spacing: 0.8em;
-  text-transform: uppercase;
+  max-width: 52ch;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.65;
+  max-width: 52ch;
+  font-size: clamp(16px, 1.5vw, 19px);
+  line-height: 1.65;
+  color: rgb(174, 184, 212);
 }
 
 /* Stars ----------------------------------------- */

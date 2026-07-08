@@ -1,6 +1,12 @@
 /* ========================================
    SECTIONS LAYOUT
    ======================================== */
+html,
+body {
+  height: 100%;
+  min-height: 100vh;
+  background: var(--bg);
+}
 
 /* ========================================
    CONTAINER - Conteneur principal
@@ -19,14 +25,6 @@
 section {
   position: relative;
   padding: clamp(4rem, 8vw, 7rem) 0;
-}
-
-section:nth-child(even) {
-  background: var(--background);
-}
-
-section:nth-child(odd) {
-  background: var(--gradient-section);
 }
 
 /* ========================================

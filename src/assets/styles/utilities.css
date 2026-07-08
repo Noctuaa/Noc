@@ -30,6 +30,10 @@
    FLEXBOX & ALIGNMENT
    ======================================== */
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .fd-column {
   flex-direction: column;
 }
@@ -51,6 +55,13 @@
 .js-end {
   justify-self: end;
 }
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .pi-center {
   place-items: center;
 }
@@ -79,30 +90,33 @@
   z-index: 100; /* Critical UI - Notifications, alerts */
 }
 
-/* ========================================
-   SPACING - GAP
-   ======================================== */
-
+/* ===== Spacing ===== */
 .gap-1 {
-  gap: var(--space);
+  gap: calc(var(--space) * 1);
 }
+
 .gap-2 {
   gap: calc(var(--space) * 2);
 }
+
 .gap-3 {
   gap: calc(var(--space) * 3);
 }
+
 .gap-4 {
   gap: calc(var(--space) * 4);
 }
+
 .gap-5 {
   gap: calc(var(--space) * 5);
 }
+
 .gap-6 {
   gap: calc(var(--space) * 6);
 }
-.gap-12 {
-  gap: calc(var(--space) * 12);
+
+.gap-7 {
+  gap: calc(var(--space) * 7);
 }
 
 /* ========================================
@@ -129,14 +143,11 @@
    SPACING - PADDING
    ======================================== */
 
-.p-2 {
-  padding: calc(var(--space) * 2);
+.py-2 {
+  padding-block: calc(var(--space) * 2);
 }
-.py-4 {
-  padding-block: calc(var(--space) * 4);
-}
-.pt-4 {
-  padding-top: calc(var(--space) * 4);
+.px-3 {
+  padding-inline: calc(var(--space) * 3);
 }
 
 /* ========================================
@@ -150,41 +161,72 @@
   height: 100%;
 }
 
-/* ========================================
-   INTERACTION
-   ======================================== */
+/* ===== Typography ===== */
 
-.cursor-p {
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  letter-spacing: 0em;
+  line-height: 1.2;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+/* ===== Colors ===== */
+.ink-1 {
+  color: var(--ink-1);
+}
+.ink-2 {
+  color: var(--ink-2);
+}
+.ink-3 {
+  color: var(--ink-3);
+}
+.ink-4 {
+  color: var(--ink-4);
+}
+.accent {
+  color: var(--accent);
+}
+
+/* ===== Cursor ===== */
+.c-pointer {
   cursor: pointer;
 }
 .pe-none {
   pointer-events: none;
-}
-
-/* ========================================
-   COMPONENT UTILITIES
-   Multi-property reusable classes
-   ======================================== */
-
-/* --- Neon border --- */
-.neon-mask::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  padding: 3px;
-  border-radius: inherit;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-  z-index: 10;
 }

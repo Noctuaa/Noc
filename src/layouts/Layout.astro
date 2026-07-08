@@ -1,7 +1,11 @@
 ---
+// @ts-expect-error — no types for fontsource CSS packages
+import '@fontsource-variable/manrope';
+// @ts-expect-error — no types for fontsource CSS packages
+import '@fontsource-variable/space-grotesk';
 import '../assets/styles/main.css';
-import Navigation from './Navigation.vue';
-import Footer from './Footer.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
 ---
 
 <!doctype html>
@@ -67,9 +71,10 @@ import Footer from './Footer.astro';
     </noscript>
   </head>
   <body>
-    <Navigation client:load />
-    <div class="teleport-container"></div>
-    <slot />
+    <Header />
+    <main role="main" class="main-content">
+      <slot />
+    </main>
     <Footer />
     <script>
       import { initLenis, initAnchorLinks } from '../utils/ScrollManager.ts';
@@ -85,5 +90,6 @@ import Footer from './Footer.astro';
         initAnimations();
       });
     </script>
+    <style is:inline></style>
   </body>
 </html>

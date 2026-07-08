@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
-import { throttle } from '../utils/ScrollManager.ts';
+import { throttle } from '../../utils/ScrollManager.ts';
 
 // Navigation sections list
 const sections = [
@@ -8,13 +8,13 @@ const sections = [
   { id: 'profile', label: 'À propos' },
   { id: 'competences', label: 'Compétences' },
   { id: 'portfolio', label: 'Portfolio' },
+  { id: 'methods', label: 'Methods' },
   { id: 'contact', label: 'Contact' },
 ];
 
 const activeSection = ref('hero');
 const isMenuOpen = ref(false);
 const hideNav = ref(false);
-const isScrolled = ref(false);
 
 type ScrollEvent = {
   scroll: number;
@@ -25,7 +25,6 @@ type ScrollEvent = {
 const updateNavVisibility = (scroll: number, direction: number) => {
   if (direction === 1 && scroll > 100) hideNav.value = true;
   else {
-    isScrolled.value = scroll > 200;
     hideNav.value = false;
   }
 };
@@ -72,29 +71,36 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <nav :class="['nav', { 'is-open': isMenuOpen, hidden: hideNav, scrolled: isScrolled }, 'fixed z-100 w-full']">
-    <div class="container h-full">
-      <div class="nav-inner flex ai-center jc-between w-full h-full">
-        <img src="/logo.svg" alt="Nocdev logo" class="nav-logo" width="70" height="70" />
-
-        <ul class="nav-list flex ai-center gap-5">
-          <li
-            v-for="section in sections"
-            :key="section.id"
-            @click="setMenuMobile(false)"
-            :class="['nav-item cursor-p', { active: activeSection === section.id }]"
-          >
-            <a :href="`#${section.id}`" class="nav-link flex p-2">
-              {{ section.label }}
-            </a>
-          </li>
-        </ul>
-        <button @click="setMenuMobile()" class="nav-burger" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
+  <nav
+    :class="['nav text-sm font-medium ink-2', { 'is-open': isMenuOpen, hidden: hideNav }, ' flex z-100']"
+    aria-label="Main navigation"
+  >
+    <ul class="nav-list flex ai-center gap-4">
+      <li
+        v-for="section in sections"
+        :key="section.id"
+        @click="setMenuMobile(false)"
+        :class="['nav-item py-2 px-3 c-pointer', { active: activeSection === section.id }]"
+      >
+        <a :href="`#${section.id}`" class="">{{ section.label }}</a>
+      </li>
+    </ul>
+    <button @click="setMenuMobile()" class="nav-toggle" aria-label="Toggle menu">
+      <svg
+        data-dc-tpl="41"
+        viewBox="0 0 24 24"
+        width="20"
+        height="20"
+        fill="none"
+        stroke="#eaf0ff"
+        stroke-width="2"
+        stroke-linecap="round"
+        data-om-id="83ebca2c:45"
+      >
+        <line data-dc-tpl="42" x1="4" y1="7" x2="20" y2="7" data-om-id="83ebca2c:46"></line>
+        <line data-dc-tpl="43" x1="4" y1="12" x2="20" y2="12" data-om-id="83ebca2c:47"></line>
+        <line data-dc-tpl="44" x1="4" y1="17" x2="20" y2="17" data-om-id="83ebca2c:48"></line>
+      </svg>
+    </button>
   </nav>
 </template>
