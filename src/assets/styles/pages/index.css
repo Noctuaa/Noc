@@ -19,10 +19,6 @@
   padding-inline: clamp(1.5rem, 3vw, 2rem);
 }
 
-.hero-footer {
-  bottom: 5%;
-}
-
 /* Corner badge (eyebrow) ------------------------- */
 
 .corner-badge {
@@ -85,10 +81,6 @@
 
 /* Typography ------------------------------------ */
 
-.hero-content {
-  text-align: center;
-}
-
 .hero-content h1 span {
   background: var(--gradient-neon);
   background-clip: text;
@@ -98,10 +90,9 @@
 
 .hero-content p {
   max-width: 52ch;
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-size: clamp(0.925rem, 1.5vw, 1.125rem);
   line-height: 1.65;
   max-width: 52ch;
-  font-size: clamp(16px, 1.5vw, 19px);
   line-height: 1.65;
   color: rgb(174, 184, 212);
 }
@@ -166,33 +157,6 @@
   background: url('../../images/land.svg') no-repeat bottom center/cover;
 }
 
-/* Scroll indicator ------------------------------ */
-
-.hero-scroll {
-  position: relative;
-  width: 33px;
-  height: 55px;
-  border: 3px solid rgb(from var(--color) r g b / 0.7);
-  border-radius: 23px;
-  box-shadow: 0 0 5px 2px var(--background-gradient);
-  cursor: pointer;
-}
-
-.hero-scroll-wheel {
-  position: absolute;
-  display: block;
-  top: 29%;
-  left: 50%;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgb(from var(--color) r g b / 1);
-  box-shadow: -1px -1px 2px 2px var(--background-gradient);
-  transform: translateX(-50%);
-  -webkit-animation: rev-ani-mouse 2s 1s linear infinite;
-  animation: rev-ani-mouse 2s 1s linear infinite;
-}
-
 /* Keyframes ------------------------------------- */
 
 @-webkit-keyframes twinkle {
@@ -238,46 +202,6 @@
   to {
     transform: translateX(4%);
     opacity: 1;
-  }
-}
-
-@-webkit-keyframes rev-ani-mouse {
-  0% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0%);
-  }
-  15% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(120%);
-  }
-  50%,
-  100% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(150%);
-  }
-}
-
-@keyframes rev-ani-mouse {
-  0% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0%);
-  }
-  15% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(120%);
-  }
-  50%,
-  100% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(150%);
-  }
-}
-
-/* Responsive ------------------------------------ */
-
-@media (max-width: 768px) {
-  .hero-scroll {
-    display: none;
   }
 }
 

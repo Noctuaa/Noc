@@ -4,7 +4,6 @@ import { throttle } from '../../utils/ScrollManager.ts';
 
 // Navigation sections list
 const sections = [
-  { id: 'hero', label: 'Accueil' },
   { id: 'profile', label: 'À propos' },
   { id: 'competences', label: 'Compétences' },
   { id: 'portfolio', label: 'Portfolio' },
@@ -32,13 +31,15 @@ const updateNavVisibility = (scroll: number, direction: number) => {
 /** Updates active nav link based on current scroll position */
 const updateActiveSection = (scroll: number) => {
   const offset = scroll + window.innerHeight * 0.4;
+  let current = '';
   for (let i = sections.length - 1; i >= 0; i--) {
     const el = document.getElementById(sections[i].id);
     if (el && el.offsetTop <= offset) {
-      activeSection.value = sections[i].id;
+      current = sections[i].id;
       break;
     }
   }
+  activeSection.value = current;
 };
 
 /** Throttled scroll handler — updates nav visibility at most every 100ms */
@@ -72,10 +73,10 @@ onUnmounted(() => {
 
 <template>
   <nav
-    :class="['nav text-sm font-medium ink-2', { 'is-open': isMenuOpen, hidden: hideNav }, ' flex z-100']"
+    :class="['nav relative text-base font-medium ink-2', { 'is-open': isMenuOpen, hidden: hideNav }, ' flex z-100']"
     aria-label="Main navigation"
   >
-    <ul class="nav-list flex ai-center gap-4">
+    <ul class="nav-list fixed flex-center flex-col inset-0 gap-3 opacity-0 pe-none">
       <li
         v-for="section in sections"
         :key="section.id"
@@ -85,7 +86,7 @@ onUnmounted(() => {
         <a :href="`#${section.id}`" class="">{{ section.label }}</a>
       </li>
     </ul>
-    <button @click="setMenuMobile()" class="nav-toggle" aria-label="Toggle menu">
+    <button @click="setMenuMobile()" class="nav-toggle flex-center z-50 c-pointer" aria-label="Toggle menu">
       <svg
         data-dc-tpl="41"
         viewBox="0 0 24 24"

@@ -51,13 +51,9 @@ const initHeroAnimations = () => {
       { y: -40 },
       { autoAlpha: .9, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.3'
     )
-    .fromTo('.hero-content ul',
-      { y: -40 },
-      { autoAlpha: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.2'
-    )
-    .fromTo('.hero-scroll',
-      { y: 40 },
-      { autoAlpha: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.1'
+    .fromTo('.hero-content a',
+      { y: 20 },
+      { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.3'
     );
 };
 

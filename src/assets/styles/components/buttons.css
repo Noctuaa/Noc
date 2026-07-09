@@ -148,7 +148,7 @@
   font-size: 15.5px;
   padding: calc(var(--space) * 4);
   border-radius: 10px;
-  background: var(--accent, #35e6a4);
+  background: var(--gradient-cta);
   color: rgb(4, 20, 13);
   box-shadow: rgba(53, 230, 164, 0.35) 0px 0px 22px;
 }

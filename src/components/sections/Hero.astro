@@ -1,42 +1,20 @@
----
-import MailtoLink from '..//MailtoLink.astro';
-
-const email = import.meta.env.PUBLIC_EMAIL_TO;
----
-
 <section id="hero" class="section relative z-10 grid pi-center h-full ow-hidden">
   <div class="stars absolute z-1 w-full pe-none"></div>
   <div class="hero-aurora" aria-hidden="true"></div>
   <div class="hero-forest" aria-hidden="true"></div>
   <div class="container relative z-10">
-    <div class="hero-content grid gap-6">
-      <div class="corner-badge">
-        <span class="corner corner-tl"></span>
-        <span class="corner corner-tr"></span>
-        <span class="corner corner-bl"></span>
-        <span class="corner corner-br"></span>
-        <div class="eyebrow-badge accent"><span class="eyebrow-dot"></span> Nocdev</div>
-      </div>
+    <div class="hero-content grid gap-4 text-center">
       <h1 class="mt-0" data-animate>
         Développeur
         <br />
         <span>d'application web.</span>
       </h1>
-
       <p class="hero-subtitle js-center" data-animate>
         Passionné par la tech, la conception d'interfaces modernes et les expériences utilisateur soignées.
       </p>
-
       <div class="flex-center flex-wrap gap-3 text-xs font-medium ink-3">
-        <a href="#portfolio" class="btn btn-cta">Voir mes projets</a>
-        <a href="#contact" class="btn btn-transparent">Me contacter</a>
+        <a href="#portfolio" class="btn btn-cta" aria-label="Voir mes projets" data-animate>Voir mes projets</a>
       </div>
     </div>
-  </div>
-
-  <div class="hero-footer absolute z-3 flex jc-center w-full">
-    <a href="#profile" class="hero-scroll" aria-label="Défiler vers le bas" data-animate>
-      <span class="hero-scroll-wheel"></span>
-    </a>
   </div>
 </section>

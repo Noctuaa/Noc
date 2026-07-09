@@ -1,4 +1,4 @@
-@layer reset, base, layout, utilities, components;
+@layer reset, base, utilities, layout,  components;
 
 /* === RESET === */
 @import './base/reset.css' layer(reset); /* Reset styles for all elements */
@@ -35,7 +35,7 @@
   --ink-3: rgb(150, 161, 192);
 
   /* Gradient */
-  --gradient-cta: linear-gradient(135deg, var(--glow), rgb(117, 74, 161));
+  --gradient-cta: linear-gradient(90deg, var(--contrast), var(--accent));
   --gradient-neon: linear-gradient(90deg, var(--contrast), var(--accent));
   --gradient-section: linear-gradient(90deg, transparent, rgb(from var(--accent) r g b / 0.2));
 
