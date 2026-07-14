@@ -25,6 +25,12 @@ export const initLenis = () => {
     return lenis;
   }
 
+  // Respect the user's OS-level motion preference — skip Lenis entirely
+  // and let the browser's native (instant) scroll take over.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return null;
+  }
+
   lenis = new Lenis({
     duration: DURATION,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -74,10 +80,11 @@ export const initAnchorLinks = () => {
 
   anchors.forEach((anchor: Element) => {
     anchor.addEventListener('click', (e) => {
+      if (!lenis) return; // no Lenis (reduced motion) — let the native anchor jump happen
       e.preventDefault();
-      (window as any).lenis?.start();
+      lenis.start();
       const href = anchor.getAttribute('href') ?? '';
-      lenis!.scrollTo(href, { duration: DURATION, offset: 0 });
+      lenis.scrollTo(href, { duration: DURATION, offset: 0 });
     });
   });
 };

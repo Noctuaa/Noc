@@ -5,6 +5,10 @@
 
 /* === Position === */
 
+.content {
+  display: contents;
+}
+
 .flex {
   display: flex;
 }
@@ -87,6 +91,9 @@
 .z-100 {
   z-index: 100; /* Critical UI - Notifications, alerts */
 }
+.z-999 {
+  z-index: 999; /* Modal - Fullscreen overlay */
+}
 
 /* ===== Spacing ===== */
 .gap-1 {
@@ -141,6 +148,9 @@
    SPACING - PADDING
    ======================================== */
 
+.p-0 {
+  padding: 0;
+}
 .py-2 {
   padding-block: calc(var(--space) * 2);
 }
@@ -157,6 +167,12 @@
 }
 .h-full {
   height: 100%;
+}
+.h-svh {
+  height: 100svh;
+}
+.min-h-svh {
+  min-height: 100svh;
 }
 
 /* ===== Typography ===== */
@@ -237,4 +253,11 @@
 
 .opacity-0 {
   opacity: 0;
+}
+
+/* ===== Effects ===== */
+
+.backdrop-blur {
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+  backdrop-filter: blur(var(--blur-glass));
 }

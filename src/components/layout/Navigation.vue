@@ -6,26 +6,23 @@ import { throttle } from '../../utils/ScrollManager.ts';
 const sections = [
   { id: 'profile', label: 'À propos' },
   { id: 'competences', label: 'Compétences' },
-  { id: 'portfolio', label: 'Portfolio' },
-  { id: 'methods', label: 'Methods' },
+  { id: 'portfolio', label: 'Projets' },
+  { id: 'methods', label: 'Méthode' },
   { id: 'contact', label: 'Contact' },
 ];
 
-const activeSection = ref('hero');
+const activeSection = ref('');
 const isMenuOpen = ref(false);
-const hideNav = ref(false);
 
 type ScrollEvent = {
   scroll: number;
   direction: number;
 };
 
-/** Updates nav hide/show based on scroll direction */
-const updateNavVisibility = (scroll: number, direction: number) => {
-  if (direction === 1 && scroll > 100) hideNav.value = true;
-  else {
-    hideNav.value = false;
-  }
+/** Toggles the mobile menu — stops/starts Lenis scroll accordingly */
+const toggleMenu = (open = !isMenuOpen.value) => {
+  isMenuOpen.value = open;
+  open ? (window as any).lenis?.stop() : (window as any).lenis?.start();
 };
 
 /** Updates active nav link based on current scroll position */
@@ -42,17 +39,10 @@ const updateActiveSection = (scroll: number) => {
   activeSection.value = current;
 };
 
-/** Throttled scroll handler — updates nav visibility at most every 100ms */
-const handleScrollThrottled = throttle(({ scroll, direction }: ScrollEvent) => {
-  updateNavVisibility(scroll, direction);
+/** Throttled scroll handler — updates active section at most every 100ms */
+const handleScrollThrottled = throttle(({ scroll }: ScrollEvent) => {
   updateActiveSection(scroll);
 }, 100);
-
-/** Toggles mobile menu — stops/starts Lenis scroll accordingly */
-const setMenuMobile = (open = !isMenuOpen.value) => {
-  isMenuOpen.value = open;
-  open ? (window as any).lenis?.stop() : (window as any).lenis?.start();
-};
 
 // Register scroll listener and observe all sections
 onMounted(() => {
@@ -65,28 +55,20 @@ onMounted(() => {
   else window.addEventListener('lenis:ready', init, { once: true });
 });
 
-// Clean up listeners and observer to prevent memory leaks
+// Clean up listeners to prevent memory leaks
 onUnmounted(() => {
   (window as any).lenis?.off('scroll', handleScrollThrottled);
 });
 </script>
 
 <template>
-  <nav
-    :class="['nav relative text-base font-medium ink-2', { 'is-open': isMenuOpen, hidden: hideNav }, ' flex z-100']"
-    aria-label="Main navigation"
-  >
-    <ul class="nav-list fixed flex-center flex-col inset-0 gap-3 opacity-0 pe-none">
-      <li
-        v-for="section in sections"
-        :key="section.id"
-        @click="setMenuMobile(false)"
-        :class="['nav-item py-2 px-3 c-pointer', { active: activeSection === section.id }]"
-      >
-        <a :href="`#${section.id}`" class="">{{ section.label }}</a>
-      </li>
-    </ul>
-    <button @click="setMenuMobile()" class="nav-toggle flex-center z-50 c-pointer" aria-label="Toggle menu">
+  <div class="content">
+    <button
+      @click="toggleMenu()"
+      class="nav-toggle relative flex-center z-999 c-pointer"
+      aria-label="Toggle menu"
+      :aria-expanded="isMenuOpen"
+    >
       <svg
         data-dc-tpl="41"
         viewBox="0 0 24 24"
@@ -103,5 +85,23 @@ onUnmounted(() => {
         <line data-dc-tpl="44" x1="4" y1="17" x2="20" y2="17" data-om-id="83ebca2c:48"></line>
       </svg>
     </button>
-  </nav>
+    <nav
+      :class="[
+        'nav fixed z-100 flex-center flex-col h-svh text-base font-medium ink-2 inset-0 pe-none',
+        { 'is-open': isMenuOpen },
+      ]"
+      aria-label="Main navigation"
+    >
+      <ul class="nav-list flex flex-col gap-3 text-center">
+        <li
+          v-for="section in sections"
+          :key="section.id"
+          @click="toggleMenu(false)"
+          :class="['nav-item py-2 px-3 opacity-0 c-pointer', { active: activeSection === section.id }]"
+        >
+          <a :href="`#${section.id}`" class="">{{ section.label }}</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </template>

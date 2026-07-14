@@ -1,31 +1,38 @@
+/* ============================================
+   HEADER
+   ============================================ */
+
 .nav-header {
-  width: 100vw;
-  inset: 0 0 auto 0;
-  padding-block: clamp(calc(var(--space) * 3), 2vw, calc(var(--space) * 4));
-  background: linear-gradient(rgba(5, 6, 15, 0.78), rgba(5, 6, 15, 0));
-  backdrop-filter: blur(var(--blur-glass));
-  transition: height var(--transition-fast) ease;
+  height: 4.25rem;
+  background: linear-gradient(rgb(from var(--bg) r g b / 0.75), rgba(5, 6, 15, 0.015));
 }
 
+/* Le panneau mobile prend le relais du flou du header une fois ouvert */
 .nav-header:has(.nav.is-open) {
-  height: 100svh;
-  background: rgb(from var(--bg) r g b / 0.85);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
-/* === Navigation List === */
+/* ============================================
+   NAV PANEL — mobile : plein écran, glisse depuis le haut
+   ============================================ */
 
-.nav.is-open .nav-list {
-  opacity: 1;
+.nav {
+  transform: translateY(-150%);
+  transition: transform var(--transition-fast) ease;
+}
+
+.nav.is-open {
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+  backdrop-filter: blur(var(--blur-glass));
+  background: rgb(from var(--bg) r g b / 0.75);
   pointer-events: auto;
+  transform: translateY(0);
 }
 
-/* === Navigation Items === */
-
-.nav-item {
-  transition:
-    color var(--transition-fast) ease,
-    transform var(--transition-fast) ease;
-}
+/* ============================================
+   NAVIGATION ITEMS
+   ============================================ */
 
 .nav-item.active,
 .nav-item:hover {
@@ -38,7 +45,6 @@
 }
 
 .nav.is-open .nav-item {
-  display: block;
   -webkit-animation: slideIn var(--transition-fast) both;
   animation: slideIn var(--transition-fast) both;
 }
@@ -65,7 +71,9 @@
   animation-delay: 0.4s;
 }
 
-/* ==== NAVIGATION MENU TOGGLE BUTTON === */
+/* ============================================
+   TOGGLE BUTTON — hamburger <-> croix
+   ============================================ */
 
 .nav-toggle {
   width: 38px;
@@ -75,13 +83,50 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-/* === RESPONSIVE === */
+.nav-toggle svg line {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    transform var(--transition-fast) ease,
+    opacity var(--transition-fast) ease;
+}
+
+.content:has(.nav.is-open) .nav-toggle svg line:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.content:has(.nav.is-open) .nav-toggle svg line:nth-child(2) {
+  opacity: 0;
+}
+
+.content:has(.nav.is-open) .nav-toggle svg line:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+/* ============================================
+   RESPONSIVE — DESKTOP
+   Annule tout le comportement mobile (plein écran, transform, blur, stagger)
+   ============================================ */
 
 @media (min-width: 992px) {
-  .nav .nav-list {
-    position: static;
+  .nav {
+    position: relative;
+    inset: auto;
+    height: 100%;
+    width: auto;
+    pointer-events: auto;
+    transform: none;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transition: none;
+  }
+
+  .nav-list {
     flex-direction: row;
-    justify-content: flex-end;
+  }
+
+  .nav .nav-item {
     opacity: 1;
     pointer-events: auto;
   }
@@ -91,7 +136,9 @@
   }
 }
 
-/* ==== ANIMATIONS === */
+/* ============================================
+   ANIMATIONS
+   ============================================ */
 
 @-webkit-keyframes slideIn {
   from {

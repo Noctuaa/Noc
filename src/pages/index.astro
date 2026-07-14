@@ -135,7 +135,7 @@ import avatarImg from '../assets/images/avatar.png';
   <section id="portfolio" class="section bg-alt">
     <div class="container">
       <div class="section-header">
-        <h2 data-animate>Portfolio</h2>
+        <h2 data-animate>Projets</h2>
         <div class="separator-h separator-h-gradient" data-animate></div>
         <p class="section-description" data-animate>
           Une sélection de <span class="text-accent">projets personnels et techniques</span> qui reflètent mon approche du
@@ -176,29 +176,4 @@ import avatarImg from '../assets/images/avatar.png';
     video.load();
   }
 
-  // Star formation
-  const starsContainer = document.querySelector<HTMLElement>('.stars');
-  if (starsContainer) {
-    // Grid with 5 columns and 5 rows = 25 stars evenly spaced
-    const cols = 5,
-      rows = 5;
-
-    for (let row = 0; row < rows; row++) {
-      for (let col = 0; col < cols; col++) {
-        const star = document.createElement('span');
-        star.className = 'star';
-        star.textContent = '+';
-
-        // Position within the cell + random offset (jitter)
-        // → uniform distribution but natural appearance
-        star.style.left = `${(col / cols) * 100 + Math.random() * (100 / cols)}%`;
-        star.style.top = `${(row / rows) * 100 + Math.random() * (100 / rows)}%`;
-
-        // Random delay to prevent all the stars from blinking at the same time
-        star.style.animationDelay = `${Math.random() * 3}s`;
-
-        starsContainer.appendChild(star);
-      }
-    }
-  }
 </script>

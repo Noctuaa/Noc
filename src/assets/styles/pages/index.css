@@ -5,18 +5,8 @@
 #hero {
   min-height: 100svh;
   background:
-    radial-gradient(ellipse at 15% 25%, rgb(from var(--accent) r g b / 0.13) 0%, transparent 50%),
-    radial-gradient(ellipse at 85% 15%, rgb(from var(--contrast) r g b / 0.15) 0%, transparent 45%),
-    radial-gradient(ellipse at 60% 65%, rgba(117, 74, 161, 0.1) 0%, transparent 55%), var(--background-gradient);
-}
-
-/* Layout ---------------------------------------- */
-
-.hero-header {
-  top: 0;
-  grid-template-columns: 1fr var(--nav-width-desktop) 1fr;
-  height: var(--nav-height-desktop);
-  padding-inline: clamp(1.5rem, 3vw, 2rem);
+    radial-gradient(ellipse at 15% 15%, rgb(from var(--accent) r g b / 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 15%, rgb(from var(--accent2) r g b / 0.2) 0%, transparent 45%);
 }
 
 /* Corner badge (eyebrow) ------------------------- */
@@ -97,31 +87,6 @@
   color: rgb(174, 184, 212);
 }
 
-/* Stars ----------------------------------------- */
-
-.stars {
-  top: 2%;
-  left: 0;
-  height: 73%;
-}
-
-.star {
-  position: absolute;
-  font-size: 8px;
-  line-height: var(--leading-tight);
-  color: var(--color);
-  text-shadow:
-    0 0 6px var(--contrast),
-    0 0 12px var(--contrast);
-  opacity: 0.6;
-  -webkit-animation: twinkle 3s infinite;
-  animation: twinkle 3s infinite;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 /* Aurora & Forest ------------------------------- */
 
 .hero-aurora {
@@ -135,13 +100,13 @@
     radial-gradient(
       ellipse at 30% 100%,
       rgb(from var(--accent) r g b / 0.5) 0%,
-      rgb(from var(--contrast) r g b / 0.2) 45%,
+      rgb(from var(--accent2) r g b / 0.2) 45%,
       transparent 70%
     ),
     radial-gradient(
       ellipse at 68% 100%,
-      rgb(from var(--contrast) r g b / 0.45) 0%,
-      rgb(from var(--glow) r g b / 0.2) 45%,
+      rgb(from var(--accent) r g b / 0.45) 0%,
+      rgb(from var(--accent2) r g b / 0.2) 45%,
       transparent 70%
     );
   pointer-events: none;
@@ -155,33 +120,10 @@
   height: 100%;
   width: 100%;
   background: url('../../images/land.svg') no-repeat bottom center/cover;
+  pointer-events: none;
 }
 
 /* Keyframes ------------------------------------- */
-
-@-webkit-keyframes twinkle {
-  0%,
-  100% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.2);
-  }
-}
-
-@keyframes twinkle {
-  0%,
-  100% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.2);
-  }
-}
 
 @-webkit-keyframes aurora {
   from {
