@@ -168,6 +168,10 @@
   padding: 0;
 }
 
+.pr-3 {
+  padding-right: calc(var(--space) * 3);
+}
+
 .pt-6 {
   padding-top: calc(var(--space) * 6);
 }

@@ -1,0 +1,75 @@
+---
+type Technology = {
+  id: string;
+  name: string;
+  logo: string;
+};
+
+const technologies: Technology[] = [
+  { id: 'html', name: 'HTML5', logo: '/icons/html.svg' },
+  { id: 'css', name: 'CSS3', logo: '/icons/css.svg' },
+  { id: 'js', name: 'JavaScript', logo: '/icons/js.svg' },
+  { id: 'vue', name: 'Vue.js', logo: '/icons/vuejs.svg' },
+  { id: 'nano', name: 'NanoStores', logo: '/icons/nano.svg' },
+  { id: 'astro', name: 'Astro', logo: '/icons/astrop.svg' },
+  { id: 'gsap', name: 'GSAP', logo: '/icons/gsap.svg' },
+  { id: 'nodejs', name: 'Node.js', logo: '/icons/node.svg' },
+  { id: 'ts', name: 'TypeScript', logo: '/icons/type.svg' },
+  { id: 'hono', name: 'Hono', logo: '/icons/hono.svg' },
+  { id: 'git', name: 'Git', logo: '/icons/git.svg' },
+];
+---
+
+<div class="scroller">
+  <!-- Line 1 : Left → Right -->
+  <div class="scroller-inner flex" data-animate>
+    <ul class="scroller-list flex gap-3 pr-3" role="list">
+      {
+        technologies.map((tech) => (
+          <li class="stack-card relative flex-center flex-col gap-4">
+            <img src={tech.logo} alt={`${tech.name} logo`} width="48" height="48" loading="lazy" decoding="async" />
+            <span class="text-sm font-semibold text-center">{tech.name}</span>
+          </li>
+        ))
+      }
+    </ul>
+    <ul class="sroller-list flex gap-3 pr-3" aria-hidden="true" role="presentation">
+      {
+        technologies.map((tech) => (
+          <li class="stack-card relative flex-center flex-col gap-4">
+            <img src={tech.logo} alt="" width="48" height="48" loading="lazy" decoding="async" />
+            <span class="text-sm font-semibold text-center">{tech.name}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<script>
+  const scroller = document.querySelector<HTMLElement>('.scroller');
+
+  if (scroller) {
+    const pause = () => scroller.classList.add('is-touching');
+    const resume = () => scroller.classList.remove('is-touching');
+
+    scroller.addEventListener('touchstart', pause, { passive: true });
+    scroller.addEventListener('touchend', resume);
+    scroller.addEventListener('touchcancel', resume);
+
+    // CSS infinie. On reproduit la même boucle pour le scroll natif au swipe :
+    // dès qu'on dépasse la moitié, on saute discrètement en arrière du même
+    // montant (contenu identique des deux côtés = saut invisible).
+    // prettier-ignore
+    scroller.addEventListener('scroll', () => {
+        const half = scroller.scrollWidth / 2;
+        if (scroller.scrollLeft >= half) {
+          scroller.scrollLeft -= half;
+        } else if (scroller.scrollLeft <= 0) {
+          scroller.scrollLeft += half;
+        }
+      },
+      { passive: true },
+    );
+  }
+</script>

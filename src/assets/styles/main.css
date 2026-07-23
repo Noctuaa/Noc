@@ -16,6 +16,7 @@
 @import 'utilities.css' layer(utilities); /* Atomic classes + component utilities */
 
 /* === COMPONENTS === */
+@import './components/StackCarousel.css' layer(components); /* Stack carousel */
 @import './components/buttons.css' layer(components); /* Buttons & mini buttons */
 
 :root {

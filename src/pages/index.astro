@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import LoadingScreen from '../components/LoadingScreen.astro';
 import Hero from '../components/sections/Hero.astro';
 import Profile from '../components/sections/Profile.astro';
-import TechCarousel from '../components/TechCarousel.astro';
+import Competence from '../components/sections/Competence.astro';
 import ProjectAccordion from '../components/ProjectAccordion.astro';
 import ContactForm from '../components/ContactForm.vue';
 
@@ -15,24 +15,7 @@ import ContactForm from '../components/ContactForm.vue';
   <LoadingScreen />
   <Hero />
   <Profile />
-
-  <!-- ============ PROFILE ============ -->
-
-  <!-- ============ COMPETENCES ============ -->
-  <section id="competences" class="section bg-surface relative">
-    <div class="container">
-      <div class="section-header">
-        <h2 data-animate>Compétences</h2>
-        <div class="separator-h separator-h-gradient" data-animate></div>
-        <p class="section-description" data-animate>
-          Technologies, outils et environnement que j'utilise pour créer des <span class="text-accent">
-            applications modernes et performantes
-          </span>.
-        </p>
-      </div>
-    </div>
-    <TechCarousel />
-  </section>
+  <Competence />
 
   <!-- ============ PORTFOLIO ============ -->
   <section id="portfolio" class="section bg-alt">
