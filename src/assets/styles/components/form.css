@@ -26,7 +26,7 @@
   z-index: 2;
   width: 0;
   height: 2px;
-  background: var(--gradient-neon);
+  background: var(--gradient-text);
   transition: width var(--transition-normal) ease;
   pointer-events: none;
 }
@@ -76,7 +76,7 @@
 .form-label.is-active {
   top: -15px;
   left: 0px;
-  color: var(--contrast);
+  color: var(--accent);
   scale: 0.93;
 }
 
@@ -117,7 +117,7 @@
 
 .form-input {
   resize: vertical;
-  caret-color: var(--contrast);
+  caret-color: var(--accent);
 }
 
 /* ========================================
@@ -152,7 +152,7 @@
 }
 
 .select-group:has(.form-select:focus)::after {
-  border-color: var(--contrast);
+  border-color: var(--accent);
   rotate: 225deg;
 }
 

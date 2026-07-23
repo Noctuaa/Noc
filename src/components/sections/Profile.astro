@@ -1,0 +1,166 @@
+---
+import { getImage } from 'astro:assets';
+import avatarImg from '../../assets/images/avatar.png';
+import SectionHeader from '../ui/SectionHeader.astro';
+import InfoTextItem from '../ui/IconTextItem.astro';
+
+const posterImg = await getImage({ src: avatarImg, format: 'webp' });
+---
+
+<section id="profile" class="section bg-alt z-1 ow-hidden">
+  <div class="container">
+    <SectionHeader title="A propos" description="Passionné par la création sous toutes ses formes." />
+
+    <div class="profile-content relative grid gap-6">
+      <div class="profile-identity grid gap-2">
+        <div class="profile-avatar js-center relative w-full mb-6" data-animate>
+          <div class="absolute inset-0 ow-hidden">
+            <video class="w-full h-full" autoplay muted loop playsinline poster={posterImg.src}>
+              <source src="/profile-video.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+
+        <InfoTextItem label="Localisation" value="France · Remote">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="21"
+            height="21"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-map-pin-icon lucide-map-pin ink-1"
+          >
+            <path
+              d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+            >
+            </path><circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </InfoTextItem>
+
+        <InfoTextItem label="Formation" value="Développeur d'application" sub="Openclassrooms · RNCP Niv. 6">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="21"
+            height="21"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-graduation-cap-icon lucide-graduation-cap ink-1"
+          >
+            <path
+              d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"
+            >
+            </path><path d="M22 10v6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path>
+          </svg>
+        </InfoTextItem>
+
+        <InfoTextItem label="Statut" value="Disponible">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="21"
+            height="21"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-circle-check-icon lucide-circle-check ink-1"
+          >
+            <circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path>
+          </svg>
+        </InfoTextItem>
+      </div>
+
+      <div class="profile-bio flex flex-col jc-center gap-6 ink-2">
+        <div class="flex flex-col gap-3">
+          <p class="text-xl font-bold ink-1">Hello ! 🦉</p>
+          <p>
+            Je suis développeur d'application web et je conçois des sites rapides et soignés, pensés pour ceux qui les
+            utilisent — avec Astro, qui apporte de vrais avantages en performance et en référencement.
+          </p>
+          <p>
+            En veille constante, j'aime explorer de nouvelles approches pour trouver la meilleure solution technique.
+          </p>
+        </div>
+
+        <div class="work-method flex flex-col gap-5 mt-4 pt-6 border-t" data-animate>
+          <p class="text-lg font-bold ink-1">Comment je travaille</p>
+          <div class="flex jc-between">
+            <InfoTextItem value="Communication écrite" variante="work">
+              <svg
+                slot="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="21"
+                height="21"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-message-square-icon lucide-message-square ink-1"
+              >
+                <path
+                  d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"
+                >
+                </path>
+              </svg>
+            </InfoTextItem>
+            <InfoTextItem value="Par email" variante="work">
+              <svg
+                slot="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="21"
+                height="21"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-mail-icon lucide-mail ink-1"
+              >
+                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect
+                  x="2"
+                  y="4"
+                  width="20"
+                  height="16"
+                  rx="2"
+                >
+                </rect>
+              </svg>
+            </InfoTextItem>
+            <InfoTextItem value="Réponse 24-48h" variante="work">
+              <svg
+                slot="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="21"
+                height="21"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-clock-icon lucide-clock ink-1"
+              >
+                <circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path>
+              </svg>
+            </InfoTextItem>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

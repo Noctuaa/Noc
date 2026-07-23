@@ -53,11 +53,15 @@ a {
 
 a[href^='mailto:'],
 a[data-href] {
-  color: var(--contrast);
+  color: var(--accent);
   transition: color var(--transition-fast) ease;
 }
 
 a[href^='mailto:']:hover,
 a[data-href]:hover {
   color: var(--color);
+}
+
+hr {
+  border: none;
 }

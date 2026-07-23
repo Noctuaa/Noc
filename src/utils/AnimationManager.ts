@@ -21,13 +21,13 @@ const animateSectionHeader = (section: string, trigger?: string, start?: string)
     { autoAlpha: 0, immediateRender: false },
     { autoAlpha: 1, duration: 0.6, ease: 'power3.out' }
   )
-    .fromTo(`${section} .section-description`,
+    .fromTo(`${section} .section-lead`,
       { y: 30 },
       {
         autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out'
       }, '-=0.4'
     )
-    .fromTo(`${section} .separator-h`,
+    .fromTo(`${section} .section-header hr`,
       { scaleX: 0 },
       {
         autoAlpha: 1, scaleX: 1, duration: 0.6, ease: 'power3.out', transformOrigin: 'left center'
@@ -72,19 +72,19 @@ const initProfileAnimations = () => {
     }
   );
 
-  gsap.fromTo('.profile-info .info-item',
+  gsap.fromTo('#profile .info-item, #profile .work-method-item',
     { y: 20 },
     {
-      autoAlpha: 1, y: 0, duration: 0.3, ease: 'back.out(1.4)', stagger: 0.3, delay: .3,
-      scrollTrigger: { trigger: '.profile-info', start: 'top 80%', once: true }
+      autoAlpha: 1, y: 0, duration: 0.3, ease: 'back.out(1.4)', stagger: 0.2, delay: .2,
+      scrollTrigger: { trigger: '.profile-identity', start: 'top 80%', once: true }
     }
   );
 
-  gsap.fromTo('.chat-bubble',
-    { x: -100 },
+  gsap.fromTo('.work-method',
+    { y: 20 },
     {
-      autoAlpha: 1, x: 0, duration: 0.3, ease: 'back.out(1.4)', stagger: 0.3, delay: .3,
-      scrollTrigger: { trigger: '.chat-bubble', start: 'top 80%', once: true }
+      autoAlpha: 1, y: 0, duration: 0.4, ease: 'power3.out',
+      scrollTrigger: { trigger: '.work-method', start: 'top 90%', once: true }
     }
   );
 }

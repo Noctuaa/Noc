@@ -31,7 +31,7 @@
 }
 
 .modal-card.neon-mask::before {
-  background: var(--gradient-neon);
+  background: var(--gradient-text);
 }
 
 /* ===================================
@@ -100,7 +100,7 @@
   width: 3px;
   height: 0.85em;
   border-radius: 2px;
-  background: var(--gradient-neon);
+  background: var(--gradient-text);
 }
 
 /* Separator between sections */

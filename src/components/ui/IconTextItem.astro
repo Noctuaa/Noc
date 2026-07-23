@@ -1,0 +1,27 @@
+---
+interface Props {
+  label?: string;
+  value?: string;
+  sub?: string;
+  variante?: 'info' | 'work';
+}
+
+const varianteClasses = {
+  info: 'info-item py-4 border-b text-left',
+  work: 'work-method-item flex-1 flex-col text-center',
+};
+
+const { label, value, sub, variante = 'info' } = Astro.props;
+const className = varianteClasses[variante];
+---
+
+<div class={`${className} flex ai-center gap-3`} data-animate>
+  <div class="info-icon flex-center mt-2 bg-gradient-cta rounded-sm">
+    <slot name="icon" />
+  </div>
+  <div class="info-text flex flex-col gap-2">
+    {label && <p class="info-label text-base font-bold">{label}</p>}
+    {value ? <p class="text-sm font-semibold ink-2">{value}</p> : <slot name="value" />}
+    {sub && <p class="text-xs ink-2">{sub}</p>}
+  </div>
+</div>

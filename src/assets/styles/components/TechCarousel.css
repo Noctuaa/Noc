@@ -72,7 +72,7 @@
 }
 
 .tech-card.neon-mask::before {
-  background: var(--gradient-neon);
+  background: var(--gradient-text);
 }
 
 .tech-card img {

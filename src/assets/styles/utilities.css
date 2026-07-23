@@ -33,6 +33,9 @@
 
 /* === Alignment === */
 
+.flex-1 {
+  flex: 1;
+}
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -137,6 +140,19 @@
 .mt-0 {
   margin-top: 0;
 }
+
+.mt-2 {
+  margin-top: calc(var(--space) * 2);
+}
+
+.mt-4 {
+  margin-top: calc(var(--space) * 4);
+}
+
+.my-1 {
+  margin-block: calc(var(--space) * 2);
+}
+
 .mb-4 {
   margin-bottom: calc(var(--space) * 4);
 }
@@ -151,9 +167,19 @@
 .p-0 {
   padding: 0;
 }
+
+.pt-6 {
+  padding-top: calc(var(--space) * 6);
+}
+
 .py-2 {
   padding-block: calc(var(--space) * 2);
 }
+
+.py-4 {
+  padding-block: calc(var(--space) * 4);
+}
+
 .px-3 {
   padding-inline: calc(var(--space) * 3);
 }
@@ -194,8 +220,8 @@
 }
 
 .text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.5;
 }
 
 .text-xl {
@@ -208,10 +234,6 @@
   line-height: 1.3;
 }
 
-.text-center {
-  text-align: center;
-}
-
 .font-medium {
   font-weight: 500;
 }
@@ -222,6 +244,18 @@
 
 .font-bold {
   font-weight: 700;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-balance {
+  text-wrap: balance;
 }
 
 /* ===== Colors ===== */
@@ -241,6 +275,12 @@
   color: var(--accent);
 }
 
+/* ===== Backgrounds ===== */
+
+.bg-gradient-cta {
+  background: var(--gradient-cta);
+}
+
 /* ===== Cursor ===== */
 .c-pointer {
   cursor: pointer;
@@ -253,6 +293,19 @@
 
 .opacity-0 {
   opacity: 0;
+}
+
+/* ===== Borders ===== */
+.rounded-sm {
+  border-radius: calc(var(--space) * 2);
+}
+
+.border-b {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.border-t {
+  border-top: 1px solid var(--border-subtle);
 }
 
 /* ===== Effects ===== */

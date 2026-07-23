@@ -23,103 +23,32 @@ body {
    ======================================== */
 
 section {
-  position: relative;
   padding: clamp(4rem, 8vw, 7rem) 0;
 }
 
 /* ========================================
-   SECTION HEADER - En-tête de section (défaut centré)
+   SECTION HEADER 
    ======================================== */
 
 .section-header {
-  display: grid;
-  margin-bottom: clamp(calc(var(--space) * 6), 5vw, calc(var(--space) * 12));
-  width: 100%;
-  place-items: center;
+  margin-bottom: clamp(calc(var(--space) * 6), 5vw, calc(var(--space) * 22));
 }
 
-.section-header .separator-h {
-  width: 60%;
-}
-
-/* Description avec effet machine à écrire */
-.section-description {
-  width: 100%;
-  max-width: 65ch;
-  margin-block: clamp(calc(var(--space) * 2), 2vw, calc(var(--space) * 4));
-  font-size: var(--text-base);
-  text-wrap: balance;
-  color: var(--color-muted);
-  text-align: center;
-}
-
-/* ========================================
-   ANIMATIONS
-   ======================================== */
-
-/* Animation machine à écrire */
-@-webkit-keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-/* Animation curseur clignotant */
-@-webkit-keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-
-/* ========================================
-   SEPARATOR
-   ======================================== */
-
-.separator-h {
-  width: 100%;
+.section-header hr {
   height: 2px;
+  background: linear-gradient(90deg, var(--gradient-colors), transparent);
 }
 
-.separator-h-gradient {
-  background: linear-gradient(90deg, transparent, rgb(from var(--glow) r g b / 0.5), transparent);
+.section-lead {
+  max-width: 70ch;
 }
 
 /* ========================================
    RESPONSIVE - TABLETTE & MOBILE
    ======================================== */
 
-@media (max-width: 576px) {
-  .section-header .separator-h {
-    width: 80%;
-  }
-}
-
-/* Désactiver animation machine à écrire en mobile */
-@media (max-width: 480px) {
-  .section-description {
-    width: 100%;
-    max-width: 100%;
-    overflow-wrap: break-word;
-    white-space: normal;
-    overflow: visible;
-    border-right: none;
-    -webkit-animation: none;
-    animation: none;
+@media (min-width: 576px) {
+  .section-header hr {
+    width: 60%;
   }
 }

@@ -18,13 +18,9 @@ h2 {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin-bottom: clamp(calc(var(--space) * 2), 2vw, calc(var(--space) * 4));
-  font-size: clamp(var(--text-3xl), 5vw, var(--text-4xl));
+  font-family: var(--font-display);
+  font-size: clamp(1.875rem, 5vw, 3.125rem);
   font-weight: 700;
-  color: transparent;
-  background: var(--gradient-neon);
-  background-clip: text;
-  -webkit-background-clip: text;
 }
 
 h3,
@@ -68,12 +64,4 @@ strong {
 
 .text-accent {
   color: var(--color);
-}
-
-/* ========================================
-    HORIZONTAL RULE
-   ======================================== */
-
-hr {
-  margin: calc(var(--space) * 4) 0;
 }
