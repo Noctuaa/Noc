@@ -34,14 +34,27 @@
    NAVIGATION ITEMS
    ============================================ */
 
-.nav-item.active,
-.nav-item:hover {
+.nav-item:not(:last-child).active,
+.nav-item:not(:last-child):hover {
   color: var(--accent);
   transform: scale(1.05);
 }
 
-.nav-item:hover a {
+.nav-item:not(:last-child):hover a {
   text-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+}
+
+/* Dernier item (Contact) mis en avant comme un CTA */
+.nav-list li:last-child a {
+  padding: calc(var(--space) * 2) calc(var(--space) * 4);
+  border-radius: calc(var(--space) * 2);
+  background: var(--accent);
+  transition: all var(--transition-normal) ease;
+}
+
+.nav-item:last-child.active a,
+.nav-item:last-child:hover a {
+  filter: brightness(1.1);
 }
 
 .nav.is-open .nav-item {

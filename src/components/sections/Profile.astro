@@ -15,7 +15,7 @@ const posterImg = await getImage({ src: avatarImg, format: 'webp' });
       <div class="profile-identity grid gap-2">
         <div class="profile-avatar js-center relative w-full mb-6" data-animate>
           <div class="absolute inset-0 ow-hidden">
-            <video class="w-full h-full" autoplay muted loop playsinline poster={posterImg.src}>
+            <video class="w-full h-full object-cover" autoplay muted loop playsinline poster={posterImg.src}>
               <source src="/profile-video.mp4" type="video/mp4" />
             </video>
           </div>

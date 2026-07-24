@@ -4,7 +4,7 @@ import LoadingScreen from '../components/LoadingScreen.astro';
 import Hero from '../components/sections/Hero.astro';
 import Profile from '../components/sections/Profile.astro';
 import Competence from '../components/sections/Competence.astro';
-import ProjectAccordion from '../components/ProjectAccordion.astro';
+import Project from '../components/sections/Project.astro';
 import ContactForm from '../components/ContactForm.vue';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -16,22 +16,7 @@ import ContactForm from '../components/ContactForm.vue';
   <Hero />
   <Profile />
   <Competence />
-
-  <!-- ============ PORTFOLIO ============ -->
-  <section id="portfolio" class="section bg-alt">
-    <div class="container">
-      <div class="section-header">
-        <h2 data-animate>Projets</h2>
-        <div class="separator-h separator-h-gradient" data-animate></div>
-        <p class="section-description" data-animate>
-          Une sélection de <span class="text-accent">projets personnels et techniques</span> qui reflètent mon approche du
-          développement.
-        </p>
-      </div>
-      <ProjectAccordion />
-      <!--<ProjectAccordion client:load />-->
-    </div>
-  </section>
+  <Project />
 
   <!-- ============ CONTACT ============ -->
   <section id="contact" class="section bg-surface">

@@ -20,7 +20,7 @@ const technologies: Technology[] = [
 ];
 ---
 
-<div class="scroller">
+<div class="scroller mi-auto">
   <!-- Line 1 : Left → Right -->
   <div class="scroller-inner flex" data-animate>
     <ul class="scroller-list flex gap-3 pr-3" role="list">
@@ -37,7 +37,7 @@ const technologies: Technology[] = [
       {
         technologies.map((tech) => (
           <li class="stack-card relative flex-center flex-col gap-4">
-            <img src={tech.logo} alt="" width="48" height="48" loading="lazy" decoding="async" />
+            <img src={tech.logo} alt="" width="48" height="48" loading="lazy" decoding="async" class="object-cover" />
             <span class="text-sm font-semibold text-center">{tech.name}</span>
           </li>
         ))

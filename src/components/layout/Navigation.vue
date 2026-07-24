@@ -4,9 +4,10 @@ import { throttle } from '../../utils/ScrollManager.ts';
 
 // Navigation sections list
 const sections = [
+  { id: 'hero', label: 'Accueil' },
   { id: 'profile', label: 'À propos' },
   { id: 'competences', label: 'Compétences' },
-  { id: 'portfolio', label: 'Projets' },
+  { id: 'projects', label: 'Projets' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -86,7 +87,7 @@ onUnmounted(() => {
     </button>
     <nav
       :class="[
-        'nav fixed z-100 flex-center flex-col h-svh text-base font-medium ink-2 inset-0 pe-none',
+        'nav fixed z-100 flex-center flex-col h-svh text-base font-medium ink-1 inset-0 pe-none',
         { 'is-open': isMenuOpen },
       ]"
       aria-label="Main navigation"

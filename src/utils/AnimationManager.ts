@@ -110,12 +110,12 @@ const initCompetencesAnimations = () => {
  * Project accordion entrance on scroll
  */
 const initProjectAnimations = () => {
-  animateSectionHeader('#portfolio');
-  gsap.fromTo('#portfolio .accordion',
+  animateSectionHeader('#projects');
+  gsap.fromTo('#projects .accordion',
     { y: 40 },
     {
       autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out',
-      scrollTrigger: { trigger: '#portfolio .accordion', start: 'top 60%', once: true }
+      scrollTrigger: { trigger: '#projects .accordion', start: 'top 60%', once: true }
     }
   );
 

@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import weatherImg from '../assets/images/weather.webp';
 import chaletsImg from '../assets/images/chalets.webp';
 import type { ImageMetadata } from 'astro';
+import LinkButton from './ui/LinkButton.astro';
 
 type Project = {
   id: number;
@@ -18,9 +19,10 @@ const projects: Project[] = [
   {
     id: 1,
     title: 'SkyCast',
-    link: 'https://weather.nocdev.fr/',
-    tags: ['Vue.js', 'API Weather', 'Responsive'],
-    description: 'Application météo temps réel avec API de géolocalisation et design responsive.',
+    link: 'https://skycast.nocdev.fr/',
+    tags: ['Astro', 'Vue.js', 'MapLibre'],
+    description:
+      'Prévisions en temps réel, carte interactive et graphiques détaillés — une météo pensée pour la rapidité et la clarté.',
     image: weatherImg,
   },
   {
@@ -34,23 +36,29 @@ const projects: Project[] = [
 ];
 ---
 
-<ul class="accordion">
+<ul class="accordion flex gap-2 w-full">
   {
     projects.map((project) => (
-      <li class="project-item neon-mask">
-        <Image src={project.image} alt={project.title} class="project-img" />
-        <span class="title-vertical">{project.title}</span>
-        <div class="project-content">
-          <p class="project-title">{project.title}</p>
-          <p class="project-description">{project.description}</p>
-          <ul class="project-tags">
+      <li class="project-item relative flex flex-1 ai-end h-full border-sub rounded-lg ow-hidden c-pointer">
+        <Image src={project.image} alt={project.title} class="project-img absolute w-full h-full object-cover" />
+        <span class="title-vertical absolute text-2xl uppercase font-bold text-gradient">{project.title}</span>
+        <div class="project-content flex flex-col gap-3 w-full p-6 opacity-0 backdrop-blur pe-none">
+          <h3 class="project-title text-2xl font-bold ink-1">{project.title}</h3>
+          <p class="project-description text-sm ink-2">{project.description}</p>
+          <ul class="project-list-tags flex flex-wrap gap-2">
             {project.tags.map((tag) => (
-              <li>{tag}</li>
+              <li class="project-tag text-sm ink-2 rounded-sm">{tag}</li>
             ))}
           </ul>
-          <a href={project.link} class="btn btn-outline" target="_blank" aria-label={`Voir le projet ${project.title}`}>
-            Voir le projet
-          </a>
+          <LinkButton
+            href={project.link}
+            variant="link"
+            class="as-end"
+            target="_blank"
+            aria-label={`Voir le projet ${project.title}`}
+          >
+            Voir <span>↗</span>
+          </LinkButton>
         </div>
       </li>
     ))
@@ -59,7 +67,7 @@ const projects: Project[] = [
 
 <script>
   const accordion = document.querySelector<HTMLElement>('.accordion');
-  const isMobile = window.matchMedia('(max-width: 992px)').matches;
+  const desktopQuery = window.matchMedia('(min-width: 992px)');
 
   // Set active item
   const setActive = (item: Element) => {
@@ -73,20 +81,19 @@ const projects: Project[] = [
     const item = (e.target as Element).closest('.project-item');
     if (!item) return;
     setActive(item);
-    if (isMobile) item.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    if (!desktopQuery.matches) item.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   });
 
-  if (isMobile) {
-    const carouselObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target);
-        });
-      },
-      { root: accordion, threshold: 0.5 },
-    );
-    accordion?.querySelectorAll<HTMLElement>('.project-item').forEach((item) => {
-      carouselObserver.observe(item);
-    });
-  }
+  const carouselObserver = new IntersectionObserver(
+    (entries) => {
+      if (desktopQuery.matches) return;
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActive(entry.target);
+      });
+    },
+    { root: accordion, threshold: 0.5 },
+  );
+  accordion?.querySelectorAll<HTMLElement>('.project-item').forEach((item) => {
+    carouselObserver.observe(item);
+  });
 </script>

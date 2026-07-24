@@ -219,7 +219,7 @@ const submitForm = async () => {
     <p v-if="serverError" class="server-error">{{ serverError }}</p>
 
     <div class="form-submit">
-      <button type="submit" class="btn btn-outline" :disabled="isLoading">
+      <button type="submit" class="btn btn-outline rounded-sm" :disabled="isLoading">
         <span v-if="isLoading">Envoi en cours...</span>
         <span v-else-if="isFormSubmitted" class="form-submitted">
           <svg

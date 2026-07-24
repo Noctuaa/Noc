@@ -1,18 +1,24 @@
+---
+import LinkButton from '../ui/LinkButton.astro';
+---
+
 <section id="hero" class="section relative z-10 grid pi-center h-full ow-hidden">
   <canvas class="stars-canvas absolute w-full h-full inset-0 pe-none" aria-hidden="true"></canvas>
   <div class="hero-aurora" aria-hidden="true"></div>
   <div class="hero-forest" aria-hidden="true"></div>
   <div class="container relative z-10">
-    <div class="hero-content grid gap-4 text-center">
+    <div class="hero-content grid gap-3 text-center">
       <h1 class="mt-0" data-animate>
         Développeur
         <br />
-        <span>d'application web.</span>
+        <span class="text-gradient">d'application web.</span>
       </h1>
-      <p class="hero-subtitle js-center" data-animate>
+      <p class="hero-subtitle js-center text-lg ink-2" data-animate>
         Je transforme vos besoins en applications web modernes et performantes.
       </p>
-      <a href="#portfolio" class="btn btn-cta js-center" data-animate>Voir mes projets</a>
+      <LinkButton href="#projects" variant="cta" class="js-center" aria-label="Voir mes projets" data-animate
+        >Voir mes projets</LinkButton
+      >
     </div>
   </div>
 </section>
