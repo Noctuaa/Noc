@@ -6,7 +6,7 @@
 #loading-screen {
   height: 100svh;
   inset: 0;
-  background: var(--background);
+  background: var(--bg);
   z-index: 9999;
 }
 
