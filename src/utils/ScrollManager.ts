@@ -76,15 +76,22 @@ export const throttle = <T extends unknown[]>(func: (...args: T) => void, delay:
  * Intercepts all a[href^="#"] clicks and delegates to Lenis
  */
 export const initAnchorLinks = () => {
-  const anchors = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]');
+  const anchors = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"], a[href^="/#"]');
 
   anchors.forEach((anchor: Element) => {
     anchor.addEventListener('click', (e) => {
+      const href = anchor.getAttribute('href') ?? '';
+      const targetPath = href.startsWith('/#') ? '/' : window.location.pathname;
+
+      // Link points to a section on a different page — let the browser navigate
+      // normally (full page load), Lenis has nothing to scroll to yet.
+      if (targetPath !== window.location.pathname) return;
+
       if (!lenis) return; // no Lenis (reduced motion) — let the native anchor jump happen
       e.preventDefault();
       lenis.start();
-      const href = anchor.getAttribute('href') ?? '';
-      lenis.scrollTo(href, { duration: DURATION, offset: 0 });
+      const hash = href.slice(href.indexOf('#'));
+      lenis.scrollTo(hash, { duration: DURATION, offset: 0 });
     });
   });
 };

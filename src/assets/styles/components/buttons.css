@@ -1,12 +1,26 @@
 /* ===== BUTTON STYLES ===== */
 
-.btn {
-  transition: all var(--transition-normal) ease;
-}
-
 .btn-cta {
   padding: calc(var(--space) * 3) calc(var(--space) * 4);
   background: var(--gradient-cta);
+  transition: all var(--transition-normal) ease;
+}
+
+/* ========================================
+  PRIMARY BUTTON — actions importantes réutilisables
+  (formulaires, confirmations...) — distinct du CTA,
+  qui reste réservé au Hero
+  ======================================== */
+
+.btn-primary {
+  padding: calc(var(--space) * 3) calc(var(--space) * 8);
+  background: var(--accent);
+  color: var(--ink-1);
+  transition: filter var(--transition-fast) ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  filter: brightness(1.15);
 }
 
 /* ========================================
@@ -21,4 +35,39 @@
 
 .btn-link:hover {
   background-color: rgb(from var(--accent) r g b / 0.6);
+}
+
+/* BUTTON SUBMIT ------------------------------------------- */
+
+.btn-submit {
+  transition: filter var(--transition-fast) ease;
+}
+
+.btn-submit:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Fill wipe on success — top to bottom */
+.btn-submit::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--success);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--transition-normal) ease;
+}
+
+.btn-submit.is-submitted::before {
+  transform: scaleY(1);
+}
+
+.btn-submit.is-submitted {
+  color: var(--bg);
 }

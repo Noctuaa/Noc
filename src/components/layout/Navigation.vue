@@ -99,7 +99,7 @@ onUnmounted(() => {
           @click="toggleMenu(false)"
           :class="['nav-item py-2 px-3 opacity-0 c-pointer', { active: activeSection === section.id }]"
         >
-          <a :href="`#${section.id}`" class="">{{ section.label }}</a>
+          <a :href="`/#${section.id}`" class="">{{ section.label }}</a>
         </li>
       </ul>
     </nav>

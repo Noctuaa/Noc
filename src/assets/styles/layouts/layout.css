@@ -8,6 +8,15 @@ body {
   background: var(--bg);
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+
 /* ========================================
    CONTAINER - Conteneur principal
    ======================================== */
@@ -27,7 +36,31 @@ section {
 }
 
 /* ========================================
-   SECTION HEADER 
+   LEGAL PAGES - Mentions légales, Politique de confidentialité
+   ======================================== */
+
+.legal-page {
+  max-width: 70ch;
+  padding-top: calc(4.25rem + 3rem);
+}
+
+.legal-page h1 {
+  margin-bottom: calc(var(--space) * 8);
+}
+
+.legal-page h2 {
+  margin-top: calc(var(--space) * 10);
+  margin-bottom: calc(var(--space) * 3);
+}
+
+.legal-page p,
+.legal-page ul {
+  margin-bottom: calc(var(--space) * 3);
+  color: var(--ink-2);
+}
+
+/* ========================================
+   SECTION HEADER
    ======================================== */
 
 .section-header {

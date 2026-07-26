@@ -291,18 +291,17 @@
    CONTACT
    ============================================================ */
 
-/* Form ------------------------------------------ */
+/* Aura ------------------------------------------- */
 
-.contact-form {
-  max-width: 560px;
-  margin-inline: auto;
-  padding-top: calc(var(--space) * 6);
-}
-
-/* Responsive ------------------------------------ */
-
-@media (min-width: 992px) {
-  .contact-form {
-    padding-top: 0;
-  }
+.contact-aura {
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 40%);
+  width: 100vw;
+  height: 100%;
+  background: radial-gradient(ellipse at center, var(--accent) 0%, var(--accent) 40%, transparent 70%);
+  opacity: 0.1;
+  pointer-events: none;
 }

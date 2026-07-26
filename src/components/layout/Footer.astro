@@ -1,9 +1,5 @@
 ---
-import Modal from '../Modal.vue';
-import MailtoLink from '../MailtoLink.astro';
-
 const currentYear = new Date().getFullYear();
-const email = import.meta.env.PUBLIC_EMAIL_TO;
 ---
 
 <footer class="footer relative">
@@ -13,54 +9,22 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
   </svg>
 
   <div class="container">
-    <div class="footer-brand grid gap-2 mb-6">
-      <img src="/logo.svg" alt="Nocdev logo" class="footer-logo" width="60" height="60" />
-      <h2 class="brand-name m-0">Nocdev</h2>
+    <div class="footer-brand relative flex-center mb-6">
+      <div class="footer-brand-line absolute w-full"></div>
+      <div class="footer-brand-mark relative grid gap-2 jc-center">
+        <img src="/logo.svg" alt="Nocdev logo" class="footer-logo" width="60" height="60" />
+        <h2 class="brand-name m-0">Nocdev</h2>
+      </div>
     </div>
     <div class="separator-h separator-h-gradient"></div>
-    <div class="footer-bottom flex jc-between pt-4">
+    <div class="footer-bottom flex jc-between pt-4 text-sm">
       <div class="footer-legal flex gap-2">
-        <Modal title="Mentions légales" client:load>
-          <h4>Éditeur du site</h4>
-          <p>
-            <strong>Noctua</strong>
-            <br />
-            Développeur d'Application
-            <br />
-            France
-            <br />
-            Email : <MailtoLink {email}>{email}</MailtoLink>
-          </p>
-          <h4>Hébergement</h4>
-          <p>
-            <strong>PlanetHoster</strong>
-            <br />
-            4416 Louis B. Mayer
-            <br />
-            Laval, QC H7P 0G1, Canada
-          </p>
-          <h4>Propriété intellectuelle</h4>
-          <p>Tous droits réservés. Ce portfolio est protégé par le droit d'auteur.</p>
-        </Modal>
+        <a href="/mentions-legales">Mentions légales</a>
         <span class="footer-sep" aria-hidden="true">·</span>
-        <Modal title="Politique de confidentialité" client:visible>
-          <h4>Données collectées</h4>
-          <p>Via le formulaire de contact :</p>
-          <ul>
-            <li>Nom et prénom</li>
-            <li>Adresse email</li>
-            <li>Message</li>
-          </ul>
-          <h4>Utilisation</h4>
-          <p>Ces données servent uniquement à répondre à vos demandes.</p>
-          <h4>Vos droits</h4>
-          <p>
-            Accès, rectification, suppression : <MailtoLink {email}>{email}</MailtoLink>
-          </p>
-        </Modal>
+        <a href="/politique-de-confidentialite">Politique de confidentialité</a>
       </div>
       <div class="copy">
-        <p class="m-0">© {currentYear} Nocdev</p>
+        <p class="m-0 text-sm font-bold">© {currentYear} Nocdev</p>
       </div>
     </div>
   </div>

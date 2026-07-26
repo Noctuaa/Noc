@@ -2,6 +2,7 @@
 import { actions } from 'astro:actions';
 import { contactSchema, type ContactData } from '../schemas/contact';
 import { reactive, ref, nextTick } from 'vue';
+import FormField from './FormField.vue';
 
 const errors = ref<Record<string, string[]>>({});
 const isFormSubmitted = ref(false);
@@ -9,10 +10,12 @@ const isLoading = ref(false);
 const serverError = ref('');
 
 const form = reactive<Record<string, string>>({
-  name: '',
+  firstName: '',
+  lastName: '',
   email: '',
   subject: '',
   message: '',
+  website: '', // honeypot anti-spam — ne doit jamais être rempli par un humain
 });
 
 /**
@@ -76,7 +79,7 @@ const submitForm = async () => {
   try {
     await sendToAPI(validData);
     isFormSubmitted.value = true;
-    Object.assign(form, { name: '', email: '', subject: '', message: '' });
+    Object.assign(form, { firstName: '', lastName: '', email: '', subject: '', message: '', website: '' });
     setTimeout(() => {
       isFormSubmitted.value = false;
     }, 6000);
@@ -91,137 +94,208 @@ const submitForm = async () => {
 </script>
 
 <template>
-  <form @submit.prevent="submitForm" class="form" autocomplete="off" novalidate>
-    <div class="form-group">
-      <input
-        id="name"
-        name="name"
-        v-model="form.name"
-        placeholder=""
-        type="text"
-        autocomplete="off"
-        :class="['form-input', { error: errors.name }]"
-        @blur="validateField('name')"
-        @input="clearError('name')"
-      />
-      <label for="name" :class="['form-label', { 'is-active': form.name }]"><span>Nom complet</span></label>
-      <div v-if="errors.name" class="error-message">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 512 512"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zm0-192a32 32 0 1 0 0 64 32 32 0 1 0 0-64zm0-192c-18.2 0-32.7 15.5-31.4 33.7l7.4 104c.9 12.6 11.4 22.3 23.9 22.3 12.6 0 23-9.7 23.9-22.3l7.4-104c1.3-18.2-13.1-33.7-31.4-33.7z"
-          />
-        </svg>
-        <span>{{ errors.name[0] }}</span>
-      </div>
-    </div>
+  <form
+    @submit.prevent="submitForm"
+    class="form relative flex flex-col gap-6 mi-auto rounded-sm border-sub"
+    autocomplete="off"
+    novalidate
+  >
+    <p class="text-sm ink-3">Tous les champs sont obligatoires.</p>
 
-    <div class="form-group">
-      <input
-        id="email"
-        name="email"
-        v-model="form.email"
-        placeholder=""
-        type="email"
-        autocomplete="off"
-        :class="['form-input', { error: errors.email }]"
-        @blur="validateField('email')"
-        @input="clearError('email')"
-      />
-      <label for="email" :class="['form-label', { 'is-active': form.email }]"><span>Email</span></label>
-      <div v-if="errors.email" class="error-message">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 512 512"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zm0-192a32 32 0 1 0 0 64 32 32 0 1 0 0-64zm0-192c-18.2 0-32.7 15.5-31.4 33.7l7.4 104c.9 12.6 11.4 22.3 23.9 22.3 12.6 0 23-9.7 23.9-22.3l7.4-104c1.3-18.2-13.1-33.7-31.4-33.7z"
-          />
-        </svg>
-        <span>{{ errors.email[0] }}</span>
-      </div>
-    </div>
-
-    <div :class="['form-group select-group', { 'has-value': form.subject }]">
-      <select
-        id="subject"
-        name="subject"
-        v-model="form.subject"
-        :class="['form-select', { error: errors.subject }]"
-        @change="clearError('subject')"
+    <div class="form-row grid gap-6">
+      <FormField
+        id="lastName"
+        label="Nom"
+        placeholder="Dupont"
+        :model-value="form.lastName"
+        :error="errors.lastName"
+        @update:model-value="
+          (v) => {
+            form.lastName = v;
+            clearError('lastName');
+          }
+        "
+        @blur="validateField('lastName')"
       >
-        <option disabled value=""></option>
-        <option value="vitrine">Site vitrine</option>
-        <option value="integration">Intégration web</option>
-        <option value="refonte">Refonte de site</option>
-        <option value="autre">Autre</option>
-      </select>
-      <label for="subject" :class="['form-label', { 'is-active': form.subject }]">
-        <span>Sujet</span>
-      </label>
+        <template #icon>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="8" r="5"></circle>
+            <path d="M20 21a8 8 0 0 0-16 0"></path>
+          </svg>
+        </template>
+      </FormField>
 
-      <div v-if="errors.subject" class="error-message">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 512 512"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zm0-192a32 32 0 1 0 0 64 32 32 0 1 0 0-64zm0-192c-18.2 0-32.7 15.5-31.4 33.7l7.4 104c.9 12.6 11.4 22.3 23.9 22.3 12.6 0 23-9.7 23.9-22.3l7.4-104c1.3-18.2-13.1-33.7-31.4-33.7z"
-          />
-        </svg>
-        <span>{{ errors.subject[0] }}</span>
-      </div>
+      <FormField
+        id="firstName"
+        label="Prénom"
+        placeholder="Jean"
+        :model-value="form.firstName"
+        :error="errors.firstName"
+        @update:model-value="
+          (v) => {
+            form.firstName = v;
+            clearError('firstName');
+          }
+        "
+        @blur="validateField('firstName')"
+      >
+        <template #icon>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="8" r="5"></circle>
+            <path d="M20 21a8 8 0 0 0-16 0"></path>
+          </svg>
+        </template>
+      </FormField>
     </div>
 
-    <div class="form-group">
-      <textarea
-        id="message"
-        name="message"
-        v-model="form.message"
-        placeholder=""
-        :class="['form-textarea', { error: errors.message }]"
-        @blur="validateField('message')"
-        @input="clearError('message')"
-        rows="6"
-      ></textarea>
-      <label for="message" :class="['form-label', { 'is-active': form.message }]"><span>Message</span></label>
-      <div v-if="errors.message" class="error-message">
+    <FormField
+      id="email"
+      label="Email"
+      type="email"
+      placeholder="jean.dupont@exemple.fr"
+      :model-value="form.email"
+      :error="errors.email"
+      @update:model-value="
+        (v) => {
+          form.email = v;
+          clearError('email');
+        }
+      "
+      @blur="validateField('email')"
+    >
+      <template #icon>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 512 512"
-          fill="currentColor"
-          aria-hidden="true"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+          <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+        </svg>
+      </template>
+    </FormField>
+
+    <FormField
+      id="subject"
+      label="Sujet"
+      placeholder="Refonte de site vitrine"
+      :model-value="form.subject"
+      :error="errors.subject"
+      @update:model-value="
+        (v) => {
+          form.subject = v;
+          clearError('subject');
+        }
+      "
+      @blur="validateField('subject')"
+    >
+      <template #icon>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         >
           <path
-            d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512zm0-192a32 32 0 1 0 0 64 32 32 0 1 0 0-64zm0-192c-18.2 0-32.7 15.5-31.4 33.7l7.4 104c.9 12.6 11.4 22.3 23.9 22.3 12.6 0 23-9.7 23.9-22.3l7.4-104c1.3-18.2-13.1-33.7-31.4-33.7z"
-          />
+            d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"
+          ></path>
+          <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
         </svg>
-        <span>{{ errors.message[0] }}</span>
-      </div>
+      </template>
+    </FormField>
+
+    <FormField
+      id="message"
+      label="Message"
+      as="textarea"
+      placeholder="Décrivez votre projet..."
+      :rows="6"
+      :model-value="form.message"
+      :error="errors.message"
+      @update:model-value="
+        (v) => {
+          form.message = v;
+          clearError('message');
+        }
+      "
+      @blur="validateField('message')"
+    >
+      <template #icon>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"
+          ></path>
+        </svg>
+      </template>
+    </FormField>
+
+    <!-- Honeypot anti-spam : invisible et ignoré par les humains, piège pour les bots -->
+    <div class="honeypot" aria-hidden="true">
+      <label for="website">Laissez ce champ vide</label>
+      <input
+        id="website"
+        name="website"
+        v-model="form.website"
+        type="text"
+        tabindex="-1"
+        autocomplete="off"
+      />
     </div>
 
-    <p v-if="serverError" class="server-error">{{ serverError }}</p>
+    <p v-if="serverError" class="flex-center text-sm">{{ serverError }}</p>
 
-    <div class="form-submit">
-      <button type="submit" class="btn btn-outline rounded-sm" :disabled="isLoading">
+    <div class="flex-center mt-2">
+      <button
+        type="submit"
+        :class="[
+          'btn-primary btn-submit z-1 relative font-semibold ow-hidden rounded-sm',
+          { 'is-submitted': isFormSubmitted },
+        ]"
+        :disabled="isLoading"
+      >
         <span v-if="isLoading">Envoi en cours...</span>
-        <span v-else-if="isFormSubmitted" class="form-submitted">
+        <span v-else-if="isFormSubmitted" class="form-submitted flex-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -241,5 +315,3 @@ const submitForm = async () => {
     </div>
   </form>
 </template>
-
-<style src="../assets/styles/components/form.css"></style>

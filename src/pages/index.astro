@@ -5,7 +5,7 @@ import Hero from '../components/sections/Hero.astro';
 import Profile from '../components/sections/Profile.astro';
 import Competence from '../components/sections/Competence.astro';
 import Project from '../components/sections/Project.astro';
-import ContactForm from '../components/ContactForm.vue';
+import Contact from '../components/sections/Contact.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -17,21 +17,5 @@ import ContactForm from '../components/ContactForm.vue';
   <Profile />
   <Competence />
   <Project />
-
-  <!-- ============ CONTACT ============ -->
-  <section id="contact" class="section bg-surface">
-    <div class="container">
-      <div class="section-header">
-        <h2 data-animate>Contact</h2>
-        <div class="separator-h separator-h-gradient" data-animate></div>
-        <p class="section-description" data-animate>
-          Je suis <span class="text-accent">disponible en freelance</span> et toujours ouvert à de
-          <span class="text-accent">nouvelles collaborations</span>.
-        </p>
-      </div>
-      <div class="contact-form" data-animate>
-        <ContactForm client:load />
-      </div>
-    </div>
-  </section>
+  <Contact />
 </Layout>

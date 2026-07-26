@@ -1,0 +1,13 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+import ContactForm from '../ContactForm.vue';
+---
+
+<section id="contact" class="section relative ow-hidden">
+  <div class="contact-aura" aria-hidden="true"></div>
+
+  <div class="container relative z-10">
+    <SectionHeader title="Contactez-moi" description="Une idée, un projet, une question — n'hésitez pas à m'écrire." />
+    <ContactForm client:load />
+  </div>
+</section>

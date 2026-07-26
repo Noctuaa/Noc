@@ -17,6 +17,7 @@
 
 /* === COMPONENTS === */
 @import './components/StackCarousel.css' layer(components); /* Stack carousel */
+@import './components/form.css' layer(components); /* Contact form */
 @import './components/buttons.css' layer(components); /* Buttons & mini buttons */
 
 :root {

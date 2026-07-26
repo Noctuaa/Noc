@@ -8,7 +8,7 @@
 
 .footer {
   padding: calc(var(--space) * 8) 0;
-  background-color: var(--background);
+  background-color: var(--bg);
   font-size: var(--text-sm);
 }
 
@@ -16,11 +16,21 @@
    BRAND
    =================================== */
 
-.footer-brand {
-  place-items: center;
+.footer-brand-line {
+  top: 50%;
+  height: 1px;
+  background: var(--border-subtle);
+  transform: translateY(-50%);
+}
+
+.footer-brand-mark {
+  z-index: 1;
+  padding-inline: calc(var(--space) * 6);
+  background: var(--bg);
 }
 
 .footer-logo {
+  width: 60px;
   opacity: 0.7;
 }
 
@@ -51,11 +61,11 @@
 
 .wave-footer {
   position: absolute;
-  top: calc(clamp(30px, 8vw, 80px) * -1);
+  top: calc(clamp(30px, 8vw, 30px) * -1);
   left: 0;
   width: 100%;
-  height: clamp(30px, 8vw, 80px);
-  fill: var(--background);
+  height: clamp(30px, 8vw, 30px);
+  fill: var(--bg);
   pointer-events: none;
   transform: rotate(180deg);
 }

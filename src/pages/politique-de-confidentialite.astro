@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MailtoLink from '../components/MailtoLink.astro';
+
+const email = import.meta.env.PUBLIC_EMAIL_TO;
+---
+
+<Layout>
+  <div>
+    <div class="container legal-page">
+      <h1>Politique de confidentialité</h1>
+
+      <h2>Données collectées</h2>
+      <p>Via le formulaire de contact :</p>
+      <ul>
+        <li>Nom et prénom</li>
+        <li>Adresse email</li>
+        <li>Message</li>
+      </ul>
+
+      <h2>Utilisation</h2>
+      <p>Ces données servent uniquement à répondre à vos demandes.</p>
+
+      <h2>Vos droits</h2>
+      <p>
+        Accès, rectification, suppression : <MailtoLink {email}>{email}</MailtoLink>
+      </p>
+    </div>
+  </div>
+</Layout>

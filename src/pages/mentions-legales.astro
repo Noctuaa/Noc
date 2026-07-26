@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MailtoLink from '../components/MailtoLink.astro';
+
+const email = import.meta.env.PUBLIC_EMAIL_TO;
+---
+
+<Layout>
+  <div>
+    <div class="container legal-page">
+      <h1>Mentions légales</h1>
+
+      <h2>Éditeur du site</h2>
+      <p>
+        <strong>Noctua</strong>
+        <br />
+        Développeur d'Application
+        <br />
+        France
+        <br />
+        Email : <MailtoLink {email}>{email}</MailtoLink>
+      </p>
+
+      <h2>Hébergement</h2>
+      <p>
+        <strong>Cloudflare, Inc.</strong>
+        <br />
+        101 Townsend St, San Francisco, CA 94107, USA
+      </p>
+
+      <h2>Propriété intellectuelle</h2>
+      <p>Tous droits réservés. Ce portfolio est protégé par le droit d'auteur.</p>
+    </div>
+  </div>
+</Layout>

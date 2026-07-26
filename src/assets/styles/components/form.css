@@ -1,159 +1,59 @@
 /* ========================================
-   FORM - Container
+   FORM -
    ======================================== */
 
 .form {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--space) * 8);
+  max-width: 720px;
+  padding: clamp(20px, 4vw, 40px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
 }
 
-/* ========================================
-   FORM - Group
-   ======================================== */
-
-.form-group {
-  position: relative;
+.form-row {
+  grid-template-columns: 1fr;
 }
 
-/* Animated underline width 0 → 100% on focus */
-.form-group::before {
-  content: '';
+/* Honeypot — hors champ visuel, mais toujours dans le DOM pour piéger les bots */
+.honeypot {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
-  width: 0;
-  height: 2px;
-  background: var(--gradient-text);
-  transition: width var(--transition-normal) ease;
-  pointer-events: none;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
-.form-group:has(textarea) {
-  padding-bottom: 1rem;
-  box-shadow: inset 0 -2px 0 0 var(--color-muted);
+.form-icon {
+  top: 16px;
+  left: 16px;
+  transition: color var(--transition-fast) ease;
 }
 
-.form-group:has(:focus)::before,
-.form-group:has(.form-input:not(:placeholder-shown))::before,
-.form-group:has(.form-textarea:not(:placeholder-shown))::before,
-.form-group.has-value::before {
-  width: 100%;
+.form svg {
+  width: 16px;
+  height: 16px;
 }
 
-.form-group:has(.error)::before {
-  display: none;
-}
-
-/* ========================================
-   FORM - Label
-   ======================================== */
-
-.form-label {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  color: var(--color-muted);
-  pointer-events: none;
-  transition:
-    top var(--transition-normal) ease,
-    left var(--transition-normal) ease,
-    color var(--transition-normal) ease,
-    scale var(--transition-normal) ease;
-}
-
-/* Floating label - active state */
-.form-input:focus + .form-label,
-.form-textarea:focus + .form-label,
-.form-select:focus + .form-label,
-.form-input:not(:placeholder-shown) + .form-label,
-.form-textarea:not(:placeholder-shown) + .form-label,
-.form-label.is-active {
-  top: -15px;
-  left: 0px;
+.form-input-wrapper:focus-within .form-icon {
   color: var(--accent);
-  scale: 0.93;
-}
-
-/* ========================================
-   FORM - Input, Textarea & Select (shared)
-   ======================================== */
-
-.form-input,
-.form-textarea,
-.form-select {
-  width: 100%;
-  padding: calc(var(--space) * 3) calc(var(--space) * 2);
-  border: none;
-  font-family: inherit;
-  font-size: 0.95rem;
-  font-weight: 400;
-  color: var(--color);
-  background: transparent;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
 }
 
 .form-input,
-.form-select {
-  box-shadow: inset 0 -2px 0 0 var(--color-muted);
+.form-textarea {
+  background: rgb(from var(--bg) r g b / 0.5);
+  padding: 15px 18px 15px 3rem;
+  outline: none;
+  transition: border-color var(--transition-fast) ease;
+  resize: vertical;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  font-size: 0.875rem;
+  color: var(--ink-3);
 }
 
 .form-input:focus,
-.form-textarea:focus,
-.form-select:focus {
-  outline: none;
-}
-
-/* ========================================
-   FORM - Input specific
-   ======================================== */
-
-.form-input {
-  resize: vertical;
-  caret-color: var(--accent);
-}
-
-/* ========================================
-   FORM - Select specific
-   ======================================== */
-
-.form-select {
-  padding-right: calc(var(--space) * 8);
-  cursor: pointer;
-}
-
-.form-select option {
-  color: var(--color);
-  background: var(--background-card);
-}
-
-/* Custom chevron */
-.select-group::after {
-  content: '';
-  position: absolute;
-  right: calc(var(--space) * 4);
-  top: 12px;
-  width: 8px;
-  height: 8px;
-  border-right: 2px solid var(--color-muted);
-  border-bottom: 2px solid var(--color-muted);
-  rotate: 45deg;
-  pointer-events: none;
-  transition:
-    border-color var(--transition-fast) ease,
-    rotate var(--transition-fast) ease;
-}
-
-.select-group:has(.form-select:focus)::after {
+.form-textarea:focus {
   border-color: var(--accent);
-  rotate: 225deg;
 }
 
 /* ========================================
@@ -161,9 +61,8 @@
    ======================================== */
 
 .form-input.error,
-.form-group:has(.form-textarea.error),
-.form-select.error {
-  box-shadow: inset 0 -2px 0 0 var(--error);
+.form-textarea.error {
+  border-color: var(--error);
 }
 
 /* ========================================
@@ -172,51 +71,12 @@
 
 .error-message,
 .server-error {
-  font-size: 0.875rem;
-  font-weight: 500;
   color: var(--error);
-  opacity: 0.9;
 }
 
 .error-message {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: calc(var(--space) * 2);
-  margin-top: calc(var(--space) * 2);
-  padding-left: calc(var(--space) * 2);
-  overflow: hidden;
   -webkit-animation: fadeInError var(--transition-fast) ease-out;
   animation: fadeInError var(--transition-fast) ease-out;
-}
-
-.error-message svg {
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-}
-
-.server-error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* ========================================
-   FORM - Submit
-   ======================================== */
-
-.form-submit {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.form-submitted {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--space) * 2);
-  color: var(--success);
 }
 
 /* ========================================
@@ -242,5 +102,12 @@
   to {
     opacity: 0.9;
     transform: translateY(0);
+  }
+}
+
+@media (min-width: 992px) {
+  .form-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 }
