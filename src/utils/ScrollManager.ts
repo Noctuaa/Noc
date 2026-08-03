@@ -91,7 +91,8 @@ export const initAnchorLinks = () => {
       e.preventDefault();
       lenis.start();
       const hash = href.slice(href.indexOf('#'));
-      lenis.scrollTo(hash, { duration: DURATION, offset: 0 });
+      // Lenis reads the target's CSS `scroll-margin-top` itself, so no manual offset needed.
+      lenis.scrollTo(hash, { duration: DURATION });
     });
   });
 };

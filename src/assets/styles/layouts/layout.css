@@ -33,6 +33,7 @@ main {
 
 section {
   padding: clamp(3rem, 6vw, 5.5rem) 0;
+  scroll-margin-top: var(--nav-height);
 }
 
 /* ========================================
@@ -41,7 +42,7 @@ section {
 
 .legal-page {
   max-width: 70ch;
-  padding-top: calc(4.25rem + 3rem);
+  padding-top: calc(var(--nav-height) + 3rem);
 }
 
 .legal-page h1 {

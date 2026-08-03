@@ -4,7 +4,8 @@
 
 .form {
   max-width: 720px;
-  padding: clamp(20px, 4vw, 40px);
+  padding-block: clamp(20px, 4vw, 40px);
+  padding-inline: clamp(12px, 4vw, 40px);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
 }
 

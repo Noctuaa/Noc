@@ -87,7 +87,7 @@ onUnmounted(() => {
     </button>
     <nav
       :class="[
-        'nav fixed z-100 flex-center flex-col h-svh text-base font-medium ink-1 inset-0 pe-none',
+        'nav fixed z-100 flex flex-col jc-start pt-6 text-base font-medium ink-1 pe-none',
         { 'is-open': isMenuOpen },
       ]"
       aria-label="Main navigation"

@@ -54,7 +54,10 @@
 .as-end {
   align-self: flex-end;
 }
-r .jc-center {
+.jc-start {
+  justify-content: flex-start;
+}
+.jc-center {
   justify-content: center;
 }
 .jc-between {
