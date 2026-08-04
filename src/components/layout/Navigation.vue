@@ -14,6 +14,7 @@ const sections = [
 const activeSection = ref('');
 const isMenuOpen = ref(false);
 const isHeaderVisible = ref(true);
+const isScrolled = ref(false);
 
 type ScrollEvent = {
   scroll: number;
@@ -43,6 +44,7 @@ const updateActiveSection = (scroll: number) => {
 /** Throttled scroll handler — updates active section at most every 100ms */
 const handleScrollThrottled = throttle(({ scroll, direction }: ScrollEvent) => {
   updateActiveSection(scroll);
+  isScrolled.value = scroll > 80;
 
   if (scroll < 80) {
     isHeaderVisible.value = true;
@@ -79,8 +81,8 @@ onUnmounted(() => {
       <svg
         data-dc-tpl="41"
         viewBox="0 0 24 24"
-        width="20"
-        height="20"
+        width="28"
+        height="28"
         fill="none"
         stroke="#eaf0ff"
         stroke-width="2"
@@ -94,19 +96,22 @@ onUnmounted(() => {
     </button>
     <nav
       :class="[
-        'nav fixed z-100 flex flex-col jc-start pt-6 text-base font-medium ink-1 pe-none',
-        { 'is-open': isMenuOpen, 'is-hidden': !isHeaderVisible },
+        'nav fixed z-100 flex flex-col jc-start pt-6 text-sm font-medium ink-1 pe-none',
+        { 'is-open': isMenuOpen, 'is-hidden': !isHeaderVisible, 'is-scrolled': isScrolled },
       ]"
       aria-label="Main navigation"
     >
-      <ul class="nav-list flex flex-col gap-3 text-center">
+      <ul class="nav-list flex flex-col gap-1 text-center">
         <li
           v-for="section in sections"
           :key="section.id"
           @click="toggleMenu(false)"
-          :class="['nav-item py-2 px-3 opacity-0 c-pointer', { active: activeSection === section.id }]"
+          :class="[
+            'nav-item relative as-center opacity-0 ink-2 font-bold rounded-sm c-pointer',
+            { active: activeSection === section.id },
+          ]"
         >
-          <a :href="`/#${section.id}`" class="">{{ section.label }}</a>
+          <a :href="`/#${section.id}`" class="flex-center w-full h-full py-3 px-4">{{ section.label }}</a>
         </li>
       </ul>
     </nav>

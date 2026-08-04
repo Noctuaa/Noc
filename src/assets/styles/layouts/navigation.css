@@ -1,24 +1,26 @@
 .nav-header {
   height: var(--nav-height);
-  transition: transform var(--transition-fast) ease;
+  background: transparent;
+  transition:
+    transform var(--transition-fast) ease,
+    background var(--transition-fast) ease 0.2s;
 }
 
 .nav-header:has(.nav.is-hidden) {
   transform: translateY(-100%);
 }
 
-.nav-header,
-.nav {
-  background: rgb(from var(--bg) r g b / 0.9);
+.nav-header:has(.nav.is-scrolled),
+.nav-header:has(.nav.is-open) {
+  background: var(--bg);
 }
 
 .nav {
+  background: rgb(from var(--bg) r g b / 0.9);
   top: var(--nav-height);
   right: 0;
   bottom: 0;
   width: 50%;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   transform: translateX(100%);
   transition: transform var(--transition-fast) ease;
 }
@@ -32,27 +34,17 @@
    NAVIGATION ITEMS
    ============================================ */
 
-.nav-item:not(:last-child).active,
-.nav-item:not(:last-child):hover {
+.nav-item {
+  width: 90%;
+}
+
+.nav-item.active,
+.nav-item:hover {
   color: var(--accent);
-  transform: scale(1.05);
-}
-
-.nav-item:not(:last-child):hover a {
-  text-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
-}
-
-/* Dernier item (Contact) mis en avant comme un CTA */
-.nav-list li:last-child a {
-  padding: calc(var(--space) * 2) calc(var(--space) * 4);
-  border-radius: calc(var(--space) * 2);
-  background: var(--accent);
-  transition: all var(--transition-normal) ease;
-}
-
-.nav-item:last-child.active a,
-.nav-item:last-child:hover a {
-  filter: brightness(1.1);
+  background: rgba(from var(--accent) r g b / 0.1);
+  transition:
+    color var(--transition-fast) ease,
+    background var(--transition-fast) ease;
 }
 
 .nav.is-open .nav-item {
@@ -86,14 +78,6 @@
    TOGGLE BUTTON — hamburger <-> croix
    ============================================ */
 
-.nav-toggle {
-  width: 38px;
-  height: 38px;
-  border-radius: 0.625rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
 .nav-toggle svg line {
   transform-box: fill-box;
   transform-origin: center;
@@ -120,12 +104,6 @@ body:has(.nav.is-open) .nav-toggle svg line:nth-child(3) {
    ============================================ */
 
 @media (min-width: 992px) {
-  .nav-header {
-    background: linear-gradient(rgba(from var(--bg) r g b / 0.75), rgba(from var(--bg) r g b / 0.15));
-    backdrop-filter: blur(var(--blur-glass));
-    -webkit-backdrop-filter: blur(var(--blur-glass));
-  }
-
   .nav {
     position: relative;
     inset: auto;
@@ -146,8 +124,25 @@ body:has(.nav.is-open) .nav-toggle svg line:nth-child(3) {
   }
 
   .nav .nav-item {
+    width: auto;
     opacity: 1;
     pointer-events: auto;
+  }
+
+  .nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .nav-item a {
+    padding-block: calc(var(--space) * 2);
   }
 
   .nav-toggle {
