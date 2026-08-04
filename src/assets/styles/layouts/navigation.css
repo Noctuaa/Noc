@@ -1,5 +1,10 @@
 .nav-header {
   height: var(--nav-height);
+  transition: transform var(--transition-fast) ease;
+}
+
+.nav-header:has(.nav.is-hidden) {
+  transform: translateY(-100%);
 }
 
 .nav-header,

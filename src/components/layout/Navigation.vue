@@ -13,6 +13,7 @@ const sections = [
 
 const activeSection = ref('');
 const isMenuOpen = ref(false);
+const isHeaderVisible = ref(true);
 
 type ScrollEvent = {
   scroll: number;
@@ -40,8 +41,14 @@ const updateActiveSection = (scroll: number) => {
 };
 
 /** Throttled scroll handler — updates active section at most every 100ms */
-const handleScrollThrottled = throttle(({ scroll }: ScrollEvent) => {
+const handleScrollThrottled = throttle(({ scroll, direction }: ScrollEvent) => {
   updateActiveSection(scroll);
+
+  if (scroll < 80) {
+    isHeaderVisible.value = true;
+  } else {
+    isHeaderVisible.value = direction < 0; // Show header only when scrolling up
+  }
 }, 100);
 
 // Register scroll listener and observe all sections
@@ -88,7 +95,7 @@ onUnmounted(() => {
     <nav
       :class="[
         'nav fixed z-100 flex flex-col jc-start pt-6 text-base font-medium ink-1 pe-none',
-        { 'is-open': isMenuOpen },
+        { 'is-open': isMenuOpen, 'is-hidden': !isHeaderVisible },
       ]"
       aria-label="Main navigation"
     >
