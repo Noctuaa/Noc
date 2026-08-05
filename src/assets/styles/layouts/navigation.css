@@ -1,9 +1,11 @@
 .nav-header {
   height: var(--nav-height);
   background: transparent;
+  border-bottom: 1px solid transparent;
   transition:
     transform var(--transition-fast) ease,
-    background var(--transition-fast) ease 0.2s;
+    background var(--transition-fast) ease 0.2s,
+    border-color var(--transition-fast) ease 0.2s;
 }
 
 .nav-header:has(.nav.is-hidden) {
@@ -13,6 +15,7 @@
 .nav-header:has(.nav.is-scrolled),
 .nav-header:has(.nav.is-open) {
   background: var(--bg);
+  border-bottom-color: var(--border-subtle);
 }
 
 .nav {

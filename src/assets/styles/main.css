@@ -51,6 +51,9 @@
   --space: 0.25rem;
   --nav-height: 4.25rem;
 
+  /* Font Sizes */
+  --text-6xl: 3.75rem;
+
   /* Line Heights */
   --leading-tight: 1.25;
   --leading-normal: 1.5;

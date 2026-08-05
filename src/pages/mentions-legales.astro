@@ -6,20 +6,30 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
 ---
 
 <Layout>
-  <div>
-    <div class="container legal-page">
+  <section class="legal-page">
+    <div class="container">
       <h1>Mentions légales</h1>
+      <hr />
 
       <h2>Éditeur du site</h2>
       <p>
-        <strong>Noctua</strong>
+        <strong>Nocdev</strong>
         <br />
-        Développeur d'Application
+        Développeur d'Application — Entrepreneur individuel (micro-entreprise)
+        <br />
+        SIRET : 797 685 922 00024
         <br />
         France
         <br />
         Email : <MailtoLink {email}>{email}</MailtoLink>
       </p>
+
+      <hr />
+
+      <h2>Directeur de la publication</h2>
+      <p>Nocdev, éditeur du site.</p>
+
+      <hr />
 
       <h2>Hébergement</h2>
       <p>
@@ -28,8 +38,10 @@ const email = import.meta.env.PUBLIC_EMAIL_TO;
         101 Townsend St, San Francisco, CA 94107, USA
       </p>
 
+      <hr />
+
       <h2>Propriété intellectuelle</h2>
       <p>Tous droits réservés. Ce portfolio est protégé par le droit d'auteur.</p>
     </div>
-  </div>
+  </section>
 </Layout>
