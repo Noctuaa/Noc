@@ -22,6 +22,7 @@
 
 :root {
   --bg: rgb(12, 16, 24);
+  --bg-elevated: rgb(20, 26, 38);
   --card-fill: rgb(47, 72, 172);
 
   --accent: #4a90d9;
