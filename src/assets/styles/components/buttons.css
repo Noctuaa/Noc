@@ -1,51 +1,24 @@
 /* ===== BUTTON STYLES ===== */
 
 .btn-cta {
-  padding: calc(var(--space) * 3) calc(var(--space) * 4);
   background: var(--gradient-cta);
-  transition: all var(--transition-normal) ease;
 }
 
-/* ========================================
-  PRIMARY BUTTON — actions importantes réutilisables
-  (formulaires, confirmations...) — distinct du CTA,
-  qui reste réservé au Hero
-  ======================================== */
-
 .btn-primary {
-  padding: calc(var(--space) * 3) calc(var(--space) * 8);
   background: var(--accent);
-  color: var(--ink-1);
+}
+
+.btn-cta,
+.btn-primary {
   transition: filter var(--transition-fast) ease;
 }
 
+.btn-cta:hover,
 .btn-primary:hover:not(:disabled) {
   filter: brightness(1.15);
 }
 
-/* ========================================
-  LINK BUTTON
-  ======================================== */
-
-.btn-link {
-  padding: calc(var(--space) * 2) calc(var(--space) * 3);
-  transition: background-color var(--transition-fast) ease;
-  background-color: rgb(from var(--accent) r g b / 0.75);
-}
-
-.btn-link:hover {
-  background-color: rgb(from var(--accent) r g b / 0.6);
-}
-
 /* BUTTON SUBMIT ------------------------------------------- */
-
-.btn-submit {
-  transition: filter var(--transition-fast) ease;
-}
-
-.btn-submit:hover:not(:disabled) {
-  filter: brightness(1.1);
-}
 
 .btn-submit:disabled {
   opacity: 0.5;

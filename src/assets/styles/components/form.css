@@ -9,6 +9,25 @@
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
 }
 
+.form::before,
+.form:after {
+  content: '';
+  position: absolute;
+}
+
+.form::before {
+  inset: 0 auto 0 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent 10%, var(--accent), transparent 90%);
+}
+
+.form::after {
+  inset: 0;
+  border-radius: var(--rounded-sm);
+  background: linear-gradient(to right, rgb(from var(--accent) r g b / 0.1), transparent);
+  pointer-events: none;
+}
+
 .form-row {
   grid-template-columns: 1fr;
 }
@@ -39,7 +58,7 @@
 
 .form-input,
 .form-textarea {
-  background: rgb(from var(--bg) r g b / 0.5);
+  background: var(--bg);
   padding: 15px 18px 15px 3rem;
   outline: none;
   transition: border-color var(--transition-fast) ease;

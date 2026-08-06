@@ -270,26 +270,18 @@ const submitForm = async () => {
       </template>
     </FormField>
 
-    <!-- Honeypot anti-spam : invisible et ignoré par les humains, piège pour les bots -->
     <div class="honeypot" aria-hidden="true">
       <label for="website">Laissez ce champ vide</label>
-      <input
-        id="website"
-        name="website"
-        v-model="form.website"
-        type="text"
-        tabindex="-1"
-        autocomplete="off"
-      />
+      <input id="website" name="website" v-model="form.website" type="text" tabindex="-1" autocomplete="off" />
     </div>
 
-    <p v-if="serverError" class="flex-center text-sm">{{ serverError }}</p>
+    <p v-if="serverError" class="server-error flex-center text-sm">{{ serverError }}</p>
 
     <div class="flex-center mt-2">
       <button
         type="submit"
         :class="[
-          'btn-primary btn-submit z-1 relative font-semibold ow-hidden rounded-sm',
+          'btn-primary btn-submit z-1 relative py-3 px-6 ink-1 text-sm font-semibold ow-hidden rounded-sm',
           { 'is-submitted': isFormSubmitted },
         ]"
         :disabled="isLoading"
@@ -310,7 +302,7 @@ const submitForm = async () => {
           </svg>
           Message envoyé !
         </span>
-        <span v-else>Envoyer</span>
+        <span v-else>Envoyer ></span>
       </button>
     </div>
   </form>

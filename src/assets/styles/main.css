@@ -23,7 +23,9 @@
 :root {
   --bg: rgb(12, 16, 24);
   --bg-elevated: rgb(20, 26, 38);
+
   --card-fill: rgb(47, 72, 172);
+  --border-subtle: rgba(255, 255, 255, 0.12);
 
   --accent: #4a90d9;
   --accent-secondary: #8670c9;
@@ -33,6 +35,7 @@
   --ink-1: #eaf0ff;
   --ink-2: rgb(192, 202, 226);
   --ink-3: rgb(150, 161, 192);
+  --ink-4: rgb(12, 16, 24);
 
   /* Gradient */
   --gradient-colors: var(--accent), var(--accent-secondary);
@@ -40,7 +43,8 @@
   --gradient-text: linear-gradient(90deg, var(--gradient-colors));
 
   /* Border Radius */
-  --border-subtle: rgba(255, 255, 255, 0.12);
+  --rounded-sm: calc(var(--space) * 2);
+  --rounded-lg: calc(var(--space) * 5);
 
   /* Typography */
   --font-sans: 'Manrope Variable', system-ui, sans-serif;

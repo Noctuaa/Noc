@@ -48,7 +48,7 @@ section:last-of-type::after {
   background: radial-gradient(
     ellipse at bottom,
     rgba(from var(--accent) r g b / 0.2) 0%,
-    rgba(from var(--accent) r g b / 0.5) 40%,
+    rgba(from var(--accent-secondary) r g b / 0.5) 40%,
     transparent 70%
   );
   opacity: 0.35;

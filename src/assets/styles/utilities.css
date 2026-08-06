@@ -221,6 +221,10 @@
   padding-inline: calc(var(--space) * 4);
 }
 
+.px-6 {
+  padding-inline: calc(var(--space) * 6);
+}
+
 /* ========================================
    SIZING
    ======================================== */
@@ -341,11 +345,11 @@
 
 /* ===== Borders ===== */
 .rounded-sm {
-  border-radius: calc(var(--space) * 2);
+  border-radius: var(--rounded-sm);
 }
 
 .rounded-lg {
-  border-radius: calc(var(--space) * 5);
+  border-radius: var(--rounded-lg);
 }
 
 .border-sub {
