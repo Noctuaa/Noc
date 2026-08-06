@@ -360,6 +360,16 @@
   border-top: 1px solid var(--border-subtle);
 }
 
+.hr-gradient {
+  height: 2px;
+  background: linear-gradient(90deg, var(--gradient-colors), transparent);
+}
+
+.hr-gradient-center {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gradient-colors), transparent);
+}
+
 /* ===== Effects ===== */
 
 .backdrop-blur {

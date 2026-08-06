@@ -2,12 +2,13 @@
 interface Props {
   title: string;
   description: string;
+  align?: 'left' | 'center';
 }
-const { title, description } = Astro.props;
+const { title, description, align = 'left' } = Astro.props;
 ---
 
-<div class="section-header w-full flex flex-col gap-3">
-  <h2 data-animate>{title}</h2>
-  <hr class="w-full" data-animate />
+<div class:list={['section-header w-full flex flex-col gap-5', { 'ai-center text-center': align === 'center' }]}>
+  <h2 class="uppercase" data-animate>{title}</h2>
+  <hr class:list={['w-full', align === 'center' ? 'hr-gradient-center' : 'hr-gradient']} data-animate />
   <p class="section-lead w-full text-lg ink-2" data-animate>{description}</p>
 </div>
