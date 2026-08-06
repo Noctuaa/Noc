@@ -61,6 +61,7 @@ section:last-of-type::after {
 .legal-page {
   min-height: 100%;
 }
+
 .legal-page h2 {
   margin-block: calc(var(--space) * 4);
 }
@@ -82,7 +83,7 @@ section:last-of-type::after {
    ======================================== */
 
 .section-header {
-  margin-bottom: clamp(calc(var(--space) * 6), 5vw, calc(var(--space) * 22));
+  margin-bottom: clamp(calc(var(--space) * 16), 5vw, calc(var(--space) * 22));
 }
 
 .section-header hr {
