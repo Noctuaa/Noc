@@ -99,6 +99,7 @@ const submitForm = async () => {
     class="form relative flex flex-col gap-6 mi-auto rounded-sm border-sub"
     autocomplete="off"
     novalidate
+    data-animate
   >
     <p class="text-sm ink-3">Tous les champs sont obligatoires.</p>
 

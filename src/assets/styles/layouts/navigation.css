@@ -3,7 +3,7 @@
   background: transparent;
   transition:
     transform var(--transition-fast) ease,
-    background var(--transition-fast) ease 0.2s;
+    background var(--transition-fast) ease;
 }
 
 .nav-header:has(.nav.is-hidden) {
@@ -12,13 +12,14 @@
 
 body:has(.legal-page) .nav-header,
 .nav,
-.nav-header:has(.nav.is-scrolled),
-.nav-header:has(.nav.is-open) {
+.nav-header:has(.nav.is-scrolled) {
   background: var(--bg-elevated);
 }
 
 .nav {
-  top: var(--nav-height);
+  /*top: var(--nav-height);*/
+
+  top: 0;
   right: 0;
   bottom: 0;
   width: 50%;
@@ -34,6 +35,10 @@ body:has(.legal-page) .nav-header,
 /* ============================================
    NAVIGATION ITEMS
    ============================================ */
+
+.nav-list {
+  padding-top: var(--nav-height);
+}
 
 .nav-item {
   width: 90%;
@@ -121,6 +126,7 @@ body:has(.nav.is-open) .nav-toggle svg line:nth-child(3) {
   }
 
   .nav-list {
+    padding-top: 0;
     flex-direction: row;
   }
 

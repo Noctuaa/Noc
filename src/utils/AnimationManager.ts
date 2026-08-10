@@ -43,17 +43,17 @@ const animateSectionHeader = (section: string, trigger?: string, start?: string)
 const initHeroAnimations = () => {
   const tl = gsap.timeline();
 
-  tl.fromTo('.hero-content h1',
-    { y: -80 },
-    { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out' }
+  tl.fromTo('.hero-content h1 span',
+    { y: -50, scale: 1.08, filter: 'blur(8px)' },
+    { autoAlpha: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out', stagger: 0.15 }
   )
     .fromTo('.hero-content p',
       { y: -40 },
       { autoAlpha: .9, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.3'
     )
     .fromTo('.hero-content a',
-      { y: 20 },
-      { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.3'
+      { y: 20, scale: 0.9 },
+      { autoAlpha: 1, y: 0, scale: 1, duration: 0.5, ease: 'back.out(1.7)' }, '-=0.2'
     );
 };
 
@@ -127,7 +127,7 @@ const initProjectAnimations = () => {
  */
 const initContactAnimations = () => {
   animateSectionHeader('#contact');
-  gsap.fromTo('#contact .contact-form',
+  gsap.fromTo('#contact .form',
     { y: 40 },
     {
       autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out',

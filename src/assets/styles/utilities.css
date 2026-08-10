@@ -15,6 +15,9 @@
 .inline-flex {
   display: inline-flex;
 }
+.inline-block {
+  display: inline-block;
+}
 .grid {
   display: grid;
 }
