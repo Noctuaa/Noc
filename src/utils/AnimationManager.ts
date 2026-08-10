@@ -72,21 +72,35 @@ const initProfileAnimations = () => {
     }
   );
 
-  gsap.fromTo('#profile .info-item, #profile .work-method-item',
+  gsap.fromTo('#profile .bio-intro',
     { y: 20 },
     {
-      autoAlpha: 1, y: 0, duration: 0.3, ease: 'back.out(1.4)', stagger: 0.2, delay: .2,
+      autoAlpha: 1, y: 0, duration: 0.5, ease: 'power3.out',
+      scrollTrigger: { trigger: '.bio-intro', start: 'top 80%', once: true }
+    }
+  );
+
+  gsap.fromTo('#profile .info-item',
+    { y: 20 },
+    {
+      autoAlpha: 1, y: 0, duration: 0.3, ease: 'back.out(1.4)', stagger: 0.15, delay: .2,
       scrollTrigger: { trigger: '.profile-identity', start: 'top 80%', once: true }
     }
   );
 
-  gsap.fromTo('.work-method',
-    { y: 20 },
-    {
-      autoAlpha: 1, y: 0, duration: 0.4, ease: 'power3.out',
-      scrollTrigger: { trigger: '.work-method', start: 'top 90%', once: true }
-    }
-  );
+  const workMethodTl = gsap.timeline({
+    scrollTrigger: { trigger: '.work-method', start: 'top 90%', once: true }
+  });
+
+  workMethodTl
+    .fromTo('#profile .work-method',
+      { y: 20 },
+      { autoAlpha: 1, y: 0, duration: 0.4, ease: 'power3.out' }
+    )
+    .fromTo('#profile .work-item',
+      { y: 15 },
+      { autoAlpha: 1, y: 0, duration: 0.3, ease: 'back.out(1.4)', stagger: 0.12 }, '-=0.2'
+    );
 }
 
 /**
@@ -96,10 +110,10 @@ const initProfileAnimations = () => {
 const initCompetencesAnimations = () => {
   animateSectionHeader('#competences');
 
-  gsap.to('.scroller-inner',
+  gsap.fromTo('.scroller',
+    { scale: 0.92 },
     {
-      autoAlpha: 1, duration: 1, ease: 'back.out(1.7)',
-      stagger: 0.3,
+      autoAlpha: 1, scale: 1, duration: 1, ease: 'back.out(1.7)',
       scrollTrigger: { trigger: '.scroller', start: 'top 80%', once: true }
     }
   );
@@ -111,10 +125,10 @@ const initCompetencesAnimations = () => {
  */
 const initProjectAnimations = () => {
   animateSectionHeader('#projects');
-  gsap.fromTo('#projects .accordion',
+  gsap.fromTo('#projects .project-item',
     { y: 40 },
     {
-      autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out',
+      autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out', stagger: 0.2,
       scrollTrigger: { trigger: '#projects .accordion', start: 'top 60%', once: true }
     }
   );
@@ -131,7 +145,7 @@ const initContactAnimations = () => {
     { y: 40 },
     {
       autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out',
-      scrollTrigger: { trigger: '#contact .contact-form', start: 'top 60%', once: true }
+      scrollTrigger: { trigger: '#contact .form', start: 'top 60%', once: true }
     }
   );
 
