@@ -32,7 +32,7 @@ main {
    ======================================== */
 
 section {
-  padding-block: clamp(calc(var(--nav-height) + 1rem), 6vw, calc(var(--nav-height) + 3.25rem));
+  padding-block: clamp(3rem, 8vw, 6rem);
   scroll-margin-top: var(--nav-height);
 }
 
@@ -55,25 +55,27 @@ section:last-of-type::after {
   pointer-events: none;
 }
 /* ========================================
-   LEGAL PAGES - Mentions légales, Politique de confidentialité
+   PROSE - Page de contenu simple, sans Hero
+   (mentions légales, politique de confidentialité...)
    ======================================== */
 
-.legal-page {
+.prose {
   min-height: 100%;
+  padding-top: calc(var(--nav-height) + 2.5rem);
 }
 
-.legal-page h2 {
+.prose h2 {
   margin-block: calc(var(--space) * 4);
 }
 
-.legal-page hr {
+.prose hr {
   margin-block: calc(var(--space) * 8);
   height: 1px;
   background: var(--border-subtle);
 }
 
-.legal-page p,
-.legal-page ul {
+.prose p,
+.prose ul {
   margin-bottom: calc(var(--space) * 3);
   color: var(--ink-2);
 }

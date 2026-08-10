@@ -10,7 +10,7 @@
   transform: translateY(-100%);
 }
 
-body:has(.legal-page) .nav-header,
+body:has(.prose) .nav-header,
 .nav,
 .nav-header:has(.nav.is-scrolled) {
   background: var(--bg-elevated);
