@@ -17,6 +17,10 @@
    BRAND
    =================================== */
 
+.footer-brand {
+  margin-bottom: calc(var(--space) * 2);
+}
+
 .footer-brand-line {
   top: 50%;
   height: 1px;

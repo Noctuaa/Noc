@@ -328,8 +328,12 @@
 
 /* ===== Backgrounds ===== */
 
-.bg-gradient-cta {
+.bg-gradient {
   background: var(--gradient-cta);
+}
+
+.bg {
+  background: var(--bg);
 }
 
 /* ===== Cursor ===== */

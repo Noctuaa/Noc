@@ -1,7 +1,5 @@
 ---
-// @ts-expect-error — no types for fontsource CSS packages
 import '@fontsource-variable/manrope';
-// @ts-expect-error — no types for fontsource CSS packages
 import '@fontsource-variable/space-grotesk';
 import '../assets/styles/main.css';
 import Header from '../components/layout/Header.astro';
@@ -14,8 +12,21 @@ const { hasLoader = false } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="fr" style={hasLoader ? 'overflow: hidden' : undefined}>
+<html lang="fr">
   <head>
+    <!-- LOADING SCREEN — anti-flash
+         Script bloquant (is:inline) : doit s'exécuter avant le premier paint
+         pour éviter que le loader clignote sur les visites déjà vues cette session. -->
+    {
+      hasLoader && (
+        <script is:inline>
+          if (!sessionStorage.getItem('loader')) {
+            document.documentElement.classList.add('show-loader');
+            document.documentElement.style.overflow = 'hidden';
+          }
+        </script>
+      )
+    }
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -65,6 +76,17 @@ const { hasLoader = false } = Astro.props;
         opacity: 0;
         visibility: hidden;
       }
+
+      /* LOADING SCREEN — anti-flash
+         Caché par défaut, montré uniquement si le script bloquant ci-dessus
+         a posé .show-loader (doit rester critique/inline, voir commentaire plus haut). */
+      #loading-screen {
+        display: none;
+      }
+
+      html.show-loader #loading-screen {
+        display: flex;
+      }
     </style>
     <noscript>
       <style>
@@ -95,6 +117,5 @@ const { hasLoader = false } = Astro.props;
         initAnimations();
       });
     </script>
-    <style is:inline></style>
   </body>
 </html>

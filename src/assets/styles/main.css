@@ -19,6 +19,7 @@
 @import './components/StackCarousel.css' layer(components); /* Stack carousel */
 @import './components/form.css' layer(components); /* Contact form */
 @import './components/buttons.css' layer(components); /* Buttons & mini buttons */
+@import './components/LoadingScreen.css' layer(components); /* Loading screen */
 
 :root {
   --bg: rgb(12, 16, 24);

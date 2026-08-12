@@ -1,24 +1,33 @@
-<div id="loading-screen" class="fixed flex-center flex-col gap-4">
+<div id="loading-screen" class="fixed z-999 flex-center flex-col gap-4 bg inset-0">
   <img src="/logo.svg" alt="Nocdev logo" class="loading-logo" width="150px" height="150px" />
   <div class="loader"></div>
 </div>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    const loaderScreen = document.getElementById('loading-screen');
+    if (!loaderScreen) return;
+
+    // .show-loader est déjà posé (ou non) par le script bloquant de Layout.astro —
+    // on fait confiance à cette décision plutôt que de re-vérifier sessionStorage ici.
+    if (!document.documentElement.classList.contains('show-loader')) {
+      loaderScreen.remove();
+      document.dispatchEvent(new Event('loader:done'));
+      return;
+    }
+
+    sessionStorage.setItem('loader', 'true');
+
     setTimeout(() => {
-      const loader = document.getElementById('loading-screen');
-      if (loader) {
-        loader.classList.add('hide');
-        document.documentElement.style.overflow = '';
-        setTimeout(() => {
-          loader.remove();
+      // transitionend plutôt qu'un setTimeout fixe : évite de dupliquer
+      // la durée 0.8s déjà définie dans la transition CSS de .hide.
+      loaderScreen.addEventListener('transitionend', () => {
+          loaderScreen.remove();
           document.dispatchEvent(new Event('loader:done'));
-        }, 800);
-      }
+        }, { once: true },
+      );
+      loaderScreen.classList.add('hide');
+      document.documentElement.style.overflow = '';
     }, 800);
   });
 </script>
-
-<style>
-  @import '../assets/styles/components/LoadingScreen.css';
-</style>

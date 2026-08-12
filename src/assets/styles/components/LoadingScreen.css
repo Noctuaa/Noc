@@ -3,27 +3,13 @@
      Full-screen overlay displayed on page load 
      ======================================== */
 
-#loading-screen {
-  height: 100svh;
-  inset: 0;
-  background: var(--bg);
-  z-index: 9999;
-}
-
-/* ========================================             
-     LOGO
-     ======================================== */
-
+/* ====== Loading Logo ====== */
 .loading-logo {
   width: clamp(150px, 40vw, 250px);
   height: auto;
 }
 
-/* ========================================
-     SPINNER
-     Neon gradient rotating ring
-     ======================================== */
-
+/* ====== Loader rotating ring ====== */
 .loader {
   width: clamp(40px, 8vw, 60px);
   --b: 9px;
@@ -54,11 +40,7 @@
   }
 }
 
-/* ========================================
-     ANIMATION — HIDE
-     Curtain slides up on DOMContentLoaded
-     ======================================== */
-
+/* === Animation — Hide loading screen === */
 #loading-screen.hide {
   transform: translateY(-100%);
   transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);

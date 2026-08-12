@@ -182,7 +182,7 @@
   -ms-scroll-snap-type: x mandatory;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
-  height: 460px;
+  height: 480px;
 }
 
 .accordion::-webkit-scrollbar {
@@ -274,7 +274,7 @@
   .accordion {
     overflow-x: visible;
     scroll-snap-type: none;
-    height: 520px;
+    height: 550px;
   }
 
   .project-item {
