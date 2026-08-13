@@ -6,14 +6,12 @@ const currentYear = new Date().getFullYear();
   <svg class="wave-footer absolute w-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
     <path d="M0,0 L0,40 Q360,100 720,40 T1440,40 L1440,0 Z"></path>
   </svg>
-
   <div class="container">
     <div class="footer-top relative flex-center mb-6">
       <hr class="hr-subtle absolute w-full">
-      <div class="relative z-1 grid jc-center gap-2 px-6 bg">
-        <img src="/logo.svg" alt="Nocdev logo" class="footer-logo" width="60" height="60" />
-        <h2 class="m-0 text-base font-bold">Nocdev</h2>
-      </div>
+      <a href="/#hero" class="relative z-1 grid jc-center gap-2 px-6 bg">
+        <img src="/logo.svg" alt="Nocdev logo" width="60" height="60" />
+      </a>
     </div>
     <div class="footer-bottom flex ai-center flex-col jc-between gap-4 text-sm">
       <div class="flex gap-2">
@@ -22,7 +20,7 @@ const currentYear = new Date().getFullYear();
         <a href="/politique-de-confidentialite">Politique de confidentialité</a>
       </div>
       <div class="copy">
-        <p class="m-0 text-sm font-bold">© {currentYear} Nocdev</p>
+        <p class="m-0 text-sm font-bold uppercase font-display">© {currentYear} Nocdev</p>
       </div>
     </div>
   </div>
