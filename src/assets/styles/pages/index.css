@@ -172,6 +172,163 @@
   }
 }
 /* ============================================================
+   COMPÉTENCES
+   ============================================================ */
+
+/* Tech marquee - wrapper -------------------------- */
+
+.scroller {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  max-width: 1400px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  touch-action: pan-x pan-y;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.scroller.is-touching .scroller-inner {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+/* Tech marquee - tracks ---------------------------- */
+
+.scroller-inner {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  will-change: transform;
+}
+
+.scroller-inner:hover {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+.scroller-inner:nth-child(1) {
+  -webkit-animation: marquee 40s linear infinite;
+  animation: marquee 40s linear infinite;
+}
+
+.scroller-inner:nth-child(2) {
+  -webkit-animation: marquee 40s linear infinite reverse;
+  animation: marquee 40s linear infinite reverse;
+}
+
+.scroller-inner:nth-child(1):hover,
+.scroller-inner:nth-child(2):hover {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+/* Stack cards --------------------------------------- */
+
+.stack-card {
+  width: clamp(7.125rem, calc(5rem + 5vw), 10.9375rem);
+  height: clamp(7.125rem, calc(5rem + 5vw), 10.9375rem);
+  background: var(--bg-elevated);
+  transition: transform var(--transition-fast) ease;
+}
+
+.stack-card::before,
+.stack-card:after {
+  content: '';
+  position: absolute;
+}
+
+.stack-card::before {
+  inset: 0 auto 0 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+}
+
+.stack-card::after {
+  inset: 0;
+  background: linear-gradient(to right, rgb(from var(--accent) r g b / 0.1), transparent);
+}
+
+.stack-card:hover {
+  transform: translateY(-3px);
+}
+
+.stack-card img {
+  width: clamp(3.25rem, calc(2rem + 3vw), 4.5rem);
+  height: clamp(3.25rem, calc(2rem + 3vw), 4.5rem);
+  -webkit-filter: grayscale(1) opacity(0.6) drop-shadow(0 2px 4px rgb(0 0 0 / 0.5));
+  filter: grayscale(1) opacity(0.6) drop-shadow(0 2px 4px rgb(0 0 0 / 0.5));
+  transition: filter var(--transition-fast) ease;
+}
+
+.stack-card:hover img {
+  -webkit-filter: grayscale(0) opacity(1) drop-shadow(0 2px 4px rgb(0 0 0 / 0.5));
+  filter: grayscale(0) opacity(1) drop-shadow(0 2px 4px rgb(0 0 0 / 0.5));
+}
+
+/* Animations ----------------------------------------- */
+
+@-webkit-keyframes marquee {
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee {
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Accessibility - respect for preferences ------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .scroller {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-inline: calc(var(--space) * 4);
+    overflow: visible;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .scroller-inner:nth-child(1),
+  .scroller-inner:nth-child(2) {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+    -webkit-animation: none;
+    animation: none;
+  }
+
+  .scroller-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    -webkit-padding-end: 0;
+    padding-inline-end: 0;
+  }
+
+  .scroller-inner:nth-child(2),
+  .scroller-list[aria-hidden='true'] {
+    display: none;
+  }
+}
+
+/* Responsive ------------------------------------------ */
+
+@media (min-width: 62rem) {
+  .scroller-inner:nth-child(1),
+  .scroller-inner:nth-child(2) {
+    animation-duration: 70s;
+  }
+}
+
+/* ============================================================
    PORTFOLIO
    ============================================================ */
 
