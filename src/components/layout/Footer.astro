@@ -2,22 +2,21 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="footer relative">
-  <svg class="wave-footer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+<footer class="footer relative py-6 bg">
+  <svg class="wave-footer absolute w-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
     <path d="M0,0 L0,40 Q360,100 720,40 T1440,40 L1440,0 Z"></path>
   </svg>
 
   <div class="container">
-    <div class="footer-brand relative flex-center mb-6">
-      <div class="footer-brand-line absolute w-full"></div>
-      <div class="footer-brand-mark relative grid gap-2 jc-center">
+    <div class="footer-top relative flex-center mb-6">
+      <hr class="hr-subtle absolute w-full">
+      <div class="relative z-1 grid jc-center gap-2 px-6 bg">
         <img src="/logo.svg" alt="Nocdev logo" class="footer-logo" width="60" height="60" />
-        <h2 class="brand-name m-0">Nocdev</h2>
+        <h2 class="m-0 text-base font-bold">Nocdev</h2>
       </div>
     </div>
-    <div class="separator-h separator-h-gradient"></div>
-    <div class="footer-bottom flex jc-between pt-4 text-sm">
-      <div class="footer-legal flex gap-2">
+    <div class="footer-bottom flex ai-center flex-col jc-between gap-4 text-sm">
+      <div class="flex gap-2">
         <a href="/mentions-legales">Mentions légales</a>
         <span class="footer-sep" aria-hidden="true">·</span>
         <a href="/politique-de-confidentialite">Politique de confidentialité</a>

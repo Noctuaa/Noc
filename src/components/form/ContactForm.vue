@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { actions } from 'astro:actions';
-import { contactSchema, type ContactData } from '../schemas/contact';
+import { contactSchema, type ContactData } from '../../schemas/contact';
 import { reactive, ref, nextTick } from 'vue';
 import FormField from './FormField.vue';
 
@@ -289,21 +289,14 @@ const submitForm = async () => {
       >
         <span v-if="isLoading">Envoi en cours...</span>
         <span v-else-if="isFormSubmitted" class="form-submitted flex-center gap-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 512 512"
-            fill="currentColor"
-            aria-hidden="true"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true">
             <path
               d="M173.9 439.4l-166.4-166.4c-10-10-10-26.2 0-36.2l36.2-36.2c10-10 26.2-10 36.2 0L192 312.7 432.1 72.6c10-10 26.2-10 36.2 0l36.2 36.2c10 10 10 26.2 0 36.2l-294.4 294.4c-10 10-26.2 10-36.2 0z"
             />
           </svg>
           Message envoyé !
         </span>
-        <span v-else>Envoyer ></span>
+        <span v-else>Envoyer</span>
       </button>
     </div>
   </form>

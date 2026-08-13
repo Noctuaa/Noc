@@ -2,73 +2,11 @@
    FOOTER
    ======================================== */
 
-/* ===================================
-   BASE STYLES
-   =================================== */
-
-.footer {
-  padding: calc(var(--space) * 8) 0;
-  background-color: var(--bg);
-  border-top: 1px solid var(--border-subtle);
-  font-size: var(--text-sm);
-}
-
-/* ===================================
-   BRAND
-   =================================== */
-
-.footer-brand {
-  margin-bottom: calc(var(--space) * 2);
-}
-
-.footer-brand-line {
-  top: 50%;
-  height: 1px;
-  background: var(--border-subtle);
-  transform: translateY(-50%);
-}
-
-.footer-brand-mark {
-  z-index: 1;
-  padding-inline: calc(var(--space) * 6);
-  background: var(--bg);
-}
-
-.footer-logo {
-  width: 60px;
-  opacity: 0.7;
-}
-
-.brand-name {
-  font-size: var(--text-xl);
-  font-weight: 700;
-}
-
-/* ===================================
-   BOTTOM SECTION
-   =================================== */
-
-.footer-bottom p,
-.footer-sep {
-  color: var(--color-light);
-}
-
-.footer-sep {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* ===================================
-   WAVE DECORATION
-   =================================== */
+/* ====== SVG Wave ====== */
 
 .wave-footer {
-  position: absolute;
   top: calc(clamp(30px, 8vw, 30px) * -1);
   left: 0;
-  width: 100%;
   height: clamp(30px, 8vw, 30px);
   fill: var(--bg);
   pointer-events: none;
@@ -79,10 +17,12 @@
    RESPONSIVE - Mobile/Tablet
    ======================================== */
 
-@media (max-width: 576px) {
+@media (min-width: 576px) {
+  .footer-top {
+    margin-bottom: 0;
+  }
+
   .footer-bottom {
-    flex-direction: column;
-    align-items: center;
-    gap: calc(var(--space) * 4);
+    flex-direction: row;
   }
 }

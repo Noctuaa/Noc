@@ -173,6 +173,9 @@
   margin-block: calc(var(--space) * 2);
 }
 
+.mb-2 {
+  margin-bottom: calc(var(--space) * 2);
+}
 .mb-4 {
   margin-bottom: calc(var(--space) * 4);
 }
@@ -374,6 +377,11 @@
 .hr-gradient {
   height: 2px;
   background: linear-gradient(90deg, var(--gradient-colors), transparent);
+}
+
+.hr-subtle {
+  height: 1px;
+  background: var(--border-subtle);
 }
 
 .hr-gradient-center {
