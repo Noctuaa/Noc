@@ -109,7 +109,7 @@ body:has(.nav.is-open) .nav-toggle svg line:nth-child(3) {
    Annule tout le comportement mobile
    ============================================ */
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   .nav {
     position: relative;
     inset: auto;

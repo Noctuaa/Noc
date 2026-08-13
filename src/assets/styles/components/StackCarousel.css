@@ -156,7 +156,7 @@
   RESPONSIVE 
   ======================================== */
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   .scroller-inner:nth-child(1),
   .scroller-inner:nth-child(2) {
     animation-duration: 70s;

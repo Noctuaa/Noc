@@ -50,7 +50,7 @@
      RESPONSIVE                                           
      ======================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .loader {
     --b: 7px;
   }

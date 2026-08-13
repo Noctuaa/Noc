@@ -120,7 +120,7 @@
 
 /* Responsive ------------------------------------ */
 
-@media (min-width: 576px) {
+@media (min-width: 36rem) {
   .hero-content {
     gap: calc(var(--space) * 4);
   }
@@ -158,7 +158,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .profile-content {
     grid-template-columns: minmax(400px, 495px) minmax(480px, 620px);
   }
@@ -270,7 +270,7 @@
 
 /* Responsive ------------------------------------ */
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
   .accordion {
     overflow-x: visible;
     scroll-snap-type: none;

@@ -96,7 +96,7 @@ section:last-of-type::after {
    RESPONSIVE - TABLETTE & MOBILE
    ======================================== */
 
-@media (min-width: 576px) {
+@media (min-width: 36rem) {
   .section-header hr {
     width: 60%;
   }

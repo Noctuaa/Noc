@@ -17,7 +17,7 @@
    RESPONSIVE - Mobile/Tablet
    ======================================== */
 
-@media (min-width: 576px) {
+@media (min-width: 36rem) {
   .footer-bottom {
     flex-direction: row;
   }
