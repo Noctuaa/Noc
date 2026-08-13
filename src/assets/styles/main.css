@@ -21,6 +21,7 @@
 @import './components/LoadingScreen.css' layer(components); /* Loading screen */
 
 :root {
+  /* Colors */
   --bg: rgb(12, 16, 24);
   --bg-elevated: rgb(20, 26, 38);
 
@@ -49,18 +50,12 @@
   /* Typography */
   --font-sans: 'Manrope Variable', system-ui, sans-serif;
   --font-display: 'Space Grotesk Variable', system-ui, sans-serif;
-  --tracking-tight: -0.02em;
-  --tracking-wide: 0.05em;
 
   /* Spacing */
   --space: 0.25rem;
   --nav-height: 4.25rem;
 
-  /* Font Sizes */
-  --text-6xl: 3.75rem;
-
   /* Line Heights */
-  --leading-tight: 1.25;
   --leading-normal: 1.5;
 
   /* Transition */
@@ -69,5 +64,4 @@
 
   /* Effects */
   --blur-glass: 10px;
-  --shadow-neon: 0 0 10px rgb(from var(--accent) r g b / 0.4), 0 0 20px rgb(from var(--accent) r g b / 0.2);
 }

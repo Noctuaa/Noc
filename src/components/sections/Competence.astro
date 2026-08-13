@@ -36,7 +36,7 @@ const technologies: Technology[] = [
       <ul class="scroller-list flex gap-3 pr-3" role="list">
         {
           technologies.map((tech) => (
-            <li class="stack-card relative flex-center flex-col gap-4">
+            <li class="stack-card relative flex-center flex-col gap-4 bg-elevated">
               <img src={tech.logo} alt={`${tech.name} logo`} width="48" height="48" loading="lazy" decoding="async" />
               <span class="text-sm font-semibold text-center">{tech.name}</span>
             </li>
@@ -46,7 +46,7 @@ const technologies: Technology[] = [
       <ul class="scroller-list flex gap-3 pr-3" aria-hidden="true" role="presentation">
         {
           technologies.map((tech) => (
-            <li class="stack-card relative flex-center flex-col gap-4">
+            <li class="stack-card relative flex-center flex-col gap-4 bg-elevated">
               <img src={tech.logo} alt="" width="48" height="48" loading="lazy" decoding="async" class="object-cover" />
               <span class="text-sm font-semibold text-center">{tech.name}</span>
             </li>

@@ -3,7 +3,7 @@
    Single-purpose classes (display, position, space...)
    ======================================== */
 
-/* === Position === */
+/* Position -------------------------------- */
 
 .content {
   display: contents;
@@ -37,7 +37,7 @@
   inset: 0;
 }
 
-/* === Alignment === */
+/* Alignment -------------------------------- */
 
 .flex-1 {
   flex: 1;
@@ -91,10 +91,8 @@
   place-items: center;
 }
 
-/* ========================================
-   Z-INDEX SCALE
-   Consistent stacking order across the application
-   ======================================== */
+/* Z-index scale -------------------------------- */
+/* Consistent stacking order across the application */
 
 .z-1 {
   z-index: 1; /* Local stacking - Base element */
@@ -118,7 +116,8 @@
   z-index: 999; /* Modal - Fullscreen overlay */
 }
 
-/* ===== Spacing ===== */
+/* Spacing - Gap -------------------------------- */
+
 .gap-1 {
   gap: calc(var(--space) * 1);
 }
@@ -147,9 +146,7 @@
   gap: calc(var(--space) * 7);
 }
 
-/* ========================================
-   SPACING - MARGIN
-   ======================================== */
+/* Spacing - Margin -------------------------------- */
 
 .mi-auto {
   margin-inline: auto;
@@ -183,9 +180,7 @@
   margin-bottom: calc(var(--space) * 6);
 }
 
-/* ========================================
-   SPACING - PADDING
-   ======================================== */
+/* Spacing - Padding -------------------------------- */
 
 .p-0 {
   padding: 0;
@@ -231,9 +226,7 @@
   padding-inline: calc(var(--space) * 6);
 }
 
-/* ========================================
-   SIZING
-   ======================================== */
+/* Sizing -------------------------------- */
 
 .w-full {
   width: 100%;
@@ -248,7 +241,7 @@
   min-height: 100svh;
 }
 
-/* ===== Typography ===== */
+/* Typography -------------------------------- */
 
 .text-xs {
   font-size: 0.75rem;
@@ -316,7 +309,9 @@
 .uppercase {
   text-transform: uppercase;
 }
-/* ===== Colors ===== */
+
+/* Colors -------------------------------- */
+
 .ink-1 {
   color: var(--ink-1);
 }
@@ -333,17 +328,22 @@
   color: var(--accent);
 }
 
-/* ===== Backgrounds ===== */
-
-.bg-gradient {
-  background: var(--gradient-cta);
-}
+/* Backgrounds -------------------------------- */
 
 .bg {
   background: var(--bg);
 }
 
-/* ===== Cursor ===== */
+.bg-elevated {
+  background: var(--bg-elevated);
+}
+
+.bg-gradient {
+  background: var(--gradient-cta);
+}
+
+/* Cursor -------------------------------- */
+
 .c-pointer {
   cursor: pointer;
 }
@@ -351,13 +351,14 @@
   pointer-events: none;
 }
 
-/* === Visibility === */
+/* Visibility -------------------------------- */
 
 .opacity-0 {
   opacity: 0;
 }
 
-/* ===== Borders ===== */
+/* Borders -------------------------------- */
+
 .rounded-sm {
   border-radius: var(--rounded-sm);
 }
@@ -393,7 +394,7 @@
   background: linear-gradient(90deg, transparent, var(--gradient-colors), transparent);
 }
 
-/* ===== Effects ===== */
+/* Effects -------------------------------- */
 
 .backdrop-blur {
   -webkit-backdrop-filter: blur(var(--blur-glass));

@@ -16,8 +16,6 @@
 /* Aurora & Forest ------------------------------- */
 
 .hero-aurora {
-  position: absolute;
-  z-index: 1;
   bottom: 0;
   left: -10%;
   width: 120%;
@@ -35,18 +33,12 @@
       rgb(from var(--accent-secondary) r g b / 0.2) 45%,
       transparent 70%
     );
-  pointer-events: none;
   -webkit-animation: aurora 8s ease-in-out infinite alternate;
   animation: aurora 8s ease-in-out infinite alternate;
 }
 
 .hero-forest {
-  position: absolute;
-  z-index: 3;
-  height: 100%;
-  width: 100%;
   background: url('../../images/land.svg') no-repeat bottom center/cover;
-  pointer-events: none;
 }
 
 /* Keyframes ------------------------------------- */
@@ -121,10 +113,6 @@
 /* Responsive ------------------------------------ */
 
 @media (min-width: 36rem) {
-  .hero-content {
-    gap: calc(var(--space) * 4);
-  }
-
   .profile-content {
     gap: calc(var(--space) * 16);
     justify-content: center;
@@ -232,7 +220,6 @@
 .stack-card {
   width: clamp(7.125rem, calc(5rem + 5vw), 10.9375rem);
   height: clamp(7.125rem, calc(5rem + 5vw), 10.9375rem);
-  background: var(--bg-elevated);
   transition: transform var(--transition-fast) ease;
 }
 
@@ -412,8 +399,7 @@
 .project-tag {
   padding: var(--space) calc(var(--space) * 2);
   border: 1px solid var(--card-fill);
-  background: rgb(from var(--card-fill) r g b / 0.3);
-  opacity: 0;
+  background: rgb(from var(--card-fill) r g b / 0.5);
   transform: translateY(10px);
   transition:
     opacity var(--transition-fast) ease 0.2s,

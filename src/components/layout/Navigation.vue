@@ -106,10 +106,7 @@ onUnmounted(() => {
           v-for="section in sections"
           :key="section.id"
           @click="toggleMenu(false)"
-          :class="[
-            'nav-item relative as-center opacity-0 ink-2 font-bold rounded-sm c-pointer',
-            { active: activeSection === section.id },
-          ]"
+          :class="['nav-item relative as-center opacity-0 ink-1 font-bold rounded-sm c-pointer', { active: activeSection === section.id }]"
         >
           <a :href="`/#${section.id}`" class="flex-center w-full h-full py-3 px-4">{{ section.label }}</a>
         </li>
