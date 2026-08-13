@@ -42,25 +42,8 @@ h4 + p {
   margin-top: 0;
 }
 
-/* ========================================
-    PARAGRAPHS
-   ======================================== */
-
 p {
   margin: 0;
   font-size: var(--text-base);
   line-height: var(--leading-normal);
-}
-
-strong {
-  font-weight: 600;
-  color: var(--color);
-}
-
-/* ========================================
-   INLINE ACCENTS
-   ======================================== */
-
-.text-accent {
-  color: var(--color);
 }

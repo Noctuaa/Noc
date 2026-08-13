@@ -1,21 +1,26 @@
 @layer reset, base, utilities, layout,  components;
 
-/* === RESET === */
+/* Reset ------------------------------------- */
+
 @import './base/reset.css' layer(reset); /* Reset styles for all elements */
 
-/* === BASE === */
+/* Base ------------------------------------- */
+
 @import './base/typography.css' layer(base); /* Headings, paragraphs, lists */
 
-/* === LAYOUT === */
+/* Layout ------------------------------------- */
+
 @import './layouts/navigation.css' layer(layout); /* Top navigation bar */
 @import './layouts/layout.css' layer(layout); /* Container, sections, curtain scroll */
 @import './layouts/footer.css' layer(layout); /* Footer */
 @import './pages/index.css' layer(layout); /* Home page */
 
-/* === UTILITIES === */
+/* Utilities ------------------------------------- */
+
 @import 'utilities.css' layer(utilities); /* Atomic classes + component utilities */
 
-/* === COMPONENTS === */
+/* Components ------------------------------------- */
+
 @import './components/form.css' layer(components); /* Contact form */
 @import './components/buttons.css' layer(components); /* Buttons & mini buttons */
 @import './components/LoadingScreen.css' layer(components); /* Loading screen */

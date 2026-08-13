@@ -1,5 +1,5 @@
 /* ========================================
-   SECTIONS LAYOUT
+  BASE - LAYOUT
    ======================================== */
 html,
 body {
@@ -16,10 +16,6 @@ body {
 main {
   flex-grow: 1;
 }
-
-/* ========================================
-   CONTAINER - Conteneur principal
-   ======================================== */
 
 .container {
   max-width: 1400px;
@@ -54,6 +50,17 @@ section:last-of-type::after {
   opacity: 0.35;
   pointer-events: none;
 }
+
+/* Section header ------------------------------------ */
+
+.section-header {
+  margin-bottom: clamp(calc(var(--space) * 16), 5vw, calc(var(--space) * 22));
+}
+
+.section-lead {
+  max-width: 70ch;
+}
+
 /* ========================================
    PROSE - Page de contenu simple, sans Hero
    (mentions légales, politique de confidentialité...)
@@ -80,21 +87,7 @@ section:last-of-type::after {
   color: var(--ink-2);
 }
 
-/* ========================================
-   SECTION HEADER
-   ======================================== */
-
-.section-header {
-  margin-bottom: clamp(calc(var(--space) * 16), 5vw, calc(var(--space) * 22));
-}
-
-.section-lead {
-  max-width: 70ch;
-}
-
-/* ========================================
-   RESPONSIVE - TABLETTE & MOBILE
-   ======================================== */
+/* Responsive ------------------------------------ */
 
 @media (min-width: 36rem) {
   .section-header hr {

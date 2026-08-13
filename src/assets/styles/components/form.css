@@ -76,18 +76,14 @@
   border-color: var(--accent);
 }
 
-/* ========================================
-   FORM - Validation
-   ======================================== */
+/* Form error ------------------------------------- */
 
 .form-input.error,
 .form-textarea.error {
   border-color: var(--error);
 }
 
-/* ========================================
-   FORM - Error messages
-   ======================================== */
+/* Error message ------------------------------------- */
 
 .error-message,
 .server-error {
@@ -98,10 +94,6 @@
   -webkit-animation: fadeInError var(--transition-fast) ease-out;
   animation: fadeInError var(--transition-fast) ease-out;
 }
-
-/* ========================================
-   ANIMATIONS
-   ======================================== */
 
 @-webkit-keyframes fadeInError {
   from {
@@ -124,6 +116,8 @@
     transform: translateY(0);
   }
 }
+
+/* Responsive ------------------------------------- */
 
 @media (min-width: 62rem) {
   .form-row {

@@ -30,9 +30,7 @@ body:has(.prose) .nav-header,
   transform: translateX(0);
 }
 
-/* ============================================
-   NAVIGATION ITEMS
-   ============================================ */
+/* Nav List ------------------------------------------ */
 
 .nav-list {
   padding-top: var(--nav-height);
@@ -53,6 +51,28 @@ body:has(.prose) .nav-header,
 .nav.is-open .nav-item {
   -webkit-animation: slideIn var(--transition-fast) both;
   animation: slideIn var(--transition-fast) both;
+}
+
+@-webkit-keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(55px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(55px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Stagger animation delays */
@@ -77,9 +97,7 @@ body:has(.prose) .nav-header,
   animation-delay: 0.4s;
 }
 
-/* ============================================
-   TOGGLE BUTTON — hamburger <-> croix
-   ============================================ */
+/* Toggle button ------------------------------------------ */
 
 .nav-toggle svg line {
   transform-box: fill-box;
@@ -101,10 +119,7 @@ body:has(.nav.is-open) .nav-toggle svg line:nth-child(3) {
   transform: translateY(-5px) rotate(-45deg);
 }
 
-/* ============================================
-   RESPONSIVE — DESKTOP
-   Annule tout le comportement mobile
-   ============================================ */
+/* Responsive ------------------------------------ */
 
 @media (min-width: 62rem) {
   .nav {
@@ -151,31 +166,5 @@ body:has(.nav.is-open) .nav-toggle svg line:nth-child(3) {
 
   .nav-toggle {
     display: none;
-  }
-}
-
-/* ============================================
-   ANIMATIONS
-   ============================================ */
-
-@-webkit-keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(55px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(55px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

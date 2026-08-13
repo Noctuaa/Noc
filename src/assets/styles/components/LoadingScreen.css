@@ -3,13 +3,11 @@
      Full-screen overlay displayed on page load 
      ======================================== */
 
-/* ====== Loading Logo ====== */
 .loading-logo {
   width: clamp(150px, 40vw, 250px);
   height: auto;
 }
 
-/* ====== Loader rotating ring ====== */
 .loader {
   width: clamp(40px, 8vw, 60px);
   --b: 9px;
@@ -40,15 +38,13 @@
   }
 }
 
-/* === Animation — Hide loading screen === */
+/* Animation loading screen hide ------------------------------------- */
 #loading-screen.hide {
   transform: translateY(-100%);
   transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-/* ======================================== 
-     RESPONSIVE                                           
-     ======================================== */
+/* Responsive ------------------------------------- */
 
 @media (max-width: 48rem) {
   .loader {
