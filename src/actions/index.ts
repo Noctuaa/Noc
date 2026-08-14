@@ -13,6 +13,10 @@ export const server = {
         return { success: true };
       }
 
+      // Nettoyage anti-injection d'en-tête : retire tout caractère qui pourrait
+      // casser le format "Nom <email>" ou injecter de nouveaux en-têtes.
+      const safeDisplayName = `${firstName} ${lastName}`.replace(/[\r\n<>"]/g, '').trim();
+
       const response = await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
@@ -20,17 +24,17 @@ export const server = {
           'content-type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'Nocdev <contact@nocdev.fr>',
+          from: `${safeDisplayName} via Nocdev <contact@nocdev.fr>`,
           to: [EMAIL_TO],
           reply_to: email,
-          subject: `Contact Nocdev - ${subject} - ${firstName} ${lastName}`,
+          subject: subject,
           html: `
-            <h3>Nouveau message de contact</h3>
-            <p><strong>Nom:</strong> ${firstName} ${lastName}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Sujet:</strong> ${subject}</p>
-            <p><strong>Message:</strong></p>
-            <p>${message}</p>
+            <div style="font-family: Arial, sans-serif; max-width: 560px; color: #101828; font-size: 14px; line-height: 1.5;">
+              <p style="white-space: pre-wrap;">${message}</p>
+              <p>${firstName} ${lastName}<br>${email}</p>
+              <hr style="border: none; border-top: 1px solid #e2e5ea; margin: 20px 0;">
+              <p style="color: #98a2b3; font-size: 12px;">Envoyé depuis le formulaire de contact de nocdev.fr</p>
+            </div>
           `,
         }),
       });
