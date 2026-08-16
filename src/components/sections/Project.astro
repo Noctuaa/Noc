@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import weatherImg from '../../assets/images/weather.webp';
-import chaletsImg from '../../assets/images/chalets.webp';
+import skycastImg from '../../assets/images/skycast.webp';
+//import chaletsImg from '../../assets/images/chalets.webp';
 import type { ImageMetadata } from 'astro';
 import Button from '../ui/Button.astro';
 import SectionHeader from '../ui/SectionHeader.astro';
@@ -24,16 +24,16 @@ const projects: Project[] = [
     tags: ['Astro', 'Vue.js', 'MapLibre'],
     description:
       'Prévisions en temps réel, carte interactive et graphiques détaillés — une météo pensée pour la rapidité et la clarté.',
-    image: weatherImg,
+    image: skycastImg,
   },
-  {
+  /*{
     id: 3,
     title: 'EstateHub',
     link: 'https://nocimmo.nocdev.fr/',
     tags: ['Vue.js', 'Laravel', 'MySQL'],
     description: 'Plateforme immobilière full-stack avec système de recherche avancée et gestion des annonces.',
     image: chaletsImg,
-  },
+  },*/
 ];
 ---
 

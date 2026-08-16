@@ -1,10 +1,6 @@
 ---
-import { getImage } from 'astro:assets';
-import avatarImg from '../../assets/images/avatar.png';
 import SectionHeader from '../ui/SectionHeader.astro';
 import InfoTextItem from '../ui/IconTextItem.astro';
-
-const posterImg = await getImage({ src: avatarImg, format: 'webp' });
 ---
 
 <section id="profile" class="section bg-alt z-1 ow-hidden">
@@ -15,7 +11,7 @@ const posterImg = await getImage({ src: avatarImg, format: 'webp' });
       <div class="profile-identity grid gap-2">
         <div class="profile-avatar js-center relative w-full mb-6" data-animate>
           <div class="absolute inset-0 ow-hidden">
-            <video class="w-full h-full object-cover" autoplay muted loop playsinline poster={posterImg.src}>
+            <video class="w-full h-full object-cover" autoplay muted loop playsinline >
               <source src="/profile-video.mp4" type="video/mp4" />
             </video>
           </div>
